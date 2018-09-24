@@ -299,13 +299,3 @@ def handle_location_message(event):
         
 if __name__ == "__main__":
     app.run()
-
-
-
-
-# In[ ]:
-
-
-a=""
-    
-
