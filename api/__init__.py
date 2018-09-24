@@ -29,17 +29,17 @@ from linebot.models import (
 )
 import configparser as ConfigParser
 
-ini_data=ConfigParser.ConfigParser()
-ini_data.read('key.ini')
+FileRout='/var/www/Ahfargo_bus_bot/api/'
+#/var/www/Ahfargo_bus_bot/api/
 
 #line資訊
-line_bot_api = LineBotApi(ini_data.get('line_bot','key'))
-handler = WebhookHandler(ini_data.get('line_bot','secret'))
+line_bot_api = LineBotApi('vZwZvgmlljz+VfSYn6Khu2RXQM8Gq3gkODZD8tdHEYgcxsUCI3rHSgh3CO3d7xmXvZ8irnEBQxm1Wughpaj+u1qANpzBavf3VTczraBo+VE4n4QaQpuhGwro/4wMXS1Zde+CyZ0d2Bxk55ZQG4MZBAdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('c56fe3888c3cfe60a1969fdd19c9b10c')
 #line資訊
 
 #MOTC資訊
-APPID = ini_data.get('MOTC','key')
-APPKey = ini_data.get('MOTC','secret')
+APPID = 'ad64f3b34d38425ca0bb7efdcdb4548b'
+APPKey = 'wabKRdVqcFg4i5CqLXP4JuWQ3Ws'
 #MOTC資訊
 
 
