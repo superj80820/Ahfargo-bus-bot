@@ -2,7 +2,7 @@
 
 ## 使用系統
 
-### 加入髒沙發
+### 加入鴨發Go!
 
 [https://line.me/R/ti/p/zoMMzh4JpV](https://line.me/R/ti/p/zoMMzh4JpV)
 
