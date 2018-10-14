@@ -259,8 +259,8 @@ def handle_message(event):
         else:
             line_bot_api.reply_message(
                 event.reply_token,[TextSendMessage(text='往'+sent_dict1[len(sent_dict1)-1]['sent_name1']+'：\n'+sent_ans1),
-                                   TextSendMessage(text='往'+sent_dict2[len(sent_dict2)-1]['sent_name2']+'：\n'+sent_ans2),
-                                   TextSendMessage(text=DUST2_5_IS_WHAT(json_data_pos))])
+                                   TextSendMessage(text='往'+sent_dict2[len(sent_dict2)-1]['sent_name2']+'：\n'+sent_ans2)])
+                                   #刪除PM2.5功能TextSendMessage(text=DUST2_5_IS_WHAT(json_data_pos))
             
     elif event.message.text=='使用方法':
         line_bot_api.reply_message(
