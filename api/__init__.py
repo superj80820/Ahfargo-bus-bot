@@ -279,7 +279,7 @@ def handle_message(event):
         actions=[
             URITemplateAction(
                 label='動態顯示',
-                uri='line://app/1586634703-vgGqdMgq?=%s'%("75")
+                uri='line://app/1586634703-20691wX9?=%s'%("75")
                 )
             ]
         )
