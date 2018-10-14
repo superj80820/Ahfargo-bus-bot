@@ -14,7 +14,7 @@ from hashlib import sha1
 import base64
 import time
 
-from flask import Flask, request, abort
+from flask import Flask, request, abort, jsonify
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -42,9 +42,103 @@ APPID = 'ad64f3b34d38425ca0bb7efdcdb4548b'
 APPKey = 'wabKRdVqcFg4i5CqLXP4JuWQ3Ws'
 #MOTC資訊
 
+#製作驗證簽名
+def RES_HEAD(APPID,APPKey):
+    X_Date=datetime.datetime.now(datetime.timezone.utc).strftime("%a, "+"%d %b "+"%Y %H:%M:%S"+" GMT")
+    print(X_Date)
 
-# In[ ]:
+    sent_APPKey = str.encode(APPKey)
+    sent_time = str.encode("x-date: "+X_Date)
+    hmac_ans = hmac.new(sent_APPKey,sent_time ,sha1)
+    hmac_ans=base64.b64encode(hmac_ans.digest())
+    hmac_ans=str(hmac_ans)[2:len(str(hmac_ans))-1]
+    print(hmac_ans)
 
+    Authorization='hmac username="'+APPID+'", algorithm="hmac-sha1", headers="x-date", signature="'+hmac_ans+'"'
+
+    headers={ 'Authorization': Authorization, 'X-Date':X_Date}
+    return headers
+#時間轉min
+def GET_SEC(time_str):
+    h, m, s = time_str.split(':')
+    try:
+        sent=int(h) * 60 + int(m) 
+    except ValueError as e1:
+        sent=time_str
+    return sent
+def DUST2_5_IS_WHAT(json_data_pos):
+    json_data_AQI=''
+    res_AQI=requests.get('https://airmap.g0v.asper.tw/json/airmap.json')
+    json_data_AQI=json.loads(res_AQI.text)
+    scale=100#pm2.5倍率
+    dust_data=[]
+    map_ori_list=[]
+    map_ori=''
+    map_des=''
+    get_map=[]
+    if json_data_pos!=[]:
+        posLat=json_data_pos[int(len(json_data_pos)/2)]['BusPosition']['PositionLat']#取中間一點的點會比較好 但實際號碼是亂碼 其實沒差
+        posLon=json_data_pos[int(len(json_data_pos)/2)]['BusPosition']['PositionLon']#取中間一點的點會比較好 但實際號碼是亂碼 其實沒差
+    
+        for item in json_data_AQI:
+            if item['Geometry']!=None:
+                if item['Geometry']['COUNTYNAME']=='臺中市':
+                    Dust2_5=int(item['Data']['Dust2_5'])*scale
+                    dust_data+=[{'經緯':'%s,%s'%(str(item['LatLng']['lat']),str(item['LatLng']['lng'])),'位置':item['Geometry']['TOWNNAME'],'pm2.5':Dust2_5}]
+        #print(dust_data)#偵錯
+
+        for item in dust_data:
+            map_ori_list+=[item['位置']]
+        map_ori_list=list(set(map_ori_list))
+        #print(map_ori_list)
+        for item in map_ori_list:
+            for item2 in dust_data:
+                if item==item2['位置']:
+                    map_ori+=item2['經緯']+'|'
+                    break
+
+        map_ori=map_ori[0:len(map_ori)-1]
+        map_des='%s,%s'%(posLat,posLon)
+        map_url='https://maps.googleapis.com/maps/api/distancematrix/json?origins=%s&destinations=%s&mode=driving&language=zh-TW&key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA'%(map_ori,map_des)
+        #print(map_url)
+        res_map=requests.get(map_url)
+        json_data_map=json.loads(res_map.text)
+
+        for item in json_data_map['rows']:
+            try:
+                get_map+=[item['elements'][0]['distance']['value']]
+            except KeyError as e3:
+                get_map+=[9999999]
+        get_map.index(min(get_map))
+
+        for item in dust_data:
+            if item['位置']==map_ori_list[get_map.index(min(get_map))]:
+                Dust2_5=item['pm2.5']
+                #print(map_ori_list[get_map.index(min(get_map))])偵錯
+                #print(Dust2_5)偵錯
+                break#一抓到位置相同即跳出迴圈
+
+        if Dust2_5>100:
+            ret=GAGA_SAY(3)
+        elif Dust2_5>50:
+            ret=GAGA_SAY(2)
+        else:
+            ret=GAGA_SAY(1)
+    else:
+        ret='目前沒有班車QQ 呱'
+
+    return ret
+def GAGA_SAY(select):
+    rad=random.randint(0,2)
+    word1=['是香香空氣呱!','出去玩嘎~','是藍天 是藍天~']
+    word2=['空氣有點臭臭嘎...','想出去但臭臭空氣..','天空陰陰呱..']
+    word3=['完全不敢出去了呱呱..!','口罩快給我呱!','這個雲好恐怖嘎!']
+    if select==1:
+        return word1[rad]
+    elif select==2:
+        return word2[rad]
+    elif select==3:
+        return word3[rad]
 
 app = Flask(__name__)
 
@@ -91,104 +185,6 @@ def handle_follow(event):
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    #製作驗證簽名
-    def head(APPID,APPKey):
-        X_Date=datetime.datetime.now(datetime.timezone.utc).strftime("%a, "+"%d %b "+"%Y %H:%M:%S"+" GMT")
-        print(X_Date)
-
-        sent_APPKey = str.encode(APPKey)
-        sent_time = str.encode("x-date: "+X_Date)
-        hmac_ans = hmac.new(sent_APPKey,sent_time ,sha1)
-        hmac_ans=base64.b64encode(hmac_ans.digest())
-        hmac_ans=str(hmac_ans)[2:len(str(hmac_ans))-1]
-        print(hmac_ans)
-
-        Authorization='hmac username="'+APPID+'", algorithm="hmac-sha1", headers="x-date", signature="'+hmac_ans+'"'
-
-        headers={ 'Authorization': Authorization, 'X-Date':X_Date}
-        return headers
-    #時間轉min
-    def get_sec(time_str):
-        h, m, s = time_str.split(':')
-        try:
-            sent=int(h) * 60 + int(m) 
-        except ValueError as e1:
-            sent=time_str
-        return sent
-    def Dust2_5_is_what(json_data_pos):
-        json_data_AQI=''
-        res_AQI=requests.get('https://airmap.g0v.asper.tw/json/airmap.json')
-        json_data_AQI=json.loads(res_AQI.text)
-        scale=100#pm2.5倍率
-        dust_data=[]
-        map_ori_list=[]
-        map_ori=''
-        map_des=''
-        get_map=[]
-        if json_data_pos!=[]:
-            posLat=json_data_pos[int(len(json_data_pos)/2)]['BusPosition']['PositionLat']#取中間一點的點會比較好 但實際號碼是亂碼 其實沒差
-            posLon=json_data_pos[int(len(json_data_pos)/2)]['BusPosition']['PositionLon']#取中間一點的點會比較好 但實際號碼是亂碼 其實沒差
-     
-            for item in json_data_AQI:
-                if item['Geometry']!=None:
-                    if item['Geometry']['COUNTYNAME']=='臺中市':
-                        Dust2_5=int(item['Data']['Dust2_5'])*scale
-                        dust_data+=[{'經緯':'%s,%s'%(str(item['LatLng']['lat']),str(item['LatLng']['lng'])),'位置':item['Geometry']['TOWNNAME'],'pm2.5':Dust2_5}]
-            #print(dust_data)#偵錯
-
-            for item in dust_data:
-                map_ori_list+=[item['位置']]
-            map_ori_list=list(set(map_ori_list))
-            #print(map_ori_list)
-            for item in map_ori_list:
-                for item2 in dust_data:
-                    if item==item2['位置']:
-                        map_ori+=item2['經緯']+'|'
-                        break
-
-            map_ori=map_ori[0:len(map_ori)-1]
-            map_des='%s,%s'%(posLat,posLon)
-            map_url='https://maps.googleapis.com/maps/api/distancematrix/json?origins=%s&destinations=%s&mode=driving&language=zh-TW&key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA'%(map_ori,map_des)
-            #print(map_url)
-            res_map=requests.get(map_url)
-            json_data_map=json.loads(res_map.text)
-
-            for item in json_data_map['rows']:
-                try:
-                    get_map+=[item['elements'][0]['distance']['value']]
-                except KeyError as e3:
-                    get_map+=[9999999]
-            get_map.index(min(get_map))
-
-            for item in dust_data:
-                if item['位置']==map_ori_list[get_map.index(min(get_map))]:
-                    Dust2_5=item['pm2.5']
-                    #print(map_ori_list[get_map.index(min(get_map))])偵錯
-                    #print(Dust2_5)偵錯
-                    break#一抓到位置相同即跳出迴圈
-
-            if Dust2_5>100:
-                ret=gaga_say(3)
-            elif Dust2_5>50:
-                ret=gaga_say(2)
-            else:
-                ret=gaga_say(1)
-        else:
-            ret='目前沒有班車QQ 呱'
-
-        return ret
-    def gaga_say(select):
-        rad=random.randint(0,2)
-        word1=['是香香空氣呱!','出去玩嘎~','是藍天 是藍天~']
-        word2=['空氣有點臭臭嘎...','想出去但臭臭空氣..','天空陰陰呱..']
-        word3=['完全不敢出去了呱呱..!','口罩快給我呱!','這個雲好恐怖嘎!']
-        if select==1:
-            return word1[rad]
-        elif select==2:
-            return word2[rad]
-        elif select==3:
-            return word3[rad]
-    
     try:
         int(event.message.text)
         sent_is_what=True
@@ -199,7 +195,7 @@ def handle_message(event):
         bus_id=event.message.text
         print(bus_id)
 
-        headers=head(APPID,APPKey)
+        headers=RES_HEAD(APPID,APPKey)
 
         res=requests.get('http://ptx.transportdata.tw/MOTC/v2/Bus/EstimatedTimeOfArrival/City/Taichung/'+bus_id+'?$format=JSON',headers=headers)
         json_data=json.loads(res.text)
@@ -263,8 +259,8 @@ def handle_message(event):
         else:
             line_bot_api.reply_message(
                 event.reply_token,[TextSendMessage(text='往'+sent_dict1[len(sent_dict1)-1]['sent_name1']+'：\n'+sent_ans1),
-                                   TextSendMessage(text='往'+sent_dict2[len(sent_dict2)-1]['sent_name2']+'：\n'+sent_ans2),
-                                   TextSendMessage(text=Dust2_5_is_what(json_data_pos))])
+                                   TextSendMessage(text='往'+sent_dict2[len(sent_dict2)-1]['sent_name2']+'：\n'+sent_ans2)])
+                                   #刪除PM2.5功能TextSendMessage(text=DUST2_5_IS_WHAT(json_data_pos))
             
     elif event.message.text=='使用方法':
         line_bot_api.reply_message(
@@ -296,6 +292,74 @@ def handle_location_message(event):
     
     line_bot_api.reply_message(event.reply_token, template_message)
 
+@app.route('/bus', methods=['GET'])
+def bus():
+    RouteName=request.args.get('RouteName')
+    City=request.args.get('City')
+    ret = {}
+    ret['Direction1'] = {}
+    ret['Direction2'] = {}
+    sent_is_what=True
+
+    if sent_is_what==True:
+        bus_id=RouteName
+        print(bus_id)
+
+        headers=RES_HEAD(APPID,APPKey)
+
+        res=requests.get('http://ptx.transportdata.tw/MOTC/v2/Bus/EstimatedTimeOfArrival/City/%s/%s?$format=JSON'%(City, bus_id),headers=headers)
+        json_data=json.loads(res.text)
+        #print(json_data)
+
+        sent_dict1=[]
+        sent_dict2=[]
+        # format = '%Y-%m-%dT%H:%M:%S+08:00'
+        # localtime=time.strftime("%Y-%m-%dT%H:%M:%S+08:00", time.localtime())
+
+        for item in json_data:
+            if item['Direction']==0 and str(item['RouteID'])==bus_id:
+                try:
+                    #NextBusTime=datetime.datetime.strptime(item['NextBusTime'], format)-datetime.datetime.strptime(localtime, format)
+                    #NextBusTime=str(NextBusTime)
+                    if item['EstimateTime']>180:
+                        EstimateTime=item['EstimateTime']/60
+                    elif item['EstimateTime']>=0:
+                        EstimateTime='即將進站'
+                    elif item['EstimateTime']==-3:
+                        EstimateTime='離駛'
+                    else:
+                        EstimateTime='未發'
+                    sent_dict1+=[{'sent_name1':item['StopName']['Zh_tw'],'sent_id1':item['StopSequence'],'sent_time1':EstimateTime,'bus_uid':item['SubRouteUID']}]
+                except KeyError as e1:
+                    sent_dict1+=[{'sent_name1':item['StopName']['Zh_tw'],'sent_id1':item['StopSequence'],'sent_time1':'尚未發車'}]
+            if item['Direction']==1 and str(item['RouteID'])==bus_id:
+                try:
+                    #NextBusTime=datetime.datetime.strptime(item['NextBusTime'], format)-datetime.datetime.strptime(localtime, format)
+                    #NextBusTime=str(NextBusTime)
+                    if item['EstimateTime']>180:
+                        EstimateTime=item['EstimateTime']/60
+                    elif item['EstimateTime']>=0:
+                        EstimateTime='即將進站'
+                    elif item['EstimateTime']==-3:
+                        EstimateTime='離駛'
+                    else:
+                        EstimateTime='未發'
+                    sent_dict2+=[{'sent_name2':item['StopName']['Zh_tw'],'sent_id2':item['StopSequence'],'sent_time2':EstimateTime,'bus_uid':item['SubRouteUID']}]
+                except KeyError as e1:
+                    sent_dict2+=[{'sent_name2':item['StopName']['Zh_tw'],'sent_id2':item['StopSequence'],'sent_time2':'尚未發車'}]
+
+        sent_dict1.sort(key=lambda d:d['sent_id1']) 
+        sent_dict2.sort(key=lambda d:d['sent_id2'])     
+
+        ret['Direction1']['name'] = sent_dict1[len(sent_dict1)-1]['sent_name1']
+        ret['Direction2']['name'] = sent_dict2[len(sent_dict2)-1]['sent_name2']
+        ret['Direction1']['data'] = sent_dict1
+        ret['Direction2']['data'] = sent_dict2
+
+        if sent_dict1==[] or sent_dict2==[]:
+            return "No Route"
+        else:
+            return jsonify(ret)
         
 if __name__ == "__main__":
     app.run()
