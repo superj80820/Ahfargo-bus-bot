@@ -270,7 +270,7 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,TextSendMessage(text='圖表正在製作中 呱呱!'))
 
-    elif event.message.text=='test':
+    elif event.message.text=='test公車75號':
         sent_Column_list = []
         sent_Column=CarouselColumn(
         thumbnail_image_url='https://i.imgur.com/IqNMnHR.jpg',
