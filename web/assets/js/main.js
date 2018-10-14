@@ -1,5 +1,5 @@
 /*
-	Transitive by TEMPLATED
+	Broadcast by TEMPLATED
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
@@ -17,9 +17,7 @@
 	$(function() {
 
 		var	$window = $(window),
-			$body = $('body'),
-			$header = $('#header'),
-			$banner = $('#banner');
+			$body = $('body');
 
 		// Disable animations/transitions until the page has loaded.
 			$body.addClass('is-loading');
@@ -30,6 +28,9 @@
 				}, 100);
 			});
 
+		// Fix: Placeholder polyfill.
+			$('form').placeholder();
+
 		// Prioritize "important" elements on medium.
 			skel.on('+medium -medium', function() {
 				$.prioritize(
@@ -38,28 +39,21 @@
 				);
 			});
 
-		// Fix: Placeholder polyfill.
-			$('form').placeholder();
-
-		// Header.
-			if (skel.vars.IEVersion < 9)
-				$header.removeClass('alt');
-
-			if ($banner.length > 0
-			&&	$header.hasClass('alt')) {
-
-				$window.on('resize', function() { $window.trigger('scroll'); });
-
-				$banner.scrollex({
-					bottom:		$header.outerHeight(),
-					terminate:	function() { $header.removeClass('alt'); },
-					enter:		function() { $header.addClass('alt'); },
-					leave:		function() { $header.removeClass('alt'); $header.addClass('reveal'); }
+		// Menu.
+			$('#menu')
+				.append('<a href="#menu" class="close"></a>')
+				.appendTo($body)
+				.panel({
+					delay: 500,
+					hideOnClick: true,
+					hideOnSwipe: true,
+					resetScroll: true,
+					resetForms: true,
+					side: 'right'
 				});
 
-			}
-
 		// Banner.
+			var $banner = $('#banner');
 
 			if ($banner.length > 0) {
 
@@ -111,28 +105,42 @@
 
 			}
 
+		// Tabbed Boxes
+
+			$('.flex-tabs').each( function() {
+
+				var t 		= jQuery(this),
+					tab 	= t.find('.tab-list li a'),
+					tabs 	= t.find('.tab');
+
+				tab.click(function(e) {
+
+					var x = jQuery(this),
+						y = x.data('tab');
+
+					// Set Classes on Tabs
+						tab.removeClass('active');
+						x.addClass('active');
+
+					// Show/Hide Tab Content
+						tabs.removeClass('active');
+						t.find('.' + y).addClass('active');
+
+					e.preventDefault();
+
+				});
+
+			});
+
 		// Scrolly.
 			if ( $( ".scrolly" ).length ) {
 
-				var $height = $('#header').height() * 0.95;
+				var $height = $('#header').height();
 
 				$('.scrolly').scrolly({
 					offset: $height
 				});
 			}
-
-		// Menu.
-			$('#menu')
-				.append('<a href="#menu" class="close"></a>')
-				.appendTo($body)
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'right'
-				});
 
 	});
 
