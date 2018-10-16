@@ -232,98 +232,57 @@ def handle_message(event):
     elif event.message.text=='使用方法':
         line_bot_api.reply_message(
             event.reply_token,TextSendMessage(text='請直接輸入公車號即可查詢呱!'))
+    
+    elif event.message.text=='公車查詢':
+        line_bot_api.reply_message(
+            event.reply_token,TextSendMessage(text='圖表正在製作中 呱呱!'))
+
+    
     elif event.message.text=='test':
         line_bot_api.reply_message(
             event.reply_token,TextSendMessage(text='圖表正在製作中 呱呱!'))
-    elif event.message.text=='公車查詢':
-        flex={
-            "type": "text",
-            "text": "Hello, world"
-            }
-
-        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(line_token)}
-        payload = {
-            'replyToken':event.reply_token,
-            'messages':[flex]
-            }
-        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,json=payload)
-        print(res.text)
-
-    
-    elif event.message.text=='公':
-        line_bot_api.reply_message(
-            event.reply_token,TextSendMessage(text='請直接輸入公車號即可查詢呱!'))
-        flex={
-            "type": "text",
-            "text": "Hello, world"
-            }
-
-        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(line_token)}
-        payload = {
-            'replyToken':event.reply_token,
-            'messages':[flex]
-            }
-        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,json=payload)
-        print(res.text)
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
     loc='%s,%s'%(event.message.latitude,event.message.longitude)
     flex={
-        "type": "bubble",
-        "hero": {
-            "type": "image",
-            "url": "https://static.thenounproject.com/png/852651-200.png",
-            "size": "full",
-            "aspectRatio": "20:13",
-            "aspectMode": "cover",
-            "action": {
-            "type": "uri",
-            "uri": "http://linecorp.com/"
-            }
-        },
-        "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
+        "type": "imagemap",
+        "baseUrl": "https://i.imgur.com/8nTHWOe.png?1",
+        "altText": "This is an imagemap",
+        "baseSize": {
+            "width": 1040,
+            "height": 170
+            },
+        "actions": [
             {
-                "type": "text",
-                "text": "你附近的公車站～嘎",
-                "weight": "bold",
-                "size": "xl"
-            }
-            ]
-        },
-        "footer": {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "sm",
-            "contents": [
-            {
-                "type": "button",
-                "style": "link",
-                "height": "sm",
-                "action": {
-                "type": "uri",
-                "label": "CALL",
-                "uri": "https://linecorp.com"
-                }
+            "type": "message",
+            "area": {
+                "x": 2,
+                "y": 4,
+                "width": 520,
+                "height": 166
+            },
+            "text": "/public_yes"
             },
             {
-                "type": "spacer",
-                "size": "sm"
+            "type": "message",
+            "area": {
+                "x": 522,
+                "y": 0,
+                "width": 518,
+                "height": 170
+                },
+            "text": "/public_no"
             }
-            ],
-            "flex": 0
+            ]
         }
-    }
 
     headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(line_token)}
     payload = {
         'replyToken':event.reply_token,
         'messages':[flex]
         }
-    res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,json=payload)
+    # res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,json=payload)
 
     # res=requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=景點&location=%s&radius=500&key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA&language=zh-TW'%loc)
     # sent_data=json.loads(res.text)
