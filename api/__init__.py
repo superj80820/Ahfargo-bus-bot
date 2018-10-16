@@ -5,42 +5,7 @@
 
 
 #最後目的地要修改
-import requests
-import datetime  
-import json
-import random
-import hmac
-from hashlib import sha1
-import base64
-import time
-
-from flask import Flask, request, abort, jsonify
-
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
-)
-from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,ImageSendMessage,ImagemapSendMessage,BaseSize,URIImagemapAction,
-    ImagemapArea,MessageImagemapAction,FollowEvent,LocationMessage,LocationSendMessage,CarouselTemplate,
-    CarouselColumn,PostbackAction,URIAction,MessageAction,TemplateSendMessage,URITemplateAction
-)
-import configparser as ConfigParser
-
-FileRout='/var/www/Ahfargo_bus_bot/api/'
-#/var/www/Ahfargo_bus_bot/api/
-
-#line資訊
-line_bot_api = LineBotApi('vZwZvgmlljz+VfSYn6Khu2RXQM8Gq3gkODZD8tdHEYgcxsUCI3rHSgh3CO3d7xmXvZ8irnEBQxm1Wughpaj+u1qANpzBavf3VTczraBo+VE4n4QaQpuhGwro/4wMXS1Zde+CyZ0d2Bxk55ZQG4MZBAdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('c56fe3888c3cfe60a1969fdd19c9b10c')
-#line資訊
-
-#MOTC資訊
-APPID = 'ad64f3b34d38425ca0bb7efdcdb4548b'
-APPKey = 'wabKRdVqcFg4i5CqLXP4JuWQ3Ws'
-#MOTC資訊
+from setting import *
 
 #製作驗證簽名
 def RES_HEAD(APPID,APPKey):
@@ -265,55 +230,117 @@ def handle_message(event):
     elif event.message.text=='使用方法':
         line_bot_api.reply_message(
             event.reply_token,TextSendMessage(text='請直接輸入公車號即可查詢呱!'))
-        
-    elif event.message.text=='公車查詢':
+    elif event.message.text=='test':
         line_bot_api.reply_message(
             event.reply_token,TextSendMessage(text='圖表正在製作中 呱呱!'))
+    elif event.message.text=='公車查詢':
+        flex={
+            "type": "text",
+            "text": "Hello, world"
+            }
 
-    elif event.message.text=='test公車75號':
-        sent_Column_list = []
-        sent_Column=CarouselColumn(
-        thumbnail_image_url='https://i.imgur.com/IqNMnHR.jpg',
-        title="%s公車資訊"%("75"),
-        text="以下為此公車資訊",
-        actions=[
-            URITemplateAction(
-                label='動態顯示',
-                uri='line://app/1611671390-Dl4g3aq1?=%s'%("75")
-                )
-            ]
-        )
-        sent_Column_list += [sent_Column]
+        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(line_token)}
+        payload = {
+            'replyToken':event.reply_token,
+            'messages':[flex]
+            }
+        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,json=payload)
+        print(res.text)
 
-        carousel_template_message = TemplateSendMessage(
-            alt_text='公車資訊',
-            template=CarouselTemplate(
-                columns=sent_Column_list
-                )
-        )
-        line_bot_api.reply_message(event.reply_token,carousel_template_message)
-        
+    
+    elif event.message.text=='公':
+        line_bot_api.reply_message(
+            event.reply_token,TextSendMessage(text='請直接輸入公車號即可查詢呱!'))
+        flex={
+            "type": "text",
+            "text": "Hello, world"
+            }
+
+        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(line_token)}
+        payload = {
+            'replyToken':event.reply_token,
+            'messages':[flex]
+            }
+        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,json=payload)
+        print(res.text)
+
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
     loc='%s,%s'%(event.message.latitude,event.message.longitude)
-    res=requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=景點&location=%s&radius=500&key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA&language=zh-TW'%loc)
-    sent_data=json.loads(res.text)
-    columns=[]
+    flex={
+        "type": "bubble",
+        "hero": {
+            "type": "image",
+            "url": "https://static.thenounproject.com/png/852651-200.png",
+            "size": "full",
+            "aspectRatio": "20:13",
+            "aspectMode": "cover",
+            "action": {
+            "type": "uri",
+            "uri": "http://linecorp.com/"
+            }
+        },
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+            {
+                "type": "text",
+                "text": "你附近的公車站～嘎",
+                "weight": "bold",
+                "size": "xl"
+            }
+            ]
+        },
+        "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "contents": [
+            {
+                "type": "button",
+                "style": "link",
+                "height": "sm",
+                "action": {
+                "type": "uri",
+                "label": "CALL",
+                "uri": "https://linecorp.com"
+                }
+            },
+            {
+                "type": "spacer",
+                "size": "sm"
+            }
+            ],
+            "flex": 0
+        }
+    }
 
-    count=0
-    for item in sent_data['results']:
-        if count==10:
-            break
-        columns+=[CarouselColumn(text=item['vicinity'], title=item['name'], actions=[
-            URIAction(label='搜尋看看!', uri='https://www.google.com.tw/maps/search/%s'%item['name']),
-            MessageAction(label='我喜歡這裡呱!', text='%s我覺得不錯'%item['name'])])]
-        count+=1
+    headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(line_token)}
+    payload = {
+        'replyToken':event.reply_token,
+        'messages':[flex]
+        }
+    res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,json=payload)
+
+    # res=requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=景點&location=%s&radius=500&key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA&language=zh-TW'%loc)
+    # sent_data=json.loads(res.text)
+    # columns=[]
+
+    # count=0
+    # for item in sent_data['results']:
+    #     if count==10:
+    #         break
+    #     columns+=[CarouselColumn(text=item['vicinity'], title=item['name'], actions=[
+    #         URIAction(label='搜尋看看!', uri='https://www.google.com.tw/maps/search/%s'%item['name']),
+    #         MessageAction(label='我喜歡這裡呱!', text='%s我覺得不錯'%item['name'])])]
+    #     count+=1
         
-    carousel_template = CarouselTemplate(columns=columns)
-    template_message = TemplateSendMessage(
-        alt_text='Carousel alt text', template=carousel_template)
+    # carousel_template = CarouselTemplate(columns=columns)
+    # template_message = TemplateSendMessage(
+    #     alt_text='Carousel alt text', template=carousel_template)
     
-    line_bot_api.reply_message(event.reply_token, template_message)
+    # line_bot_api.reply_message(event.reply_token, template_message)
 
 @app.route('/bus', methods=['GET'])
 def bus():
