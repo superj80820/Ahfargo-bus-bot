@@ -5,6 +5,8 @@
 
 
 #最後目的地要修改
+import sys
+sys.path.append('/var/www/Ahfargo_bus_bot/api')
 from setting import *
 
 #製作驗證簽名

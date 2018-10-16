@@ -37,6 +37,6 @@ APPID = 'ad64f3b34d38425ca0bb7efdcdb4548b'
 APPKey = 'wabKRdVqcFg4i5CqLXP4JuWQ3Ws'
 #MOTC資訊
 
-sys.path.append('lib')
+sys.path.append('/var/www/Ahfargo_bus_bot/api/lib')
 from motc import motc
 from common import common
