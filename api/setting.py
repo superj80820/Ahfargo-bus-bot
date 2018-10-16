@@ -28,7 +28,8 @@ FileRout='/var/www/Ahfargo_bus_bot/api/'
 #/var/www/Ahfargo_bus_bot/api/
 
 #line資訊
-line_bot_api = LineBotApi('vZwZvgmlljz+VfSYn6Khu2RXQM8Gq3gkODZD8tdHEYgcxsUCI3rHSgh3CO3d7xmXvZ8irnEBQxm1Wughpaj+u1qANpzBavf3VTczraBo+VE4n4QaQpuhGwro/4wMXS1Zde+CyZ0d2Bxk55ZQG4MZBAdB04t89/1O/w1cDnyilFU=')
+line_token = 'vZwZvgmlljz+VfSYn6Khu2RXQM8Gq3gkODZD8tdHEYgcxsUCI3rHSgh3CO3d7xmXvZ8irnEBQxm1Wughpaj+u1qANpzBavf3VTczraBo+VE4n4QaQpuhGwro/4wMXS1Zde+CyZ0d2Bxk55ZQG4MZBAdB04t89/1O/w1cDnyilFU='
+line_bot_api = LineBotApi(line_token)
 handler = WebhookHandler('c56fe3888c3cfe60a1969fdd19c9b10c')
 #line資訊
 
