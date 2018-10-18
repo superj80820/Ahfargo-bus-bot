@@ -237,44 +237,333 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,TextSendMessage(text='圖表正在製作中 呱呱!'))
 
-    
     elif event.message.text=='test':
-        line_bot_api.reply_message(
-            event.reply_token,TextSendMessage(text='圖表正在製作中 呱呱!'))
+        flex={
+            "type":"flex",
+            "altText":"This is a Flex Message",
+            "contents":{
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "https://images.clipartlogo.com/files/istock/previews/8976/89765575-duck-icon-farm-animal-vector-illustration.jpg",
+                    "size": "full",
+                    "aspectRatio": "20:13",
+                    "aspectMode": "cover",
+                    "action": {
+                    "type": "uri",
+                    "uri": "http://linecorp.com/"
+                    }
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                    {
+                        "type": "text",
+                        "text": "你附近的公車站～嘎",
+                        "weight": "bold",
+                        "size": "xl"
+                    }
+                    ]
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "xs",
+                    "contents": [
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                            "type": "button",
+                            "style": "link",
+                            "height": "sm",
+                            "gravity": "center",
+                            "action": {
+                                "type": "uri",
+                                "label": "信義東三",
+                                "uri": "https://linecorp.com"
+                            },
+                            "flex": 3
+                            },
+                            {
+                            "type": "image",
+                            "url": "https://i.imgur.com/ZZLbNkM.png"
+                            },
+                            {
+                            "type": "text",
+                            "text": "83m",
+                            "wrap": True,
+                            "color": "#000000",
+                            "gravity": "center",
+                            "flex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                            "type": "button",
+                            "style": "link",
+                            "height": "sm",
+                            "gravity": "center",
+                            "action": {
+                                "type": "uri",
+                                "label": "信義東二",
+                                "uri": "https://linecorp.com"
+                            },
+                            "flex": 3
+                            },
+                            {
+                            "type": "image",
+                            "url": "https://i.imgur.com/ZZLbNkM.png"
+                            },
+                            {
+                            "type": "text",
+                            "text": "33m",
+                            "wrap": True,
+                            "color": "#000000",
+                            "gravity": "center",
+                            "flex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                            "type": "button",
+                            "style": "link",
+                            "height": "sm",
+                            "gravity": "center",
+                            "action": {
+                                "type": "uri",
+                                "label": "信義東五",
+                                "uri": "https://linecorp.com"
+                            },
+                            "flex": 3
+                            },
+                            {
+                            "type": "image",
+                            "url": "https://i.imgur.com/ZZLbNkM.png"
+                            },
+                            {
+                            "type": "text",
+                            "text": "37m",
+                            "wrap": True,
+                            "color": "#000000",
+                            "gravity": "center",
+                            "flex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                            "type": "button",
+                            "style": "link",
+                            "height": "sm",
+                            "gravity": "center",
+                            "action": {
+                                "type": "uri",
+                                "label": "信義東一",
+                                "uri": "https://linecorp.com"
+                            },
+                            "flex": 3
+                            },
+                            {
+                            "type": "image",
+                            "url": "https://i.imgur.com/ZZLbNkM.png"
+                            },
+                            {
+                            "type": "text",
+                            "text": "73m",
+                            "wrap": True,
+                            "color": "#000000",
+                            "gravity": "center",
+                            "flex": 1
+                            }
+                        ]
+                    }
+                    ],
+                    "flex": 0
+                }
+                }
+        }
+
+        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(line_token)}
+        payload = {
+            'replyToken':event.reply_token,
+            'messages':[flex]
+            }
+        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
     loc='%s,%s'%(event.message.latitude,event.message.longitude)
     flex={
-        "type": "imagemap",
-        "baseUrl": "https://i.imgur.com/8nTHWOe.png?1",
-        "altText": "This is an imagemap",
-        "baseSize": {
-            "width": 1040,
-            "height": 170
-            },
-        "actions": [
-            {
-            "type": "message",
-            "area": {
-                "x": 2,
-                "y": 4,
-                "width": 520,
-                "height": 166
-            },
-            "text": "/public_yes"
-            },
-            {
-            "type": "message",
-            "area": {
-                "x": 522,
-                "y": 0,
-                "width": 518,
-                "height": 170
+            "type":"flex",
+            "altText":"This is a Flex Message",
+            "contents":{
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "https://images.clipartlogo.com/files/istock/previews/8976/89765575-duck-icon-farm-animal-vector-illustration.jpg",
+                    "size": "full",
+                    "aspectRatio": "20:13",
+                    "aspectMode": "cover",
+                    "action": {
+                    "type": "uri",
+                    "uri": "http://linecorp.com/"
+                    }
                 },
-            "text": "/public_no"
-            }
-            ]
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                    {
+                        "type": "text",
+                        "text": "你附近的公車站～嘎",
+                        "weight": "bold",
+                        "size": "xl"
+                    }
+                    ]
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "xs",
+                    "contents": [
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                            "type": "button",
+                            "style": "link",
+                            "height": "sm",
+                            "gravity": "center",
+                            "action": {
+                                "type": "uri",
+                                "label": "信義東三",
+                                "uri": "https://linecorp.com"
+                            },
+                            "flex": 3
+                            },
+                            {
+                            "type": "image",
+                            "url": "https://i.imgur.com/ZZLbNkM.png"
+                            },
+                            {
+                            "type": "text",
+                            "text": "83m",
+                            "wrap": True,
+                            "color": "#000000",
+                            "gravity": "center",
+                            "flex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                            "type": "button",
+                            "style": "link",
+                            "height": "sm",
+                            "gravity": "center",
+                            "action": {
+                                "type": "uri",
+                                "label": "信義東二",
+                                "uri": "https://linecorp.com"
+                            },
+                            "flex": 3
+                            },
+                            {
+                            "type": "image",
+                            "url": "https://i.imgur.com/ZZLbNkM.png"
+                            },
+                            {
+                            "type": "text",
+                            "text": "33m",
+                            "wrap": True,
+                            "color": "#000000",
+                            "gravity": "center",
+                            "flex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                            "type": "button",
+                            "style": "link",
+                            "height": "sm",
+                            "gravity": "center",
+                            "action": {
+                                "type": "uri",
+                                "label": "信義東五",
+                                "uri": "https://linecorp.com"
+                            },
+                            "flex": 3
+                            },
+                            {
+                            "type": "image",
+                            "url": "https://i.imgur.com/ZZLbNkM.png"
+                            },
+                            {
+                            "type": "text",
+                            "text": "37m",
+                            "wrap": True,
+                            "color": "#000000",
+                            "gravity": "center",
+                            "flex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                            "type": "button",
+                            "style": "link",
+                            "height": "sm",
+                            "gravity": "center",
+                            "action": {
+                                "type": "uri",
+                                "label": "信義東一",
+                                "uri": "https://linecorp.com"
+                            },
+                            "flex": 3
+                            },
+                            {
+                            "type": "image",
+                            "url": "https://i.imgur.com/ZZLbNkM.png"
+                            },
+                            {
+                            "type": "text",
+                            "text": "73m",
+                            "wrap": True,
+                            "color": "#000000",
+                            "gravity": "center",
+                            "flex": 1
+                            }
+                        ]
+                    }
+                    ],
+                    "flex": 0
+                }
+                }
         }
 
     headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(line_token)}
@@ -282,7 +571,7 @@ def handle_location_message(event):
         'replyToken':event.reply_token,
         'messages':[flex]
         }
-    # res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,json=payload)
+    res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
 
     # res=requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=景點&location=%s&radius=500&key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA&language=zh-TW'%loc)
     # sent_data=json.loads(res.text)
