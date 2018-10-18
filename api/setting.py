@@ -24,13 +24,13 @@ from linebot.models import (
     CarouselColumn,PostbackAction,URIAction,MessageAction,TemplateSendMessage
 )
 
-FileRout='/var/www/Ahfargo_bus_bot/api/'
+FileRout=''
 #/var/www/Ahfargo_bus_bot/api/
 
 #line資訊
-line_token = 'vZwZvgmlljz+VfSYn6Khu2RXQM8Gq3gkODZD8tdHEYgcxsUCI3rHSgh3CO3d7xmXvZ8irnEBQxm1Wughpaj+u1qANpzBavf3VTczraBo+VE4n4QaQpuhGwro/4wMXS1Zde+CyZ0d2Bxk55ZQG4MZBAdB04t89/1O/w1cDnyilFU='
+line_token = 'HjFTbjNQhTxrxsvzZHmDewjMd4X26FLt+6ZzMV+wQfzX00KtXBkYN2WnrQ7mZYLhgobRZVLgTryMxaEYgn14sgqOKat6Cz2lT4VFEGC45Z3DGg2/HuckIpAuGWwIhQtV0mUjZ6I7pZo/iJW4noCkqwdB04t89/1O/w1cDnyilFU='
 line_bot_api = LineBotApi(line_token)
-handler = WebhookHandler('c56fe3888c3cfe60a1969fdd19c9b10c')
+handler = WebhookHandler('eff38d2e8d566ba494f30926d5fdfada')
 #line資訊
 
 #MOTC資訊
@@ -38,6 +38,6 @@ APPID = 'ad64f3b34d38425ca0bb7efdcdb4548b'
 APPKey = 'wabKRdVqcFg4i5CqLXP4JuWQ3Ws'
 #MOTC資訊
 
-sys.path.append('/var/www/Ahfargo_bus_bot/api/lib')
+sys.path.append('%slib' % FileRout)
 from motc import motc
 from common import common
