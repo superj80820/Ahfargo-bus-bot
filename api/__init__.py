@@ -25,7 +25,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,ImageSendMessage,ImagemapSendMessage,BaseSize,URIImagemapAction,
     ImagemapArea,MessageImagemapAction,FollowEvent,LocationMessage,LocationSendMessage,CarouselTemplate,
-    CarouselColumn,PostbackAction,URIAction,MessageAction,TemplateSendMessage
+    CarouselColumn,PostbackAction,URIAction,MessageAction,TemplateSendMessage,URITemplateAction
 )
 import configparser as ConfigParser
 
@@ -269,6 +269,29 @@ def handle_message(event):
     elif event.message.text=='公車查詢':
         line_bot_api.reply_message(
             event.reply_token,TextSendMessage(text='圖表正在製作中 呱呱!'))
+
+    elif event.message.text=='test公車75號':
+        sent_Column_list = []
+        sent_Column=CarouselColumn(
+        thumbnail_image_url='https://i.imgur.com/IqNMnHR.jpg',
+        title="%s公車資訊"%("75"),
+        text="以下為此公車資訊",
+        actions=[
+            URITemplateAction(
+                label='動態顯示',
+                uri='line://app/1586634703-20691wX9?=%s'%("75")
+                )
+            ]
+        )
+        sent_Column_list += [sent_Column]
+
+        carousel_template_message = TemplateSendMessage(
+            alt_text='公車資訊',
+            template=CarouselTemplate(
+                columns=sent_Column_list
+                )
+        )
+        line_bot_api.reply_message(event.reply_token,carousel_template_message)
         
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
