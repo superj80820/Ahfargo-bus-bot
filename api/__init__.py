@@ -2,10 +2,23 @@
 # coding: utf-8
 #最後目的地要修改
 #附近周遭站牌的檔案限制為10kb 必須要留意 目前已站牌只顯示25個為解決方法 但是因該要採用10kb來限制的方法 才合理
+from flask import Flask, request, abort, jsonify
+from linebot import (
+    LineBotApi, WebhookHandler
+)
+from linebot.exceptions import (
+    InvalidSignatureError
+)
+from linebot.models import (
+    MessageEvent, TextMessage, TextSendMessage,ImageSendMessage,ImagemapSendMessage,BaseSize,URIImagemapAction,
+    ImagemapArea,MessageImagemapAction,FollowEvent,LocationMessage,LocationSendMessage,CarouselTemplate,
+    CarouselColumn,PostbackAction,URIAction,MessageAction,TemplateSendMessage
+)
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)))))
 from setting import *
-
+line_bot_api = LineBotApi(LINE_TOKEN)
+handler = WebhookHandler(LINE_SECRET)
 app = Flask(__name__)
 
 @app.route("/callback", methods=['POST'])
@@ -142,7 +155,7 @@ def handle_message(event):
         location['lon'] = float(120.671274)
         flex = common().creat_stop_contents(location, 0.5)
         
-        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(line_token)}
+        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
         payload = {
             'replyToken':event.reply_token,
             'messages':[flex]
@@ -156,7 +169,7 @@ def handle_location_message(event):
     location['lon'] = float(event.message.longitude)
     flex = common().creat_stop_contents(location, 0.5)
     
-    headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(line_token)}
+    headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
     payload = {
         'replyToken':event.reply_token,
         'messages':[flex]
