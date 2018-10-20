@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from setting import *
+
 class motc(object):
 
     def __init__(self):
