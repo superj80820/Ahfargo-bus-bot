@@ -1,28 +1,4 @@
 #!/usr/bin/env python
-import requests
-import datetime  
-import json
-import random
-import hmac
-from hashlib import sha1
-import base64
-import time
-import sys
-import os
-import configparser as ConfigParser
-from math import sin, cos, sqrt, atan2, radians
-from flask import Flask, request, abort, jsonify
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
-)
-from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,ImageSendMessage,ImagemapSendMessage,BaseSize,URIImagemapAction,
-    ImagemapArea,MessageImagemapAction,FollowEvent,LocationMessage,LocationSendMessage,CarouselTemplate,
-    CarouselColumn,PostbackAction,URIAction,MessageAction,TemplateSendMessage
-)
 from setting import *
 
 class common(object):
@@ -157,7 +133,7 @@ class common(object):
     def creat_stop_contents(self, center, max_distance):
         content = []
         max_count = 0
-        with open("{}res/stop.json".format(FileRout),'rb') as f:
+        with open("{}res/stop.json".format(FileRoute),'rb') as f:
             data = json.load(f)
         for item in data:
             temp = self.detection_distance(center, item, 0.5)
