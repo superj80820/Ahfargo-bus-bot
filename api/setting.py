@@ -28,7 +28,7 @@ from linebot.models import (
 
 ## information ##
 ## file info ##
-FileRout=''# e.g. /var/www/Ahfargo_bus_bot/api/
+FileRout=os.path.dirname(os.path.abspath(__file__))+'/'
 ## line info ##
 line_token = 'HjFTbjNQhTxrxsvzZHmDewjMd4X26FLt+6ZzMV+wQfzX00KtXBkYN2WnrQ7mZYLhgobRZVLgTryMxaEYgn14sgqOKat6Cz2lT4VFEGC45Z3DGg2/HuckIpAuGWwIhQtV0mUjZ6I7pZo/iJW4noCkqwdB04t89/1O/w1cDnyilFU='
 line_bot_api = LineBotApi(line_token)

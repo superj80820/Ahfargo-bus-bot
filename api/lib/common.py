@@ -157,7 +157,7 @@ class common(object):
     def creat_stop_contents(self, center, max_distance):
         content = []
         max_count = 0
-        with open('res/stop.json','r',encoding='UTF-8') as f:
+        with open("{}res/stop.json".format(FileRout),'rb') as f:
             data = json.load(f)
         for item in data:
             temp = self.detection_distance(center, item, 0.5)
