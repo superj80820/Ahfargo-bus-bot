@@ -1,4 +1,6 @@
 # coding: utf-8
+
+### lib ###
 import requests
 import datetime  
 import json
@@ -24,20 +26,18 @@ from linebot.models import (
     CarouselColumn,PostbackAction,URIAction,MessageAction,TemplateSendMessage
 )
 
-FileRout=''
-#/var/www/Ahfargo_bus_bot/api/
-
-#line資訊
+## information ##
+## file info ##
+FileRout=''# e.g. /var/www/Ahfargo_bus_bot/api/
+## line info ##
 line_token = 'HjFTbjNQhTxrxsvzZHmDewjMd4X26FLt+6ZzMV+wQfzX00KtXBkYN2WnrQ7mZYLhgobRZVLgTryMxaEYgn14sgqOKat6Cz2lT4VFEGC45Z3DGg2/HuckIpAuGWwIhQtV0mUjZ6I7pZo/iJW4noCkqwdB04t89/1O/w1cDnyilFU='
 line_bot_api = LineBotApi(line_token)
 handler = WebhookHandler('eff38d2e8d566ba494f30926d5fdfada')
-#line資訊
-
-#MOTC資訊
+## MOTC info ##
 APPID = 'ad64f3b34d38425ca0bb7efdcdb4548b'
 APPKey = 'wabKRdVqcFg4i5CqLXP4JuWQ3Ws'
-#MOTC資訊
 
-sys.path.append('%slib' % FileRout)
+## self lib ###
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "lib")))
 from motc import motc
 from common import common
