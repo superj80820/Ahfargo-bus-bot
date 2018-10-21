@@ -164,6 +164,7 @@ def handle_message(event):
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
+    print(event.message.title)
     location = {}
     location['lat'] = float(event.message.latitude)
     location['lon'] = float(event.message.longitude)
