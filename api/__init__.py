@@ -12,7 +12,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,ImageSendMessage,ImagemapSendMessage,BaseSize,URIImagemapAction,
     ImagemapArea,MessageImagemapAction,FollowEvent,LocationMessage,LocationSendMessage,CarouselTemplate,
-    CarouselColumn,PostbackAction,URIAction,MessageAction,TemplateSendMessage
+    CarouselColumn,PostbackAction,URIAction,MessageAction,TemplateSendMessage, PostbackEvent
 )
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)))))
@@ -28,6 +28,7 @@ def callback():
 
     # get request body as text
     body = request.get_data(as_text=True)
+    print(body)
     app.logger.info("Request body: " + body)
 
     # handle webhook body
@@ -149,6 +150,160 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,TextSendMessage(text='圖表正在製作中 呱呱!'))
 
+    elif re.search('附近站牌/\d+.\d+,\d+.\d+/',event.message.text) != None:
+        location_temp = re.search('\d+.\d+,\d+.\d+',event.message.text).group()
+        location_temp_list = location_temp.split(',')
+        location = {}
+        location['lat'] = float(location_temp_list[0])
+        location['lon'] = float(location_temp_list[1])
+        flex = common().creat_stop_contents(location, 0.5)
+        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+        payload = {
+            'replyToken':event.reply_token,
+            'messages':[flex]
+            }
+        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
+
+    elif re.search('路線規劃/\d+.\d+,\d+.\d+/',event.message.text) != None:
+        flex={
+            "type":"flex",
+            "altText":"This is a Flex Message",
+            "contents":{
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "https://images.clipartlogo.com/files/istock/previews/8976/89765575-duck-icon-farm-animal-vector-illustration.jpg",
+                    "size": "full",
+                    "aspectRatio": "20:13",
+                    "aspectMode": "cover",
+                    "action": {
+                    "type": "uri",
+                    "uri": "http://linecorp.com/"
+                    }
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "你附近的公車站～嘎",
+                            "weight": "bold",
+                            "size": "xl"
+                            }
+                        ]
+                    },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "xs",
+                    "contents": [
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                "type": "button",
+                                "style": "link",
+                                "height": "sm",
+                                "gravity": "center",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "請選擇目的地~呱",
+                                    "uri": "line://nv/location"
+                                },
+                                "flex": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "flex": 0
+                }
+            }
+        }
+        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+        payload = {
+            'replyToken':event.reply_token,
+            'messages':[flex]
+            }
+        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
+
+    elif re.search('好玩的/\d+.\d+,\d+.\d+/',event.message.text) != None:
+        flex={
+            "type":"flex",
+            "altText":"This is a Flex Message",
+            "contents":{
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "https://images.clipartlogo.com/files/istock/previews/8976/89765575-duck-icon-farm-animal-vector-illustration.jpg",
+                    "size": "full",
+                    "aspectRatio": "20:13",
+                    "aspectMode": "cover",
+                    "action": {
+                    "type": "uri",
+                    "uri": "http://linecorp.com/"
+                    }
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "你想去哪玩~呱",
+                            "weight": "bold",
+                            "size": "xl"
+                            }
+                        ]
+                    },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "xs",
+                    "contents": [
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                "type": "button",
+                                "style": "link",
+                                "height": "sm",
+                                "gravity": "center",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "找景點/12334G23GR42G233",
+                                    "uri": "line://nv/location"
+                                },
+                                "flex": 1
+                                },
+                                {
+                                "type": "button",
+                                "style": "link",
+                                "height": "sm",
+                                "gravity": "center",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "玩活動/12334G23GR42G233",
+                                    "uri": "line://nv/location"
+                                },
+                                "flex": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "flex": 0
+                }
+            }
+        }
+        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+        payload = {
+            'replyToken':event.reply_token,
+            'messages':[flex]
+            }
+        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
+
     elif event.message.text=='test':
         location = {}
         location['lat'] = float(24.138777)
@@ -158,21 +313,131 @@ def handle_message(event):
         headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
         payload = {
             'replyToken':event.reply_token,
-            'messages':[flex]
+            'messages':[{
+                    "type": "location",
+                    "title": "my location",
+                    "address": "〒150-0002 東京都渋谷区渋谷２丁目２１−１",
+                    "latitude": 35.65910807942215,
+                    "longitude": 139.70372892916203
+                }]
             }
         res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
 
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    # if event.postback.data == 'plan':
+    #     imagemap = {
+    #         "type": "imagemap",
+    #         "baseUrl": "https://i.imgur.com/43SaaBB.png",
+    #         "altText": "This is an imagemap",
+    #         "baseSize": {
+    #             "width": 1040,
+    #             "height": 310
+    #         },
+    #         "actions": [
+    #             {
+    #             "type": "message",
+    #             "area": {
+    #                 "x": 0,
+    #                 "y": 0,
+    #                 "width": 338,
+    #                 "height": 309
+    #             },
+    #             "text": "動作 1"
+    #             },
+    #             {
+    #             "type": "message",
+    #             "area": {
+    #                 "x": 338,
+    #                 "y": 1,
+    #                 "width": 347,
+    #                 "height": 309
+    #             },
+    #             "text": "動作 2"
+    #             },
+    #             {
+    #             "type": "message",
+    #             "area": {
+    #                 "x": 685,
+    #                 "y": 1,
+    #                 "width": 355,
+    #                 "height": 309
+    #             },
+    #             "text": "動作 3"
+    #             }
+    #         ]
+    #         }
+    #     headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+    #     payload = {
+    #         'replyToken':event.reply_token,
+    #         'messages':[flex]
+    #         }
+    #     res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
+    #     print(res.text)
+    # elif event.postback.data == 'route_plan':
+    #     line_bot_api.reply_message(
+    #         event.reply_token, TextSendMessage(text='pong'))
+    None
+
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
-    location = {}
-    location['lat'] = float(event.message.latitude)
-    location['lon'] = float(event.message.longitude)
-    flex = common().creat_stop_contents(location, 0.5)
-    
+    print(str(float(event.message.latitude)))
+    print(str(float(event.message.longitude)))
+    imagemap = {
+        "type": "imagemap",
+        "baseUrl": "https://i.imgur.com/7HFxSMt.png",
+        "altText": "This is an imagemap",
+        "baseSize": {
+            "width": 1040,
+            "height": 310
+        },
+        "actions": [
+            {
+            "type": "message",
+            "area": {
+                "x": 0,
+                "y": 0,
+                "width": 255,
+                "height": 309
+            },
+            "text": "附近站牌/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+            },
+            {
+            "type": "message",
+            "area": {
+                "x": 255,
+                "y": 1,
+                "width": 263,
+                "height": 309
+            },
+            "text": "路線規劃/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+            },
+            {
+            "type": "message",
+            "area": {
+                "x": 518,
+                "y": 1,
+                "width": 255,
+                "height": 309
+            },
+            "text": "公共自行車/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+            },
+            {
+            "type": "message",
+            "area": {
+                "x": 773,
+                "y": 0,
+                "width": 267,
+                "height": 310
+            },
+            "text": "好玩的/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+            }
+        ]
+        }
     headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
     payload = {
         'replyToken':event.reply_token,
-        'messages':[flex]
+        'messages':[imagemap]
         }
     res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
     # res=requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=景點&location=%s&radius=500&key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA&language=zh-TW'%loc)
