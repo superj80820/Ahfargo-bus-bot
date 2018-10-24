@@ -1,5 +1,14 @@
 window.onload = function (e) {
-	getQueryVariable("pos",GetBikeInfo)
+	liff.init(
+		data => {
+		  // Now you can call LIFF API
+		  getQueryVariable("pos",GetBikeInfo);
+		},
+		err => {
+		  // LIFF initialization failed
+		}
+	  );
+	//   getQueryVariable("pos",GetBikeInfo);
 }
 
 function GetBikeInfo(pos,local_pos,callback){
@@ -11,6 +20,14 @@ function GetBikeInfo(pos,local_pos,callback){
 			console.log(dict)
 			callback(local_pos,dict);
 		}
+	});
+}
+
+function SearchByGoogleMap(lat,lon){
+	console.log('https://www.google.com/maps/search/'+lat+','+lon)
+	liff.openWindow({
+		url:'https://www.google.com/maps/search/'+lat+','+lon,
+		external:true
 	});
 }
 
@@ -55,7 +72,7 @@ function initbike(local_pos,dict){
 					title: dict[dict_index].StationAddress.Zh_tw,
 					icon:icon,
 					infoWindow: {
-						content: dict[dict_index].StationAddress.Zh_tw+'<br/>'+'可租借數量：'+dict[dict_index].AvailableRentBikes+'<br/>'+'可歸還數量：'+dict[dict_index].AvailableReturnBikes+'<br/><a href="https://www.google.com/maps/search/'+dict[dict_index].StationPosition.PositionLat+','+dict[dict_index].StationPosition.PositionLon+'">帶我去那裡~</a>'
+						content: dict[dict_index].StationAddress.Zh_tw+'<br/>'+'可租借數量：'+dict[dict_index].AvailableRentBikes+'<br/>'+'可歸還數量：'+dict[dict_index].AvailableReturnBikes+'<br/><button onclick="SearchByGoogleMap('+dict[dict_index].StationPosition.PositionLat+','+dict[dict_index].StationPosition.PositionLon+')">帶我去那裡~呱</button>'
 					},
 					click: function(e) {
 						console.log("you click:"+'dict[dict_index].title');
