@@ -414,15 +414,16 @@ def handle_location_message(event):
             },
             "text": "路線規劃/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
             },
-            {
-            "type": "message",
-            "area": {
+            {  
+            "type":"uri",
+            "label":"公共自行車/%s,%s/" %(str(event.message.latitude), str(event.message.longitude)),
+            "linkUri":"line://app/1615663243-36r5Y25z?pos=%sand%s" %(str(event.message.latitude), str(event.message.longitude)),
+            "area":{  
                 "x": 518,
                 "y": 1,
                 "width": 255,
                 "height": 309
-            },
-            "text": "公共自行車/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+                }
             },
             {
             "type": "message",

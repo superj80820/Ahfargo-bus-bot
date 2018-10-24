@@ -55,7 +55,7 @@ function initbike(local_pos,dict){
 					title: dict[dict_index].StationAddress.Zh_tw,
 					icon:icon,
 					infoWindow: {
-						content: dict[dict_index].StationAddress.Zh_tw+'<br/>'+'可租借數量：'+dict[dict_index].AvailableRentBikes+'<br/>'+'可歸還數量：'+dict[dict_index].AvailableReturnBikes
+						content: dict[dict_index].StationAddress.Zh_tw+'<br/>'+'可租借數量：'+dict[dict_index].AvailableRentBikes+'<br/>'+'可歸還數量：'+dict[dict_index].AvailableReturnBikes+'<br/><a href="https://www.google.com/maps/search/'+dict[dict_index].StationPosition.PositionLat+','+dict[dict_index].StationPosition.PositionLon+'">帶我去那裡~</a>'
 					},
 					click: function(e) {
 						console.log("you click:"+'dict[dict_index].title');
