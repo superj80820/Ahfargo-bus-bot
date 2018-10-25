@@ -1,14 +1,14 @@
 window.onload = function (e) {
-	liff.init(
-		data => {
-		  // Now you can call LIFF API
-		  getQueryVariable("pos",GetBikeInfo);
-		},
-		err => {
-		  // LIFF initialization failed
-		}
-	  );
-	//   getQueryVariable("pos",GetBikeInfo);
+	// liff.init(
+	// 	data => {
+	// 	  // Now you can call LIFF API
+	// 	  getQueryVariable_bike("pos",GetBikeInfo);
+	// 	},
+	// 	err => {
+	// 	  // LIFF initialization failed
+	// 	}
+	//   );
+	getQueryVariable_bike("pos",GetBikeInfo);
 }
 
 function GetBikeInfo(pos,local_pos,callback){
@@ -82,7 +82,6 @@ function initbike(local_pos,dict){
 			
 			}, timeout * 100);
 		})(timeout,dict_index);
-		
 		timeout++;
 	}
 }
