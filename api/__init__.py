@@ -512,8 +512,15 @@ def bus_path():
         new_ret['Geometry1'] += [[lat,lon]]
     print(new_ret['Geometry1'])
 
-
     return jsonify(new_ret)
+
+@app.route('/bus_all_num', methods=['GET'])
+def bus_all_num():
+    headers=common().RES_HEAD(APPID,APPKey)
+    res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=RouteName&$format=JSON",headers=headers)
+    json_data=json.loads(res.text)
+    print(json_data)
+    return jsonify(json_data)
 
 if __name__ == "__main__":
     app.run()
