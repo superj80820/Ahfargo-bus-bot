@@ -8,38 +8,51 @@ window.onload = function (e) {
 	// 	  // LIFF initialization failed
 	// 	}
 	//   );
-	alert('ssss')
-	getQueryVariable_bus("BusNum",GetBusInfo);
+	// alert('ssss')
+	getQueryVariable_bus("BusNum",GetBusInfo)
+	.then(function(object_bus){
+		return GetBusPath(object_bus.bus_num,object_bus.dict_info);
+	})
+	.then(function(object_bus){
+		initbus(object_bus.bus_num,object_bus.dict_info,object_bus.dict_path);
+	})
+	;
 }
 
-function GetBusInfo(bus_num,callback){
-	$.ajax({
-		type: 'GET',
-		url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus?RouteName='+bus_num+'&City=Taichung',
-		dataType: 'json',
-		success: function(dict_info) {
-			console.log(dict_info)
-			callback(bus_num,dict_info,initbus);
-		}
-	});
+function GetBusInfo(bus_num){
+	return new Promise(function(resole,reject){
+		$.ajax({
+			type: 'GET',
+			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus?RouteName='+bus_num+'&City=Taichung',
+			dataType: 'json',
+			success:function(dict_info) {
+				console.log(dict_info)
+				// callback(bus_num,dict_info,initbus);
+				resole({bus_num,dict_info})
+			}
+		})	
+	})
 }
 
-function GetBusPath(bus_num,dict_info,callback){
-	$.ajax({
-		type: 'GET',
-		url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus_path?bus_num='+bus_num,
-		dataType: 'json',
-		success: function(dict_path) {
-			console.log(dict_path)
-			callback(bus_num,dict_info,dict_path);
-		}
-	});
+function GetBusPath(bus_num,dict_info){
+	return new Promise(function(resole,reject){
+		$.ajax({
+			type: 'GET',
+			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus_path?bus_num='+bus_num,
+			dataType: 'json',
+			success: function(dict_path) {
+				console.log(dict_path)
+				// callback(bus_num,dict_info,dict_path);
+				resole({bus_num,dict_info,dict_path})
+			}
+		})
+	})
 }
 
 function initbus(bus_num,dict_info,dict_path){
-	alert(bus_num);
-	alert(dict_info);
-	alert(dict_path);
+	// alert(bus_num);
+	// alert(dict_info);
+	// alert(dict_path);
 	//init
 	var mapObj = new GMaps({
 		zoom:13,
