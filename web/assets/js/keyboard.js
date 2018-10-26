@@ -1,53 +1,51 @@
 window.onload = function (e) {
-    for(var i=0;i<=9;i++){
-        document.getElementById("num_"+i).addEventListener("click", function(i){
-            // aa=$("#num_"+i).text()
-            num = event.target.id
-            // $("#foo2").text();
-            old_bus_title = $("#bus_title").text()
-            document.getElementById('bus_title').innerHTML = old_bus_title+num.substr(4);
-            $('#myTable').empty()
-        });
-    }
-	GetBusAllNum()
+    
+    GetBusAllNum()
 }
 
 function GetBusAllNum(){
 	$.ajax({
 		type: 'GET',
-		url: 'http://127.0.0.1:5000/bus_all_num',
+		url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus_all_num',
 		dataType: 'json',
 		success: function(dict) {
             console.log(dict)
-			document.getElementById("abc").addEventListener("click", function(){
-                itclear(dict)
-            });
+			for(var i=0;i<=9;i++){
+                document.getElementById("num_"+i).addEventListener("click", function(i){
+                    num = event.target.id
+                    old_bus_title = $("#bus_title").text()
+                    new_bus_title = old_bus_title+num.substring(4);
+                    //檢查是否有這輛公車
+                    (function(){
+                        var count = 0;
+                        for (var i=dict.length-1; i>=0; i--){
+                            num_zero=dict[i].RouteName.Zh_tw.substring(0,new_bus_title.length)
+                            if (num_zero==new_bus_title){   
+                                count = count + 1;
+                                }
+                        }
+                        if (count==0){
+                            //None
+                        }else{
+                            document.getElementById('bus_title').innerHTML = new_bus_title;
+                            $('#myTable').empty()
+                        }
+                    })();
+                    //添加公車列表至table
+                    (function(new_bus_title){
+                        var count = 0;
+                        var table = document.getElementById("myTable");
+                        for (var i=dict.length-1; i>=0; i--){
+                            num_zero=dict[i].RouteName.Zh_tw.substring(0,new_bus_title.length)
+                            if (num_zero==new_bus_title){   
+                                var row = table.insertRow(count);
+                                row.innerHTML = dict[i].RouteName.Zh_tw;
+                                count = count + 1;
+                                }
+                        }
+                    })(new_bus_title);
+                });
+            }
 		}
 	});
 }
-
-
-
-function itclear(dict) {
-    document.getElementById('sss').value='2'
-    console.log('ss');
-    $('#myTable').empty()
-    console.log('dd')
-    var count = 0;
-    var table = document.getElementById("myTable");
-    for (var i=dict.length-1; i>=0; i--){
-        num_zero=dict[i].RouteName.Zh_tw.split("")[0]
-        console.log(num_zero)
-        console.log(i)
-        if (num_zero=='5'){   
-            var row = table.insertRow(count);
-            // var cell1 = row.insertCell(count);
-            // var cell2 = row.insertCell(1);
-            // cell1.innerHTML = dict[i].RouteName.Zh_tw;
-            row.innerHTML = dict[i].RouteName.Zh_tw;
-            // cell2.innerHTML = "NEW CELL2";
-            count = count + 1;
-            }
-        }
-}
-
