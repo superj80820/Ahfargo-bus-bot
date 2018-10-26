@@ -1,5 +1,8 @@
 window.onload = function (e) {
-    
+    document.getElementById("clear").addEventListener("click", function(i){
+        document.getElementById('bus_title').innerHTML = "";
+        $('#myTable').empty()
+    });
     GetBusAllNum()
 }
 
@@ -18,7 +21,7 @@ function GetBusAllNum(){
                     //檢查是否有這輛公車
                     (function(){
                         var count = 0;
-                        for (var i=dict.length-1; i>=0; i--){
+                        for (var i=0; i<=dict.length-1; i++){
                             num_zero=dict[i].RouteName.Zh_tw.substring(0,new_bus_title.length)
                             if (num_zero==new_bus_title){   
                                 count = count + 1;
@@ -35,13 +38,25 @@ function GetBusAllNum(){
                     (function(new_bus_title){
                         var count = 0;
                         var table = document.getElementById("myTable");
-                        for (var i=dict.length-1; i>=0; i--){
+                        for (var i=0; i<=dict.length-1; i++){
                             num_zero=dict[i].RouteName.Zh_tw.substring(0,new_bus_title.length)
                             if (num_zero==new_bus_title){   
                                 var row = table.insertRow(count);
-                                row.innerHTML = dict[i].RouteName.Zh_tw;
+                                var cell1 = row.insertCell(0);
+                                var cell2 = row.insertCell(1);
+                                cell1.innerHTML = dict[i].RouteName.Zh_tw;
+                                cell2.innerHTML = dict[i].SubRoutes[0].Headsign;
                                 count = count + 1;
                                 }
+                        };
+                        //將table新增點擊功能
+                        var table = document.getElementById("myTable");
+                        if (table != null) {
+                            for (var i = 0; i < table.rows.length; i++) {
+                                table.rows[i].onclick = function () {
+                                    alert($(this).children('td').eq(0).html());
+                                };
+                            }
                         }
                     })(new_bus_title);
                 });
