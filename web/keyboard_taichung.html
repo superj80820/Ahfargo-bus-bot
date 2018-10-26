@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <style>
+            .search {
+                width: 100%;
+                height: 5vh;
+                display: -webkit-flex;
+                -webkit-align-items: center;
+                -webkit-flex-wrap: wrap;
+                display: flex;
+                align-items: center;
+            }
+            .search > div {
+                color: #f1f1f1;
+                text-align: center;
+                line-height: 5vh;
+                font-size: 0.6em;
+            }
+            .preview {
+                width: 100%;
+                height: 50vh;
+                display: -webkit-flex;
+                -webkit-align-items: center;
+                -webkit-flex-wrap: wrap;
+                display: flex;
+                align-items: center;
+            }
+            .preview > div {
+                background-color: #176592;
+                color:#ffffff;
+                width: 100%;
+                text-align: center;
+                line-height: 10vh;
+                font-size: 2em;
+            }
+            .keyboard {
+                width: 100%;
+                height: 40vh;
+                display: -webkit-flex;
+                -webkit-align-items: center;
+                -webkit-flex-wrap: wrap;
+                display: flex;
+                align-items: center;
+            }
+            .keyboard > div {
+                background-color: #f1f1f1;
+                width: 20%;
+                text-align: center;
+                line-height: 5vh;
+                font-size: 0.7em;
+            }
+        </style>
+    </head>
+    <body style="background-color: #4790ff;">
+        <div class="search">
+            <div><h1 id='bus_title'></h1></div>
+        </div>
+        <div class="preview">
+                <div style="overflow:scroll; height: 48vh;">
+                    <table id='myTable'>
+                        
+                    </table>
+                </div>
+        </div>
+        <div class="keyboard">
+            <div><h1>紅</h1></div>
+            <div><h1>藍</h1></div>
+            <div><h1 id='num_1'>1</h1></div>
+            <div><h1 id='num_2'>2</h1></div>
+            <div><h1 id='num_3'>3</h1></div>
+            <div><h1>綠</h1></div>
+            <div><h1>棕</h1></div>
+            <div><h1 id='num_4'>4</h1></div>
+            <div><h1 id='num_5'>5</h1></div>
+            <div><h1 id='num_6'>6</h1></div>
+            <div><h1>橘</h1></div>
+            <div><h1>小</h1></div>
+            <div><h1 id='num_7'>7</h1></div>
+            <div><h1 id='num_8'>8</h1></div>
+            <div><h1 id='num_9'>9</h1></div>
+            <div><h1>幹線</h1></div>
+            <div><h1>專用道</h1></div>
+            <div><h1>F</h1></div>
+            <div><h1 id='num_0'>0</h1></div>
+            <div><h1>清除</h1></div>
+        </div>
+        <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/keyboard.js"></script>
+    </body>
+</html>
