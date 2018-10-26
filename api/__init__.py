@@ -517,8 +517,9 @@ def bus_path():
 @app.route('/bus_all_num', methods=['GET'])
 def bus_all_num():
     headers=common().RES_HEAD(APPID,APPKey)
-    res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=RouteName&$format=JSON",headers=headers)
+    res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=RouteName,RouteID,SubRoutes&$format=JSON",headers=headers)
     json_data=json.loads(res.text)
+    json_data.sort(key=lambda d:int(d['RouteID']))
     print(json_data)
     return jsonify(json_data)
 
