@@ -473,6 +473,18 @@ def bus():
     json_data=json.loads(res.text)
     # print(json_data)
 
+    res_pos_filter="StopUID eq"
+    for item in json_data:
+        res_pos_filter += " '%s' or StopUID eq"%(item['StopUID'])
+    res_pos_filter = res_pos_filter[0:len(res_pos_filter)-14]
+    res_pos=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/City/Taichung?$filter=%s&$format=JSON"%(res_pos_filter),headers=headers)
+    json_data_pos=json.loads(res_pos.text)
+
+    for item in json_data_pos:
+        for item2 in range(0,len(json_data)):
+            if item['StopUID'] == json_data[item2]['StopUID']:
+                json_data[item2]['StopPosition']=item['StopPosition']
+
     return jsonify(json_data)
         
 @app.route('/bus_path', methods=['GET'])
