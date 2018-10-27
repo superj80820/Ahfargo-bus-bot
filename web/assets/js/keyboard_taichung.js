@@ -1,9 +1,18 @@
 window.onload = function (e) {
-    document.getElementById("clear").addEventListener("click", function(i){
-        document.getElementById('bus_title').innerHTML = "";
-        $('#myTable').empty()
-    });
-    GetBusAllNum()
+    liff.init(
+		data => {
+		  // Now you can call LIFF API
+            document.getElementById("clear").addEventListener("click", function(i){
+                document.getElementById('bus_title').innerHTML = "";
+                $('#myTable').empty()
+            });
+            GetBusAllNum()
+		},
+		err => {
+          // LIFF initialization failed
+          console.log('you must use line')
+		}
+	  );
 }
 
 function GetBusAllNum(){
@@ -54,7 +63,20 @@ function GetBusAllNum(){
                         if (table != null) {
                             for (var i = 0; i < table.rows.length; i++) {
                                 table.rows[i].onclick = function () {
-                                    alert($(this).children('td').eq(0).html());
+                                    var word = $(this).children('td').eq(0).html()
+                                    liff.sendMessages([
+                                        {
+                                          type:'text',
+                                          text: word
+                                        }
+                                      ])
+                                      .then(() => {
+                                        console.log('message sent');
+                                        liff.closeWindow();
+                                      })
+                                      .catch((err) => {
+                                        console.log('error', err);
+                                      });
                                 };
                             }
                         }
