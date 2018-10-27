@@ -15,21 +15,17 @@ function getQueryVariable_bike(variable,callback)
     //return(false);
 }
 
-function getQueryVariable_bus(variable,callback)
+function getQueryVariable_bus(variable)
 {
     var query = window.location.search.substring(1);
-//    alert(query)
     var vars = query.split("&");
     for (var i=0;i<vars.length;i++) {
             var pair = vars[i].split("=");
             if(pair[0] == variable){
             // return pair[1];
-            console.log(query)
             // alert(pair[1]);
             // callback(,)
-            return callback(pair[1])
+            return pair[1]
         }
     }
-    // alert('false');
-    //return(false);
 }
