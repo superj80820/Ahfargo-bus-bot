@@ -464,28 +464,44 @@ def handle_location_message(event):
 
 @app.route('/bus', methods=['GET'])
 def bus():
+    def get_bus_pos(json_data,start,end):
+        headers=common().RES_HEAD(APPID,APPKey)
+        res_pos_filter="StopUID eq"
+        for item in range(start,end):
+            res_pos_filter += " '%s' or StopUID eq"%(json_data[item]['StopUID'])
+        res_pos_filter = res_pos_filter[0:len(res_pos_filter)-14]
+        res_pos=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/City/Taichung?$filter=%s&$format=JSON"%(res_pos_filter),headers=headers)
+        json_data_pos=json.loads(res_pos.text)
+        return json_data_pos
+
+    def get_all_bus(Direction, City, RouteName):
+        headers=common().RES_HEAD(APPID,APPKey)
+        res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/EstimatedTimeOfArrival/City/%s?$filter=RouteName/Zh_tw eq '%s' and Direction eq '%s'&$orderby=StopSequence asc&$format=JSON"%(City, RouteName, Direction),headers=headers)
+        json_data=json.loads(res.text)
+        # print(json_data)
+
+        # 避免一次請求參數太常造成問題
+        count_half=int(len(json_data)/2)
+        json_data_pos_all = []
+        json_data_pos_all += get_bus_pos(json_data,0,count_half)
+        json_data_pos_all += get_bus_pos(json_data,count_half,len(json_data))
+        # 避免一次請求參數太常造成問題
+
+        for item in json_data_pos_all:
+            for item2 in range(0,len(json_data)):
+                if item['StopUID'] == json_data[item2]['StopUID']:
+                    json_data[item2]['StopPosition']=item['StopPosition']
+        print(json_data)
+        return (json_data)
+
     RouteName=request.args.get('RouteName')
-    Direction=request.args.get('Direction')
     City=request.args.get('City')
 
-    headers=common().RES_HEAD(APPID,APPKey)
-    res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/EstimatedTimeOfArrival/City/%s?$filter=RouteName/Zh_tw eq '%s' and Direction eq '%s'&$orderby=StopSequence asc&$format=JSON"%(City, RouteName, Direction),headers=headers)
-    json_data=json.loads(res.text)
-    # print(json_data)
+    ret=[]
+    ret += [get_all_bus('0', City, RouteName)]
+    ret += [get_all_bus('1', City, RouteName)]
 
-    res_pos_filter="StopUID eq"
-    for item in json_data:
-        res_pos_filter += " '%s' or StopUID eq"%(item['StopUID'])
-    res_pos_filter = res_pos_filter[0:len(res_pos_filter)-14]
-    res_pos=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/City/Taichung?$filter=%s&$format=JSON"%(res_pos_filter),headers=headers)
-    json_data_pos=json.loads(res_pos.text)
-
-    for item in json_data_pos:
-        for item2 in range(0,len(json_data)):
-            if item['StopUID'] == json_data[item2]['StopUID']:
-                json_data[item2]['StopPosition']=item['StopPosition']
-
-    return jsonify(json_data)
+    return jsonify(ret)
         
 @app.route('/bus_path', methods=['GET'])
 def bus_path():
