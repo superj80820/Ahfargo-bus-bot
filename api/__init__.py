@@ -197,71 +197,15 @@ def handle_location_message(event):
 @app.route('/bus', methods=['GET'])
 def bus():
     RouteName=request.args.get('RouteName')
+    Direction=request.args.get('Direction')
     City=request.args.get('City')
-    ret = {}
-    ret['Direction1'] = {}
-    ret['Direction2'] = {}
-    sent_is_what=True
 
-    if sent_is_what==True:
-        bus_id=RouteName
-        print(bus_id)
+    headers=common().RES_HEAD(APPID,APPKey)
+    res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/EstimatedTimeOfArrival/City/%s?$filter=RouteName/Zh_tw eq '%s' and Direction eq '%s'&$orderby=StopSequence asc&$format=JSON"%(City, RouteName, Direction),headers=headers)
+    json_data=json.loads(res.text)
+    # print(json_data)
 
-        headers=common().RES_HEAD(APPID,APPKey)
-
-        res=requests.get('http://ptx.transportdata.tw/MOTC/v2/Bus/EstimatedTimeOfArrival/City/%s/%s?$format=JSON'%(City, bus_id),headers=headers)
-        json_data=json.loads(res.text)
-        #print(json_data)
-
-        sent_dict1=[]
-        sent_dict2=[]
-        # format = '%Y-%m-%dT%H:%M:%S+08:00'
-        # localtime=time.strftime("%Y-%m-%dT%H:%M:%S+08:00", time.localtime())
-
-        for item in json_data:
-            if item['Direction']==0 and str(item['RouteID'])==bus_id:
-                try:
-                    #NextBusTime=datetime.datetime.strptime(item['NextBusTime'], format)-datetime.datetime.strptime(localtime, format)
-                    #NextBusTime=str(NextBusTime)
-                    if item['EstimateTime']>180:
-                        EstimateTime=item['EstimateTime']/60
-                    elif item['EstimateTime']>=0:
-                        EstimateTime='即將進站'
-                    elif item['EstimateTime']==-3:
-                        EstimateTime='離駛'
-                    else:
-                        EstimateTime='未發'
-                    sent_dict1+=[{'sent_name1':item['StopName']['Zh_tw'],'sent_id1':item['StopSequence'],'sent_time1':EstimateTime,'bus_uid':item['SubRouteUID']}]
-                except KeyError as e1:
-                    sent_dict1+=[{'sent_name1':item['StopName']['Zh_tw'],'sent_id1':item['StopSequence'],'sent_time1':'尚未發車'}]
-            if item['Direction']==1 and str(item['RouteID'])==bus_id:
-                try:
-                    #NextBusTime=datetime.datetime.strptime(item['NextBusTime'], format)-datetime.datetime.strptime(localtime, format)
-                    #NextBusTime=str(NextBusTime)
-                    if item['EstimateTime']>180:
-                        EstimateTime=item['EstimateTime']/60
-                    elif item['EstimateTime']>=0:
-                        EstimateTime='即將進站'
-                    elif item['EstimateTime']==-3:
-                        EstimateTime='離駛'
-                    else:
-                        EstimateTime='未發'
-                    sent_dict2+=[{'sent_name2':item['StopName']['Zh_tw'],'sent_id2':item['StopSequence'],'sent_time2':EstimateTime,'bus_uid':item['SubRouteUID']}]
-                except KeyError as e1:
-                    sent_dict2+=[{'sent_name2':item['StopName']['Zh_tw'],'sent_id2':item['StopSequence'],'sent_time2':'尚未發車'}]
-
-        sent_dict1.sort(key=lambda d:d['sent_id1']) 
-        sent_dict2.sort(key=lambda d:d['sent_id2'])     
-
-        ret['Direction1']['name'] = sent_dict1[len(sent_dict1)-1]['sent_name1']
-        ret['Direction2']['name'] = sent_dict2[len(sent_dict2)-1]['sent_name2']
-        ret['Direction1']['data'] = sent_dict1
-        ret['Direction2']['data'] = sent_dict2
-
-        if sent_dict1==[] or sent_dict2==[]:
-            return "No Route"
-        else:
-            return jsonify(ret)
+    return jsonify(json_data)
         
 if __name__ == "__main__":
     app.run()
