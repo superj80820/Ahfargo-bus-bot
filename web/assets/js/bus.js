@@ -1,3 +1,6 @@
+realMarkers = [];
+realMarkers_temp = [];
+
 window.onload = function (e) {
 	// liff.init(
 	// 	data => {
@@ -9,56 +12,104 @@ window.onload = function (e) {
 	// 	}
 	//   );
 	// alert('ssss')
-	getQueryVariable_bus("BusNum",GetBusInfo)
-	.then(function(object_bus){
-		return GetBusPath(object_bus.bus_num,object_bus.dict_info);
+	var getAllQuery = function(){
+		return new Promise(function(resole,reject){
+			const BusNum = getQueryVariable_bus("BusNum")
+			const City = getQueryVariable_bus("City")
+			var Direction = getQueryVariable_bus("Direction")
+			resole({BusNum,City,Direction})
+		});
+	};
+	getAllQuery()
+	.then(function(all_query){
+		console.log(all_query)
+		return GetBusInfo(all_query);
 	})
 	.then(function(object_bus){
-		initbus(object_bus.bus_num,object_bus.dict_info,object_bus.dict_path);
+		console.log(object_bus)
+		return GetBusPath(object_bus.all_query,object_bus.dict_info);
 	})
-	;
+	.then(function(object_bus){
+		return initbus(object_bus.all_query,object_bus.dict_info,object_bus.dict_path);
+	})
+}
+function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
+	// alert(origin_length)
+	// alert(realMarkers.length)
+	if(change_action==Math.abs(origin_length-realMarkers.length)){//偵測是否有切換路線
+		for (var dict_index in realMarkers) {
+			realMarkers[dict_index].setMap(null);//刪除全部的marker
+		};
+		realMarkers = []
+		var timeout = 1;
+		for (var dict_index in dict_info[all_query.Direction]) {	
+			// 立即函式(IIFE) Immediately Invoked Function Expression
+			(function(index,dict_index) {
+				setTimeout(function() { 
+					var img = './images/bike liff.png';//dict_info[all_query.Direction][dict_index].image;
+					var icon = {
+					url: img,
+					scaledSize: new google.maps.Size(80, 80) 
+					};
+					// Create marker
+					var marker = mapObj.addMarker({
+						lat: dict_info[all_query.Direction][dict_index].StopPosition.PositionLat,
+						lng: dict_info[all_query.Direction][dict_index].StopPosition.PositionLon,
+						title: dict_info[all_query.Direction][dict_index].StopName.Zh_tw,
+						icon:icon,
+						infoWindow: {
+							content: dict_info[all_query.Direction][dict_index].StopName.Zh_tw
+						},
+						click: function(e) {
+							//None
+						},
+						animation: google.maps.Animation.DROP
+					});
+					realMarkers.push(marker);
+				}, timeout * 15);
+			})(timeout,dict_index);
+			timeout++;
+		}
+	}
 }
 
-function GetBusInfo(bus_num){
+function GetBusInfo(all_query){
+	// alert(all_query)
 	return new Promise(function(resole,reject){
 		$.ajax({
 			type: 'GET',
-			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus?RouteName='+bus_num+'&City=Taichung',
+			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus?RouteName='+all_query.BusNum+'&City='+all_query.City+'&Direction='+'0',
 			dataType: 'json',
 			success:function(dict_info) {
 				console.log(dict_info)
-				// callback(bus_num,dict_info,initbus);
-				resole({bus_num,dict_info})
+				resole({all_query,dict_info})
 			}
 		})	
 	})
 }
-
-function GetBusPath(bus_num,dict_info){
+function GetBusPath(all_query,dict_info){
 	return new Promise(function(resole,reject){
 		$.ajax({
 			type: 'GET',
-			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus_path?bus_num='+bus_num,
+			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus_path?bus_num='+all_query.BusNum,
 			dataType: 'json',
 			success: function(dict_path) {
-				console.log(dict_path)
-				// callback(bus_num,dict_info,dict_path);
-				resole({bus_num,dict_info,dict_path})
+				// console.log(dict_path)
+				resole({all_query,dict_info,dict_path})
 			}
 		})
 	})
 }
-
-function initbus(bus_num,dict_info,dict_path){
+function initbus(all_query,dict_info,dict_path){
 	// alert(bus_num);
-	// alert(dict_info);
+	// alert(all_query);
 	// alert(dict_path);
 	//init
 	var mapObj = new GMaps({
-		zoom:13,
+		zoom:12,
 		el: "#map",
-		lat: 24.1476340001091,
-		lng: 120.683205999757
+		lat: dict_info[all_query.Direction][Math.floor(dict_info[all_query.Direction].length/4)*3].StopPosition.PositionLat,
+		lng: dict_info[all_query.Direction][Math.floor(dict_info[all_query.Direction].length/4)*3].StopPosition.PositionLon,
 	});
 
 	// //pokemons
@@ -178,33 +229,31 @@ function initbus(bus_num,dict_info,dict_path){
 	// 	}
 
 	var timeout = 1;
-	for (var dict_index in dict_info.Direction1.data) {	
+	for (var dict_index in dict_info[all_query.Direction]) {	
 		// 立即函式(IIFE) Immediately Invoked Function Expression
 		(function(index,dict_index) {
 			setTimeout(function() { 
-				var img = './images/bike liff.png';//dict_info.Direction1.data[dict_index].image;
+				var img = './images/bike liff.png';//dict_info[all_query.Direction][dict_index].image;
 				var icon = {
 				url: img,
 				scaledSize: new google.maps.Size(80, 80) 
 				};
-				
 				// Create marker
-				mapObj.addMarker({
-					lat: dict_info.Direction1.data[dict_index].StopPosition.PositionLat,
-					lng: dict_info.Direction1.data[dict_index].StopPosition.PositionLon,
-					title: dict_info.Direction1.data[dict_index].sent_name1.Zh_tw,
+				var marker = mapObj.addMarker({
+					lat: dict_info[all_query.Direction][dict_index].StopPosition.PositionLat,
+					lng: dict_info[all_query.Direction][dict_index].StopPosition.PositionLon,
+					title: dict_info[all_query.Direction][dict_index].StopName.Zh_tw,
 					icon:icon,
 					infoWindow: {
-						content: 'test'
-						// dict_info.Direction1.data[dict_index].sent_name1.Zh_tw+'<br/>'+'可租借數量：'+dict_info.Direction1.data[dict_index].AvailableRentBikes+'<br/>'+'可歸還數量：'+dict_info.Direction1.data[dict_index].AvailableReturnBikes+'<br/><button onclick="SearchByGoogleMap('+dict_info.Direction1.data[dict_index].StopPosition.PositionLat+','+dict_info.Direction1.data[dict_index].StopPosition.PositionLon+')">帶我去那裡~呱</button>'
+						content: dict_info[all_query.Direction][dict_index].StopName.Zh_tw
 					},
 					click: function(e) {
-						console.log("you click:"+'dict_info.Direction1.data[dict_index].title');
+						//None
 					},
 					animation: google.maps.Animation.DROP
-				});		
-			
-			}, timeout * 100);
+				});
+				realMarkers.push(marker);
+			}, timeout * 15);
 		})(timeout,dict_index);
 		timeout++;
 	}
@@ -216,6 +265,15 @@ function initbus(bus_num,dict_info,dict_path){
 	strokeColor: '#131540',
 	strokeOpacity: 1.0,
 	strokeWeight: 1.5,
+	});
+	var change_action = dict_info[0].length - dict_info[1].length
+	document.getElementById("tab_1").addEventListener("click", function(i){
+		all_query.Direction = 0;
+		refleshMap(all_query,dict_info,dict_info[0].length,mapObj,change_action);
+	});
+	document.getElementById("tab_2").addEventListener("click", function(i){
+		all_query.Direction = 1;
+		refleshMap(all_query,dict_info,dict_info[1].length,mapObj,change_action);
 	});
 		
 }
