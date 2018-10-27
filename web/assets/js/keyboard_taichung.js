@@ -12,7 +12,12 @@ window.onload = function (e) {
           // LIFF initialization failed
           console.log('you must use line')
 		}
-	  );
+      );
+    //   document.getElementById("clear").addEventListener("click", function(i){
+    //     document.getElementById('bus_title').innerHTML = "";
+    //     $('#myTable').empty()
+    // });
+    // GetBusAllNum()
 }
 
 function GetBusAllNum(){
@@ -22,11 +27,12 @@ function GetBusAllNum(){
 		dataType: 'json',
 		success: function(dict) {
             console.log(dict)
+            //1~9的按鍵
 			for(var i=0;i<=9;i++){
                 document.getElementById("num_"+i).addEventListener("click", function(i){
-                    num = event.target.id
-                    old_bus_title = $("#bus_title").text()
-                    new_bus_title = old_bus_title+num.substring(4);
+                    var num = event.target.id
+                    var old_bus_title = $("#bus_title").text()
+                    var new_bus_title = old_bus_title+num.substring(4);
                     //檢查是否有這輛公車
                     (function(){
                         var count = 0;
@@ -83,6 +89,49 @@ function GetBusAllNum(){
                     })(new_bus_title);
                 });
             }
+            //公車專用道按鍵
+            document.getElementById("bus_lane").addEventListener("click", function(i){
+                var bus_title = 300;
+                //添加公車列表至table
+                (function(bus_title){
+                    var count = 0;
+                    var table = document.getElementById("myTable");
+                    for (var i=0; i<=dict.length-1; i++){
+                        var num=parseInt(dict[i].RouteName.Zh_tw.substring(0,3))
+                        if (bus_title<=num && num<=bus_title+10){   
+                            var row = table.insertRow(count);
+                            var cell1 = row.insertCell(0);
+                            var cell2 = row.insertCell(1);
+                            cell1.innerHTML = dict[i].RouteName.Zh_tw;
+                            cell2.innerHTML = dict[i].SubRoutes[0].Headsign;
+                            count = count + 1;
+                            }
+                        document.getElementById('bus_title').innerHTML = '公車專用道';
+                    };
+                    //將table新增點擊功能
+                    var table = document.getElementById("myTable");
+                    if (table != null) {
+                        for (var i = 0; i < table.rows.length; i++) {
+                            table.rows[i].onclick = function () {
+                                var word = $(this).children('td').eq(0).html()
+                                liff.sendMessages([
+                                    {
+                                      type:'text',
+                                      text: word
+                                    }
+                                  ])
+                                  .then(() => {
+                                    console.log('message sent');
+                                    liff.closeWindow();
+                                  })
+                                  .catch((err) => {
+                                    console.log('error', err);
+                                  });
+                            };
+                        }
+                    }
+                })(bus_title);
+            });
 		}
 	});
 }
