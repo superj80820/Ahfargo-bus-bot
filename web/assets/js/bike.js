@@ -14,7 +14,7 @@ window.onload = function (e) {
 function GetBikeInfo(pos,local_pos,callback){
 	$.ajax({
 		type: 'GET',
-		url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus/bike?pos='+pos,
+		url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bike?pos='+pos,
 		dataType: 'json',
 		success: function(dict) {
 			console.log(dict)
