@@ -486,13 +486,19 @@ def bus():
         json_data_pos_all += get_bus_pos(json_data,0,count_half)
         json_data_pos_all += get_bus_pos(json_data,count_half,len(json_data))
         # 避免一次請求參數太常造成問題
-
+        
         for item in json_data_pos_all:
             for item2 in range(0,len(json_data)):
                 if item['StopUID'] == json_data[item2]['StopUID']:
                     json_data[item2]['StopPosition']=item['StopPosition']
         print(json_data)
-        return (json_data)
+        return json_data
+    
+    def get_bus_star_and_end(RouteName):
+        headers=common().RES_HEAD(APPID,APPKey)
+        res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=DepartureStopNameZh,DestinationStopNameZh&$filter=RouteName/Zh_tw eq '%s'&$format=JSON"%(RouteName),headers=headers)
+        json_data=json.loads(res.text)
+        return json_data
 
     RouteName=request.args.get('RouteName')
     City=request.args.get('City')
@@ -500,6 +506,7 @@ def bus():
     ret=[]
     ret += [get_all_bus('0', City, RouteName)]
     ret += [get_all_bus('1', City, RouteName)]
+    ret += [get_bus_star_and_end(RouteName)]
 
     return jsonify(ret)
         
