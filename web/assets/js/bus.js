@@ -1,4 +1,4 @@
-realMarkers = [];
+﻿realMarkers = [];
 
 window.onload = function (e) {
 	// liff.init(
