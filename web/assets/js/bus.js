@@ -113,6 +113,7 @@ function GetBusInfo(all_query){
 							var cell1 = row.insertCell(0);
 							var cell2 = row.insertCell(1);
 							var cell3 = row.insertCell(2);
+							row.id = "bus_list_"+i
 							cell1.innerHTML = parseInt(dict_info[list_index][i].EstimateTime)/60 + '分';
 							if (dict_info[list_index][i].EstimateTime == undefined){
 								if (cell1.innerHTML = dict_info[list_index][i].NextBusTime == undefined){
@@ -141,6 +142,9 @@ function GetBusInfo(all_query){
 								}
 							}
 							cell2.innerHTML = dict_info[list_index][i].StopName.Zh_tw;
+							cell1.className = 'bus_time'
+							cell2.className = 'bus_name'
+							cell3.className = 'bus_num'
 						};
 						//將table新增點擊功能
 						if (table != null) {
@@ -344,7 +348,11 @@ function initbus(all_query,dict_info,dict_path){
 						content: dict_info[all_query.Direction][dict_index].StopName.Zh_tw
 					},
 					click: function(e) {
-						//None
+						// alert(event.target.id)
+						var $objTr = $("#bus_list_"+dict_index); //找到要定位的地方  tr 
+						// $objTr.css("background-color","lightgray"); //设置要定位地方的css 
+						var objTr = $objTr[0]; //转化为dom对象 
+						$("#Goto").animate({scrollTop:objTr.offsetTop},"slow"); //定位tr 
 					},
 					animation: google.maps.Animation.DROP
 				});
