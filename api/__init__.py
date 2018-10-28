@@ -67,84 +67,78 @@ def handle_follow(event):
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    try:
-        int(event.message.text)
-        sent_is_what=True
-    except ValueError as e1:
-        sent_is_what=False
-    
-    if sent_is_what==True:
-        bus_id=event.message.text
-        print(bus_id)
+    def sent_user(BusNum):
+        flex={
+            "type":"flex",
+            "altText":"This is a Flex Message",
+            "contents":{
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "https://images.clipartlogo.com/files/istock/previews/8976/89765575-duck-icon-farm-animal-vector-illustration.jpg",
+                    "size": "full",
+                    "aspectRatio": "20:13",
+                    "aspectMode": "cover",
+                    "action": {
+                    "type": "uri",
+                    "uri": "http://linecorp.com/"
+                    }
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "請點選觀看動態~",
+                            "weight": "bold",
+                            "size": "xl"
+                            }
+                        ]
+                    },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "xs",
+                    "contents": [
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                "type": "button",
+                                "style": "link",
+                                "height": "sm",
+                                "gravity": "center",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "點我~~呱呱",
+                                    "uri": "line://app/1615663243-gkN06e02?BusNum=%s&City=%s&Direction=0" %(BusNum, 'Taichung')
+                                },
+                                "flex": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "flex": 0
+                }
+            }
+        }
+        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+        payload = {
+            'replyToken':event.reply_token,
+            'messages':[flex]
+            }
+        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
 
-        headers=common().RES_HEAD(APPID,APPKey)
-
-        res=requests.get('http://ptx.transportdata.tw/MOTC/v2/Bus/EstimatedTimeOfArrival/City/Taichung/'+bus_id+'?$format=JSON',headers=headers)
-        json_data=json.loads(res.text)
-        #print(json_data)
-        res_pos=requests.get('http://ptx.transportdata.tw/MOTC/v2/Bus/RealTimeByFrequency/City/Taichung/'+bus_id+'?$format=JSON',headers=headers)
-        json_data_pos=json.loads(res_pos.text)
-        #print(json_data_pos)
-
-        sent_dict1=[]
-        sent_dict2=[]
-        sent_ans1=''
-        sent_ans2=''
-        format = '%Y-%m-%dT%H:%M:%S+08:00'
-        localtime=time.strftime("%Y-%m-%dT%H:%M:%S+08:00", time.localtime())
-
-        for item in json_data:
-            if item['Direction']==0 and str(item['RouteID'])==bus_id:
-                try:
-                    #NextBusTime=datetime.datetime.strptime(item['NextBusTime'], format)-datetime.datetime.strptime(localtime, format)
-                    #NextBusTime=str(NextBusTime)
-                    if item['EstimateTime']>180:
-                        EstimateTime=item['EstimateTime']/60
-                    elif item['EstimateTime']>=0:
-                        EstimateTime='即將進站'
-                    elif item['EstimateTime']==-3:
-                        EstimateTime='離駛'
-                    else:
-                        EstimateTime='未發'
-                    sent_dict1+=[{'sent_name1':item['StopName']['Zh_tw'],'sent_id1':item['StopSequence'],'sent_time1':EstimateTime}]
-                except KeyError as e1:
-                    sent_dict1+=[{'sent_name1':item['StopName']['Zh_tw'],'sent_id1':item['StopSequence'],'sent_time1':'尚未發車'}]
-            if item['Direction']==1 and str(item['RouteID'])==bus_id:
-                try:
-                    #NextBusTime=datetime.datetime.strptime(item['NextBusTime'], format)-datetime.datetime.strptime(localtime, format)
-                    #NextBusTime=str(NextBusTime)
-                    if item['EstimateTime']>180:
-                        EstimateTime=item['EstimateTime']/60
-                    elif item['EstimateTime']>=0:
-                        EstimateTime='即將進站'
-                    elif item['EstimateTime']==-3:
-                        EstimateTime='離駛'
-                    else:
-                        EstimateTime='未發'
-                    sent_dict2+=[{'sent_name2':item['StopName']['Zh_tw'],'sent_id2':item['StopSequence'],'sent_time2':EstimateTime}]
-                except KeyError as e1:
-                    sent_dict2+=[{'sent_name2':item['StopName']['Zh_tw'],'sent_id2':item['StopSequence'],'sent_time2':'尚未發車'}]
-
-        sent_dict1.sort(key=lambda d:d['sent_id1']) 
-        sent_dict2.sort(key=lambda d:d['sent_id2'])  
-
-        for item in sent_dict1:
-            sent_ans1+=str(item['sent_id1'])+'.'+item['sent_name1']+' '+str(item['sent_time1'])+'\n'
-        for item in sent_dict2:
-            sent_ans2+=str(item['sent_id2'])+'.'+item['sent_name2']+' '+str(item['sent_time2'])+'\n'
-        sent_ans1=sent_ans1[0:len(sent_ans1)-1]
-        sent_ans2=sent_ans2[0:len(sent_ans2)-1]    
-        
-        if sent_dict1==[] or sent_dict2==[]:
-            line_bot_api.reply_message(
-                event.reply_token,[TextSendMessage(text='沒有這台公車呱')])
-        else:
-            line_bot_api.reply_message(
-                event.reply_token,[TextSendMessage(text='往'+sent_dict1[len(sent_dict1)-1]['sent_name1']+'：\n'+sent_ans1),
-                                   TextSendMessage(text='往'+sent_dict2[len(sent_dict2)-1]['sent_name2']+'：\n'+sent_ans2)])
-                                   #刪除PM2.5功能TextSendMessage(text=DUST2_5_IS_WHAT(json_data_pos))
+    with open("{}res/route.json".format(FileRoute),'rb') as f:
+        data = json.load(f)
+    for item in data:
+        if event.message.text==item['RouteName']['Zh_tw']:
+            sent_user(event.message.text)
+            break
             
-    elif event.message.text=='使用方法':
+    if event.message.text=='使用方法':
         line_bot_api.reply_message(
             event.reply_token,TextSendMessage(text='請直接輸入公車號即可查詢呱!'))
     
@@ -512,42 +506,84 @@ def bus():
         
 @app.route('/bus_path', methods=['GET'])
 def bus_path():
+    def getPathL(point):
+        ret={}
+        new_ret={}
+
+        ret['Geometry0']=json_data[0]['Geometry']
+        ret['Geometry0'] = ret['Geometry0'][point:len(ret['Geometry0'])-1]
+        ret['Geometry0'] = ret['Geometry0'].split(",")
+        new_ret['Geometry0']=[]
+        for item in range(0,len(ret['Geometry0'])):
+            for item2 in range(0,len(ret['Geometry0'][item].split(" "))):
+                if item2 == 0:
+                    lon = float(ret['Geometry0'][item].split(" ")[item2])
+                elif item2 == 1:
+                    lat = float(ret['Geometry0'][item].split(" ")[item2])
+            new_ret['Geometry0'] += [[lat,lon]]
+        print(new_ret['Geometry0'])
+
+        if len(json_data)==2:
+            ret['Geometry1']=json_data[1]['Geometry']
+            ret['Geometry1'] = ret['Geometry1'][point:len(ret['Geometry1'])-1]
+            ret['Geometry1'] = ret['Geometry1'].split(",")
+            new_ret['Geometry1']=[]
+            for item in range(0,len(ret['Geometry1'])):
+                for item2 in range(0,len(ret['Geometry1'][item].split(" "))):
+                    if item2 == 0:
+                        lon = float(ret['Geometry1'][item].split(" ")[item2])
+                    elif item2 == 1:
+                        lat = float(ret['Geometry1'][item].split(" ")[item2])
+                new_ret['Geometry1'] += [[lat,lon]]
+            print(new_ret['Geometry1'])
+        return new_ret
+
+    def getPathM(point):
+        ret={}
+        new_ret={}
+
+        ret['Geometry0']=json_data[0]['Geometry']
+        ret['Geometry0'] = ret['Geometry0'][point:len(ret['Geometry0'])-1].replace('(','').replace(')','')
+        ret['Geometry0'] = ret['Geometry0'].split(",")
+        new_ret['Geometry0']=[]
+        for item in range(0,len(ret['Geometry0'])):
+            for item2 in range(0,len(ret['Geometry0'][item].split(" "))):
+                if item2 == 0:
+                    lon = float(ret['Geometry0'][item].split(" ")[item2])
+                elif item2 == 1:
+                    lat = float(ret['Geometry0'][item].split(" ")[item2])
+            new_ret['Geometry0'] += [[lat,lon]]
+        print(new_ret['Geometry0'])
+
+        if len(json_data)==2:
+            ret['Geometry1']=json_data[1]['Geometry']
+            ret['Geometry1'] = ret['Geometry1'][point:len(ret['Geometry1'])-1].replace('(','').replace(')','')
+            ret['Geometry1'] = ret['Geometry1'].split(",")
+            new_ret['Geometry1']=[]
+            for item in range(0,len(ret['Geometry1'])):
+                for item2 in range(0,len(ret['Geometry1'][item].split(" "))):
+                    if item2 == 0:
+                        lon = float(ret['Geometry1'][item].split(" ")[item2])
+                    elif item2 == 1:
+                        lat = float(ret['Geometry1'][item].split(" ")[item2])
+                new_ret['Geometry1'] += [[lat,lon]]
+            print(new_ret['Geometry1'])
+        return new_ret
+
     bus_name=request.args.get('bus_name')
     headers=common().RES_HEAD(APPID,APPKey)
     res=requests.get("http://ptx.transportdata.tw/MOTC/v2/Bus/Shape/City/Taichung?$filter=RouteName/Zh_tw eq '%s'&$orderby=Direction asc&$format=JSON"%(bus_name),headers=headers)
     json_data=json.loads(res.text)
+    
     print(json_data)
 
-    ret={}
-    new_ret={}
+    
 
-    ret['Geometry0']=json_data[0]['Geometry']
-    ret['Geometry0'] = ret['Geometry0'][11:len(ret['Geometry0'])-1]
-    ret['Geometry0'] = ret['Geometry0'].split(",")
-    new_ret['Geometry0']=[]
-    for item in range(0,len(ret['Geometry0'])):
-        for item2 in range(0,len(ret['Geometry0'][item].split(" "))):
-            if item2 == 0:
-                lon = float(ret['Geometry0'][item].split(" ")[item2])
-            elif item2 == 1:
-                lat = float(ret['Geometry0'][item].split(" ")[item2])
-        new_ret['Geometry0'] += [[lat,lon]]
-    print(new_ret['Geometry0'])
-
-    if len(json_data)==2:
-        ret['Geometry1']=json_data[1]['Geometry']
-        ret['Geometry1'] = ret['Geometry1'][11:len(ret['Geometry1'])-1]
-        ret['Geometry1'] = ret['Geometry1'].split(",")
-        new_ret['Geometry1']=[]
-        for item in range(0,len(ret['Geometry1'])):
-            for item2 in range(0,len(ret['Geometry1'][item].split(" "))):
-                if item2 == 0:
-                    lon = float(ret['Geometry1'][item].split(" ")[item2])
-                elif item2 == 1:
-                    lat = float(ret['Geometry1'][item].split(" ")[item2])
-            new_ret['Geometry1'] += [[lat,lon]]
-        print(new_ret['Geometry1'])
-
+    if json_data[0]['Geometry'][0]=='L':
+        new_ret = getPathL(11)
+    elif json_data[0]['Geometry'][0]=='M':
+        new_ret = getPathM(17)
+    
     return jsonify(new_ret)
 
 @app.route('/bus_all_num', methods=['GET'])
