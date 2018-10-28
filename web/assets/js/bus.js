@@ -78,7 +78,7 @@ function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 						click: function(e) {
 							//None
 						},
-						animation: google.maps.Animation.DROP
+						// animation: google.maps.Animation.DROP
 					});
 					realMarkers.push(marker);
 				}, timeout * 15);
@@ -97,9 +97,24 @@ function GetBusInfo(all_query){
 			dataType: 'json',
 			success:function(dict_info) {
 				// document.getElementById("tab_1").innerText = 'Show filter';
-				console.log(dict_info[0].length)
-				$('#busList1').empty()
-				$('#busList2').empty()
+				console.log(dict_info[0].length);
+				$('#busList1').empty();
+				$('#busList2').empty();
+				//解決title大小的函式子
+				// (function(){
+				// 	var name_difference=''
+				// 	var name_difference_length = Math.abs(dict_info[2][0].DestinationStopNameZh.length-dict_info[2][0].DepartureStopNameZh.length)
+				// 	for (var i=0;i<=name_difference_length;i++){
+				// 		name_difference+="\n";
+				// 	}
+				// 	if (dict_info[2][0].DestinationStopNameZh.length<dict_info[2][0].DepartureStopNameZh.length){
+				// 		document.getElementById("tab_1").innerText = dict_info[2][0].DestinationStopNameZh+name_difference;
+				// 		document.getElementById("tab_2").innerText = dict_info[2][0].DepartureStopNameZh;
+				// 	}else{
+				// 		document.getElementById("tab_1").innerText = dict_info[2][0].DestinationStopNameZh;
+				// 		document.getElementById("tab_2").innerText = dict_info[2][0].DepartureStopNameZh+name_difference;
+				// 	}
+				// })();
 				document.getElementById("tab_1").innerText = dict_info[2][0].DestinationStopNameZh;
 				document.getElementById("tab_2").innerText = dict_info[2][0].DepartureStopNameZh;
 				(function(dict_info){
@@ -124,8 +139,8 @@ function GetBusInfo(all_query){
 									cell3.innerHTML = "";
 								}
 							}else{
-								if (parseInt(dict_info[list_index][i].EstimateTime)<=240){
-									if (parseInt(dict_info[list_index][i].EstimateTime)<=60){
+								if (0<=parseInt(dict_info[list_index][i].EstimateTime) && parseInt(dict_info[list_index][i].EstimateTime)<=240){
+									if (0<=parseInt(dict_info[list_index][i].EstimateTime) && parseInt(dict_info[list_index][i].EstimateTime)<=60){
 										cell1.innerHTML = "進站中";
 										if (dict_info[list_index][i-1].PlateNumb != dict_info[list_index][i].PlateNumb){
 											cell3.innerHTML = dict_info[list_index][i].PlateNumb;
@@ -136,6 +151,10 @@ function GetBusInfo(all_query){
 											cell3.innerHTML = dict_info[list_index][i].PlateNumb;
 										}
 									}
+								}
+								else if(parseInt(dict_info[list_index][i].EstimateTime<0)){
+									cell1.innerHTML = "離駛";
+									cell3.innerHTML = "";
 								}else{
 									cell1.innerHTML = parseInt(dict_info[list_index][i].EstimateTime)/60 + '分';
 									cell3.innerHTML = "";
@@ -354,7 +373,7 @@ function initbus(all_query,dict_info,dict_path){
 						var objTr = $objTr[0]; //转化为dom对象 
 						$("#Goto").animate({scrollTop:objTr.offsetTop},"slow"); //定位tr 
 					},
-					animation: google.maps.Animation.DROP
+					// animation: google.maps.Animation.DROP
 				});
 				realMarkers.push(marker);
 			}, timeout * 15);
@@ -370,7 +389,7 @@ function initbus(all_query,dict_info,dict_path){
 	strokeOpacity: 1.0,
 	strokeWeight: 1.5,
 	});
-	var change_action = dict_info[0].length - dict_info[1].length
+	var change_action = Math.abs(dict_info[0].length - dict_info[1].length)
 	document.getElementById("tab_1").addEventListener("click", function(i){
 		all_query.Direction = 0;
 		refleshMap(all_query,dict_info,dict_info[0].length,mapObj,change_action);

@@ -506,42 +506,84 @@ def bus():
         
 @app.route('/bus_path', methods=['GET'])
 def bus_path():
+    def getPathL(point):
+        ret={}
+        new_ret={}
+
+        ret['Geometry0']=json_data[0]['Geometry']
+        ret['Geometry0'] = ret['Geometry0'][point:len(ret['Geometry0'])-1]
+        ret['Geometry0'] = ret['Geometry0'].split(",")
+        new_ret['Geometry0']=[]
+        for item in range(0,len(ret['Geometry0'])):
+            for item2 in range(0,len(ret['Geometry0'][item].split(" "))):
+                if item2 == 0:
+                    lon = float(ret['Geometry0'][item].split(" ")[item2])
+                elif item2 == 1:
+                    lat = float(ret['Geometry0'][item].split(" ")[item2])
+            new_ret['Geometry0'] += [[lat,lon]]
+        print(new_ret['Geometry0'])
+
+        if len(json_data)==2:
+            ret['Geometry1']=json_data[1]['Geometry']
+            ret['Geometry1'] = ret['Geometry1'][point:len(ret['Geometry1'])-1]
+            ret['Geometry1'] = ret['Geometry1'].split(",")
+            new_ret['Geometry1']=[]
+            for item in range(0,len(ret['Geometry1'])):
+                for item2 in range(0,len(ret['Geometry1'][item].split(" "))):
+                    if item2 == 0:
+                        lon = float(ret['Geometry1'][item].split(" ")[item2])
+                    elif item2 == 1:
+                        lat = float(ret['Geometry1'][item].split(" ")[item2])
+                new_ret['Geometry1'] += [[lat,lon]]
+            print(new_ret['Geometry1'])
+        return new_ret
+
+    def getPathM(point):
+        ret={}
+        new_ret={}
+
+        ret['Geometry0']=json_data[0]['Geometry']
+        ret['Geometry0'] = ret['Geometry0'][point:len(ret['Geometry0'])-1].replace('(','').replace(')','')
+        ret['Geometry0'] = ret['Geometry0'].split(",")
+        new_ret['Geometry0']=[]
+        for item in range(0,len(ret['Geometry0'])):
+            for item2 in range(0,len(ret['Geometry0'][item].split(" "))):
+                if item2 == 0:
+                    lon = float(ret['Geometry0'][item].split(" ")[item2])
+                elif item2 == 1:
+                    lat = float(ret['Geometry0'][item].split(" ")[item2])
+            new_ret['Geometry0'] += [[lat,lon]]
+        print(new_ret['Geometry0'])
+
+        if len(json_data)==2:
+            ret['Geometry1']=json_data[1]['Geometry']
+            ret['Geometry1'] = ret['Geometry1'][point:len(ret['Geometry1'])-1].replace('(','').replace(')','')
+            ret['Geometry1'] = ret['Geometry1'].split(",")
+            new_ret['Geometry1']=[]
+            for item in range(0,len(ret['Geometry1'])):
+                for item2 in range(0,len(ret['Geometry1'][item].split(" "))):
+                    if item2 == 0:
+                        lon = float(ret['Geometry1'][item].split(" ")[item2])
+                    elif item2 == 1:
+                        lat = float(ret['Geometry1'][item].split(" ")[item2])
+                new_ret['Geometry1'] += [[lat,lon]]
+            print(new_ret['Geometry1'])
+        return new_ret
+
     bus_name=request.args.get('bus_name')
     headers=common().RES_HEAD(APPID,APPKey)
     res=requests.get("http://ptx.transportdata.tw/MOTC/v2/Bus/Shape/City/Taichung?$filter=RouteName/Zh_tw eq '%s'&$orderby=Direction asc&$format=JSON"%(bus_name),headers=headers)
     json_data=json.loads(res.text)
+    
     print(json_data)
 
-    ret={}
-    new_ret={}
+    
 
-    ret['Geometry0']=json_data[0]['Geometry']
-    ret['Geometry0'] = ret['Geometry0'][11:len(ret['Geometry0'])-1]
-    ret['Geometry0'] = ret['Geometry0'].split(",")
-    new_ret['Geometry0']=[]
-    for item in range(0,len(ret['Geometry0'])):
-        for item2 in range(0,len(ret['Geometry0'][item].split(" "))):
-            if item2 == 0:
-                lon = float(ret['Geometry0'][item].split(" ")[item2])
-            elif item2 == 1:
-                lat = float(ret['Geometry0'][item].split(" ")[item2])
-        new_ret['Geometry0'] += [[lat,lon]]
-    print(new_ret['Geometry0'])
-
-    if len(json_data)==2:
-        ret['Geometry1']=json_data[1]['Geometry']
-        ret['Geometry1'] = ret['Geometry1'][11:len(ret['Geometry1'])-1]
-        ret['Geometry1'] = ret['Geometry1'].split(",")
-        new_ret['Geometry1']=[]
-        for item in range(0,len(ret['Geometry1'])):
-            for item2 in range(0,len(ret['Geometry1'][item].split(" "))):
-                if item2 == 0:
-                    lon = float(ret['Geometry1'][item].split(" ")[item2])
-                elif item2 == 1:
-                    lat = float(ret['Geometry1'][item].split(" ")[item2])
-            new_ret['Geometry1'] += [[lat,lon]]
-        print(new_ret['Geometry1'])
-
+    if json_data[0]['Geometry'][0]=='L':
+        new_ret = getPathL(11)
+    elif json_data[0]['Geometry'][0]=='M':
+        new_ret = getPathM(17)
+    
     return jsonify(new_ret)
 
 @app.route('/bus_all_num', methods=['GET'])
