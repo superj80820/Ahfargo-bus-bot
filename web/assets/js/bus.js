@@ -78,7 +78,7 @@ function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 						click: function(e) {
 							//None
 						},
-						animation: google.maps.Animation.DROP
+						// animation: google.maps.Animation.DROP
 					});
 					realMarkers.push(marker);
 				}, timeout * 15);
@@ -389,7 +389,7 @@ function initbus(all_query,dict_info,dict_path){
 	strokeOpacity: 1.0,
 	strokeWeight: 1.5,
 	});
-	var change_action = dict_info[0].length - dict_info[1].length
+	var change_action = Math.abs(dict_info[0].length - dict_info[1].length)
 	document.getElementById("tab_1").addEventListener("click", function(i){
 		all_query.Direction = 0;
 		refleshMap(all_query,dict_info,dict_info[0].length,mapObj,change_action);
