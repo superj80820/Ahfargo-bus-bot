@@ -37,9 +37,9 @@
     </style>
   </head>
   <body>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d58244.01030669064!2d120.62968331928614!3d24.16294100939312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zNzXot6_lhazou4o!5e0!3m2!1sen!2stw!4v1539429050326" width=100% height=34% frameborder="0" style="border:0" allowfullscreen></iframe>
-    <button class="tablink" onclick="openPage('Goto', this, '#6F73D2')" id="defaultOpen">往一江橋</button>
-    <button class="tablink" onclick="openPage('Goback', this, '#6F73D2')">往台中榮總</button>
+    <div id="map" style="height: 34%"></div>
+    <button id='tab_1' class="tablink" onclick="openPage('Goto', this, '#6F73D2')">往一江橋</button>
+    <button id='tab_2' class="tablink" onclick="openPage('Goback', this, '#6F73D2')">往台中榮總</button>
     <div id="Goto" class="tabcontent">
       <table>
         <tbody>
@@ -863,22 +863,16 @@
       </table>
     </div>
 
-    <script>
-      function openPage(pageName,elmnt,color) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-          }
-        tablinks = document.getElementsByClassName("tablink");
-          for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].style.backgroundColor = "";
-          }
-        document.getElementById(pageName).style.display = "block";
-        elmnt.style.backgroundColor = color;
-      }
-      // Get the element with id="defaultOpen" and click on it
-      document.getElementById("defaultOpen").click();
-    </script>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/lib.js"></script>
+    <script src="https://hpneo.github.io/gmaps/gmaps.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA"></script>
+    <script src="assets/js/bus.js"></script>
+    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
   </body>
 </html>
