@@ -24,22 +24,30 @@
                 font-size: 1.5em;
             }
             .preview {
-                width: 100%;
-                height: 56%;
-                display: -webkit-flex;
-                -webkit-align-items: center;
-                -webkit-flex-wrap: wrap;
-                display: flex;
                 align-items: center;
+                display: flex;
+                height: 56%;
+                width: 100%;
             }
             .preview > div {
                 background-color: #176592;
-                color:#ffffff;
+                color:white;
+                line-height: 4em;
+                padding: 0.2em 2em;
                 width: 100%;
-                text-align: center;
-                line-height: 10vh;
+            }
+            .bus_num {   
                 font-family:Microsoft JhengHei;
+                width: 40%;
                 font-size: 2em;
+            }
+            .bus_name {
+                font-family:Microsoft JhengHei;
+                font-size: 1.2em;
+                    position: relative;
+                    top: 25px;
+                    left: -132px;
+                    width: 500px;
             }
             .keyboard {
                 -webkit-flex-wrap: wrap;
@@ -59,12 +67,13 @@
     </head>
     <body>
         <center class="search">
-            <h1 class="button special icon fa-search">&emsp;搜尋：</h1>
+            &emsp;<img src="images/search_icon.png" alt="" / style="width: 3em">&emsp;&emsp;
             <h1 id='bus_title'></h1>
         </center>
         <div class="preview">
             <div style="overflow:scroll; height: 95%;">
-                <table id='myTable'></table>
+                <table id='myTable'>
+                </table>
             </div>
         </div>
         <div class="keyboard">
