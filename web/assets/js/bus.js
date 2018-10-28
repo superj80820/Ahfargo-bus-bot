@@ -93,10 +93,74 @@ function GetBusInfo(all_query){
 	return new Promise(function(resole,reject){
 		$.ajax({
 			type: 'GET',
-			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus?RouteName='+all_query.BusNum+'&City='+all_query.City+'&Direction='+'0',
+			url: 'http://127.0.0.1:5000/bus?RouteName='+all_query.BusNum+'&City='+all_query.City+'&Direction='+'0',
 			dataType: 'json',
 			success:function(dict_info) {
-				console.log(dict_info)
+				// document.getElementById("tab_1").innerText = 'Show filter';
+				document.getElementById("tab_1").innerText = dict_info[2][0].DestinationStopNameZh;
+				document.getElementById("tab_2").innerText = dict_info[2][0].DepartureStopNameZh;
+				(function(dict_info){
+					// console.log(dict_info)
+					var count = 0;
+					var table1 = document.getElementById("busList1");
+					var table2 = document.getElementById("busList2");
+					var create_list = function(dict_info,list_index,table){
+						for (var i=dict_info[list_index].length-1; i>=0; i--){
+							var row = table.insertRow(count);
+							var cell1 = row.insertCell(0);
+							var cell2 = row.insertCell(1);
+							var cell3 = row.insertCell(2);
+							cell1.innerHTML = parseInt(dict_info[list_index][i].EstimateTime)/60 + '分';
+							if (dict_info[list_index][i].EstimateTime == undefined){
+								if (cell1.innerHTML = dict_info[list_index][i].NextBusTime == undefined){
+									cell1.innerHTML = "離駛"
+									cell3.innerHTML = "";
+								}else{
+									cell1.innerHTML = dict_info[list_index][i].NextBusTime.substr(11,5);
+									cell3.innerHTML = "";
+								}
+							}else{
+								if (parseInt(dict_info[list_index][i].EstimateTime)<=240){
+									if (parseInt(dict_info[list_index][i].EstimateTime)<=60){
+										cell1.innerHTML = "進站中";
+										cell3.innerHTML = dict_info[list_index][i].PlateNumb;
+									}else{
+										cell1.innerHTML = "即將進站";
+										cell3.innerHTML = dict_info[list_index][i].PlateNumb;
+									}
+								}else{
+									cell1.innerHTML = parseInt(dict_info[list_index][i].EstimateTime)/60 + '分';
+									cell3.innerHTML = "";
+								}
+							}
+							cell2.innerHTML = dict_info[list_index][i].StopName.Zh_tw;
+						};
+					}
+					create_list(dict_info,0,table1)
+					create_list(dict_info,1,table2)
+					// //將table新增點擊功能
+					// var table = document.getElementById("myTable");
+					// if (table != null) {
+					// 	for (var i = 0; i < table.rows.length; i++) {
+					// 		table.rows[i].onclick = function () {
+					// 			var word = $(this).children('td').eq(0).html()
+					// 			liff.sendMessages([
+					// 				{
+					// 				  type:'text',
+					// 				  text: word
+					// 				}
+					// 			  ])
+					// 			  .then(() => {
+					// 				console.log('message sent');
+					// 				liff.closeWindow();
+					// 			  })
+					// 			  .catch((err) => {
+					// 				console.log('error', err);
+					// 			  });
+					// 		};
+					// 	}
+					// }
+				})(dict_info);
 				resole({all_query,dict_info})
 			}
 		})	
@@ -106,7 +170,7 @@ function GetBusPath(all_query,dict_info){
 	return new Promise(function(resole,reject){
 		$.ajax({
 			type: 'GET',
-			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus_path?bus_num='+all_query.BusNum,
+			url: 'http://127.0.0.1:5000/bus_path?bus_name='+all_query.BusNum,
 			dataType: 'json',
 			success: function(dict_path) {
 				// console.log(dict_path)
@@ -120,11 +184,15 @@ function initbus(all_query,dict_info,dict_path){
 	// alert(all_query);
 	// alert(dict_path);
 	//init
+	var loc1 = dict_info[all_query.Direction][dict_info[all_query.Direction].length-1].StopPosition
+	var loc2 = dict_info[all_query.Direction][0].StopPosition
+	var	camera = getLocationCenter(loc1,loc2)
 	var mapObj = new GMaps({
 		zoom:12,
+		disableDefaultUI: true,
 		el: "#map",
-		lat: dict_info[all_query.Direction][Math.floor(dict_info[all_query.Direction].length/4)*3].StopPosition.PositionLat,
-		lng: dict_info[all_query.Direction][Math.floor(dict_info[all_query.Direction].length/4)*3].StopPosition.PositionLon,
+		lat: camera.lat,
+		lng: camera.lon
 	});
 
 	// //pokemons

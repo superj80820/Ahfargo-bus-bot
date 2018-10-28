@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>75 路公車 台中榮總 - 一江橋</title>
+    <title>公車動態</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       * {box-sizing: border-box}
@@ -38,11 +38,11 @@
   </head>
   <body>
     <div id="map" style="height: 34%"></div>
-    <button id='tab_1' class="tablink" onclick="openPage('Goto', this, '#6F73D2')">往一江橋</button>
-    <button id='tab_2' class="tablink" onclick="openPage('Goback', this, '#6F73D2')">往台中榮總</button>
+    <button id='tab_1' class="tablink" onclick="openPage('Goto', this, '#6F73D2')">　</button>
+    <button id='tab_2' class="tablink" onclick="openPage('Goback', this, '#6F73D2')">　</button>
     <div id="Goto" class="tabcontent">
-      <table>
-        <tbody>
+      <table id='busList1'>
+        <!-- <tbody>
           <tr>
             <td>未發車</td>
             <td>榮總宿舍</td>
@@ -448,12 +448,12 @@
             <td>一江橋</td>
             <td></td>
           </tr>
-        </tbody>
+        </tbody> -->
       </table>
     </div>
     <div id="Goback" class="tabcontent" style="display: none;">
-      <table>
-        <tbody>
+      <table id="busList2">
+        <!-- <tbody>
           <tr>
             <td>9分</td>
             <td>一江橋</td>
@@ -859,7 +859,7 @@
             <td>榮總宿舍</td>
             <td></td>
           </tr>
-        </tbody>
+        </tbody> -->
       </table>
     </div>
 
