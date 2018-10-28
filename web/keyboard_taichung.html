@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8"/>
+        <title>快速查詢</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+            * {box-sizing: border-box}
+            /* Set height of body and the document to 100% */
+            body, html {
+                background-color: #4790ff; 
+                font-family: Arial;
+                height: 98%;
+                margin: 1;
+            }
             .search {
                 width: 100%;
-                height: 5vh;
+                height: 5%;
+                /*background-color: black; */
                 display: -webkit-flex;
                 -webkit-align-items: center;
                 -webkit-flex-wrap: wrap;
                 display: flex;
                 align-items: center;
             }
-            .search > div {
+            .search > h1 {
                 color: #f1f1f1;
-                text-align: center;
-                line-height: 5vh;
-                font-size: 0.6em;
+                font-family:Microsoft JhengHei;
+                font-size: 0.8em;
             }
             .preview {
                 width: 100%;
-                height: 50vh;
+                height: 50%;
                 display: -webkit-flex;
                 -webkit-align-items: center;
                 -webkit-flex-wrap: wrap;
@@ -33,11 +42,12 @@
                 width: 100%;
                 text-align: center;
                 line-height: 10vh;
+                font-family:Microsoft JhengHei;
                 font-size: 2em;
             }
             .keyboard {
                 width: 100%;
-                height: 40vh;
+                height: 40%;
                 display: -webkit-flex;
                 -webkit-align-items: center;
                 -webkit-flex-wrap: wrap;
@@ -46,48 +56,45 @@
             }
             .keyboard > div {
                 background-color: #f1f1f1;
-                width: 20%;
+                width: 33.3%;
                 text-align: center;
                 line-height: 5vh;
+                font-family:Microsoft JhengHei;
                 font-size: 0.7em;
             }
         </style>
     </head>
-    <body style="background-color: #4790ff;">
-        <div class="search">
-            <div><h1 id='bus_title'></h1></div>
-        </div>
+    <body>
+        <center class="search">
+            <div>
+                <h1 id='bus_title'></h1>
+            </div>
+        </center>
         <div class="preview">
-                <div style="overflow:scroll; height: 48vh;">
-                    <table id='myTable'>
-                        
-                    </table>
-                </div>
+            <div style="overflow:scroll; height: 48vh;">
+                <table id='myTable'>
+
+                </table>
+            </div>
         </div>
         <div class="keyboard">
-            <div><h1>紅</h1></div>
-            <div><h1>藍</h1></div>
             <div><h1 id='num_1'>1</h1></div>
             <div><h1 id='num_2'>2</h1></div>
             <div><h1 id='num_3'>3</h1></div>
-            <div><h1>綠</h1></div>
-            <div><h1>棕</h1></div>
             <div><h1 id='num_4'>4</h1></div>
             <div><h1 id='num_5'>5</h1></div>
             <div><h1 id='num_6'>6</h1></div>
-            <div><h1>橘</h1></div>
-            <div><h1>小</h1></div>
             <div><h1 id='num_7'>7</h1></div>
             <div><h1 id='num_8'>8</h1></div>
             <div><h1 id='num_9'>9</h1></div>
-            <div><h1>幹線</h1></div>
             <div><h1 id='bus_lane'>專用道</h1></div>
-            <div><h1>F</h1></div>
             <div><h1 id='num_0'>0</h1></div>
             <div><h1 id='clear'>清除</h1></div>
         </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/keyboard_taichung.js"></script>
-    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/keyboard_taichung.js"></script>
+        <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     </body>
 </html>
