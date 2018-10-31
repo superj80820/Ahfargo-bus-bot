@@ -506,7 +506,7 @@ def bus():
         
 @app.route('/bus_path', methods=['GET'])
 def bus_path():
-    def getPathL(point):
+    def getPathL(point, json_data):
         ret={}
         new_ret={}
 
@@ -538,11 +538,23 @@ def bus_path():
             print(new_ret['Geometry1'])
         return new_ret
 
-    def getPathM(point):
+    def getPathM(point, json_data):
+        data_all = json_data[0]['Geometry']
+        data_star = data_all[0:data_all.find('),')]
+        data_end = data_all[data_all.find('),'):len(data_all)]
+        data_dict = pathMFunction(point, data_star)
+        data_temp = pathMFunction(3, data_end)
+        data_temp["Geometry0"].reverse()
+        data_temp["Geometry1"].reverse()
+        data_dict["Geometry0"] += data_temp["Geometry0"]
+        data_dict["Geometry1"] += data_temp["Geometry1"]
+        return data_dict
+
+    def pathMFunction(point, data):
         ret={}
         new_ret={}
 
-        ret['Geometry0']=json_data[0]['Geometry']
+        ret['Geometry0'] = data
         ret['Geometry0'] = ret['Geometry0'][point:len(ret['Geometry0'])-1].replace('(','').replace(')','')
         ret['Geometry0'] = ret['Geometry0'].split(",")
         new_ret['Geometry0']=[]
@@ -556,7 +568,7 @@ def bus_path():
         print(new_ret['Geometry0'])
 
         if len(json_data)==2:
-            ret['Geometry1']=json_data[1]['Geometry']
+            ret['Geometry1'] = data
             ret['Geometry1'] = ret['Geometry1'][point:len(ret['Geometry1'])-1].replace('(','').replace(')','')
             ret['Geometry1'] = ret['Geometry1'].split(",")
             new_ret['Geometry1']=[]
@@ -577,12 +589,10 @@ def bus_path():
     
     print(json_data)
 
-    
-
     if json_data[0]['Geometry'][0]=='L':
-        new_ret = getPathL(11)
-    elif json_data[0]['Geometry'][0]=='M':
-        new_ret = getPathM(17)
+        new_ret = getPathL(11, json_data)
+    if json_data[0]['Geometry'][0]=='M':
+        new_ret = getPathM(17, json_data)
     
     return jsonify(new_ret)
 

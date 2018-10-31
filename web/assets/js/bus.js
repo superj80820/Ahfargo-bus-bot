@@ -97,7 +97,6 @@ function GetBusInfo(all_query){
 			dataType: 'json',
 			success:function(dict_info) {
 				// document.getElementById("tab_1").innerText = 'Show filter';
-				console.log(dict_info[0].length);
 				$('#busList1').empty();
 				$('#busList2').empty();
 				//解決title大小的函式子
@@ -166,32 +165,28 @@ function GetBusInfo(all_query){
 							cell3.className = 'bus_num'
 						};
 						//將table新增點擊功能
-						if (table != null) {
-							if (list_index = 0){
-								for (var i = 0; i < table.rows.length; i++) {
-									table.rows[i].onclick = function () {
-										var table = document.getElementById("busList1");
-										for (var i = 0; i < table.rows.length; i++) {
-											realMarkers[i].infoWindow.close(realMarkers,realMarkers[i])
-										}
-										var marker_index = $(this).index();
-										realMarkers[marker_index].infoWindow.open(realMarkers,realMarkers[marker_index])
-									};
-								}
+						if (list_index == 0){
+							for (var i = 0; i < table1.rows.length; i++) {
+								table1.rows[i].onclick = function () {
+									for (var i = 0; i < table1.rows.length; i++) {
+										realMarkers[i].infoWindow.close(realMarkers,realMarkers[i])
+									}
+									var marker_index = $(this).index();
+									realMarkers[marker_index].infoWindow.open(realMarkers,realMarkers[marker_index])
+								};
 							}
-							else if (list_index = 1){
-								for (var i = 0; i < table.rows.length; i++) {
-									table.rows[i].onclick = function () {
-										var table = document.getElementById("busList2");
-										for (var i = 0; i < table.rows.length; i++) {
-											realMarkers[i].infoWindow.close(realMarkers,realMarkers[i])
-										}
-										var marker_index = $(this).index();
-										realMarkers[marker_index].infoWindow.open(realMarkers,realMarkers[marker_index])
-									};
-								}
+						}
+						else if (list_index == 1){
+							for (var i = 0; i < table2.rows.length; i++) {
+								table2.rows[i].onclick = function () {
+									var table2 = document.getElementById("busList2");
+									for (var i = 0; i < table2.rows.length; i++) {
+										realMarkers[i].infoWindow.close(realMarkers,realMarkers[i])
+									}
+									var marker_index = $(this).index();
+									realMarkers[marker_index].infoWindow.open(realMarkers,realMarkers[marker_index])
+								};
 							}
-							
 						}
 					}
 					create_list(dict_info,0,table1)
