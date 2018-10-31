@@ -11,6 +11,15 @@ window.onload = function (e) {
 	// 	}
 	//   );
 	// alert('ssss')
+	// var _width =0;
+	// setInterval(function(){
+	// 	_width +=0.014
+	// 	if(_width>=100){_width=0;}
+	// 		document.getElementsByClassName("time")[0].style.width=_width+"%";
+	// })
+	document.getElementsByClassName("time")[0].style.width=0+"%";
+	bar()
+
 	var getAllQuery = function(){
 		return new Promise(function(resole,reject){
 			const BusNum = getQueryVariable_bus("BusNum")
@@ -33,6 +42,31 @@ window.onload = function (e) {
 		setInterval(GetBusInfo,30000,object_bus.all_query);
 	})
 }
+
+function bar(){
+	var bar_len = parseFloat(document.getElementsByClassName("time")[0].style.width)
+	bar_len += 1/5
+	document.getElementsByClassName("time")[0].style.width=bar_len+"%";
+	if(bar_len>=100){
+		document.getElementsByClassName("time")[0].style.width=0+"%";
+		bar_len=0
+		bar();
+		// clearTimeout(timeout);
+		return;
+	}
+	setTimeout("bar()",60);
+}
+// function run(){
+// 	var bar = document.getElementById("bar");
+// 	bar.style.width=parseInt(bar.style.width) + 1 + "%";
+// 	if(bar.style.width == "100%"){
+// 	  bar.style.width=parseInt(bar.style.width) *0 +"%";
+// 	  run();
+// 	  clearTimeout(timeout);
+// 	  return;
+// 	}
+// 	setTimeout("run()",20);
+//   }
 
 function openPage(pageName,elmnt,color) {
 	var i, tabcontent, tablinks;
@@ -97,7 +131,6 @@ function GetBusInfo(all_query){
 			dataType: 'json',
 			success:function(dict_info) {
 				// document.getElementById("tab_1").innerText = 'Show filter';
-				console.log(dict_info[0].length);
 				$('#busList1').empty();
 				$('#busList2').empty();
 				//解決title大小的函式子
@@ -152,7 +185,7 @@ function GetBusInfo(all_query){
 										}
 									}
 								}
-								else if(parseInt(dict_info[list_index][i].EstimateTime<0)){
+								else if(parseInt(dict_info[list_index][i].EstimateTime)<0){
 									cell1.innerHTML = "離駛";
 									cell3.innerHTML = "";
 								}else{
@@ -166,32 +199,28 @@ function GetBusInfo(all_query){
 							cell3.className = 'bus_num'
 						};
 						//將table新增點擊功能
-						if (table != null) {
-							if (list_index = 0){
-								for (var i = 0; i < table.rows.length; i++) {
-									table.rows[i].onclick = function () {
-										var table = document.getElementById("busList1");
-										for (var i = 0; i < table.rows.length; i++) {
-											realMarkers[i].infoWindow.close(realMarkers,realMarkers[i])
-										}
-										var marker_index = $(this).index();
-										realMarkers[marker_index].infoWindow.open(realMarkers,realMarkers[marker_index])
-									};
-								}
+						if (list_index == 0){
+							for (var i = 0; i < table1.rows.length; i++) {
+								table1.rows[i].onclick = function () {
+									for (var i = 0; i < table1.rows.length; i++) {
+										realMarkers[i].infoWindow.close(realMarkers,realMarkers[i])
+									}
+									var marker_index = $(this).index();
+									realMarkers[marker_index].infoWindow.open(realMarkers,realMarkers[marker_index])
+								};
 							}
-							else if (list_index = 1){
-								for (var i = 0; i < table.rows.length; i++) {
-									table.rows[i].onclick = function () {
-										var table = document.getElementById("busList2");
-										for (var i = 0; i < table.rows.length; i++) {
-											realMarkers[i].infoWindow.close(realMarkers,realMarkers[i])
-										}
-										var marker_index = $(this).index();
-										realMarkers[marker_index].infoWindow.open(realMarkers,realMarkers[marker_index])
-									};
-								}
+						}
+						else if (list_index == 1){
+							for (var i = 0; i < table2.rows.length; i++) {
+								table2.rows[i].onclick = function () {
+									var table2 = document.getElementById("busList2");
+									for (var i = 0; i < table2.rows.length; i++) {
+										realMarkers[i].infoWindow.close(realMarkers,realMarkers[i])
+									}
+									var marker_index = $(this).index();
+									realMarkers[marker_index].infoWindow.open(realMarkers,realMarkers[marker_index])
+								};
 							}
-							
 						}
 					}
 					create_list(dict_info,0,table1)
