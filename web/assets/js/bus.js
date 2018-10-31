@@ -151,7 +151,7 @@ function GetBusInfo(all_query){
 										}
 									}
 								}
-								else if(parseInt(dict_info[list_index][i].EstimateTime<0)){
+								else if(parseInt(dict_info[list_index][i].EstimateTime)<0){
 									cell1.innerHTML = "離駛";
 									cell3.innerHTML = "";
 								}else{
