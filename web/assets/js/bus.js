@@ -11,6 +11,15 @@ window.onload = function (e) {
 	// 	}
 	//   );
 	// alert('ssss')
+	// var _width =0;
+	// setInterval(function(){
+	// 	_width +=0.014
+	// 	if(_width>=100){_width=0;}
+	// 		document.getElementsByClassName("time")[0].style.width=_width+"%";
+	// })
+	document.getElementsByClassName("time")[0].style.width=0+"%";
+	bar()
+
 	var getAllQuery = function(){
 		return new Promise(function(resole,reject){
 			const BusNum = getQueryVariable_bus("BusNum")
@@ -33,6 +42,31 @@ window.onload = function (e) {
 		setInterval(GetBusInfo,30000,object_bus.all_query);
 	})
 }
+
+function bar(){
+	var bar_len = parseFloat(document.getElementsByClassName("time")[0].style.width)
+	bar_len += 1/5
+	document.getElementsByClassName("time")[0].style.width=bar_len+"%";
+	if(bar_len>=100){
+		document.getElementsByClassName("time")[0].style.width=0+"%";
+		bar_len=0
+		bar();
+		// clearTimeout(timeout);
+		return;
+	}
+	setTimeout("bar()",60);
+}
+// function run(){
+// 	var bar = document.getElementById("bar");
+// 	bar.style.width=parseInt(bar.style.width) + 1 + "%";
+// 	if(bar.style.width == "100%"){
+// 	  bar.style.width=parseInt(bar.style.width) *0 +"%";
+// 	  run();
+// 	  clearTimeout(timeout);
+// 	  return;
+// 	}
+// 	setTimeout("run()",20);
+//   }
 
 function openPage(pageName,elmnt,color) {
 	var i, tabcontent, tablinks;

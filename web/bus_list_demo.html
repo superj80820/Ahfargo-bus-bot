@@ -46,7 +46,7 @@
     <div id="Goback" class="tabcontent" style="display: none;">
       <table id="busList2"></table>
     </div>
-    <div class="time" style="height: 2px; background: #e4a348;"></div>
+    <div class="time" style="height: 3px; background: #e4a348;"></div>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
@@ -59,13 +59,5 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA"></script>
     <script src="assets/js/bus.js"></script>
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
-    <script>
-      var _width =0;
-      setInterval(function(){
-        _width +=0.014
-        if(_width>=100){_width=0;}
-        document.getElementsByClassName("time")[0].style.width=_width+"%";
-      })
-    </script>
   </body>
 </html>
