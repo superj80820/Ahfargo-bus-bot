@@ -84,7 +84,7 @@ function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 			// 立即函式(IIFE) Immediately Invoked Function Expression
 			(function(index,dict_index) {
 				setTimeout(function() { 
-					var img = './images/bike liff.png';//dict_info[all_query.Direction][dict_index].image;
+					var img = './images/stop/bus_egg_'+index+'.png';//dict_info[all_query.Direction][dict_index].image;
 					var icon = {
 					url: img,
 					scaledSize: new google.maps.Size(80, 80) 
@@ -374,10 +374,10 @@ function initbus(all_query,dict_info,dict_path){
 		// 立即函式(IIFE) Immediately Invoked Function Expression
 		(function(index,dict_index) {
 			setTimeout(function() { 
-				var img = './images/bike liff.png';//dict_info[all_query.Direction][dict_index].image;
+				var img = './images/stop/bus_egg_'+index+'.png';//dict_info[all_query.Direction][dict_index].image;
 				var icon = {
 				url: img,
-				scaledSize: new google.maps.Size(80, 80) 
+				scaledSize: new google.maps.Size(23, 23) 
 				};
 				// Create marker
 				var marker = mapObj.addMarker({
@@ -407,9 +407,9 @@ function initbus(all_query,dict_info,dict_path){
 	var polyline = dict_path.Geometry0;
 	mapObj.drawPolyline({
 	path: polyline,
-	strokeColor: '#131540',
-	strokeOpacity: 1.0,
-	strokeWeight: 1.5,
+	strokeColor: '#0033cc',
+	strokeOpacity: 0.5,
+	strokeWeight: 5,
 	});
 	var change_action = Math.abs(dict_info[0].length - dict_info[1].length)
 	document.getElementById("tab_1").addEventListener("click", function(i){
