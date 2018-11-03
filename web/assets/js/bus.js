@@ -56,17 +56,6 @@ function bar(){
 	}
 	setTimeout("bar()",60);
 }
-// function run(){
-// 	var bar = document.getElementById("bar");
-// 	bar.style.width=parseInt(bar.style.width) + 1 + "%";
-// 	if(bar.style.width == "100%"){
-// 	  bar.style.width=parseInt(bar.style.width) *0 +"%";
-// 	  run();
-// 	  clearTimeout(timeout);
-// 	  return;
-// 	}
-// 	setTimeout("run()",20);
-//   }
 
 function openPage(pageName,elmnt,color) {
 	var i, tabcontent, tablinks;
@@ -239,6 +228,10 @@ function GetBusPath(all_query,dict_info){
 			dataType: 'json',
 			success: function(dict_path) {
 				// console.log(dict_path)
+				resole({all_query,dict_info,dict_path})
+			},
+			error: function(result) {
+				dict_path = {Geometry0:[],Geometry1:[]}
 				resole({all_query,dict_info,dict_path})
 			}
 		})
