@@ -494,6 +494,21 @@ def bus():
         json_data=json.loads(res.text)
         return json_data
 
+    def get_bus_lat_lon(index,ret):
+        bus_pos=[]
+        for item in ret[index]:
+            if item.get('PlateNumb') and item['PlateNumb'] != '' and item['PlateNumb'] not in bus_pos:
+                bus_pos += [item['PlateNumb']]
+                print(item['PlateNumb'])
+        for item in bus_pos:
+            headers=common().RES_HEAD(APPID,APPKey)
+            res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/RealTimeByFrequency/City/Taichung?$filter=PlateNumb eq '%s'&$format=JSON"%(item),headers=headers)
+            json_data=json.loads(res.text)
+            for item2 in ret[index]:
+                if item2.get('PlateNumb') and item2['PlateNumb'] == item:
+                    item2['BusPosition'] = json_data[0]['BusPosition']
+        return ret
+
     RouteName=request.args.get('RouteName')
     City=request.args.get('City')
 
@@ -501,6 +516,9 @@ def bus():
     ret += [get_all_bus('0', City, RouteName)]
     ret += [get_all_bus('1', City, RouteName)]
     ret += [get_bus_star_and_end(RouteName)]
+    
+    ret = get_bus_lat_lon(0,ret)
+    ret = get_bus_lat_lon(1,ret)
 
     return jsonify(ret)
         
