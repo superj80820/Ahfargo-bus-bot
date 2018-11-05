@@ -84,31 +84,43 @@ function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 		var timeout = 1;
 		for (var dict_index in dict_info[all_query.Direction]) {	
 			// 立即函式(IIFE) Immediately Invoked Function Expression
-			(function(index,dict_index) {
-				setTimeout(function() { 
-					var img = './images/stop/bus_egg_'+index+'.png';//dict_info[all_query.Direction][dict_index].image;
-					var icon = {
-					url: img,
-					scaledSize: new google.maps.Size(23, 23) 
-					};
-					// Create marker
-					var marker = mapObj.addMarker({
-						lat: dict_info[all_query.Direction][dict_index].StopPosition.PositionLat,
-						lng: dict_info[all_query.Direction][dict_index].StopPosition.PositionLon,
-						title: dict_info[all_query.Direction][dict_index].StopName.Zh_tw,
-						icon:icon,
-						infoWindow: {
-							content: dict_info[all_query.Direction][dict_index].StopName.Zh_tw
-						},
-						click: function(e) {
-							//None
-						},
-						// animation: google.maps.Animation.DROP
-					});
-					realMarkers.push(marker);
-				}, timeout * 15);
+			(function(index,dict_index){ 
+				var img = './images/stop/bus_egg_'+index+'.png';//dict_info[all_query.Direction][dict_index].image;
+				var icon = {
+				url: img,
+				scaledSize: new google.maps.Size(23, 23) 
+				};
+				// Create marker
+				var marker = mapObj.addMarker({
+					lat: dict_info[all_query.Direction][dict_index].StopPosition.PositionLat,
+					lng: dict_info[all_query.Direction][dict_index].StopPosition.PositionLon,
+					title: dict_info[all_query.Direction][dict_index].StopName.Zh_tw,
+					icon:icon,
+					infoWindow: {
+						content: dict_info[all_query.Direction][dict_index].StopName.Zh_tw
+					},
+					click: function(e) {
+						//None
+					},
+					// animation: google.maps.Animation.DROP
+				});
+				realMarkers.push(marker);
 			})(timeout,dict_index);
 			timeout++;
+			carMarkers_pos = []
+			for (var index in carMarkers) {
+				// alert(index)
+				carMarkers[0].setMap(null);
+			}
+			carMarkers = []
+			if (dict_info[all_query.Direction][dict_index].BusPosition != undefined){
+				if (carMarkers_pos.indexOf(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat) == -1){
+					// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+					// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
+					carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+					updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon);
+				}
+			}
 		}
 	}
 }
@@ -154,11 +166,22 @@ function GetBusInfo(all_query){
 										if (dict_info[list_index][i-1].PlateNumb != dict_info[list_index][i].PlateNumb){
 											cell3.innerHTML = dict_info[list_index][i].PlateNumb;
 											if (realMarkers != 0){
-												// alert('update')
-												carMarkers[0].setMap(null);
-												// updateCar(24.182,120.61911);
-											}else{
-												
+												carMarkers_pos = []
+												for (var index in carMarkers) {
+													// alert(index)
+													carMarkers[0].setMap(null);
+												}
+												carMarkers = []
+												for (var dict_index in dict_info[all_query.Direction]) {
+													if (dict_info[all_query.Direction][dict_index].BusPosition != undefined){
+														if (carMarkers_pos.indexOf(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat) == -1){
+															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
+															carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon);
+														}
+													}
+												}
 											}
 										}
 									}else{
@@ -166,11 +189,22 @@ function GetBusInfo(all_query){
 										if (dict_info[list_index][i-1].PlateNumb != dict_info[list_index][i].PlateNumb){
 											cell3.innerHTML = dict_info[list_index][i].PlateNumb;
 											if (realMarkers != 0){
-												// alert('update')
-												carMarkers[0].setMap(null);
-												// updateCar(24.182,120.61911);
-											}else{
-
+												carMarkers_pos = []
+												for (var index in carMarkers) {
+													// alert(index)
+													carMarkers[0].setMap(null);
+												}
+												carMarkers = []
+												for (var dict_index in dict_info[all_query.Direction]) {
+													if (dict_info[all_query.Direction][dict_index].BusPosition != undefined){
+														if (carMarkers_pos.indexOf(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat) == -1){
+															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
+															carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon);
+														}
+													}
+												}
 											}
 										}
 									}
@@ -257,39 +291,37 @@ function initbus(all_query,dict_info,dict_path){
 	var timeout = 1;
 	for (var dict_index in dict_info[all_query.Direction]) {	
 		// 立即函式(IIFE) Immediately Invoked Function Expression
-		(function(index,dict_index) {
-			setTimeout(function() { 
-				var img = './images/stop/bus_egg_'+index+'.png';//dict_info[all_query.Direction][dict_index].image;
-				var icon = {
-				url: img,
-				scaledSize: new google.maps.Size(23, 23) 
-				};
-				// Create marker
-				var marker = mapObj.addMarker({
-					lat: dict_info[all_query.Direction][dict_index].StopPosition.PositionLat,
-					lng: dict_info[all_query.Direction][dict_index].StopPosition.PositionLon,
-					title: dict_info[all_query.Direction][dict_index].StopName.Zh_tw,
-					icon:icon,
-					infoWindow: {
-						content: dict_info[all_query.Direction][dict_index].StopName.Zh_tw
-					},
-					click: function(e) {
-						// alert(event.target.id)
-						var $objTr = $("#bus_list_"+dict_index); //找到要定位的地方  tr 
-						// $objTr.css("background-color","lightgray"); //设置要定位地方的css 
-						var objTr = $objTr[0]; //转化为dom对象 
-						$("#Goto").animate({scrollTop:objTr.offsetTop},"slow"); //定位tr 
-					},
-					// animation: google.maps.Animation.DROP
-				});
-				realMarkers.push(marker);
-			}, timeout * 15);
+		(function(index,dict_index) { 
+			var img = './images/stop/bus_egg_'+index+'.png';//dict_info[all_query.Direction][dict_index].image;
+			var icon = {
+			url: img,
+			scaledSize: new google.maps.Size(23, 23) 
+			};
+			// Create marker
+			var marker = mapObj.addMarker({
+				lat: dict_info[all_query.Direction][dict_index].StopPosition.PositionLat,
+				lng: dict_info[all_query.Direction][dict_index].StopPosition.PositionLon,
+				title: dict_info[all_query.Direction][dict_index].StopName.Zh_tw,
+				icon:icon,
+				infoWindow: {
+					content: dict_info[all_query.Direction][dict_index].StopName.Zh_tw
+				},
+				click: function(e) {
+					// alert(event.target.id)
+					var $objTr = $("#bus_list_"+dict_index); //找到要定位的地方  tr 
+					// $objTr.css("background-color","lightgray"); //设置要定位地方的css 
+					var objTr = $objTr[0]; //转化为dom对象 
+					$("#Goto").animate({scrollTop:objTr.offsetTop},"slow"); //定位tr 
+				},
+				// animation: google.maps.Animation.DROP
+			});
+			realMarkers.push(marker);
 		})(timeout,dict_index);
 		timeout++;
 		if (dict_info[all_query.Direction][dict_index].BusPosition != undefined){
 			if (carMarkers_pos.indexOf(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat) == -1){
-				console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
-				console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
+				// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+				// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
 				carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
 				updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon);
 			}
