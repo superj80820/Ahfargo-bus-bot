@@ -12,18 +12,25 @@
         height: 98%;
         margin: 1;
       }
+      .tabbutton {
+          align-items: stretch;
+          display: flex;
+          height: 9%;
+          width: 100%;
+      }
       /* Style tab links */
-      .tablink {
+      .tabbutton > button {
         background-color: #7681B3;
         border: none;
         color: white;
         float: left;
         font-family:Microsoft JhengHei;
-        font-size: 1.3em;
+        font-size: 1em;
+        overflow:scroll;
         padding: 5%;
         width: 50%;
       }
-      .tablink:hover {
+      .tabbutton > button:hover {
         background-color: #777;
       }
       /* Style the tab content (and add height:100% for full page content) */
@@ -38,8 +45,10 @@
   </head>
   <body>
     <div id="map" style="height: 34%"></div>
-    <button id='tab_1' class="tablink" onclick="openPage('Goto', this, '#6F73D2')">　</button>
-    <button id='tab_2' class="tablink" onclick="openPage('Goback', this, '#6F73D2')">　</button>
+    <div class="tabbutton">
+      <button id='tab_1' class="tablink" onclick="openPage('Goto', this, '#6F73D2')"></button>
+      <button id='tab_2' class="tablink" onclick="openPage('Goback', this, '#6F73D2')"></button>
+    </div>
     <div id="Goto" class="tabcontent">
       <table id='busList1'></table>
     </div>
