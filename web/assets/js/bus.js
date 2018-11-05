@@ -1,5 +1,6 @@
 ﻿realMarkers = [];
 carMarkers = [];
+carMarkers_pos = [];
 
 window.onload = function (e) {
 	// liff.init(
@@ -88,7 +89,7 @@ function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 					var img = './images/stop/bus_egg_'+index+'.png';//dict_info[all_query.Direction][dict_index].image;
 					var icon = {
 					url: img,
-					scaledSize: new google.maps.Size(80, 80) 
+					scaledSize: new google.maps.Size(23, 23) 
 					};
 					// Create marker
 					var marker = mapObj.addMarker({
@@ -117,7 +118,7 @@ function GetBusInfo(all_query){
 	return new Promise(function(resole,reject){
 		$.ajax({
 			type: 'GET',
-			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus?RouteName='+all_query.BusNum+'&City='+all_query.City+'&Direction='+'0',
+			url: 'http://127.0.0.1:5000/bus?RouteName='+all_query.BusNum+'&City='+all_query.City+'&Direction='+'0',
 			dataType: 'json',
 			success:function(dict_info) {
 				// document.getElementById("tab_1").innerText = 'Show filter';
@@ -155,7 +156,9 @@ function GetBusInfo(all_query){
 											if (realMarkers != 0){
 												// alert('update')
 												carMarkers[0].setMap(null);
-												updateCar(24.182,120.61911);
+												// updateCar(24.182,120.61911);
+											}else{
+												
 											}
 										}
 									}else{
@@ -165,7 +168,9 @@ function GetBusInfo(all_query){
 											if (realMarkers != 0){
 												// alert('update')
 												carMarkers[0].setMap(null);
-												updateCar(24.182,120.61911);
+												// updateCar(24.182,120.61911);
+											}else{
+
 											}
 										}
 									}
@@ -220,7 +225,7 @@ function GetBusPath(all_query,dict_info){
 	return new Promise(function(resole,reject){
 		$.ajax({
 			type: 'GET',
-			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus_path?bus_name='+all_query.BusNum,
+			url: 'http://127.0.0.1:5000/bus_path?bus_name='+all_query.BusNum,
 			dataType: 'json',
 			success: function(dict_path) {
 				// console.log(dict_path)
@@ -281,10 +286,16 @@ function initbus(all_query,dict_info,dict_path){
 			}, timeout * 15);
 		})(timeout,dict_index);
 		timeout++;
+		if (dict_info[all_query.Direction][dict_index].BusPosition != undefined){
+			if (carMarkers_pos.indexOf(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat) == -1){
+				console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+				console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
+				carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+				updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon);
+			}
+		}
 	}
 
-	updateCar(24.18121,120.61945);
-	
 	// //path
 	var polyline = dict_path.Geometry0;
 	mapObj.drawPolyline({
