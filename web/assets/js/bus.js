@@ -48,12 +48,13 @@ function bar(){
 	var bar_len = parseFloat(document.getElementsByClassName("time")[0].style.width)
 	bar_len += 1/5
 	document.getElementsByClassName("time")[0].style.width=bar_len+"%";
+	// console.log(bar_len)
 	if(bar_len>=100){
-		document.getElementsByClassName("time")[0].style.width=0+"%";
-		console.log('bb')
+		// document.getElementsByClassName("time")[0].style.width=0+"%";
+		// console.log('bb')
 		return;
 	}
-	setTimeout("bar()",60);
+	setTimeout("bar()",50);
 }
 
 function openPage(pageName,elmnt,color) {
@@ -248,7 +249,8 @@ function GetBusInfo(all_query){
 					create_list(dict_info,0,table1);
 					create_list(dict_info,1,table2);
 				})(dict_info);
-				console.log('aa')
+				console.log(dict_info)
+				document.getElementsByClassName("time")[0].style.width=0+"%";
 				bar();
 				resole({all_query,dict_info})
 			}
