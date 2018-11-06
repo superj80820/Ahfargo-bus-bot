@@ -1,4 +1,6 @@
 ﻿realMarkers = [];
+carMarkers = [];
+carMarkers_pos = [];
 
 window.onload = function (e) {
 	// liff.init(
@@ -17,8 +19,6 @@ window.onload = function (e) {
 	// 	if(_width>=100){_width=0;}
 	// 		document.getElementsByClassName("time")[0].style.width=_width+"%";
 	// })
-	document.getElementsByClassName("time")[0].style.width=0+"%";
-	bar()
 
 	var getAllQuery = function(){
 		return new Promise(function(resole,reject){
@@ -39,6 +39,8 @@ window.onload = function (e) {
 	})
 	.then(function(object_bus){
 		initbus(object_bus.all_query,object_bus.dict_info,object_bus.dict_path);
+		document.getElementsByClassName("time")[0].style.width=0+"%";
+		bar()
 		setInterval(GetBusInfo,30000,object_bus.all_query);
 	})
 }
@@ -82,31 +84,43 @@ function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 		var timeout = 1;
 		for (var dict_index in dict_info[all_query.Direction]) {	
 			// 立即函式(IIFE) Immediately Invoked Function Expression
-			(function(index,dict_index) {
-				setTimeout(function() { 
-					var img = './images/bike liff.png';//dict_info[all_query.Direction][dict_index].image;
-					var icon = {
-					url: img,
-					scaledSize: new google.maps.Size(80, 80) 
-					};
-					// Create marker
-					var marker = mapObj.addMarker({
-						lat: dict_info[all_query.Direction][dict_index].StopPosition.PositionLat,
-						lng: dict_info[all_query.Direction][dict_index].StopPosition.PositionLon,
-						title: dict_info[all_query.Direction][dict_index].StopName.Zh_tw,
-						icon:icon,
-						infoWindow: {
-							content: dict_info[all_query.Direction][dict_index].StopName.Zh_tw
-						},
-						click: function(e) {
-							//None
-						},
-						// animation: google.maps.Animation.DROP
-					});
-					realMarkers.push(marker);
-				}, timeout * 15);
+			(function(index,dict_index){ 
+				var img = './images/stop/bus_egg_'+index+'.png';//dict_info[all_query.Direction][dict_index].image;
+				var icon = {
+				url: img,
+				scaledSize: new google.maps.Size(23, 23) 
+				};
+				// Create marker
+				var marker = mapObj.addMarker({
+					lat: dict_info[all_query.Direction][dict_index].StopPosition.PositionLat,
+					lng: dict_info[all_query.Direction][dict_index].StopPosition.PositionLon,
+					title: dict_info[all_query.Direction][dict_index].StopName.Zh_tw,
+					icon:icon,
+					infoWindow: {
+						content: dict_info[all_query.Direction][dict_index].StopName.Zh_tw
+					},
+					click: function(e) {
+						//None
+					},
+					// animation: google.maps.Animation.DROP
+				});
+				realMarkers.push(marker);
 			})(timeout,dict_index);
 			timeout++;
+			carMarkers_pos = []
+			for (var index in carMarkers) {
+				// alert(index)
+				carMarkers[0].setMap(null);
+			}
+			carMarkers = []
+			if (dict_info[all_query.Direction][dict_index].BusPosition != undefined){
+				if (carMarkers_pos.indexOf(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat) == -1){
+					// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+					// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
+					carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+					updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
+				}
+			}
 		}
 	}
 }
@@ -122,21 +136,6 @@ function GetBusInfo(all_query){
 				// document.getElementById("tab_1").innerText = 'Show filter';
 				$('#busList1').empty();
 				$('#busList2').empty();
-				//解決title大小的函式子
-				// (function(){
-				// 	var name_difference=''
-				// 	var name_difference_length = Math.abs(dict_info[2][0].DestinationStopNameZh.length-dict_info[2][0].DepartureStopNameZh.length)
-				// 	for (var i=0;i<=name_difference_length;i++){
-				// 		name_difference+="\n";
-				// 	}
-				// 	if (dict_info[2][0].DestinationStopNameZh.length<dict_info[2][0].DepartureStopNameZh.length){
-				// 		document.getElementById("tab_1").innerText = dict_info[2][0].DestinationStopNameZh+name_difference;
-				// 		document.getElementById("tab_2").innerText = dict_info[2][0].DepartureStopNameZh;
-				// 	}else{
-				// 		document.getElementById("tab_1").innerText = dict_info[2][0].DestinationStopNameZh;
-				// 		document.getElementById("tab_2").innerText = dict_info[2][0].DepartureStopNameZh+name_difference;
-				// 	}
-				// })();
 				document.getElementById("tab_1").innerText = dict_info[2][0].DestinationStopNameZh;
 				document.getElementById("tab_2").innerText = dict_info[2][0].DepartureStopNameZh;
 				(function(dict_info){
@@ -166,11 +165,47 @@ function GetBusInfo(all_query){
 										cell1.innerHTML = "進站中";
 										if (dict_info[list_index][i-1].PlateNumb != dict_info[list_index][i].PlateNumb){
 											cell3.innerHTML = dict_info[list_index][i].PlateNumb;
+											if (realMarkers != 0){
+												carMarkers_pos = []
+												for (var index in carMarkers) {
+													// alert(index)
+													carMarkers[0].setMap(null);
+												}
+												carMarkers = []
+												for (var dict_index in dict_info[all_query.Direction]) {
+													if (dict_info[all_query.Direction][dict_index].BusPosition != undefined){
+														if (carMarkers_pos.indexOf(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat) == -1){
+															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
+															carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
+														}
+													}
+												}
+											}
 										}
 									}else{
 										cell1.innerHTML = "即將進站";
 										if (dict_info[list_index][i-1].PlateNumb != dict_info[list_index][i].PlateNumb){
 											cell3.innerHTML = dict_info[list_index][i].PlateNumb;
+											if (realMarkers != 0){
+												carMarkers_pos = []
+												for (var index in carMarkers) {
+													// alert(index)
+													carMarkers[0].setMap(null);
+												}
+												carMarkers = []
+												for (var dict_index in dict_info[all_query.Direction]) {
+													if (dict_info[all_query.Direction][dict_index].BusPosition != undefined){
+														if (carMarkers_pos.indexOf(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat) == -1){
+															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
+															carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
+														}
+													}
+												}
+											}
 										}
 									}
 								}
@@ -212,8 +247,8 @@ function GetBusInfo(all_query){
 							}
 						}
 					}
-					create_list(dict_info,0,table1)
-					create_list(dict_info,1,table2)
+					create_list(dict_info,0,table1);
+					create_list(dict_info,1,table2);
 				})(dict_info);
 				resole({all_query,dict_info})
 			}
@@ -245,7 +280,7 @@ function initbus(all_query,dict_info,dict_path){
 	var loc1 = dict_info[all_query.Direction][dict_info[all_query.Direction].length-1].StopPosition
 	var loc2 = dict_info[all_query.Direction][0].StopPosition
 	var	camera = getLocationCenter(loc1,loc2)
-	var mapObj = new GMaps({
+	mapObj = new GMaps({
 		zoom:12,
 		disableDefaultUI: true,
 		el: "#map",
@@ -253,163 +288,53 @@ function initbus(all_query,dict_info,dict_path){
 		lng: camera.lon
 	});
 
-	// //pokemons
-	// var pokemons = {
-	// 	pokemon1:{
-	// 		lat: 22.604189, 
-	// 		lng: 120.310286,  
-	// 		content:'<img class="circle_img" src="pikachu.png" alt="pikachu" style="border: 3px solid #FF3333">',	  
-	// 		image:'pikachu.png',
-	// 		title:'pikachu'
-	// 	},
-	// 	pokemon2:{
-	// 		lat: 22.618137, 
-	// 		lng: 120.302434, 
-	// 		content:'<img class="circle_img" src="snorlax.png" alt="snorlax" style="border: 3px solid #003C9D">',	  
-	// 		image:'snorlax.png',
-	// 		title:'snorlax'
-	// 	},
-	// 	pokemon3:{
-	// 		lat: 22.624310, 
-	// 		lng: 120.299419, 
-	// 		content:'<img class="circle_img" src="charizard.png" alt="charizard" style="border: 3px solid #D28EFF">',	  
-	// 		image:'charizard.png',
-	// 		title:'charizard'
-	// 	},
-	// };
-
-
-	// //circle
-	// var circle_map={
-	// 	circle1:{
-	// 		lat: 22.615137,  
-	// 		lng: 120.305386, 
-	// 		radius:150,	//m
-	// 		color:"#FF3333",
-	// 	},
-	// 	circle2:{
-	// 		lat: 22.615537,
-	// 		lng: 120.302434, 
-	// 		radius:100,	//m   
-	// 		color:"#003C9D",
-	// 	},
-	// 	circle3:{
-	// 		lat: 22.614310, 
-	// 		lng: 120.297419, 
-	// 		radius:250,	//m
-	// 		color:"#D28EFF",
-	// 	},
-		
-	// };
-
-
-	// //path
-	// var paths={
-	// 	path1:{
-	// 		circle_lat:circle_map["circle1"].lat,
-	// 		circle_lng:circle_map["circle1"].lng,
-	// 		pokemon_lat:pokemons["pokemon1"].lat, 
-	// 		pokemon_lng:pokemons["pokemon1"].lng,  
-	// 		color:circle_map["circle1"].color,
-	// 	},
-	// 	path2:{
-	// 		circle_lat:circle_map["circle2"].lat,
-	// 		circle_lng:circle_map["circle2"].lng,
-	// 		pokemon_lat:pokemons["pokemon2"].lat, 
-	// 		pokemon_lng:pokemons["pokemon2"].lng,  
-	// 		color:circle_map["circle2"].color,
-	// 	},
-	// 	path3:{
-	// 		circle_lat:circle_map["circle3"].lat,
-	// 		circle_lng:circle_map["circle3"].lng,
-	// 		pokemon_lat:pokemons["pokemon3"].lat, 
-	// 		pokemon_lng:pokemons["pokemon3"].lng,  
-	// 		color:circle_map["circle3"].color,
-	// 	},
-		
-	// }
-
-		
-					
-	// for (var pokemon in pokemons) {	
-	// 	var img = pokemons[pokemon].image;
-	// 	var icon = {
-	// 	url: img,
-	// 	//anchor: new google.maps.Point(40, 45),
-	// 	scaledSize: new google.maps.Size(80, 80) 
-	// 	};
-
-	// 	// Create marker
-	// 	mapObj.addMarker({
-	// 		lat: pokemons[pokemon].lat,
-	// 		lng: pokemons[pokemon].lng,
-	// 		title: pokemons[pokemon].title,
-	// 		icon:icon,
-	// 		infoWindow: {
-	// 			content: pokemons[pokemon].content,
-	// 		},
-	// 		click: function(e) {
-	// 			console.log("you click:"+pokemons[pokemon].title);
-	// 		}
-	// 	});	
-	// }
-	
-	
-	// //circle
-	// for (var circle in circle_map) {
-	// 	mapObj.drawCircle({
-	// 	strokeColor: circle_map[circle].color,
-	// 	strokeOpacity: 0.8, 
-	// 	strokeWeight: 4,
-	// 	fillColor: circle_map[circle].color, 
-	// 	fillOpacity: 0.35,	  
-	// 	lat: circle_map[circle].lat,
-	// 	lng: circle_map[circle].lng,
-	// 	radius: circle_map[circle].radius,
-	// 	});
-	// 	}
-
 	var timeout = 1;
 	for (var dict_index in dict_info[all_query.Direction]) {	
 		// 立即函式(IIFE) Immediately Invoked Function Expression
-		(function(index,dict_index) {
-			setTimeout(function() { 
-				var img = './images/bike liff.png';//dict_info[all_query.Direction][dict_index].image;
-				var icon = {
-				url: img,
-				scaledSize: new google.maps.Size(80, 80) 
-				};
-				// Create marker
-				var marker = mapObj.addMarker({
-					lat: dict_info[all_query.Direction][dict_index].StopPosition.PositionLat,
-					lng: dict_info[all_query.Direction][dict_index].StopPosition.PositionLon,
-					title: dict_info[all_query.Direction][dict_index].StopName.Zh_tw,
-					icon:icon,
-					infoWindow: {
-						content: dict_info[all_query.Direction][dict_index].StopName.Zh_tw
-					},
-					click: function(e) {
-						// alert(event.target.id)
-						var $objTr = $("#bus_list_"+dict_index); //找到要定位的地方  tr 
-						// $objTr.css("background-color","lightgray"); //设置要定位地方的css 
-						var objTr = $objTr[0]; //转化为dom对象 
-						$("#Goto").animate({scrollTop:objTr.offsetTop},"slow"); //定位tr 
-					},
-					// animation: google.maps.Animation.DROP
-				});
-				realMarkers.push(marker);
-			}, timeout * 15);
+		(function(index,dict_index) { 
+			var img = './images/stop/bus_egg_'+index+'.png';//dict_info[all_query.Direction][dict_index].image;
+			var icon = {
+			url: img,
+			scaledSize: new google.maps.Size(23, 23) 
+			};
+			// Create marker
+			var marker = mapObj.addMarker({
+				lat: dict_info[all_query.Direction][dict_index].StopPosition.PositionLat,
+				lng: dict_info[all_query.Direction][dict_index].StopPosition.PositionLon,
+				title: dict_info[all_query.Direction][dict_index].StopName.Zh_tw,
+				icon:icon,
+				infoWindow: {
+					content: dict_info[all_query.Direction][dict_index].StopName.Zh_tw
+				},
+				click: function(e) {
+					// alert(event.target.id)
+					var $objTr = $("#bus_list_"+dict_index); //找到要定位的地方  tr 
+					// $objTr.css("background-color","lightgray"); //设置要定位地方的css 
+					var objTr = $objTr[0]; //转化为dom对象 
+					$("#Goto").animate({scrollTop:objTr.offsetTop},"slow"); //定位tr 
+				},
+				// animation: google.maps.Animation.DROP
+			});
+			realMarkers.push(marker);
 		})(timeout,dict_index);
 		timeout++;
+		if (dict_info[all_query.Direction][dict_index].BusPosition != undefined){
+			if (carMarkers_pos.indexOf(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat) == -1){
+				// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+				// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
+				carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
+				updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
+			}
+		}
 	}
-	
+
 	// //path
 	var polyline = dict_path.Geometry0;
 	mapObj.drawPolyline({
 	path: polyline,
-	strokeColor: '#131540',
-	strokeOpacity: 1.0,
-	strokeWeight: 1.5,
+	strokeColor: '#0033cc',
+	strokeOpacity: 0.5,
+	strokeWeight: 5,
 	});
 	var change_action = Math.abs(dict_info[0].length - dict_info[1].length)
 	document.getElementById("tab_1").addEventListener("click", function(i){
@@ -421,4 +346,27 @@ function initbus(all_query,dict_info,dict_path){
 		refleshMap(all_query,dict_info,dict_info[1].length,mapObj,change_action);
 	});
 		
+}
+
+function updateCar(lat,lng,plate_numb){
+	var img = './images/duck_walk.gif';//dict_info[all_query.Direction][dict_index].image;
+	var icon = {
+	url: img,
+	scaledSize: new google.maps.Size(50, 50) 
+	};
+	// Create marker
+	var marker = mapObj.addMarker({
+		lat: lat,
+		lng: lng,
+		title: 'car',
+		icon:icon,
+		infoWindow: {
+			content: '公車:'+plate_numb
+		},
+		click: function(e) {
+			//Nnoe
+		},
+		// animation: google.maps.Animation.DROP
+	});
+	carMarkers.push(marker);
 }
