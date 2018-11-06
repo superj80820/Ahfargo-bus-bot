@@ -40,23 +40,24 @@ window.onload = function (e) {
 	.then(function(object_bus){
 		initbus(object_bus.all_query,object_bus.dict_info,object_bus.dict_path);
 		document.getElementsByClassName("time")[0].style.width=0+"%";
-		bar()
-		setInterval(GetBusInfo,30000,object_bus.all_query);
+		update_bar(object_bus)
 	})
 }
 
-function bar(){
+function update_bar(object_bus){
 	var bar_len = parseFloat(document.getElementsByClassName("time")[0].style.width)
 	bar_len += 1/5
 	document.getElementsByClassName("time")[0].style.width=bar_len+"%";
+	console.log(bar_len)
 	if(bar_len>=100){
 		document.getElementsByClassName("time")[0].style.width=0+"%";
-		bar_len=0
-		bar();
-		// clearTimeout(timeout);
-		return;
+		GetBusInfo(object_bus.all_query)
+		.then(() => {
+			update_bar(object_bus)
+		})
+		return
 	}
-	setTimeout("bar()",60);
+	setTimeout(() => {update_bar(object_bus)}, 60);
 }
 
 function openPage(pageName,elmnt,color) {
@@ -76,12 +77,19 @@ function openPage(pageName,elmnt,color) {
 function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 	// alert(origin_length)
 	// alert(realMarkers.length)
+	carMarkers_pos = []
+	for (var index in carMarkers) {
+		// alert(index)
+		carMarkers[index].setMap(null);
+	}
+	carMarkers = []
 	if(change_action==Math.abs(origin_length-realMarkers.length)){//偵測是否有切換路線
 		for (var dict_index in realMarkers) {
 			realMarkers[dict_index].setMap(null);//刪除全部的marker
 		};
 		realMarkers = []
 		var timeout = 1;
+		// alert(dict_info[all_query.Direction].length)
 		for (var dict_index in dict_info[all_query.Direction]) {	
 			// 立即函式(IIFE) Immediately Invoked Function Expression
 			(function(index,dict_index){ 
@@ -106,19 +114,14 @@ function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 				});
 				realMarkers.push(marker);
 			})(timeout,dict_index);
-			timeout++;
-			carMarkers_pos = []
-			for (var index in carMarkers) {
-				// alert(index)
-				carMarkers[0].setMap(null);
-			}
-			carMarkers = []
+			timeout++;			
+			// alert(all_query.Direction)
 			if (dict_info[all_query.Direction][dict_index].BusPosition != undefined){
 				if (carMarkers_pos.indexOf(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat) == -1){
 					// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
 					// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
 					carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
-					updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon);
+					updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
 				}
 			}
 		}
@@ -127,13 +130,14 @@ function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 
 function GetBusInfo(all_query){
 	// alert(all_query)
+	// document.getElementsByClassName("time")[0].style.width=0+"%";
+	// update_bar();
 	return new Promise(function(resole,reject){
 		$.ajax({
 			type: 'GET',
-			url: 'http://127.0.0.1:5000/bus?RouteName='+all_query.BusNum+'&City='+all_query.City+'&Direction='+'0',
+			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus?RouteName='+all_query.BusNum+'&City='+all_query.City+'&Direction='+'0',
 			dataType: 'json',
 			success:function(dict_info) {
-				// document.getElementById("tab_1").innerText = 'Show filter';
 				$('#busList1').empty();
 				$('#busList2').empty();
 				document.getElementById("tab_1").innerText = dict_info[2][0].DestinationStopNameZh;
@@ -169,7 +173,7 @@ function GetBusInfo(all_query){
 												carMarkers_pos = []
 												for (var index in carMarkers) {
 													// alert(index)
-													carMarkers[0].setMap(null);
+													carMarkers[index].setMap(null);
 												}
 												carMarkers = []
 												for (var dict_index in dict_info[all_query.Direction]) {
@@ -178,7 +182,7 @@ function GetBusInfo(all_query){
 															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
 															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
 															carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
-															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon);
+															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
 														}
 													}
 												}
@@ -192,7 +196,7 @@ function GetBusInfo(all_query){
 												carMarkers_pos = []
 												for (var index in carMarkers) {
 													// alert(index)
-													carMarkers[0].setMap(null);
+													carMarkers[index].setMap(null);
 												}
 												carMarkers = []
 												for (var dict_index in dict_info[all_query.Direction]) {
@@ -201,7 +205,7 @@ function GetBusInfo(all_query){
 															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
 															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
 															carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
-															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon);
+															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
 														}
 													}
 												}
@@ -250,6 +254,7 @@ function GetBusInfo(all_query){
 					create_list(dict_info,0,table1);
 					create_list(dict_info,1,table2);
 				})(dict_info);
+				console.log(dict_info)
 				resole({all_query,dict_info})
 			}
 		})	
@@ -259,7 +264,7 @@ function GetBusPath(all_query,dict_info){
 	return new Promise(function(resole,reject){
 		$.ajax({
 			type: 'GET',
-			url: 'http://127.0.0.1:5000/bus_path?bus_name='+all_query.BusNum,
+			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus_path?bus_name='+all_query.BusNum,
 			dataType: 'json',
 			success: function(dict_path) {
 				// console.log(dict_path)
@@ -323,7 +328,7 @@ function initbus(all_query,dict_info,dict_path){
 				// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
 				// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
 				carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
-				updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon);
+				updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
 			}
 		}
 	}
@@ -348,7 +353,7 @@ function initbus(all_query,dict_info,dict_path){
 		
 }
 
-function updateCar(lat,lng){
+function updateCar(lat,lng,plate_numb){
 	var img = './images/duck_walk.gif';//dict_info[all_query.Direction][dict_index].image;
 	var icon = {
 	url: img,
@@ -361,7 +366,7 @@ function updateCar(lat,lng){
 		title: 'car',
 		icon:icon,
 		infoWindow: {
-			content: 'test'
+			content: '公車:'+plate_numb
 		},
 		click: function(e) {
 			//Nnoe
