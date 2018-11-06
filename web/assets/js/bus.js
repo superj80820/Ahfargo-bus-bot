@@ -118,7 +118,7 @@ function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 					// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
 					// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
 					carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
-					updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon);
+					updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
 				}
 			}
 		}
@@ -178,7 +178,7 @@ function GetBusInfo(all_query){
 															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
 															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
 															carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
-															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon);
+															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
 														}
 													}
 												}
@@ -201,7 +201,7 @@ function GetBusInfo(all_query){
 															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
 															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
 															carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
-															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon);
+															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
 														}
 													}
 												}
@@ -323,7 +323,7 @@ function initbus(all_query,dict_info,dict_path){
 				// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
 				// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
 				carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
-				updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon);
+				updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
 			}
 		}
 	}
@@ -348,7 +348,7 @@ function initbus(all_query,dict_info,dict_path){
 		
 }
 
-function updateCar(lat,lng){
+function updateCar(lat,lng,plate_numb){
 	var img = './images/duck_walk.gif';//dict_info[all_query.Direction][dict_index].image;
 	var icon = {
 	url: img,
@@ -361,7 +361,7 @@ function updateCar(lat,lng){
 		title: 'car',
 		icon:icon,
 		infoWindow: {
-			content: 'test'
+			content: '公車:'+plate_numb
 		},
 		click: function(e) {
 			//Nnoe
