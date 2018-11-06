@@ -40,7 +40,6 @@ window.onload = function (e) {
 	.then(function(object_bus){
 		initbus(object_bus.all_query,object_bus.dict_info,object_bus.dict_path);
 		document.getElementsByClassName("time")[0].style.width=0+"%";
-		bar()
 		setInterval(GetBusInfo,30000,object_bus.all_query);
 	})
 }
@@ -51,9 +50,7 @@ function bar(){
 	document.getElementsByClassName("time")[0].style.width=bar_len+"%";
 	if(bar_len>=100){
 		document.getElementsByClassName("time")[0].style.width=0+"%";
-		bar_len=0
-		bar();
-		// clearTimeout(timeout);
+		console.log('bb')
 		return;
 	}
 	setTimeout("bar()",60);
@@ -76,12 +73,19 @@ function openPage(pageName,elmnt,color) {
 function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 	// alert(origin_length)
 	// alert(realMarkers.length)
+	carMarkers_pos = []
+	for (var index in carMarkers) {
+		// alert(index)
+		carMarkers[index].setMap(null);
+	}
+	carMarkers = []
 	if(change_action==Math.abs(origin_length-realMarkers.length)){//偵測是否有切換路線
 		for (var dict_index in realMarkers) {
 			realMarkers[dict_index].setMap(null);//刪除全部的marker
 		};
 		realMarkers = []
 		var timeout = 1;
+		// alert(dict_info[all_query.Direction].length)
 		for (var dict_index in dict_info[all_query.Direction]) {	
 			// 立即函式(IIFE) Immediately Invoked Function Expression
 			(function(index,dict_index){ 
@@ -106,13 +110,8 @@ function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 				});
 				realMarkers.push(marker);
 			})(timeout,dict_index);
-			timeout++;
-			carMarkers_pos = []
-			for (var index in carMarkers) {
-				// alert(index)
-				carMarkers[0].setMap(null);
-			}
-			carMarkers = []
+			timeout++;			
+			// alert(all_query.Direction)
 			if (dict_info[all_query.Direction][dict_index].BusPosition != undefined){
 				if (carMarkers_pos.indexOf(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat) == -1){
 					// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
@@ -133,7 +132,6 @@ function GetBusInfo(all_query){
 			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus?RouteName='+all_query.BusNum+'&City='+all_query.City+'&Direction='+'0',
 			dataType: 'json',
 			success:function(dict_info) {
-				// document.getElementById("tab_1").innerText = 'Show filter';
 				$('#busList1').empty();
 				$('#busList2').empty();
 				document.getElementById("tab_1").innerText = dict_info[2][0].DestinationStopNameZh;
@@ -169,7 +167,7 @@ function GetBusInfo(all_query){
 												carMarkers_pos = []
 												for (var index in carMarkers) {
 													// alert(index)
-													carMarkers[0].setMap(null);
+													carMarkers[index].setMap(null);
 												}
 												carMarkers = []
 												for (var dict_index in dict_info[all_query.Direction]) {
@@ -192,7 +190,7 @@ function GetBusInfo(all_query){
 												carMarkers_pos = []
 												for (var index in carMarkers) {
 													// alert(index)
-													carMarkers[0].setMap(null);
+													carMarkers[index].setMap(null);
 												}
 												carMarkers = []
 												for (var dict_index in dict_info[all_query.Direction]) {
@@ -250,6 +248,8 @@ function GetBusInfo(all_query){
 					create_list(dict_info,0,table1);
 					create_list(dict_info,1,table2);
 				})(dict_info);
+				console.log('aa')
+				bar();
 				resole({all_query,dict_info})
 			}
 		})	
