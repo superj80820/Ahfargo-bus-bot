@@ -48,7 +48,7 @@ function update_bar(object_bus){
 	var bar_len = parseFloat(document.getElementsByClassName("time")[0].style.width)
 	bar_len += 1/5
 	document.getElementsByClassName("time")[0].style.width=bar_len+"%";
-	console.log(bar_len)
+	// console.log(bar_len)
 	if(bar_len>=100){
 		document.getElementsByClassName("time")[0].style.width=0+"%";
 		GetBusInfo(object_bus.all_query)
@@ -90,6 +90,7 @@ function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 		realMarkers = []
 		var timeout = 1;
 		// alert(dict_info[all_query.Direction].length)
+		// alert(all_query.Direction)
 		for (var dict_index in dict_info[all_query.Direction]) {	
 			// 立即函式(IIFE) Immediately Invoked Function Expression
 			(function(index,dict_index){ 
@@ -108,7 +109,21 @@ function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 						content: dict_info[all_query.Direction][dict_index].StopName.Zh_tw
 					},
 					click: function(e) {
-						//None
+						// alert(event.target.id)
+						if(all_query.Direction == 0){
+							var $objTr = $("#bus_list_1_"+dict_index); //找到要定位的地方  tr 
+							// $objTr.css("background-color","lightgray"); //设置要定位地方的css 
+							var objTr = $objTr[0]; //转化为dom对象 
+							console.log(objTr)
+							$("#Goto").animate({scrollTop:objTr.offsetTop},"slow"); //定位tr 
+						}
+						else if (all_query.Direction == 1){
+							var $objTr = $("#bus_list_2_"+dict_index); //找到要定位的地方  tr 
+							// $objTr.css("background-color","lightgray"); //设置要定位地方的css 
+							var objTr = $objTr[0]; //转化为dom对象 
+							console.log(objTr)
+							$("#Goback").animate({scrollTop:objTr.offsetTop},"slow"); //定位tr 
+						}
 					},
 					// animation: google.maps.Animation.DROP
 				});
@@ -153,7 +168,12 @@ function GetBusInfo(all_query){
 							var cell1 = row.insertCell(0);
 							var cell2 = row.insertCell(1);
 							var cell3 = row.insertCell(2);
-							row.id = "bus_list_"+i
+							if(list_index == 0){
+								row.id = "bus_list_1_"+i
+							}
+							else if(list_index == 1){
+								row.id = "bus_list_2_"+i
+							}
 							cell1.innerHTML = parseInt(dict_info[list_index][i].EstimateTime)/60 + '分';
 							if (dict_info[list_index][i].EstimateTime == undefined){
 								if (cell1.innerHTML = dict_info[list_index][i].NextBusTime == undefined){
@@ -313,10 +333,20 @@ function initbus(all_query,dict_info,dict_path){
 				},
 				click: function(e) {
 					// alert(event.target.id)
-					var $objTr = $("#bus_list_"+dict_index); //找到要定位的地方  tr 
-					// $objTr.css("background-color","lightgray"); //设置要定位地方的css 
-					var objTr = $objTr[0]; //转化为dom对象 
-					$("#Goto").animate({scrollTop:objTr.offsetTop},"slow"); //定位tr 
+					if(all_query.Direction == 0){
+						var $objTr = $("#bus_list_1_"+dict_index); //找到要定位的地方  tr 
+						// $objTr.css("background-color","lightgray"); //设置要定位地方的css 
+						var objTr = $objTr[0]; //转化为dom对象 
+						console.log(objTr)
+						$("#Goto").animate({scrollTop:objTr.offsetTop},"slow"); //定位tr 
+					}
+					else if (all_query.Direction == 1){
+						var $objTr = $("#bus_list_2_"+dict_index); //找到要定位的地方  tr 
+						// $objTr.css("background-color","lightgray"); //设置要定位地方的css 
+						var objTr = $objTr[0]; //转化为dom对象 
+						console.log(objTr)
+						$("#Goback").animate({scrollTop:objTr.offsetTop},"slow"); //定位tr 
+					}
 				},
 				// animation: google.maps.Animation.DROP
 			});
