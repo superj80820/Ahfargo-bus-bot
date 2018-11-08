@@ -136,7 +136,7 @@ function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 					// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
 					// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
 					carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
-					updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
+					updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb,all_query.Direction,dict_index);
 				}
 			}
 		}
@@ -202,7 +202,7 @@ function GetBusInfo(all_query){
 															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
 															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
 															carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
-															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
+															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb,all_query.Direction,dict_index);
 														}
 													}
 												}
@@ -225,7 +225,7 @@ function GetBusInfo(all_query){
 															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
 															// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
 															carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
-															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
+															updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb,all_query.Direction,dict_index);
 														}
 													}
 												}
@@ -358,7 +358,7 @@ function initbus(all_query,dict_info,dict_path){
 				// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
 				// console.log(dict_info[all_query.Direction][dict_index].BusPosition.PositionLon)
 				carMarkers_pos.push(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat)
-				updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb);
+				updateCar(dict_info[all_query.Direction][dict_index].BusPosition.PositionLat,dict_info[all_query.Direction][dict_index].BusPosition.PositionLon,dict_info[all_query.Direction][dict_index].PlateNumb,all_query.Direction,dict_index);
 			}
 		}
 	}
@@ -383,7 +383,7 @@ function initbus(all_query,dict_info,dict_path){
 		
 }
 
-function updateCar(lat,lng,plate_numb){
+function updateCar(lat,lng,plate_numb,list_index,dict_index){
 	var img = './images/duck_walk.gif';//dict_info[all_query.Direction][dict_index].image;
 	var icon = {
 	url: img,
@@ -399,7 +399,20 @@ function updateCar(lat,lng,plate_numb){
 			content: '公車:'+plate_numb
 		},
 		click: function(e) {
-			//Nnoe
+			if(list_index == 0){
+				var $objTr = $("#bus_list_1_"+dict_index); //找到要定位的地方  tr 
+				// $objTr.css("background-color","lightgray"); //设置要定位地方的css 
+				var objTr = $objTr[0]; //转化为dom对象 
+				console.log(objTr)
+				$("#Goto").animate({scrollTop:objTr.offsetTop},"slow"); //定位tr 
+			}
+			else if (list_index == 1){
+				var $objTr = $("#bus_list_2_"+dict_index); //找到要定位的地方  tr 
+				// $objTr.css("background-color","lightgray"); //设置要定位地方的css 
+				var objTr = $objTr[0]; //转化为dom对象 
+				console.log(objTr)
+				$("#Goback").animate({scrollTop:objTr.offsetTop},"slow"); //定位tr 
+			}
 		},
 		// animation: google.maps.Animation.DROP
 	});
