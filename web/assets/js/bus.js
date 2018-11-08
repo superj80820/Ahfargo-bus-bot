@@ -40,21 +40,24 @@ window.onload = function (e) {
 	.then(function(object_bus){
 		initbus(object_bus.all_query,object_bus.dict_info,object_bus.dict_path);
 		document.getElementsByClassName("time")[0].style.width=0+"%";
-		setInterval(GetBusInfo,30000,object_bus.all_query);
+		update_bar(object_bus)
 	})
 }
 
-function bar(){
+function update_bar(object_bus){
 	var bar_len = parseFloat(document.getElementsByClassName("time")[0].style.width)
 	bar_len += 1/5
 	document.getElementsByClassName("time")[0].style.width=bar_len+"%";
-	// console.log(bar_len)
+	console.log(bar_len)
 	if(bar_len>=100){
-		// document.getElementsByClassName("time")[0].style.width=0+"%";
-		// console.log('bb')
-		return;
+		document.getElementsByClassName("time")[0].style.width=0+"%";
+		GetBusInfo(object_bus.all_query)
+		.then(() => {
+			update_bar(object_bus)
+		})
+		return
 	}
-	setTimeout("bar()",50);
+	setTimeout(() => {update_bar(object_bus)}, 60);
 }
 
 function openPage(pageName,elmnt,color) {
@@ -127,6 +130,8 @@ function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 
 function GetBusInfo(all_query){
 	// alert(all_query)
+	// document.getElementsByClassName("time")[0].style.width=0+"%";
+	// update_bar();
 	return new Promise(function(resole,reject){
 		$.ajax({
 			type: 'GET',
@@ -250,8 +255,6 @@ function GetBusInfo(all_query){
 					create_list(dict_info,1,table2);
 				})(dict_info);
 				console.log(dict_info)
-				document.getElementsByClassName("time")[0].style.width=0+"%";
-				bar();
 				resole({all_query,dict_info})
 			}
 		})	
