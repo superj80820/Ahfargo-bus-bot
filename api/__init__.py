@@ -485,7 +485,7 @@ def bus():
             for item2 in range(0,len(json_data)):
                 if item['StopUID'] == json_data[item2]['StopUID']:
                     json_data[item2]['StopPosition']=item['StopPosition']
-        print(json_data)
+        # print(json_data)
         return json_data
     
     def get_bus_star_and_end(RouteName):
@@ -496,17 +496,19 @@ def bus():
 
     def get_bus_lat_lon(index,ret):
         bus_pos=[]
+        sent_numb = "PlateNumb eq"
         for item in ret[index]:
             if item.get('PlateNumb') and item['PlateNumb'] != '' and item['PlateNumb'] not in bus_pos:
                 bus_pos += [item['PlateNumb']]
-                print(item['PlateNumb'])
-        for item in bus_pos:
-            headers=common().RES_HEAD(APPID,APPKey)
-            res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/RealTimeByFrequency/City/Taichung?$filter=PlateNumb eq '%s'&$format=JSON"%(item),headers=headers)
-            json_data=json.loads(res.text)
+                sent_numb += " '%s' or PlateNumb eq"%item['PlateNumb']
+        sent_numb = sent_numb[0:len(sent_numb)-16]
+        headers=common().RES_HEAD(APPID,APPKey)
+        res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/RealTimeByFrequency/City/Taichung?$filter=%s&$format=JSON"%(sent_numb),headers=headers)
+        json_data=json.loads(res.text)
+        for item in json_data:
             for item2 in ret[index]:
-                if item2.get('PlateNumb') and item2['PlateNumb'] == item:
-                    item2['BusPosition'] = json_data[0]['BusPosition']
+                if item2.get('PlateNumb') and item2['PlateNumb'] == item['PlateNumb']:
+                    item2['BusPosition'] = item['BusPosition']
         return ret
 
     RouteName=request.args.get('RouteName')
