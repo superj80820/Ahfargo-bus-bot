@@ -34,22 +34,25 @@
             .preview > div {
                 background-color: #176592;
                 color:white;
-                line-height: 4em;
-                padding: 0.2em 2em;
+                height: 95%;
+                overflow:scroll;
+                overflow-x:hidden;
+                padding: 0em 0.2em;
                 width: 100%;
             }
-            .bus_num {   
+            .bus_num {
+                display:block; 
                 font-family:Microsoft JhengHei;
                 font-size: 2em;
-                width: 40%;
+                left: 0.2em;
+                position: relative;
             }
             .bus_name {
+                display:block;
                 font-family:Microsoft JhengHei;
                 font-size: 1.2em;
-                left: -132px;
+                left: 1em;
                 position: relative;
-                top: 25px;
-                width: 500px;
             }
             /* Style keyboard */
             .keyboard {
@@ -74,13 +77,12 @@
     </head>
     <body>
         <div class="search">
-            &emsp;<img src="images/search_icon.png" alt="" style="width: 2.5em">&emsp;&emsp;
+            &emsp;<img src="images/search_icon.png" style="width: 2.5em">&emsp;&emsp;
             <h1 id='bus_title'></h1>
         </div>
         <div class="preview">
-            <div style="overflow:scroll; overflow-x:hidden; height: 95%;">
-                <table id='myTable'>
-                </table>
+            <div>
+                <table id='myTable'></table>
             </div>
         </div>
         <div class="keyboard">
