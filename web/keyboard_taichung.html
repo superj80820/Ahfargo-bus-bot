@@ -5,17 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" charset="UTF-8">
         <style>
             * {box-sizing: border-box}
-            /* Set height of body and the document to 100% */
+            /* Set height of body and the document to 98% */
             body, html {
                 background-color: #4790ff; 
                 font-family: Arial;
                 height: 98%;
                 margin: 1;
             }
+            /* Style search */
             .search {
                 align-items: center;
                 display: flex;
-                height: 5%;
+                height: 7%;
                 width: 100%;
             }
             .search > h1 {
@@ -23,10 +24,11 @@
                 font-family:Microsoft JhengHei;
                 font-size: 1.5em;
             }
+            /* Style preview */
             .preview {
                 align-items: center;
                 display: flex;
-                height: 56%;
+                height: 55%;
                 width: 100%;
             }
             .preview > div {
@@ -38,40 +40,45 @@
             }
             .bus_num {   
                 font-family:Microsoft JhengHei;
-                width: 40%;
                 font-size: 2em;
+                width: 40%;
             }
             .bus_name {
                 font-family:Microsoft JhengHei;
                 font-size: 1.2em;
-                    position: relative;
-                    top: 25px;
-                    left: -132px;
-                    width: 500px;
+                left: -132px;
+                position: relative;
+                top: 25px;
+                width: 500px;
             }
+            /* Style keyboard */
             .keyboard {
                 -webkit-flex-wrap: wrap;
-                align-items: center;
-                background-color: #f1f1f1;
                 display: flex;
-                height: 40%;
+                height: 36%;
                 width: 100%;
             }
             .keyboard > div {
+                background-color: #f1f1f1;
                 font-family:Microsoft JhengHei;
                 font-size: 0.7em;
+                height: 25%;
+                line-height: 100%;
                 text-align: center;
                 width: 33.33%;
+            }
+            .keyboard > div:hover {
+                background-color: #777;
             }
         </style>
     </head>
     <body>
-        <center class="search">
-            &emsp;<img src="images/search_icon.png" alt="" / style="width: 3em">&emsp;&emsp;
+        <div class="search">
+            &emsp;<img src="images/search_icon.png" alt="" style="width: 2.5em">&emsp;&emsp;
             <h1 id='bus_title'></h1>
-        </center>
+        </div>
         <div class="preview">
-            <div style="overflow:scroll; height: 95%;">
+            <div style="overflow:scroll; overflow-x:hidden; height: 95%;">
                 <table id='myTable'>
                 </table>
             </div>

@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" charset="UTF-8">
     <style>
       * {box-sizing: border-box}
-      /* Set height of body and the document to 100% */
+      /* Set height of body and the document to 98% */
       body, html {
         background-color: #4790ff; 
         font-family: Arial;
         height: 98%;
         margin: 1;
       }
+      /* Style map */
+      #map {
+        height: 34%;
+      }
+      /* Style tab links */
       .tabbutton {
           align-items: stretch;
           display: flex;
           height: 9%;
           width: 100%;
       }
-      /* Style tab links */
       .tabbutton > button {
         background-color: #7681B3;
         border: none;
@@ -27,14 +31,14 @@
         font-family:Microsoft JhengHei;
         font-size: 1em;
         overflow:scroll;
-        width: 50%;
         overflow-x:hidden;
         overflow-y:hidden;
+        width: 50%;
       }
       .tabbutton > button:hover {
         background-color: #777;
       }
-      /* Style the tab content (and add height:100% for full page content) */
+      /* Style the tab content */
       .tabcontent {
         color: white;
         font-family:Microsoft JhengHei;
@@ -43,10 +47,15 @@
         padding: 1em 1.3em;
         overflow-x:hidden;
       }
+      /* Style time */
+      .time {
+        background: #e4a348;
+        height: 3px;
+      }
     </style>
   </head>
   <body>
-    <div id="map" style="height: 34%"></div>
+    <div id="map"></div>
     <div class="tabbutton">
       <button id='tab_1' class="tablink" onclick="openPage('Goto', this, '#6F73D2')"></button>
       <button id='tab_2' class="tablink" onclick="openPage('Goback', this, '#6F73D2')"></button>
@@ -57,7 +66,7 @@
     <div id="Goback" class="tabcontent" style="display: none;">
       <table id="busList2"></table>
     </div>
-    <div class="time" style="height: 3px; background: #e4a348;"></div>
+    <div class="time"></div>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
