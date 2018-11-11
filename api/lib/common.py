@@ -149,9 +149,9 @@ class common(object):
                             "height": "sm",
                             "gravity": "center",
                             "action": {
-                                "type": "uri",
+                                "type": "message",
                                 "label": "%s" %temp['StopName'],
-                                "uri": "https://linecorp.com"
+                                "text": "站牌查詢/%s" %temp['StopName']
                             },
                             "flex": 3
                             },
@@ -219,4 +219,177 @@ class common(object):
                 }
             }
         }
+        return flex
+
+    def creat_bus_contents(self, data):
+        content = []
+        for item in data:
+            content += [
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                            "type": "button",
+                            "style": "link",
+                            "height": "sm",
+                            "gravity": "center",
+                            "action": {
+                                "type": "message",
+                                "label":"%s" %item,
+                                "text": "%s" %item
+                            },
+                            "flex": 1
+                            }
+                        ]
+                    }
+                ]
+        flex={
+            "type":"flex",
+            "altText":"This is a Flex Message",
+            "contents":{
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "https://images.clipartlogo.com/files/istock/previews/8976/89765575-duck-icon-farm-animal-vector-illustration.jpg",
+                    "size": "full",
+                    "aspectRatio": "20:13",
+                    "aspectMode": "cover",
+                    "action": {
+                    "type": "uri",
+                    "uri": "http://linecorp.com/"
+                    }
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "請點選你想搭的公車~",
+                            "weight": "bold",
+                            "size": "xl"
+                            }
+                        ]
+                    },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "xs",
+                    "contents": content,
+                    "flex": 0
+                }
+            }
+        }
+        return flex
+
+    def set_bus_route(self, origin, destination):
+        contents = []
+        body_contents = []
+        res = requests.get('https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&key=%s&language=zh-TW&transit_mode=bus&mode=transit&alternatives=true' %(origin, destination, google_map_key))
+        json_data=json.loads(res.text)
+        json_data['routes'].sort(key=lambda d:int(d['legs'][0]['duration']['value']))
+        for item in json_data['routes']:
+            print(item['legs'][0]['duration']['text'])
+            for item2 in item['legs'][0]['steps']:
+                if item2.get('transit_details'):
+                    print(item2['html_instructions'].replace('巴士','搭乘公車%s' %(item2['transit_details']['line']['short_name'])))
+                    body_contents += [{
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                            "type": "text",
+                            "text": item2['html_instructions'].replace('巴士','搭乘公車%s' %(item2['transit_details']['line']['short_name'])),
+                            "wrap": True,
+                            "size": "md",
+                            "flex": 5
+                            },
+                            {
+                            "type": "button",
+                            "style": "link",
+                            "height": "sm",
+                            "gravity": "center",
+                            "action": {
+                                "type": "uri",
+                                "label": "觀看",
+                                "uri": "line://app/1615663243-gkN06e02?BusNum=%s&City=%s&Direction=0" %(item2['transit_details']['line']['short_name'], 'Taichung')
+                            },
+                            "flex": 3
+                            }
+                        ]
+                    }]
+                else:
+                    print(item2['html_instructions'])
+                    body_contents += [{
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                            "type": "text",
+                            "gravity": "center",
+                            "text": item2['html_instructions'],
+                            "wrap": True,
+                            "size": "md",
+                            "flex": 5
+                            },
+                            {
+                            "type": "button",
+                            "style": "link",
+                            "height": "sm",
+                            "gravity": "center",
+                            "action": {
+                                "type": "uri",
+                                "label": "觀看",
+                                "uri": "line://app/1615663243-V6xWnKWv?api=1&origin=%s,%s&destination=%s,%s" %(item2['start_location']['lat'], item2['start_location']['lng'], item2['end_location']['lat'], item2['end_location']['lng'])
+                            },
+                            "flex": 3
+                            }
+                        ]
+                    }]
+            contents += [{
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "https://images.clipartlogo.com/files/istock/previews/8976/89765575-duck-icon-farm-animal-vector-illustration.jpg",
+                    "size": "full",
+                    "action": {
+                        "type": "uri",
+                        "uri": "http://linecorp.com/"
+                    }
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "約%s" %(item['legs'][0]['duration']['text']),
+                            "weight": "bold",
+                            "size": "xl"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": body_contents
+                        }
+                    ]
+                }
+            }]
+            body_contents = []
+
+        flex = {
+            "type":"flex",
+            "altText":"This is a Flex Message",
+            "contents":{
+                "type": "carousel",
+                "contents": []
+            }    
+        }
+        print(len(json.dumps(contents))+len(json.dumps(flex))-2)
+        check_size = lambda d:check_size(d[0:len(d)-1]) if len(json.dumps(d))+len(json.dumps(flex))-2>20*1024 else d
+        contents = check_size(contents)
+        flex['contents']['contents'] = contents
+        print(len(json.dumps(flex)))
+
         return flex
