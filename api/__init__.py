@@ -442,8 +442,6 @@ def handle_location_message(event):
         print(ori_pos[0][0])
         c.execute('DELETE FROM route_plan WHERE user_id ="%s"'%(event.source.user_id))
         flex = common().set_bus_route(ori_pos[0][0], str(float(event.message.latitude))+','+str(float(event.message.longitude)))
-        with open('data.json', 'w') as outfile:
-            json.dump(flex, outfile)
         headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
         payload = {
             'replyToken':event.reply_token,
