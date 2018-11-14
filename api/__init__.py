@@ -142,9 +142,30 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,TextSendMessage(text='請直接輸入公車號即可查詢呱!'))
     
-    elif event.message.text=='公車查詢':
-        line_bot_api.reply_message(
-            event.reply_token,TextSendMessage(text='圖表正在製作中 呱呱!'))
+    elif event.message.text[0:5]=='站牌查詢/':
+        headers=common().RES_HEAD(APPID,APPKey)
+        res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/StopOfRoute/City/Taichung?$select=RouteName&$filter=Stops/any(d:d/StopName/Zh_tw eq '%s')&$format=JSON"%(event.message.text[5:len(event.message.text)]),headers=headers)
+        json_data=json.loads(res.text)
+        content = []
+        new_content = []
+        temp = ''
+        for item in json_data:
+            content += [item['RouteName']['Zh_tw']]
+        content = list(set(content))
+        for i in range(0,len(content)-1): #有n-1回合(n為數字個數)
+            for j in range(0,len(content)-1-i): #每回合進行比較的範圍
+                if int(re.search('\d+',str(content[j])).group()) > int(re.search('\d+',str(content[j+1])).group()):
+                    tmp = content[j]
+                    content[j] = content[j+1]
+                    content[j+1] = tmp
+        print(content)
+        flex = common().creat_bus_contents(content)
+        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+        payload = {
+            'replyToken':event.reply_token,
+            'messages':[flex]
+            }
+        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
 
     elif re.search('附近站牌/\d+.\d+,\d+.\d+/',event.message.text) != None:
         location_temp = re.search('\d+.\d+,\d+.\d+',event.message.text).group()
@@ -161,6 +182,22 @@ def handle_message(event):
         res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
 
     elif re.search('路線規劃/\d+.\d+,\d+.\d+/',event.message.text) != None:
+        ori_pos = re.search('\d+.\d+,\d+.\d+',event.message.text).group()
+        conn = sqlite.connect('%sdata/db/user_action.db'%(FileRoute))
+        c = conn.cursor()
+        user_id = c.execute('SELECT user_id FROM route_plan WHERE user_id ="%s"'%(event.source.user_id))
+        user_id = user_id.fetchall()
+        print(user_id)
+        if user_id != []:
+            print('update')
+            c.execute('UPDATE route_plan SET planing ="action" WHERE user_id ="%s"'%(event.source.user_id))
+            c.execute('UPDATE route_plan SET pos ="%s" WHERE user_id ="%s"'%(ori_pos, event.source.user_id))
+        else:
+            print('insert')
+            c.execute('INSERT INTO route_plan (user_id,planing,pos) VALUES ("%s","action","%s")'%(event.source.user_id, ori_pos))
+        conn.commit()
+        conn.close()
+
         flex={
             "type":"flex",
             "altText":"This is a Flex Message",
@@ -225,99 +262,115 @@ def handle_message(event):
         res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
 
     elif re.search('好玩的/\d+.\d+,\d+.\d+/',event.message.text) != None:
-        flex={
-            "type":"flex",
-            "altText":"This is a Flex Message",
-            "contents":{
-                "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": "https://images.clipartlogo.com/files/istock/previews/8976/89765575-duck-icon-farm-animal-vector-illustration.jpg",
-                    "size": "full",
-                    "aspectRatio": "20:13",
-                    "aspectMode": "cover",
-                    "action": {
-                    "type": "uri",
-                    "uri": "http://linecorp.com/"
-                    }
-                },
-                "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "你想去哪玩~呱",
-                            "weight": "bold",
-                            "size": "xl"
-                            }
-                        ]
-                    },
-                "footer": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "spacing": "xs",
-                    "contents": [
-                        {
-                            "type": "box",
-                            "layout": "horizontal",
-                            "contents": [
-                                {
-                                "type": "button",
-                                "style": "link",
-                                "height": "sm",
-                                "gravity": "center",
-                                "action": {
-                                    "type": "uri",
-                                    "label": "找景點/12334G23GR42G233",
-                                    "uri": "line://nv/location"
-                                },
-                                "flex": 1
-                                },
-                                {
-                                "type": "button",
-                                "style": "link",
-                                "height": "sm",
-                                "gravity": "center",
-                                "action": {
-                                    "type": "uri",
-                                    "label": "玩活動/12334G23GR42G233",
-                                    "uri": "line://nv/location"
-                                },
-                                "flex": 1
-                                }
-                            ]
-                        }
-                    ],
-                    "flex": 0
-                }
-            }
-        }
-        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
-        payload = {
-            'replyToken':event.reply_token,
-            'messages':[flex]
-            }
-        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
+        ori_pos = re.search('\d+.\d+,\d+.\d+',event.message.text).group()
+        res=requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=景點&location=%s&radius=500&key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA&language=zh-TW'%ori_pos)
+        sent_data=json.loads(res.text)
+        columns=[]
+
+        count=0
+        for item in sent_data['results']:
+            if count==10:
+                break
+            columns+=[CarouselColumn(text=item['vicinity'], title=item['name'], actions=[
+                URIAction(label='搜尋看看!', uri='https://www.google.com.tw/maps/search/%s'%item['name']),
+                MessageAction(label='我喜歡這裡呱!', text='%s我覺得不錯'%item['name'])])]
+            count+=1
+            
+        carousel_template = CarouselTemplate(columns=columns)
+        template_message = TemplateSendMessage(
+            alt_text='Carousel alt text', template=carousel_template)
+        
+        line_bot_api.reply_message(event.reply_token, template_message)
+        # flex={
+        #     "type":"flex",
+        #     "altText":"This is a Flex Message",
+        #     "contents":{
+        #         "type": "bubble",
+        #         "hero": {
+        #             "type": "image",
+        #             "url": "https://images.clipartlogo.com/files/istock/previews/8976/89765575-duck-icon-farm-animal-vector-illustration.jpg",
+        #             "size": "full",
+        #             "aspectRatio": "20:13",
+        #             "aspectMode": "cover",
+        #             "action": {
+        #             "type": "uri",
+        #             "uri": "http://linecorp.com/"
+        #             }
+        #         },
+        #         "body": {
+        #             "type": "box",
+        #             "layout": "vertical",
+        #             "contents": [
+        #                 {
+        #                     "type": "text",
+        #                     "text": "你想去哪玩~呱",
+        #                     "weight": "bold",
+        #                     "size": "xl"
+        #                     }
+        #                 ]
+        #             },
+        #         "footer": {
+        #             "type": "box",
+        #             "layout": "vertical",
+        #             "spacing": "xs",
+        #             "contents": [
+        #                 {
+        #                     "type": "box",
+        #                     "layout": "horizontal",
+        #                     "contents": [
+        #                         {
+        #                         "type": "button",
+        #                         "style": "link",
+        #                         "height": "sm",
+        #                         "gravity": "center",
+        #                         "action": {
+        #                             "type": "uri",
+        #                             "label": "找景點/12334G23GR42G233",
+        #                             "uri": "line://nv/location"
+        #                         },
+        #                         "flex": 1
+        #                         },
+        #                         {
+        #                         "type": "button",
+        #                         "style": "link",
+        #                         "height": "sm",
+        #                         "gravity": "center",
+        #                         "action": {
+        #                             "type": "uri",
+        #                             "label": "玩活動/12334G23GR42G233",
+        #                             "uri": "line://nv/location"
+        #                         },
+        #                         "flex": 1
+        #                         }
+        #                     ]
+        #                 }
+        #             ],
+        #             "flex": 0
+        #         }
+        #     }
+        # }
+        # headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+        # payload = {
+        #     'replyToken':event.reply_token,
+        #     'messages':[flex]
+        #     }
+        # res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
 
     elif event.message.text=='test':
-        location = {}
-        location['lat'] = float(24.138777)
-        location['lon'] = float(120.671274)
-        flex = common().creat_stop_contents(location, 0.5)
-        
-        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
-        payload = {
-            'replyToken':event.reply_token,
-            'messages':[{
-                    "type": "location",
-                    "title": "my location",
-                    "address": "〒150-0002 東京都渋谷区渋谷２丁目２１−１",
-                    "latitude": 35.65910807942215,
-                    "longitude": 139.70372892916203
-                }]
-            }
-        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
+        conn = sqlite.connect('%sdata/db/user_action.db'%(FileRoute))
+        c = conn.cursor()
+        user_id = c.execute('SELECT user_id FROM route_plan WHERE user_id ="%s"'%(event.source.user_id))
+        user_id = user_id.fetchall()
+        print(user_id)
+        if user_id != []:
+            print('update')
+            c.execute('UPDATE route_plan SET planing ="action" WHERE user_id ="%s"'%(event.source.user_id))
+        else:
+            print('insert')
+            c.execute('INSERT INTO route_plan (user_id,planing) VALUES ("%s","action")'%(event.source.user_id))
+        conn.commit()
+        conn.close()
+            
 
 @handler.add(PostbackEvent)
 def handle_postback(event):
@@ -377,84 +430,90 @@ def handle_postback(event):
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
-    print(str(float(event.message.latitude)))
-    print(str(float(event.message.longitude)))
-    imagemap = {
-        "type": "imagemap",
-        "baseUrl": "https://i.imgur.com/7HFxSMt.png",
-        "altText": "This is an imagemap",
-        "baseSize": {
-            "width": 1040,
-            "height": 310
-        },
-        "actions": [
-            {
-            "type": "message",
-            "area": {
-                "x": 0,
-                "y": 0,
-                "width": 255,
-                "height": 309
-            },
-            "text": "附近站牌/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
-            },
-            {
-            "type": "message",
-            "area": {
-                "x": 255,
-                "y": 1,
-                "width": 263,
-                "height": 309
-            },
-            "text": "路線規劃/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
-            },
-            {  
-            "type":"uri",
-            "label":"公共自行車/%s,%s/" %(str(event.message.latitude), str(event.message.longitude)),
-            "linkUri":"line://app/1615663243-36r5Y25z?pos=%sand%s" %(str(event.message.latitude), str(event.message.longitude)),
-            "area":{  
-                "x": 518,
-                "y": 1,
-                "width": 255,
-                "height": 309
-                }
-            },
-            {
-            "type": "message",
-            "area": {
-                "x": 773,
-                "y": 0,
-                "width": 267,
+    conn = sqlite.connect('%sdata/db/user_action.db'%(FileRoute))
+    c = conn.cursor()
+    planing = c.execute('SELECT planing FROM route_plan WHERE user_id ="%s"'%(event.source.user_id))
+    planing = planing.fetchall()
+    print(planing)
+    if planing == [('action',)]:
+        print('in origin')
+        ori_pos = c.execute('SELECT pos FROM route_plan WHERE user_id ="%s"'%(event.source.user_id))
+        ori_pos = ori_pos.fetchall()
+        print(ori_pos[0][0])
+        c.execute('DELETE FROM route_plan WHERE user_id ="%s"'%(event.source.user_id))
+        flex = common().set_bus_route(ori_pos[0][0], str(float(event.message.latitude))+','+str(float(event.message.longitude)))
+        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+        payload = {
+            'replyToken':event.reply_token,
+            'messages':[flex]
+            }
+        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
+        print(res.text)
+    elif planing == []:
+        print('in begin')
+        print(str(float(event.message.latitude)))
+        print(str(float(event.message.longitude)))
+        imagemap = {
+            "type": "imagemap",
+            "baseUrl": "https://i.imgur.com/7HFxSMt.png",
+            "altText": "This is an imagemap",
+            "baseSize": {
+                "width": 1040,
                 "height": 310
             },
-            "text": "好玩的/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+            "actions": [
+                {
+                "type": "message",
+                "area": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 255,
+                    "height": 309
+                },
+                "text": "附近站牌/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+                },
+                {
+                "type": "message",
+                "area": {
+                    "x": 255,
+                    "y": 1,
+                    "width": 263,
+                    "height": 309
+                },
+                "text": "路線規劃/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+                },
+                {  
+                "type":"uri",
+                "label":"公共自行車/%s,%s/" %(str(event.message.latitude), str(event.message.longitude)),
+                "linkUri":"line://app/1615663243-36r5Y25z?pos=%sand%s" %(str(event.message.latitude), str(event.message.longitude)),
+                "area":{  
+                    "x": 518,
+                    "y": 1,
+                    "width": 255,
+                    "height": 309
+                    }
+                },
+                {
+                "type": "message",
+                "area": {
+                    "x": 773,
+                    "y": 0,
+                    "width": 267,
+                    "height": 310
+                },
+                "text": "好玩的/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+                }
+            ]
             }
-        ]
-        }
-    headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
-    payload = {
-        'replyToken':event.reply_token,
-        'messages':[imagemap]
-        }
-    res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
-    # res=requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=景點&location=%s&radius=500&key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA&language=zh-TW'%loc)
-    # sent_data=json.loads(res.text)
-    # columns=[]
-
-    # count=0
-    # for item in sent_data['results']:
-    #     if count==10:
-    #         break
-    #     columns+=[CarouselColumn(text=item['vicinity'], title=item['name'], actions=[
-    #         URIAction(label='搜尋看看!', uri='https://www.google.com.tw/maps/search/%s'%item['name']),
-    #         MessageAction(label='我喜歡這裡呱!', text='%s我覺得不錯'%item['name'])])]
-    #     count+=1
+        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+        payload = {
+            'replyToken':event.reply_token,
+            'messages':[imagemap]
+            }
+        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
         
-    # carousel_template = CarouselTemplate(columns=columns)
-    # template_message = TemplateSendMessage(
-    #     alt_text='Carousel alt text', template=carousel_template)
-    
-    # line_bot_api.reply_message(event.reply_token, template_message)
+    conn.commit()
+    conn.close()
 
 @app.route('/bus', methods=['GET'])
 def bus():
