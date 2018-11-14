@@ -15,6 +15,7 @@ import re
 import configparser as ConfigParser
 from math import sin, cos, sqrt, atan2, radians
 import ast
+import sqlite3 as sqlite
 
 ## information ##
 ## file info ##
@@ -25,6 +26,8 @@ LINE_SECRET = 'eff38d2e8d566ba494f30926d5fdfada'
 ## MOTC info ##
 APPID = 'ad64f3b34d38425ca0bb7efdcdb4548b'
 APPKey = 'wabKRdVqcFg4i5CqLXP4JuWQ3Ws'
+## google info ##
+google_map_key = 'AIzaSyCUx_og-8aUvdj5jDYyQGALwnzlQw_jXok'
 
 ## self lib ###
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "lib")))
