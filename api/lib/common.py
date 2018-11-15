@@ -364,7 +364,7 @@ class common(object):
         return flex
 
     def get_and_save_google_map_image(self, reference):
-        res=requests.get('https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=%s&key=%s' %(reference, GOOGLE_MAP_KEY))
+        res=requests.get('https://maps.googleapis.com/maps/api/place/photo?maxheight=200&photoreference=%s&key=%s' %(reference, GOOGLE_MAP_KEY))
         uuid_name = uuid.uuid1()
         with open('%sdata/image/%s.jpg' %(FileRoute, uuid_name), 'wb') as f:
             for chunk in res:
