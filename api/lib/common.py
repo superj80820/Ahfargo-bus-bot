@@ -187,17 +187,6 @@ class common(object):
             "altText":"This is a Flex Message",
             "contents":{
                 "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": "https://images.clipartlogo.com/files/istock/previews/8976/89765575-duck-icon-farm-animal-vector-illustration.jpg",
-                    "size": "full",
-                    "aspectRatio": "20:13",
-                    "aspectMode": "cover",
-                    "action": {
-                    "type": "uri",
-                    "uri": "http://linecorp.com/"
-                    }
-                },
                 "body": {
                     "type": "box",
                     "layout": "vertical",
@@ -249,17 +238,6 @@ class common(object):
             "altText":"This is a Flex Message",
             "contents":{
                 "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": "https://images.clipartlogo.com/files/istock/previews/8976/89765575-duck-icon-farm-animal-vector-illustration.jpg",
-                    "size": "full",
-                    "aspectRatio": "20:13",
-                    "aspectMode": "cover",
-                    "action": {
-                    "type": "uri",
-                    "uri": "http://linecorp.com/"
-                    }
-                },
                 "body": {
                     "type": "box",
                     "layout": "vertical",
@@ -286,7 +264,7 @@ class common(object):
     def set_bus_route(self, origin, destination):
         contents = []
         body_contents = []
-        res = requests.get('https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&key=%s&language=zh-TW&transit_mode=bus&mode=transit&alternatives=true' %(origin, destination, google_map_key))
+        res = requests.get('https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&key=%s&language=zh-TW&transit_mode=bus&mode=transit&alternatives=true' %(origin, destination, GOOGLE_MAP_KEY))
         json_data=json.loads(res.text)
         json_data['routes'].sort(key=lambda d:int(d['legs'][0]['duration']['value']))
         for item in json_data['routes']:
@@ -349,15 +327,6 @@ class common(object):
                     }]
             contents += [{
                 "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": "https://images.clipartlogo.com/files/istock/previews/8976/89765575-duck-icon-farm-animal-vector-illustration.jpg",
-                    "size": "full",
-                    "action": {
-                        "type": "uri",
-                        "uri": "http://linecorp.com/"
-                    }
-                },
                 "body": {
                     "type": "box",
                     "layout": "vertical",
@@ -387,7 +356,79 @@ class common(object):
             }    
         }
         print(len(json.dumps(contents))+len(json.dumps(flex))-2)
-        check_size = lambda d:check_size(d[0:len(d)-1]) if len(json.dumps(d))+len(json.dumps(flex))-2>20*1024 else d
+        check_size = lambda d:check_size(d[0:len(d)-1]) if len(json.dumps(d))+len(json.dumps(flex))-2>50*1024 else d
+        contents = check_size(contents)
+        flex['contents']['contents'] = contents
+        print(len(json.dumps(flex)))
+
+        return flex
+
+    def get_and_save_google_map_image(self, reference):
+        res=requests.get('https://maps.googleapis.com/maps/api/place/photo?maxheight=200&photoreference=%s&key=%s' %(reference, GOOGLE_MAP_KEY))
+        uuid_name = uuid.uuid1()
+        with open('%sdata/image/%s.jpg' %(FileRoute, uuid_name), 'wb') as f:
+            for chunk in res:
+                f.write(chunk)
+        return uuid_name
+
+    def nearby_place(self, data, ori_pos):
+        contents = []
+        for item in data['results']:
+            contents += [{
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "%s/%s.jpg" %(IMAGE_URL, common().get_and_save_google_map_image(item['photos'][0]['photo_reference'])),
+                    "size": "full"
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [{
+                                "type": "box",
+                                "layout": "horizontal",
+                                "contents": [
+                                    {
+                                    "type": "text",
+                                    "gravity": "center",
+                                    "text": item['name'],
+                                    "wrap": True,
+                                    "size": "md",
+                                    "flex": 5
+                                    },
+                                    {
+                                    "type": "button",
+                                    "style": "link",
+                                    "height": "sm",
+                                    "gravity": "center",
+                                    "action": {
+                                        "type": "uri",
+                                        "label": "觀看",
+                                        "uri": "line://app/1615663243-V6xWnKWv?api=1&origin=%s&destination=%s,%s" %(ori_pos, item['geometry']['location']['lat'], item['geometry']['location']['lng'])
+                                    },
+                                    "flex": 3
+                                    }
+                                ]
+                            }]
+                        }
+                    ]
+                }
+            }]
+
+        flex = {
+            "type":"flex",
+            "altText":"This is a Flex Message",
+            "contents":{
+                "type": "carousel",
+                "contents": []
+            }    
+        }
+        print(len(json.dumps(contents))+len(json.dumps(flex))-2)
+        check_size = lambda d:check_size(d[0:len(d)-1]) if len(json.dumps(d))+len(json.dumps(flex))-2>50*1024 else d
         contents = check_size(contents)
         flex['contents']['contents'] = contents
         print(len(json.dumps(flex)))
