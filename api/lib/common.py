@@ -378,7 +378,7 @@ class common(object):
                 "type": "bubble",
                 "hero": {
                     "type": "image",
-                    "url": "%s/%s.jpg" %(IMAGE_URL, get_and_save_google_map_image(item['photos'])),
+                    "url": "%s/%s.jpg" %(IMAGE_URL, common().get_and_save_google_map_image(item['photos'])),
                     "size": "full"
                 },
                 "body": {
