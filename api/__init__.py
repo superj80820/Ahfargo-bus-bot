@@ -73,17 +73,6 @@ def handle_message(event):
             "altText":"This is a Flex Message",
             "contents":{
                 "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": "https://images.clipartlogo.com/files/istock/previews/8976/89765575-duck-icon-farm-animal-vector-illustration.jpg",
-                    "size": "full",
-                    "aspectRatio": "20:13",
-                    "aspectMode": "cover",
-                    "action": {
-                    "type": "uri",
-                    "uri": "http://linecorp.com/"
-                    }
-                },
                 "body": {
                     "type": "box",
                     "layout": "vertical",
@@ -203,17 +192,6 @@ def handle_message(event):
             "altText":"This is a Flex Message",
             "contents":{
                 "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": "https://images.clipartlogo.com/files/istock/previews/8976/89765575-duck-icon-farm-animal-vector-illustration.jpg",
-                    "size": "full",
-                    "aspectRatio": "20:13",
-                    "aspectMode": "cover",
-                    "action": {
-                    "type": "uri",
-                    "uri": "http://linecorp.com/"
-                    }
-                },
                 "body": {
                     "type": "box",
                     "layout": "vertical",
@@ -263,24 +241,35 @@ def handle_message(event):
 
     elif re.search('好玩的/\d+.\d+,\d+.\d+/',event.message.text) != None:
         ori_pos = re.search('\d+.\d+,\d+.\d+',event.message.text).group()
-        res=requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=景點&location=%s&radius=500&key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA&language=zh-TW'%ori_pos)
+        res=requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=景點&location=%s&radius=1000&key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA&language=zh-TW'%ori_pos)
         sent_data=json.loads(res.text)
+        print(sent_data)
         columns=[]
-
-        count=0
-        for item in sent_data['results']:
-            if count==10:
-                break
-            columns+=[CarouselColumn(text=item['vicinity'], title=item['name'], actions=[
-                URIAction(label='搜尋看看!', uri='https://www.google.com.tw/maps/search/%s'%item['name']),
-                MessageAction(label='我喜歡這裡呱!', text='%s我覺得不錯'%item['name'])])]
-            count+=1
+        if sent_data['status'] != 'ZERO_RESULTS':
+            flex = common().nearby_place(sent_data, ori_pos)
+            headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+            payload = {
+                'replyToken':event.reply_token,
+                'messages':[flex]
+                }
+            res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
+            # count=0
+            # for item in sent_data['results']:
+            #     if count==10:
+            #         break
+            #     columns+=[CarouselColumn(text=item['vicinity'], title=item['name'], actions=[
+            #         URIAction(label='搜尋看看!', uri='https://www.google.com.tw/maps/search/%s'%item['name']),
+            #         MessageAction(label='我喜歡這裡呱!', text='%s我覺得不錯'%item['name'])])]
+            #     count+=1
+                
+            # carousel_template = CarouselTemplate(columns=columns)
+            # template_message = TemplateSendMessage(
+            #     alt_text='Carousel alt text', template=carousel_template)
             
-        carousel_template = CarouselTemplate(columns=columns)
-        template_message = TemplateSendMessage(
-            alt_text='Carousel alt text', template=carousel_template)
-        
-        line_bot_api.reply_message(event.reply_token, template_message)
+            # line_bot_api.reply_message(event.reply_token, template_message)
+        else:
+            line_bot_api.reply_message(
+                event.reply_token,TextSendMessage(text='目前我不太知道附近有甚麼好玩的...呱呱'))
         # flex={
         #     "type":"flex",
         #     "altText":"This is a Flex Message",
