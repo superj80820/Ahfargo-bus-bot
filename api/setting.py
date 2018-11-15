@@ -16,6 +16,7 @@ import configparser as ConfigParser
 from math import sin, cos, sqrt, atan2, radians
 import ast
 import sqlite3 as sqlite
+import uuid
 
 ## information ##
 ## file info ##
@@ -27,7 +28,9 @@ LINE_SECRET = 'eff38d2e8d566ba494f30926d5fdfada'
 APPID = 'ad64f3b34d38425ca0bb7efdcdb4548b'
 APPKey = 'wabKRdVqcFg4i5CqLXP4JuWQ3Ws'
 ## google info ##
-google_map_key = 'AIzaSyCUx_og-8aUvdj5jDYyQGALwnzlQw_jXok'
+GOOGLE_MAP_KEY = 'AIzaSyCUx_og-8aUvdj5jDYyQGALwnzlQw_jXok'
+## image url ##
+IMAGE_URL = "https://messfar.com/Ahfargo_bus_bot_web_staging_free_image"
 
 ## self lib ###
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "lib")))
