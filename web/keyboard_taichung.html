@@ -70,7 +70,7 @@
                 text-align: center;
                 width: 33.33%;
             }
-            .keyboard > div:hover {
+            .keyboard > div:not(:disabled):not(.disabled).active,.keyboard > div:not(:disabled):not(.disabled):active,.show>.keyboard > div.dropdown-toggle {
                 background-color: #777;
             }
         </style>
