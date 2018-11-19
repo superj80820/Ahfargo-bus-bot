@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>公車動態</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" charset="UTF-8">
+    <style>
+        .btn{
+            display:inline-block;
+            font-weight:400;
+            text-align:center;
+            white-space:nowrap;
+            vertical-align:middle;
+            border:1px solid transparent;
+            padding:.375rem .75rem;
+            font-size:1rem;
+            line-height:1.5;
+            border-radius:.25rem;
+            transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+        }
+        .btn.focus,.btn:focus{
+            outline:0;
+            box-shadow:0 0 0 .2rem rgba(0,123,255,.25)
+        }
+        .tablink{
+            color:#007bff;
+            background-color:transparent;
+            background-image:none;
+            border-color:#007bff
+        }
+        .tablink:hover{
+            color:#fff;
+            background-color:#007bff;
+            border-color:#007bff
+        }
+        .tablink.focus,.tablink:focus{
+            box-shadow:0 .2rem 0 0 rgba(0,123,255,.5)
+        }
+    </style>
+  </head>
+  <body>
+    <button type="button" class="btn tablink">Warning</button>
+    <button type="button" class="btn tablink">Warning</button>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/lib.js"></script>
+    <script src="https://hpneo.github.io/gmaps/gmaps.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA"></script>
+    <script src="assets/js/bus.js"></script>
+    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+  </body>
+</html>
