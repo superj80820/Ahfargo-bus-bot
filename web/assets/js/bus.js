@@ -155,8 +155,8 @@ function GetBusInfo(all_query){
 			success:function(dict_info) {
 				$('#busList1').empty();
 				$('#busList2').empty();
-				document.getElementById("tab_1").innerText = dict_info[2][0].DestinationStopNameZh;
-				document.getElementById("tab_2").innerText = dict_info[2][0].DepartureStopNameZh;
+				document.getElementById("tab_1").innerText = "往 "+dict_info[2][0].DestinationStopNameZh;
+				document.getElementById("tab_2").innerText = "往 "+dict_info[2][0].DepartureStopNameZh;
 				(function(dict_info){
 					// console.log(dict_info)
 					var count = 0;
