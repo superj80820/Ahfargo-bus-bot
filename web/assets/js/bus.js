@@ -241,7 +241,7 @@ function GetBusInfo(all_query){
 									cell3.innerHTML = "";
 								}
 							}
-							cell2.innerHTML = dict_info[list_index][i].StopName.Zh_tw;
+							cell2.innerHTML = '&emsp;' + dict_info[list_index][i].StopName.Zh_tw;
 							cell1.className = 'bus_time'
 							cell2.className = 'bus_name'
 							cell3.className = 'bus_num'
