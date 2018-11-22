@@ -2,6 +2,7 @@
 # coding: utf-8
 #最後目的地要修改
 #附近周遭站牌的檔案限制為10kb 必須要留意 目前已站牌只顯示25個為解決方法 但是因該要採用10kb來限制的方法 才合理
+#test2
 from flask import Flask, request, abort, jsonify
 from flask_cors import CORS
 from linebot import (

@@ -188,6 +188,8 @@ function GetBusInfo(all_query){
 									if (0<=parseInt(dict_info[list_index][i].EstimateTime) && parseInt(dict_info[list_index][i].EstimateTime)<=60){
 										cell1.innerHTML = "進站中";
 										if (dict_info[list_index][i-1].PlateNumb != dict_info[list_index][i].PlateNumb){
+											cell1.className = 'bus_time'
+											cell3.className = 'bus_num'
 											cell3.innerHTML = dict_info[list_index][i].PlateNumb;
 											if (realMarkers != 0){
 												carMarkers_pos = []
@@ -211,6 +213,8 @@ function GetBusInfo(all_query){
 									}else{
 										cell1.innerHTML = "即將進站";
 										if (dict_info[list_index][i-1].PlateNumb != dict_info[list_index][i].PlateNumb){
+											cell1.className = 'bus_time'
+											cell3.className = 'bus_num'
 											cell3.innerHTML = dict_info[list_index][i].PlateNumb;
 											if (realMarkers != 0){
 												carMarkers_pos = []
@@ -242,9 +246,7 @@ function GetBusInfo(all_query){
 								}
 							}
 							cell2.innerHTML = '&emsp;' + dict_info[list_index][i].StopName.Zh_tw;
-							cell1.className = 'bus_time'
 							cell2.className = 'bus_name'
-							cell3.className = 'bus_num'
 						};
 						//將table新增點擊功能
 						if (list_index == 0){
