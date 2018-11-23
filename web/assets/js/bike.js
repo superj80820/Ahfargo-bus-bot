@@ -14,7 +14,7 @@ window.onload = function (e) {
 function GetBikeInfo(pos,local_pos,callback){
 	$.ajax({
 		type: 'GET',
-		url: 'https://worldcrater.com/Ahfargo_bus_bot_staging_free_api/bike?pos='+pos,
+		url: 'https://worldcrater.com/Ahfargo_bus_bot_api/bike?pos='+pos,
 		dataType: 'json',
 		success: function(dict) {
 			console.log(dict)
@@ -24,9 +24,9 @@ function GetBikeInfo(pos,local_pos,callback){
 }
 
 function SearchByGoogleMap(lat,lon,...local_pos){
-	console.log("line://app/1615663243-V6xWnKWv?api=1&origin="+local_pos[0]+','+local_pos[1]+"&destination="+lat+','+lon)
+	console.log("line://app/1586634703-krVJolxJ?api=1&origin="+local_pos[0]+','+local_pos[1]+"&destination="+lat+','+lon)
 	liff.openWindow({
-		url:"line://app/1615663243-V6xWnKWv?api=1&origin="+local_pos[0]+','+local_pos[1]+"&destination="+lat+','+lon,
+		url:"line://app/1586634703-krVJolxJ?api=1&origin="+local_pos[0]+','+local_pos[1]+"&destination="+lat+','+lon,
 		external:false
 	});
 }

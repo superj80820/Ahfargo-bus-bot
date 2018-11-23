@@ -24,18 +24,22 @@ import gspread
 ## file info ##
 FileRoute='%s/' %os.path.dirname(os.path.abspath(__file__))
 ## line info ##
-LINE_TOKEN = 'HjFTbjNQhTxrxsvzZHmDewjMd4X26FLt+6ZzMV+wQfzX00KtXBkYN2WnrQ7mZYLhgobRZVLgTryMxaEYgn14sgqOKat6Cz2lT4VFEGC45Z3DGg2/HuckIpAuGWwIhQtV0mUjZ6I7pZo/iJW4noCkqwdB04t89/1O/w1cDnyilFU='
-LINE_SECRET = 'eff38d2e8d566ba494f30926d5fdfada'
+LINE_TOKEN = 'vZwZvgmlljz+VfSYn6Khu2RXQM8Gq3gkODZD8tdHEYgcxsUCI3rHSgh3CO3d7xmXvZ8irnEBQxm1Wughpaj+u1qANpzBavf3VTczraBo+VE4n4QaQpuhGwro/4wMXS1Zde+CyZ0d2Bxk55ZQG4MZBAdB04t89/1O/w1cDnyilFU='
+LINE_SECRET = 'c56fe3888c3cfe60a1969fdd19c9b10c'
 ## MOTC info ##
 APPID = 'ad64f3b34d38425ca0bb7efdcdb4548b'
 APPKey = 'wabKRdVqcFg4i5CqLXP4JuWQ3Ws'
 ## google info ##
 GOOGLE_MAP_KEY = 'AIzaSyCUx_og-8aUvdj5jDYyQGALwnzlQw_jXok'
 ## image url ##
-IMAGE_URL = "https://worldcrater.com/Ahfargo_bus_bot_free_image"
+IMAGE_URL = "https://worldcrater.com/Ahfargo_bus_bot_image/"
 ## richmenu ##
-RICH_FUNC = "richmenu-706942f5aa683bff64cc92c491feba79"
-RICH_INFO = "richmenu-53795654fb989474b7ae708b44f8a4b6"
+RICH_FUNC = "richmenu-ce2919554f6ff106c075bef379923fab"
+RICH_INFO = "richmenu-f6ce6b077ffd608b59845bbf2fabd3be"
+## liff ##
+LIFF_BUS = "line://app/1586634703-dLEbzgxb"
+LIFF_BIKE = "line://app/1586634703-MqWqnV6q"
+LIFF_GMAP = "line://app/1586634703-krVJolxJ"
 
 ## self lib ###
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "lib")))
