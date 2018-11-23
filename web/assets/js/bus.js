@@ -178,19 +178,21 @@ function GetBusInfo(all_query){
 							if (dict_info[list_index][i].EstimateTime == undefined){
 								if (cell1.innerHTML = dict_info[list_index][i].NextBusTime == undefined){
 									cell1.innerHTML = "離駛"
+									cell1.className = 'bus_time_gray'
 									cell3.innerHTML = "";
 								}else{
 									cell1.innerHTML = dict_info[list_index][i].NextBusTime.substr(11,5);
+									cell1.className = 'bus_time_gray'
 									cell3.innerHTML = "";
 								}
 							}else{
-								if (0<=parseInt(dict_info[list_index][i].EstimateTime) && parseInt(dict_info[list_index][i].EstimateTime)<=240){
-									if (0<=parseInt(dict_info[list_index][i].EstimateTime) && parseInt(dict_info[list_index][i].EstimateTime)<=60){
+								if (0<=parseInt(dict_info[list_index][i].EstimateTime) && parseInt(dict_info[list_index][i].EstimateTime)<240){
+									if (0<=parseInt(dict_info[list_index][i].EstimateTime) && parseInt(dict_info[list_index][i].EstimateTime)<120){
 										cell1.innerHTML = "進站中";
+										cell1.className = 'bus_time_red'
 										if (dict_info[list_index][i-1].PlateNumb != dict_info[list_index][i].PlateNumb){
-											cell1.className = 'bus_time'
-											cell3.className = 'bus_num'
 											cell3.innerHTML = dict_info[list_index][i].PlateNumb;
+											cell3.className = 'bus_num'
 											if (realMarkers != 0){
 												carMarkers_pos = []
 												for (var index in carMarkers) {
@@ -212,10 +214,10 @@ function GetBusInfo(all_query){
 										}
 									}else{
 										cell1.innerHTML = "即將進站";
+										cell1.className = 'bus_time_red'
 										if (dict_info[list_index][i-1].PlateNumb != dict_info[list_index][i].PlateNumb){
-											cell1.className = 'bus_time'
-											cell3.className = 'bus_num'
 											cell3.innerHTML = dict_info[list_index][i].PlateNumb;
+											cell3.className = 'bus_num'
 											if (realMarkers != 0){
 												carMarkers_pos = []
 												for (var index in carMarkers) {
@@ -239,9 +241,11 @@ function GetBusInfo(all_query){
 								}
 								else if(parseInt(dict_info[list_index][i].EstimateTime)<0){
 									cell1.innerHTML = "離駛";
+									cell1.className = 'bus_time_gray'
 									cell3.innerHTML = "";
 								}else{
 									cell1.innerHTML = parseInt(dict_info[list_index][i].EstimateTime)/60 + '分';
+									cell1.className = 'bus_time_green'
 									cell3.innerHTML = "";
 								}
 							}
