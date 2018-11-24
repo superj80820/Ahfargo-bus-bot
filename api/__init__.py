@@ -113,18 +113,20 @@ def handle_message(event):
                 }
             }
         }
-        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
-        payload = {
-            'replyToken':event.reply_token,
-            'messages':[flex]
-            }
-        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
+        return flex
 
     with open("{}res/route.json".format(FileRoute),'rb') as f:
         data = json.load(f)
     for item in data:
         if event.message.text==item['RouteName']['Zh_tw']:
-            sent_user(event.message.text)
+            flex = sent_user(event.message.text)
+            message = {"type": "text","text": common().get_word("bus_num")}
+            headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+            payload = {
+                'replyToken':event.reply_token,
+                'messages':[flex, message]
+                }
+            res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
             break
             
     if event.message.text=='使用方法':
@@ -162,11 +164,72 @@ def handle_message(event):
         location = {}
         location['lat'] = float(location_temp_list[0])
         location['lon'] = float(location_temp_list[1])
+        message = {"type": "text","text": common().get_word("nearby_bus")}
+        # print("aaaaaaaa"+message)
         flex = common().creat_stop_contents(location, 0.5)
         headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
         payload = {
             'replyToken':event.reply_token,
-            'messages':[flex]
+            'messages':[flex, message]
+            }
+        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
+
+    elif re.search('公共自行車/\d+.\d+,\d+.\d+/',event.message.text) != None:
+        location_temp = re.search('\d+.\d+,\d+.\d+',event.message.text).group()
+        location_temp_list = location_temp.split(',')
+        location = {}
+        location['lat'] = float(location_temp_list[0])
+        location['lon'] = float(location_temp_list[1])
+        flex={
+            "type":"flex",
+            "altText":"This is a Flex Message",
+            "contents":{
+                "type": "bubble",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "這是你附近的腳踏車喔!",
+                            "weight": "bold",
+                            "size": "xl"
+                            }
+                        ]
+                    },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "xs",
+                    "contents": [
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                "type": "button",
+                                "style": "link",
+                                "height": "sm",
+                                "gravity": "center",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "點這觀看地圖~",
+                                    "uri": "line://app/1615663243-36r5Y25z?pos=%sand%s" %(str(location['lat']), str(location['lon']))
+                                },
+                                "flex": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "flex": 0
+                }
+            }
+        }
+        message = {"type": "text","text": common().get_word("nearby_bike")}
+        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+        payload = {
+            'replyToken':event.reply_token,
+            'messages':[flex, message]
             }
         res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
 
@@ -243,6 +306,7 @@ def handle_message(event):
         ori_pos = re.search('\d+.\d+,\d+.\d+',event.message.text).group()
         res=requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=景點&location=%s&radius=1000&key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA&language=zh-TW'%ori_pos)
         sent_data=json.loads(res.text)
+        message = {"type": "text","text": common().get_word("fun_place")}
         print(sent_data)
         columns=[]
         if sent_data['status'] != 'ZERO_RESULTS':
@@ -250,7 +314,7 @@ def handle_message(event):
             headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
             payload = {
                 'replyToken':event.reply_token,
-                'messages':[flex]
+                'messages':[flex, message]
                 }
             res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
             # count=0
@@ -431,10 +495,11 @@ def handle_location_message(event):
         print(ori_pos[0][0])
         c.execute('DELETE FROM route_plan WHERE user_id ="%s"'%(event.source.user_id))
         flex = common().set_bus_route(ori_pos[0][0], str(float(event.message.latitude))+','+str(float(event.message.longitude)))
+        message = {"type": "text","text": common().get_word("route_plan")}
         headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
         payload = {
             'replyToken':event.reply_token,
-            'messages':[flex]
+            'messages':[flex, message]
             }
         res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
         print(res.text)
@@ -471,17 +536,17 @@ def handle_location_message(event):
                 },
                 "text": "路線規劃/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
                 },
-                {  
-                "type":"uri",
-                "label":"公共自行車/%s,%s/" %(str(event.message.latitude), str(event.message.longitude)),
-                "linkUri":"line://app/1615663243-36r5Y25z?pos=%sand%s" %(str(event.message.latitude), str(event.message.longitude)),
-                "area":{  
+                {
+                "type": "message",
+                "area": {
                     "x": 518,
                     "y": 1,
                     "width": 255,
                     "height": 309
-                    }
                 },
+                "text": "公共自行車/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+                }
+                ,
                 {
                 "type": "message",
                 "area": {

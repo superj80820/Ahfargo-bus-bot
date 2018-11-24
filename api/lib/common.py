@@ -434,3 +434,49 @@ class common(object):
         print(len(json.dumps(flex)))
 
         return flex
+    
+    # def pos_geocdoe(self, pos):
+    #     res = requests.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=%s&key=AIzaSyCUx_og-8aUvdj5jDYyQGALwnzlQw_jXok&language=zh-TW' %(pos))
+    #     json_data=json.loads(res.text)
+    #     return json_data['plus_code']['compound_code']
+        
+    # def get_weather(self, pos):
+    #     pos_geocdoe = self.pos_geocdoe(pos)
+    #     with open("{}res/weather_place.json".format(FileRoute),'rb') as f:
+    #         data = json.load(f)
+    #     for item in data['towns']:
+    #         if re.search(item['name'],pos_geocdoe):
+    #             print(item['id'])
+    #             print(item['name'])
+    #             break
+    #     res = requests.get('https://works.ioa.tw/weather/api/weathers/%s.json' %(item['id']))
+    #     json_data=json.loads(res.text)
+    #     return json_data['desc']
+
+    # def _word_filter(func):
+    #     def word_filter(self, *args):
+    #         word = func(self, *args)
+    #         if re.search('<weather>',word):
+    #             word = word.replace('<weather>',self.get_weather(args[1]))
+    #         if re.search('<n>',word):
+    #             word = word.replace('<n>','\n')
+    #         return word
+    #     return word_filter
+
+    # @_word_filter
+    # def get_word(self, select, pos):
+    def get_word(self, select):
+        scope = ["https://spreadsheets.google.com/feeds"]
+        credentials = ServiceAccountCredentials.from_json_keyfile_name("%sconfiguration/messfar-3cb0e128881a.json" %(FileRoute), scope)
+        gc = gspread.authorize(credentials)
+        sh = gc.open("Ahfargo_say_data")
+        worksheet = sh.worksheet(select)
+        say_count = worksheet.range('B1')
+        say_count = re.search('\d+',say_count[0].value).group()
+        say_count = str(int(say_count)+1)
+        print(say_count)
+        cell_list = worksheet.range('A2:A%s' %(say_count))
+        print(len(cell_list))
+        return cell_list[random.randint(0,len(cell_list)-1)].value
+
+  

@@ -17,6 +17,8 @@ from math import sin, cos, sqrt, atan2, radians
 import ast
 import sqlite3 as sqlite
 import uuid
+from oauth2client.service_account import ServiceAccountCredentials
+import gspread 
 
 ## information ##
 ## file info ##
