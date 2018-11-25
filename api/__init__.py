@@ -410,6 +410,14 @@ def handle_message(event):
         #     }
         # res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
 
+    elif event.message.text=='返回選單':
+        headers = {'Authorization':'Bearer %s'%(LINE_TOKEN)}
+        res=requests.post("https://api.line.me/v2/bot/user/%s/richmenu/richmenu-e55048b5412c0198bcad8f82c027b029" %(event.source.user_id),headers=headers)
+
+    elif event.message.text=='聯絡選單':
+        headers = {'Authorization':'Bearer %s'%(LINE_TOKEN)}
+        res=requests.post("https://api.line.me/v2/bot/user/%s/richmenu/richmenu-de835ca3a5b2dee81e421ee6fc16fe18" %(event.source.user_id),headers=headers)
+
     elif event.message.text=='test':
         conn = sqlite.connect('%sdata/db/user_action.db'%(FileRoute))
         c = conn.cursor()
@@ -510,7 +518,7 @@ def handle_location_message(event):
         print(str(float(event.message.longitude)))
         imagemap = {
             "type": "imagemap",
-            "baseUrl": "https://i.imgur.com/7HFxSMt.png",
+            "baseUrl": "https://i.imgur.com/iEHFhIg.png",
             "altText": "This is an imagemap",
             "baseSize": {
                 "width": 1040,
