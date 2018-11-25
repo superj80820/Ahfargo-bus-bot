@@ -60,6 +60,21 @@ function update_bar(object_bus){
 	setTimeout(() => {update_bar(object_bus)}, 60);
 }
 
+
+function openCity(evt, cityName) {
+	var i, x, tablinks;
+	x = document.getElementsByClassName("tabcontent");
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	tablinks = document.getElementsByClassName("tablink");
+	for (i = 0; i < x.length; i++) {
+		tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+	}
+	document.getElementById(cityName).style.display = "block";
+	evt.currentTarget.className += " w3-red";
+}
+
 function openPage(pageName,elmnt,color) {
 	var i, tabcontent, tablinks;
 	tabcontent = document.getElementsByClassName("tabcontent");
