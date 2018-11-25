@@ -267,7 +267,8 @@ class common(object):
         res = requests.get('https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&key=%s&language=zh-TW&transit_mode=bus&mode=transit&alternatives=true' %(origin, destination, GOOGLE_MAP_KEY))
         json_data=json.loads(res.text)
         json_data['routes'].sort(key=lambda d:int(d['legs'][0]['duration']['value']))
-        for item in json_data['routes']:
+        for index, item in enumerate(json_data['routes']):
+            if index >= 10: break
             print(item['legs'][0]['duration']['text'])
             for item2 in item['legs'][0]['steps']:
                 if item2.get('transit_details'):
@@ -373,12 +374,13 @@ class common(object):
 
     def nearby_place(self, data, ori_pos):
         contents = []
-        for item in data['results']:
+        for index, item in enumerate(data['results']):
+            if index >= 10: break
             contents += [{
                 "type": "bubble",
                 "hero": {
                     "type": "image",
-                    "url": "%s/%s.jpg" %(IMAGE_URL, common().get_and_save_google_map_image(item['photos'][0]['photo_reference'])),
+                    "url": "%s/%s.jpg" %(IMAGE_URL, self.get_and_save_google_map_image(item['photos'][0]['photo_reference']) if item.get('photos') else 'test'),
                     "size": "full"
                 },
                 "body": {
