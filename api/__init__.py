@@ -317,6 +317,7 @@ def handle_message(event):
                 'messages':[flex, message]
                 }
             res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
+            print(res.text)
             # count=0
             # for item in sent_data['results']:
             #     if count==10:
