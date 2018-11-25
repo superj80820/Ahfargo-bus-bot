@@ -18,9 +18,21 @@
             }
             /* Style tab links */
             .btn{
-                border:1px solid transparent;
-                border-radius:.5rem;
-                transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+            background-color:#cecece;
+            border:1px solid transparent;
+            border-color:#777777;
+            border-radius:.5rem;
+            border-style:outset;
+            border-width: 0.1em;
+            color:#222222;
+            font-family:Microsoft JhengHei;
+            font-size: 1em;
+            height: 7.2%;
+            overflow:scroll;
+            overflow-x:hidden;
+            overflow-y:hidden;
+            transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+            width: 49.5%;
             }
             .btn:focus{
                 border-color:#007bff;
@@ -80,8 +92,9 @@
     </head>
     <body>
         <div id="map"></div>
+        <div style="height:0.9%"></div>
         <button id='tab_1' class="btn tablink w3-red" onclick="openCity(event,'Goto')"></button>
-        <button id='tab_2' class="btn tablink" onclick="openCity(event,'Goback')"></button>
+        <nobr><button id='tab_2' class="btn tablink" onclick="openCity(event,'Goback')"></button></nobr>
         <div id="Goto" class="tabcontent">
             <table id='busList1'></table>
         </div>
