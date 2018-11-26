@@ -32,7 +32,7 @@
                 width: 100%;
             }
             .preview > div {
-                background-color: #366cbe;
+                background-color: #176592;
                 color: white;
                 height: 95%;
                 overflow: scroll;
@@ -48,7 +48,7 @@
                 position: relative;
             }
             .bus_name {
-                display :block;
+                display: block;
                 font-family: Microsoft JhengHei;
                 font-size: 1.2em;
                 left: 1em;
@@ -63,11 +63,21 @@
             }
             .keyboard > div {
                 background-color: #f1f1f1;
+                border: 1px solid transparent;
+                border-color: #777777;
+                border-radius: .7rem;
+                border-style: outset;
+                border-width: 0.1em;
+                color: #222222;
                 font-family: Microsoft JhengHei;
-                font-size: 0.7em;
+                font-size: .8em;
                 height: 25%;
                 line-height: 100%;
+                overflow: scroll;
+                overflow-x: hidden;
+                overflow-y: hidden;
                 text-align: center;
+                transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
                 width: 33.33%;
             }
             .keyboard > div:not(:disabled):not(.disabled).active,.keyboard > div:not(:disabled):not(.disabled):active,.show>.keyboard > div.dropdown-toggle {
