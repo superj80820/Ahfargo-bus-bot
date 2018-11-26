@@ -432,63 +432,6 @@ def handle_message(event):
             c.execute('INSERT INTO route_plan (user_id,planing) VALUES ("%s","action")'%(event.source.user_id))
         conn.commit()
         conn.close()
-            
-
-@handler.add(PostbackEvent)
-def handle_postback(event):
-    # if event.postback.data == 'plan':
-    #     imagemap = {
-    #         "type": "imagemap",
-    #         "baseUrl": "https://i.imgur.com/43SaaBB.png",
-    #         "altText": "This is an imagemap",
-    #         "baseSize": {
-    #             "width": 1040,
-    #             "height": 310
-    #         },
-    #         "actions": [
-    #             {
-    #             "type": "message",
-    #             "area": {
-    #                 "x": 0,
-    #                 "y": 0,
-    #                 "width": 338,
-    #                 "height": 309
-    #             },
-    #             "text": "動作 1"
-    #             },
-    #             {
-    #             "type": "message",
-    #             "area": {
-    #                 "x": 338,
-    #                 "y": 1,
-    #                 "width": 347,
-    #                 "height": 309
-    #             },
-    #             "text": "動作 2"
-    #             },
-    #             {
-    #             "type": "message",
-    #             "area": {
-    #                 "x": 685,
-    #                 "y": 1,
-    #                 "width": 355,
-    #                 "height": 309
-    #             },
-    #             "text": "動作 3"
-    #             }
-    #         ]
-    #         }
-    #     headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
-    #     payload = {
-    #         'replyToken':event.reply_token,
-    #         'messages':[flex]
-    #         }
-    #     res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
-    #     print(res.text)
-    # elif event.postback.data == 'route_plan':
-    #     line_bot_api.reply_message(
-    #         event.reply_token, TextSendMessage(text='pong'))
-    None
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
@@ -581,14 +524,14 @@ def handle_location_message(event):
 @app.route('/bus', methods=['GET'])
 def bus():
     def get_bus_pos(json_data,start,end):
-        headers=common().RES_HEAD(APPID,APPKey)
-        res_pos_filter="StopUID eq"
-        for item in range(start,end):
-            res_pos_filter += " '%s' or StopUID eq"%(json_data[item]['StopUID'])
-        res_pos_filter = res_pos_filter[0:len(res_pos_filter)-14]
-        res_pos=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/City/Taichung?$filter=%s&$format=JSON"%(res_pos_filter),headers=headers)
-        json_data_pos=json.loads(res_pos.text)
-        return json_data_pos
+        # headers=common().RES_HEAD(APPID,APPKey)
+        # res_pos_filter="StopUID eq"
+        # for item in range(start,end):
+        #     res_pos_filter += " '%s' or StopUID eq"%(json_data[item]['StopUID'])
+        # res_pos_filter = res_pos_filter[0:len(res_pos_filter)-14]
+        # res_pos=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/City/Taichung?$filter=%s&$format=JSON"%(res_pos_filter),headers=headers)
+        # json_data_pos=json.loads(res_pos.text)
+        return common().get_bus_pos_json(json_data)
 
     def get_all_bus(Direction, City, RouteName):
         headers=common().RES_HEAD(APPID,APPKey)
@@ -611,9 +554,10 @@ def bus():
         return json_data
     
     def get_bus_star_and_end(RouteName):
-        headers=common().RES_HEAD(APPID,APPKey)
-        res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=DepartureStopNameZh,DestinationStopNameZh&$filter=RouteName/Zh_tw eq '%s'&$format=JSON"%(RouteName),headers=headers)
-        json_data=json.loads(res.text)
+        # headers=common().RES_HEAD(APPID,APPKey)
+        # res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=DepartureStopNameZh,DestinationStopNameZh&$filter=RouteName/Zh_tw eq '%s'&$format=JSON"%(RouteName),headers=headers)
+        # json_data=json.loads(res.text)
+        json_data = common().get_bus_star_and_end_json(RouteName)
         return json_data
 
     def get_bus_lat_lon(index,ret):
@@ -700,9 +644,11 @@ def bus_path():
         return final_ans
 
     bus_name=request.args.get('bus_name')
-    headers=common().RES_HEAD(APPID,APPKey)
-    res=requests.get("http://ptx.transportdata.tw/MOTC/v2/Bus/Shape/City/Taichung?$filter=RouteName/Zh_tw eq '%s'&$orderby=Direction asc&$format=JSON"%(bus_name),headers=headers)
-    json_data=json.loads(res.text)
+    json_data = common().bus_path_json(bus_name)
+    # headers=common().RES_HEAD(APPID,APPKey)
+    # res=requests.get("http://ptx.transportdata.tw/MOTC/v2/Bus/Shape/City/Taichung?$filter=RouteName/Zh_tw eq '%s'&$orderby=Direction asc&$format=JSON"%(bus_name),headers=headers)
+    # json_data=json.loads(res.text)
+    
 
     ret = {}
 
@@ -730,9 +676,11 @@ def bus_path():
 
 @app.route('/bus_all_num', methods=['GET'])
 def bus_all_num():
-    headers=common().RES_HEAD(APPID,APPKey)
-    res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=RouteName,RouteID,SubRoutes&$format=JSON",headers=headers)
-    json_data=json.loads(res.text)
+    # headers=common().RES_HEAD(APPID,APPKey)
+    # res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=RouteName,RouteID,SubRoutes&$format=JSON",headers=headers)
+    # json_data=json.loads(res.text)
+    with open("{}res/bus_all_num.json".format(FileRoute),'rb') as f:
+        json_data = json.load(f)
     json_data.sort(key=lambda d:int(d['RouteID']))
     print(json_data)
     return jsonify(json_data)
