@@ -39,18 +39,18 @@ window.onload = function (e) {
 	})
 	.then(function(object_bus){
 		initbus(object_bus.all_query,object_bus.dict_info,object_bus.dict_path);
-		document.getElementsByClassName("time")[0].style.width=0+"%";
+		document.getElementsByClassName("update_time")[0].style.width=0+"%";
 		update_bar(object_bus)
 	})
 }
 
 function update_bar(object_bus){
-	var bar_len = parseFloat(document.getElementsByClassName("time")[0].style.width)
+	var bar_len = parseFloat(document.getElementsByClassName("update_time")[0].style.width)
 	bar_len += 1/5
-	document.getElementsByClassName("time")[0].style.width=bar_len+"%";
+	document.getElementsByClassName("update_time")[0].style.width=bar_len+"%";
 	// console.log(bar_len)
 	if(bar_len>=100){
-		document.getElementsByClassName("time")[0].style.width=0+"%";
+		document.getElementsByClassName("update_time")[0].style.width=0+"%";
 		GetBusInfo(object_bus.all_query)
 		.then(() => {
 			update_bar(object_bus)
@@ -154,15 +154,15 @@ function GetBusInfo(all_query){
 			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus?RouteName='+all_query.BusNum+'&City='+all_query.City+'&Direction='+'0',
 			dataType: 'json',
 			success:function(dict_info) {
-				$('#busList1').empty();
-				$('#busList2').empty();
-				document.getElementById("tab_1").innerText = "往 "+dict_info[2][0].DestinationStopNameZh;
-				document.getElementById("tab_2").innerText = "往 "+dict_info[2][0].DepartureStopNameZh;
+				$('#tabcontent1').empty();
+				$('#tabcontent2').empty();
+				document.getElementById("tablink1").innerText = "往 "+dict_info[2][0].DestinationStopNameZh;
+				document.getElementById("tablink2").innerText = "往 "+dict_info[2][0].DepartureStopNameZh;
 				(function(dict_info){
 					// console.log(dict_info)
 					var count = 0;
-					var table1 = document.getElementById("busList1");
-					var table2 = document.getElementById("busList2");
+					var table1 = document.getElementById("tabcontent1");
+					var table2 = document.getElementById("tabcontent2");
 					var create_list = function(dict_info,list_index,table){
 						for (var i=dict_info[list_index].length-1; i>=0; i--){
 							var row = table.insertRow(count);
@@ -268,7 +268,7 @@ function GetBusInfo(all_query){
 						else if (list_index == 1){
 							for (var i = 0; i < table2.rows.length; i++) {
 								table2.rows[i].onclick = function () {
-									var table2 = document.getElementById("busList2");
+									var table2 = document.getElementById("tabcontent2");
 									for (var i = 0; i < table2.rows.length; i++) {
 										realMarkers[i].infoWindow.close(realMarkers,realMarkers[i])
 									}
@@ -379,11 +379,11 @@ function initbus(all_query,dict_info,dict_path){
 	strokeWeight: 5,
 	});
 	var change_action = Math.abs(dict_info[0].length - dict_info[1].length)
-	document.getElementById("tab_1").addEventListener("click", function(i){
+	document.getElementById("tablink1").addEventListener("click", function(i){
 		all_query.Direction = 0;
 		refleshMap(all_query,dict_info,dict_info[0].length,mapObj,change_action);
 	});
-	document.getElementById("tab_2").addEventListener("click", function(i){
+	document.getElementById("tablink2").addEventListener("click", function(i){
 		all_query.Direction = 1;
 		refleshMap(all_query,dict_info,dict_info[1].length,mapObj,change_action);
 	});
