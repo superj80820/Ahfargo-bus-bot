@@ -8,6 +8,38 @@ class common(object):
 
 # -------------------------------------------
 
+    def get_bus_pos_json(self, json_data):
+        select = list()
+        ret = list()
+        for item in json_data:
+            select += [item['StopUID']]
+        with open("{}res/get_bus_pos.json".format(FileRoute),'rb') as f:
+            json_data = json.load(f)
+        for item in json_data:
+            if item['StopUID'] in select:
+                ret += [item]
+        return ret
+
+    def get_bus_star_and_end_json(self, RouteName):
+        ret = list()
+        with open("{}res/get_bus_star_and_end.json".format(FileRoute),'rb') as f:
+            json_data = json.load(f)
+        for item in json_data:
+            if item['RouteName']['Zh_tw'] == RouteName:
+                ret += [item]
+        return ret
+
+    def bus_path_json(self, bus_name):
+        ret = list()
+        with open("{}res/bus_path.json".format(FileRoute),'rb') as f:
+            json_data = json.load(f)
+        for item in json_data:
+            if item['RouteName']['Zh_tw'] == bus_name:
+                ret += [item]
+                if len(ret) >= 2 : break
+        ret.sort(key=lambda d:int(d['Direction']))
+        return ret
+
     def detection_distance(self, center, around, max_distance):
         # approximate radius of earth in km
         R = 6373.0
