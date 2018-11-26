@@ -16,75 +16,79 @@
             #map {
                 height: 34%;
             }
-            /* Style tab links */
+            /* Style tab */
             .btn{
-                background-color:#cecece;
-                border:1px solid transparent;
-                border-color:#777777;
-                border-radius:.5rem;
-                border-style:outset;
+                background-color: #cecece;
+                border: 1px solid transparent;
+                border-color: #777777;
+                border-radius: .5rem;
+                border-style: outset;
                 border-width: 0.1em;
-                color:#222222;
-                font-family:Microsoft JhengHei;
+                color: #222222;
+                font-family: Microsoft JhengHei;
                 font-size: 1em;
                 height: 7.2%;
-                overflow:scroll;
-                overflow-x:hidden;
-                overflow-y:hidden;
-                transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                overflow: scroll;
+                overflow-x: hidden;
+                overflow-y: hidden;
+                transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
                 width: 49.5%;
             }
             .btn:focus{
-                border-color:#007bff;
-                outline:0
+                border-color: #007bff;
+                outline: 0;
             }
             .focus,.tablink:focus{
-                box-shadow:0 .2rem 0 0 rgba(0,123,255,.5)
+                box-shadow: 0 .2rem 0 0 rgba(0,123,255,.5)
             }
             .tab-blue,.tab-hover-blue:hover{
-                color:#fff;
-                background-color:#007bff;
-                border-color:#007bff!important
+                background-color: #007bff;
+                border-color: #007bff;
+                color: #fff;
             }
-            /* Style the tab content */
+            /* Style list */
             .tabcontent {
                 color: #222222;
-                font-family:Microsoft JhengHei;
+                font-family: Microsoft JhengHei;
                 height: 57%;
-                overflow:scroll;
-                overflow-x:hidden;
+                overflow: scroll;
+                overflow-x: hidden;
                 padding: 0.5em;
             }
-            /* Style the tab content by bus time content */
-            .bus_time{
-                align-items: center;
-                border-radius:1.5rem;
-                color:#fff;
-                font-size:0.9em;
-                font-weight:bold;
-                text-align:center;
-                width: 15%;
-            }
-            .bus_time_gray  {background-color:#a0a6ac;}
-            .bus_time_green {background-color:#77dd77;}
-            .bus_time_red   {background-color:#ee7777;}
-            /* Style the tab content by bus station name content */
+            /* Style the tab content by bus content */
             .bus_name{
                 width: 44%;
             }
-            /* Style the tab content by bus license plate number content */
             .bus_num{
                 align-items: center;
-                background-color:#6c757d;
-                border-radius:1.5rem;
-                color:#fff;
-                font-size:0.9em;
-                font-weight:bold;
-                text-align:center;
+                background-color: #6c757d;
+                border-radius: 1.5rem;
+                color: #fff;
+                font-size: 0.9em;
+                font-weight: bold;
+                text-align: center;
                 width: 17%;
             }
+            .bus_time{
+                align-items: center;
+                border-radius: 1.5rem;
+                color: #fff;
+                font-size: 0.9em;
+                font-weight: bold;
+                text-align: center;
+                width: 15%;
+            }
+            .bus_time_gray{
+                background-color:#a0a6ac;
+            }
+            .bus_time_green{
+                background-color:#77dd77;
+            }
+            .bus_time_red{
+                background-color:#ee7777;
+            }
             /* Style time */
-            .time {
+            .update_time {
                 background: #e4a348;
                 height: 3px;
             }
@@ -93,26 +97,27 @@
     <body>
         <div id="map"></div>
         <div style="height:0.9%"></div>
-        <button id='tab_1' class="btn tablink tab-blue" onclick="openCity(event,'Goto')"></button>
-        <nobr><button id='tab_2' class="btn tablink" onclick="openCity(event,'Goback')"></button></nobr>
+        <button id='tablink1' class="btn tablink tab-blue" onclick="openCity(event,'Goto')"></button>
+        <nobr><button id='tablink2' class="btn tablink" onclick="openCity(event,'Goback')"></button></nobr>
+        <div style="height:0.9%"></div>
         <div id="Goto" class="tabcontent">
-            <table id='busList1'></table>
+            <table id='tabcontent1'></table>
         </div>
-        <div id="Goback" class="tabcontent" style="display: none;">
-            <table id="busList2"></table>
+        <div id="Goback" class="tabcontent" style="display:none">
+            <table id="tabcontent2"></table>
         </div>
-        <div class="time"></div>
+        <div class="update_time"></div>
 
         <!-- Scripts -->
+        <script src="assets/js/bus.js"></script>
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/lib.js"></script>
+        <script src="assets/js/main.js"></script>
         <script src="assets/js/skel.min.js"></script>
         <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/lib.js"></script>
+        <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
         <script src="https://hpneo.github.io/gmaps/gmaps.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9ojwRyJKMDqorLnjpoaRT7s94S2EAkVA"></script>
-        <script src="assets/js/bus.js"></script>
-        <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     </body>
 </html>
