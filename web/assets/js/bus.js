@@ -75,20 +75,6 @@ function openCity(evt, cityName) {
 	evt.currentTarget.className += " tab-blue";
 }
 
-function openPage(pageName,elmnt,color) {
-	var i, tabcontent, tablinks;
-	tabcontent = document.getElementsByClassName("tabcontent");
-		for (i = 0; i < tabcontent.length; i++) {
-			tabcontent[i].style.display = "none";
-		}
-	tablinks = document.getElementsByClassName("tablink");
-		for (i = 0; i < tablinks.length; i++) {
-			tablinks[i].style.backgroundColor = "";
-		}
-	document.getElementById(pageName).style.display = "block";
-	elmnt.style.backgroundColor = color;
-}
-
 function refleshMap(all_query,dict_info,origin_length,mapObj,change_action){
 	// alert(origin_length)
 	// alert(realMarkers.length)
