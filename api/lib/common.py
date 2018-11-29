@@ -13,7 +13,7 @@ class common(object):
         ret = list()
         for item in json_data:
             select += [item['StopUID']]
-        with open("{}res/get_bus_pos.json".format(FileRoute),'r') as f:
+        with open("{}res/get_bus_pos.json".format(FileRoute), encoding="utf-8") as f:
             json_data = json.load(f)
         for item in json_data:
             if item['StopUID'] in select:
@@ -22,7 +22,7 @@ class common(object):
 
     def get_bus_star_and_end_json(self, RouteName):
         ret = list()
-        with open("{}res/get_bus_star_and_end.json".format(FileRoute),'r') as f:
+        with open("{}res/get_bus_star_and_end.json".format(FileRoute), encoding="utf-8") as f:
             json_data = json.load(f)
         for item in json_data:
             if item['RouteName']['Zh_tw'] == RouteName:
@@ -31,7 +31,7 @@ class common(object):
 
     def bus_path_json(self, bus_name):
         ret = list()
-        with open("{}res/bus_path.json".format(FileRoute),'r') as f:
+        with open("{}res/bus_path.json".format(FileRoute), encoding="utf-8") as f:
             json_data = json.load(f)
         for item in json_data:
             if item['RouteName']['Zh_tw'] == bus_name:
@@ -165,7 +165,7 @@ class common(object):
     def creat_stop_contents(self, center, max_distance):
         content = []
         max_count = 0
-        with open("{}res/stop.json".format(FileRoute),'r') as f:
+        with open("{}res/stop.json".format(FileRoute), encoding="utf-8") as f:
             data = json.load(f)
         for item in data:
             temp = self.detection_distance(center, item, 0.5)
@@ -476,7 +476,7 @@ class common(object):
         
     # def get_weather(self, pos):
     #     pos_geocdoe = self.pos_geocdoe(pos)
-    #     with open("{}res/weather_place.json".format(FileRoute),'r') as f:
+    #     with open("{}res/weather_place.json".format(FileRoute), encoding="utf-8") as f:
     #         data = json.load(f)
     #     for item in data['towns']:
     #         if re.search(item['name'],pos_geocdoe):

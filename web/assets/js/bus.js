@@ -151,7 +151,7 @@ function GetBusInfo(all_query){
 	return new Promise(function(resole,reject){
 		$.ajax({
 			type: 'GET',
-			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus?RouteName='+all_query.BusNum+'&City='+all_query.City+'&Direction='+'0',
+			url: 'https://worldcrater.com/Ahfargo_bus_bot_staging_free_api/bus?RouteName='+all_query.BusNum+'&City='+all_query.City+'&Direction='+'0',
 			dataType: 'json',
 			success:function(dict_info) {
 				$('#tabcontent1').empty();
@@ -291,7 +291,7 @@ function GetBusPath(all_query,dict_info){
 	return new Promise(function(resole,reject){
 		$.ajax({
 			type: 'GET',
-			url: 'https://messfar.com/Ahfargo_bus_bot_staging_free_api/bus_path?bus_name='+all_query.BusNum,
+			url: 'https://worldcrater.com/Ahfargo_bus_bot_staging_free_api/bus_path?bus_name='+all_query.BusNum,
 			dataType: 'json',
 			success: function(dict_path) {
 				// console.log(dict_path)
