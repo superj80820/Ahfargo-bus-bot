@@ -115,7 +115,7 @@ def handle_message(event):
         }
         return flex
 
-    with open("{}res/route.json".format(FileRoute),'r') as f:
+    with open("{}res/route.json".format(FileRoute), encoding="utf-8") as f:
         data = json.load(f)
     for item in data:
         if event.message.text==item['RouteName']['Zh_tw']:
@@ -679,7 +679,7 @@ def bus_all_num():
     # headers=common().RES_HEAD(APPID,APPKey)
     # res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=RouteName,RouteID,SubRoutes&$format=JSON",headers=headers)
     # json_data=json.loads(res.text)
-    with open("{}res/bus_all_num.json".format(FileRoute),'r') as f:
+    with open("{}res/bus_all_num.json".format(FileRoute), encoding="utf-8") as f:
         json_data = json.load(f)
     json_data.sort(key=lambda d:int(d['RouteID']))
     print(json_data)
