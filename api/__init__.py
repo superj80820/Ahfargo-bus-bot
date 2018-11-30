@@ -115,7 +115,7 @@ def handle_message(event):
         }
         return flex
 
-    with open("{}res/route.json".format(FileRoute), encoding="utf-8") as f:
+    with open("{}res/bus_all_num.json".format(FileRoute), encoding="utf-8") as f:
         data = json.load(f)
     for item in data:
         if event.message.text==item['RouteName']['Zh_tw']:
@@ -524,13 +524,6 @@ def handle_location_message(event):
 @app.route('/bus', methods=['GET'])
 def bus():
     def get_bus_pos(json_data,start,end):
-        # headers=common().RES_HEAD(APPID,APPKey)
-        # res_pos_filter="StopUID eq"
-        # for item in range(start,end):
-        #     res_pos_filter += " '%s' or StopUID eq"%(json_data[item]['StopUID'])
-        # res_pos_filter = res_pos_filter[0:len(res_pos_filter)-14]
-        # res_pos=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/City/Taichung?$filter=%s&$format=JSON"%(res_pos_filter),headers=headers)
-        # json_data_pos=json.loads(res_pos.text)
         return common().get_bus_pos_json(json_data)
 
     def get_all_bus(Direction, City, RouteName):
@@ -554,9 +547,6 @@ def bus():
         return json_data
     
     def get_bus_star_and_end(RouteName):
-        # headers=common().RES_HEAD(APPID,APPKey)
-        # res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=DepartureStopNameZh,DestinationStopNameZh&$filter=RouteName/Zh_tw eq '%s'&$format=JSON"%(RouteName),headers=headers)
-        # json_data=json.loads(res.text)
         json_data = common().get_bus_star_and_end_json(RouteName)
         return json_data
 
@@ -644,11 +634,7 @@ def bus_path():
         return final_ans
 
     bus_name=request.args.get('bus_name')
-    json_data = common().bus_path_json(bus_name)
-    # headers=common().RES_HEAD(APPID,APPKey)
-    # res=requests.get("http://ptx.transportdata.tw/MOTC/v2/Bus/Shape/City/Taichung?$filter=RouteName/Zh_tw eq '%s'&$orderby=Direction asc&$format=JSON"%(bus_name),headers=headers)
-    # json_data=json.loads(res.text)
-    
+    json_data = common().bus_path_json(bus_name)   
 
     ret = {}
 
@@ -676,9 +662,6 @@ def bus_path():
 
 @app.route('/bus_all_num', methods=['GET'])
 def bus_all_num():
-    # headers=common().RES_HEAD(APPID,APPKey)
-    # res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=RouteName,RouteID,SubRoutes&$format=JSON",headers=headers)
-    # json_data=json.loads(res.text)
     with open("{}res/bus_all_num.json".format(FileRoute), encoding="utf-8") as f:
         json_data = json.load(f)
     json_data.sort(key=lambda d:int(d['RouteID']))

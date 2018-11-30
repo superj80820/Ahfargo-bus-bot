@@ -1,3638 +1,2426 @@
 [
     {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "1",
-        "En": "1"
-      },
-      "DepartureStopNameZh": "臺中刑務所演武場",
-      "DestinationStopNameZh": "中臺科技大學校區",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "101",
-        "En": "101"
-      },
-      "DepartureStopNameZh": "水湳(敦化公園)",
-      "DestinationStopNameZh": "彰化",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "102",
-        "En": "102"
-      },
-      "DepartureStopNameZh": "干城站",
-      "DestinationStopNameZh": "沙鹿",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "105",
-        "En": "105"
-      },
-      "DepartureStopNameZh": "四張犁",
-      "DestinationStopNameZh": "龍井",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "107",
-        "En": "107"
-      },
-      "DepartureStopNameZh": "黎明新村",
-      "DestinationStopNameZh": "舊正",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "108",
-        "En": "108"
-      },
-      "DepartureStopNameZh": "港尾",
-      "DestinationStopNameZh": "南開科技大學校區",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "108區",
-        "En": "108 Shuttle"
-      },
-      "DepartureStopNameZh": "霧峰農工",
-      "DestinationStopNameZh": "南開科技大學校區",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "9區",
-        "En": "9 Shuttle"
-      },
-      "DepartureStopNameZh": "大雅",
-      "DestinationStopNameZh": "三田國小",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "11",
-        "En": "11"
-      },
-      "DepartureStopNameZh": "臺中火車站(右環)",
-      "DestinationStopNameZh": "臺中火車站(左環)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "111",
-        "En": "111"
-      },
-      "DepartureStopNameZh": "清水火車站",
-      "DestinationStopNameZh": "梧棲觀光漁港",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "151A",
-        "En": "151A"
-      },
-      "DepartureStopNameZh": "朝陽科技大學",
-      "DestinationStopNameZh": "臺中市議會",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "12",
-        "En": "12"
-      },
-      "DepartureStopNameZh": "明德高中(明德街)",
-      "DestinationStopNameZh": "豐原鎮清宮",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "123",
-        "En": "123"
-      },
-      "DepartureStopNameZh": "臺中慈濟醫院",
-      "DestinationStopNameZh": "梧棲觀光漁港",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "127",
-        "En": "127"
-      },
-      "DepartureStopNameZh": "豐樂雕塑公園",
-      "DestinationStopNameZh": "臺中洲際棒球場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "128",
-        "En": "128"
-      },
-      "DepartureStopNameZh": "大雅",
-      "DestinationStopNameZh": "清水",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "128區",
-        "En": "128 Shuttle"
-      },
-      "DepartureStopNameZh": "大雅",
-      "DestinationStopNameZh": "梧棲",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "131",
-        "En": "131"
-      },
-      "DepartureStopNameZh": "北屯區行政大樓",
-      "DestinationStopNameZh": "朝陽科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "132",
-        "En": "132"
-      },
-      "DepartureStopNameZh": "北屯區行政大樓",
-      "DestinationStopNameZh": "朝陽科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "133",
-        "En": "133"
-      },
-      "DepartureStopNameZh": "高鐵臺中站",
-      "DestinationStopNameZh": "朝陽科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "14",
-        "En": "14"
-      },
-      "DepartureStopNameZh": "干城站",
-      "DestinationStopNameZh": "舊庄",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "14副",
-        "En": "14 Sub-route"
-      },
-      "DepartureStopNameZh": "干城站",
-      "DestinationStopNameZh": "神岡區公所",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "142",
-        "En": "142"
-      },
-      "DepartureStopNameZh": "豐年社區",
-      "DestinationStopNameZh": "第一廣場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "14延",
-        "En": "14 extended"
-      },
-      "DepartureStopNameZh": "干城站",
-      "DestinationStopNameZh": "南清宮",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "15",
-        "En": "15"
-      },
-      "DepartureStopNameZh": "臺中刑務所演武場",
-      "DestinationStopNameZh": "國軍臺中總醫院",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "151",
-        "En": "151"
-      },
-      "DepartureStopNameZh": "臺中市議會",
-      "DestinationStopNameZh": "朝陽科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "152",
-        "En": "152"
-      },
-      "DepartureStopNameZh": "臺中市議會",
-      "DestinationStopNameZh": "陽明大樓",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "153",
-        "En": "153"
-      },
-      "DepartureStopNameZh": "臺中高鐵站",
-      "DestinationStopNameZh": "谷關",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "154",
-        "En": "154"
-      },
-      "DepartureStopNameZh": "臺中女中",
-      "DestinationStopNameZh": "大甲區公所",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "155",
-        "En": "155"
-      },
-      "DepartureStopNameZh": "高鐵臺中站",
-      "DestinationStopNameZh": "麗寶樂園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "155副",
-        "En": "155 Sub-route"
-      },
-      "DepartureStopNameZh": "高鐵臺中站",
-      "DestinationStopNameZh": "麗寶樂園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "156",
-        "En": "156"
-      },
-      "DepartureStopNameZh": "臺中國際機場",
-      "DestinationStopNameZh": "高鐵臺中站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "157",
-        "En": "157"
-      },
-      "DepartureStopNameZh": "文心森林公園",
-      "DestinationStopNameZh": "大甲區公所",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "158",
-        "En": "158"
-      },
-      "DepartureStopNameZh": "高鐵臺中站",
-      "DestinationStopNameZh": "朝陽科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "159",
-        "En": "159"
-      },
-      "DepartureStopNameZh": "高鐵臺中站",
-      "DestinationStopNameZh": "臺中公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "160",
-        "En": "160"
-      },
-      "DepartureStopNameZh": "高鐵臺中站",
-      "DestinationStopNameZh": "僑光科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "161",
-        "En": "161"
-      },
-      "DepartureStopNameZh": "高鐵臺中站",
-      "DestinationStopNameZh": "中科管理局",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "162",
-        "En": "162"
-      },
-      "DepartureStopNameZh": "靜宜大學希嘉學苑",
-      "DestinationStopNameZh": "嘉陽高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "163",
-        "En": "163"
-      },
-      "DepartureStopNameZh": "華盛頓中學",
-      "DestinationStopNameZh": "第一廣場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "164",
-        "En": "164"
-      },
-      "DepartureStopNameZh": "清水國中",
-      "DestinationStopNameZh": "楊厝里",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "165",
-        "En": "165"
-      },
-      "DepartureStopNameZh": "清水國中",
-      "DestinationStopNameZh": "舊庄",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "166",
-        "En": "166"
-      },
-      "DepartureStopNameZh": "沙鹿",
-      "DestinationStopNameZh": "臺中高工",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "167",
-        "En": "167"
-      },
-      "DepartureStopNameZh": "大甲站",
-      "DestinationStopNameZh": "僑光科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "17",
-        "En": "17"
-      },
-      "DepartureStopNameZh": "草湖",
-      "DestinationStopNameZh": "霧峰復興八街",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "170",
-        "En": "170"
-      },
-      "DepartureStopNameZh": "大甲體育場",
-      "DestinationStopNameZh": "梧棲",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "171",
-        "En": "171"
-      },
-      "DepartureStopNameZh": "大甲",
-      "DestinationStopNameZh": "大安港",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "172",
-        "En": "172"
-      },
-      "DepartureStopNameZh": "大甲",
-      "DestinationStopNameZh": "福住里",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "178",
-        "En": "178"
-      },
-      "DepartureStopNameZh": "清水火車站",
-      "DestinationStopNameZh": "高美濕地",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "179",
-        "En": "179"
-      },
-      "DepartureStopNameZh": "清水火車站",
-      "DestinationStopNameZh": "高美濕地",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "18",
-        "En": "18"
-      },
-      "DepartureStopNameZh": "朝馬轉運站",
-      "DestinationStopNameZh": "大智公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "180",
-        "En": "180"
-      },
-      "DepartureStopNameZh": "沙鹿",
-      "DestinationStopNameZh": "彰化",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "181",
-        "En": "181"
-      },
-      "DepartureStopNameZh": "苑裡站",
-      "DestinationStopNameZh": "大甲區公所",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "181區1",
-        "En": "181 Shuttle1"
-      },
-      "DepartureStopNameZh": "苑裡站",
-      "DestinationStopNameZh": "日南國中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "181區2",
-        "En": "181 Shuttle2"
-      },
-      "DepartureStopNameZh": "苑裡站",
-      "DestinationStopNameZh": "日南國中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "182",
-        "En": "182"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "清水(經新庄)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "183",
-        "En": "183"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "臺中港郵局(經新庄)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "185",
-        "En": "185"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "清水(經東山)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "186",
-        "En": "186"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "臺中港郵局(經東山)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "19",
-        "En": "19"
-      },
-      "DepartureStopNameZh": "軍福公園",
-      "DestinationStopNameZh": "國立臺灣美術館",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "20",
-        "En": "20"
-      },
-      "DepartureStopNameZh": "干城站",
-      "DestinationStopNameZh": "潭子火車站(東站)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "200",
-        "En": "200"
-      },
-      "DepartureStopNameZh": "霧峰農會",
-      "DestinationStopNameZh": "臺中女中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "200延",
-        "En": "200E"
-      },
-      "DepartureStopNameZh": "亞大醫院",
-      "DestinationStopNameZh": "臺中女中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "201(原100)",
-        "En": "201"
-      },
-      "DepartureStopNameZh": "柳豐路(亞大醫院)",
-      "DestinationStopNameZh": "新民高中(健行路)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "202",
-        "En": "202"
-      },
-      "DepartureStopNameZh": "豐富公園(經樹德路、慈濟)",
-      "DestinationStopNameZh": "豐原(經樹德路、慈濟)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "203",
-        "En": "203"
-      },
-      "DepartureStopNameZh": "豐富公園(經新田、慈濟)",
-      "DestinationStopNameZh": "豐原(經新田、慈濟)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "206",
-        "En": "206"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "東勢高工",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "207",
-        "En": "207"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "谷關",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "208",
-        "En": "208"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "卓蘭",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "209",
-        "En": "209"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "東勢林場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "21",
-        "En": "21"
-      },
-      "DepartureStopNameZh": "臺中刑務所演武場",
-      "DestinationStopNameZh": "貴城山莊",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "210",
-        "En": "210"
-      },
-      "DepartureStopNameZh": "大甲火車站",
-      "DestinationStopNameZh": "土城",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "211",
-        "En": "211"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "大甲體育場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "212",
-        "En": "212"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "大甲體育場(水美)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "213",
-        "En": "213"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "大甲體育場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "214",
-        "En": "214"
-      },
-      "DepartureStopNameZh": "后里馬場",
-      "DestinationStopNameZh": "大甲火車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "215",
-        "En": "215"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "大甲體育場(經麗寶樂園)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "216",
-        "En": "216"
-      },
-      "DepartureStopNameZh": "大甲",
-      "DestinationStopNameZh": "南埔",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "218",
-        "En": "218"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "神岡區公所",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "219",
-        "En": "219"
-      },
-      "DepartureStopNameZh": "石岡國小",
-      "DestinationStopNameZh": "龍興里",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "220",
-        "En": "220"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "臺中榮總",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "223",
-        "En": "223"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "公老坪頂",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "226",
-        "En": "226"
-      },
-      "DepartureStopNameZh": "中科后里辦公室",
-      "DestinationStopNameZh": "太平里",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "227",
-        "En": "227"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "東陽里",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "228",
-        "En": "228"
-      },
-      "DepartureStopNameZh": "大鵬國小",
-      "DestinationStopNameZh": "豐原東站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "229",
-        "En": "229"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "朝馬",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "23",
-        "En": "23"
-      },
-      "DepartureStopNameZh": "中清同榮路口",
-      "DestinationStopNameZh": "市立大里高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "232",
-        "En": "232"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "清水",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "235",
-        "En": "235"
-      },
-      "DepartureStopNameZh": "文化中心-南環",
-      "DestinationStopNameZh": "文化中心-北環",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "237",
-        "En": "237"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "大肚火車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "238",
-        "En": "238"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "臺中港郵局(經沙鹿)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "239",
-        "En": "239"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "梧棲站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "246",
-        "En": "246"
-      },
-      "DepartureStopNameZh": "太原火車站",
-      "DestinationStopNameZh": "國軍臺中總醫院",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "25",
-        "En": "25"
-      },
-      "DepartureStopNameZh": "忠信國小",
-      "DestinationStopNameZh": "僑光科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "250",
-        "En": "250"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "中坑坪",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "251",
-        "En": "251"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "橫流溪",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "252",
-        "En": "252"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "大雪山森林遊樂區",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "253",
-        "En": "253"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "士林村",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "258",
-        "En": "258"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "卓蘭",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "26",
-        "En": "26"
-      },
-      "DepartureStopNameZh": "新民高中",
-      "DestinationStopNameZh": "嶺東科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "260",
-        "En": "260"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "水尾",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "261",
-        "En": "261"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "明正里",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "263",
-        "En": "263"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "崑山",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "264",
-        "En": "264"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "新五村",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "265",
-        "En": "265"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "新五村",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "266",
-        "En": "266"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "谷關",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "267",
-        "En": "267"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "上谷關",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "269",
-        "En": "269"
-      },
-      "DepartureStopNameZh": "谷關",
-      "DestinationStopNameZh": "八仙山森林遊樂區",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "27",
-        "En": "27"
-      },
-      "DepartureStopNameZh": "臺中火車站",
-      "DestinationStopNameZh": "嶺東科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "270",
-        "En": "270"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "豐富公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "271",
-        "En": "271"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "豐富公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "272",
-        "En": "272"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "茄苳寮",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "273",
-        "En": "273"
-      },
-      "DepartureStopNameZh": "新五村",
-      "DestinationStopNameZh": "茄苳寮",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "275",
-        "En": "275"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "中和",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "276",
-        "En": "276"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "豐富公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "277",
-        "En": "277"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "豐富公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "278",
-        "En": "278"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "水井",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "279",
-        "En": "279"
-      },
-      "DepartureStopNameZh": "新社",
-      "DestinationStopNameZh": "水井",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "28",
-        "En": "28"
-      },
-      "DepartureStopNameZh": "四張犁圖書館",
-      "DestinationStopNameZh": "坪頂",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "280",
-        "En": "280"
-      },
-      "DepartureStopNameZh": "臺中二中",
-      "DestinationStopNameZh": "修平科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "281",
-        "En": "281"
-      },
-      "DepartureStopNameZh": "臺中火車站",
-      "DestinationStopNameZh": "霧峰農工",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "282",
-        "En": "282"
-      },
-      "DepartureStopNameZh": "亞洲大學安藤館",
-      "DestinationStopNameZh": "桐林",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "283",
-        "En": "283"
-      },
-      "DepartureStopNameZh": "省議會",
-      "DestinationStopNameZh": " 大里仁愛醫院",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "284",
-        "En": "284"
-      },
-      "DepartureStopNameZh": "臺中火車站",
-      "DestinationStopNameZh": "修平科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "285",
-        "En": "285"
-      },
-      "DepartureStopNameZh": "新建國市場",
-      "DestinationStopNameZh": "竹仔坑",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "285副",
-        "En": "285 Sub-route"
-      },
-      "DepartureStopNameZh": "新建國市場",
-      "DestinationStopNameZh": "竹仔坑",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "286",
-        "En": "286"
-      },
-      "DepartureStopNameZh": "臺中二中",
-      "DestinationStopNameZh": "崁頂",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "287",
-        "En": "287"
-      },
-      "DepartureStopNameZh": "國軍臺中總醫院",
-      "DestinationStopNameZh": "茅埔",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "288",
-        "En": "288"
-      },
-      "DepartureStopNameZh": "臺中二中",
-      "DestinationStopNameZh": "茅埔",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "289",
-        "En": "289"
-      },
-      "DepartureStopNameZh": "臺中二中",
-      "DestinationStopNameZh": "東平社區",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "29",
-        "En": "29"
-      },
-      "DepartureStopNameZh": "臺中監獄",
-      "DestinationStopNameZh": "第一廣場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "290",
-        "En": "290"
-      },
-      "DepartureStopNameZh": "干城站 ",
-      "DestinationStopNameZh": "童綜合醫院(梧棲院區)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "290繞",
-        "En": "290 detour"
-      },
-      "DepartureStopNameZh": "干城站",
-      "DestinationStopNameZh": "童綜合醫院(梧棲院區)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "291",
-        "En": "291"
-      },
-      "DepartureStopNameZh": "山多綠社區",
-      "DestinationStopNameZh": "環保公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "3",
-        "En": "3"
-      },
-      "DepartureStopNameZh": "東山高中",
-      "DestinationStopNameZh": "高鐵臺中站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "30",
-        "En": "30"
-      },
-      "DepartureStopNameZh": "中台新村",
-      "DestinationStopNameZh": "干城站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "300",
-        "En": "300"
-      },
-      "DepartureStopNameZh": "靜宜大學",
-      "DestinationStopNameZh": "臺中火車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "301",
-        "En": "301"
-      },
-      "DepartureStopNameZh": "靜宜大學",
-      "DestinationStopNameZh": "新民高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "302",
-        "En": "302"
-      },
-      "DepartureStopNameZh": "臺中國際機場",
-      "DestinationStopNameZh": "臺中公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "303",
-        "En": "303"
-      },
-      "DepartureStopNameZh": "港區藝術中心",
-      "DestinationStopNameZh": "新民高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "304",
-        "En": "304"
-      },
-      "DepartureStopNameZh": "港區藝術中心",
-      "DestinationStopNameZh": "新民高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "305",
-        "En": "305"
-      },
-      "DepartureStopNameZh": "大甲",
-      "DestinationStopNameZh": "臺中火車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "306",
-        "En": "306"
-      },
-      "DepartureStopNameZh": "清水",
-      "DestinationStopNameZh": "臺中火車站(經梧棲)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "307",
-        "En": "307"
-      },
-      "DepartureStopNameZh": "梧棲觀光漁港",
-      "DestinationStopNameZh": "新民高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "308",
-        "En": "308"
-      },
-      "DepartureStopNameZh": "關連工業區",
-      "DestinationStopNameZh": "新民高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "309",
-        "En": "309"
-      },
-      "DepartureStopNameZh": "高美濕地",
-      "DestinationStopNameZh": "臺中火車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "310",
-        "En": "310"
-      },
-      "DepartureStopNameZh": "臺中港旅客服務中心",
-      "DestinationStopNameZh": "臺中火車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "32",
-        "En": "32"
-      },
-      "DepartureStopNameZh": "大鵬新城",
-      "DestinationStopNameZh": "旱溪東東英五街口",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "323",
-        "En": "323"
-      },
-      "DepartureStopNameZh": "台中監理所",
-      "DestinationStopNameZh": "臺中火車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "323區",
-        "En": "323 Shuttle"
-      },
-      "DepartureStopNameZh": "台中監理所",
-      "DestinationStopNameZh": "臺中火車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "324",
-        "En": "324"
-      },
-      "DepartureStopNameZh": "臺中都會公園",
-      "DestinationStopNameZh": "新民高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "325",
-        "En": "325"
-      },
-      "DepartureStopNameZh": "大肚火車站",
-      "DestinationStopNameZh": "臺中火車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "326",
-        "En": "326"
-      },
-      "DepartureStopNameZh": "靜宜大學",
-      "DestinationStopNameZh": "新民高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "33",
-        "En": "33"
-      },
-      "DepartureStopNameZh": "僑光科技大學",
-      "DestinationStopNameZh": "高鐵臺中站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "35",
-        "En": "35"
-      },
-      "DepartureStopNameZh": "南區公所",
-      "DestinationStopNameZh": "僑光科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "351",
-        "En": "351"
-      },
-      "DepartureStopNameZh": "統聯轉運站",
-      "DestinationStopNameZh": "臺中工業區",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "352",
-        "En": "352"
-      },
-      "DepartureStopNameZh": "大肚",
-      "DestinationStopNameZh": "中科管理局",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "352延",
-        "En": "352"
-      },
-      "DepartureStopNameZh": "大肚",
-      "DestinationStopNameZh": "中科實驗高中(平和路)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "353",
-        "En": "353"
-      },
-      "DepartureStopNameZh": "天母櫻城",
-      "DestinationStopNameZh": "沙鹿",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "354",
-        "En": "354"
-      },
-      "DepartureStopNameZh": "東海路思義教堂",
-      "DestinationStopNameZh": "文修停車場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "355",
-        "En": "355"
-      },
-      "DepartureStopNameZh": "臺中區監理所(遊園路)",
-      "DestinationStopNameZh": "西苑高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "356",
-        "En": "356"
-      },
-      "DepartureStopNameZh": "國安社區(宜寧中學)",
-      "DestinationStopNameZh": "大慶火車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "357",
-        "En": "357"
-      },
-      "DepartureStopNameZh": "臺中榮總",
-      "DestinationStopNameZh": "中台新村",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "358",
-        "En": "358"
-      },
-      "DepartureStopNameZh": "仁友停車場",
-      "DestinationStopNameZh": "文修停車場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "359",
-        "En": "359"
-      },
-      "DepartureStopNameZh": "東海別墅",
-      "DestinationStopNameZh": "文心森林公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "37",
-        "En": "37"
-      },
-      "DepartureStopNameZh": "橫山",
-      "DestinationStopNameZh": "高鐵臺中站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "39",
-        "En": "39"
-      },
-      "DepartureStopNameZh": "高鐵臺中站",
-      "DestinationStopNameZh": "立新國小",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "40",
-        "En": "40"
-      },
-      "DepartureStopNameZh": "干城站",
-      "DestinationStopNameZh": "中台新村",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "41",
-        "En": "41"
-      },
-      "DepartureStopNameZh": "公共資訊圖書館",
-      "DestinationStopNameZh": "慈明高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "213繞",
-        "En": "213 detour"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "大甲體育場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "45",
-        "En": "45"
-      },
-      "DepartureStopNameZh": "中科管理局",
-      "DestinationStopNameZh": "干城站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "866區2",
-        "En": "866 Shuttle2"
-      },
-      "DepartureStopNameZh": "梨山",
-      "DestinationStopNameZh": "武陵農場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "45延",
-        "En": "45 extended "
-      },
-      "DepartureStopNameZh": "中科實驗高中(平和路)",
-      "DestinationStopNameZh": "干城站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "866區1",
-        "En": "866 Shuttle1"
-      },
-      "DepartureStopNameZh": "福壽山農場",
-      "DestinationStopNameZh": "梨山",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "45區",
-        "En": "45 Shuttle"
-      },
-      "DepartureStopNameZh": "中科管理局",
-      "DestinationStopNameZh": "第一廣場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "45延1",
-        "En": "45 extended 1"
-      },
-      "DepartureStopNameZh": "中科實驗高中(平和路)",
-      "DestinationStopNameZh": "干城站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "65延",
-        "En": "65 extended"
-      },
-      "DepartureStopNameZh": "南區公所",
-      "DestinationStopNameZh": "潭雅神綠園道",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "48",
-        "En": "48"
-      },
-      "DepartureStopNameZh": "臺中火車站",
-      "DestinationStopNameZh": "嶺東科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "49",
-        "En": "49"
-      },
-      "DepartureStopNameZh": "老虎城",
-      "DestinationStopNameZh": "協和國小分校",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "92繞",
-        "En": "92 detour"
-      },
-      "DepartureStopNameZh": "豐原火車站",
-      "DestinationStopNameZh": "大安國中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "5",
-        "En": "5"
-      },
-      "DepartureStopNameZh": "臺中火車站",
-      "DestinationStopNameZh": "僑光科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "50",
-        "En": "50"
-      },
-      "DepartureStopNameZh": "文英兒童公園",
-      "DestinationStopNameZh": "921地震教育園區",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "500",
-        "En": "500"
-      },
-      "DepartureStopNameZh": "忠義里(中科實驗高中)",
-      "DestinationStopNameZh": "臺中火車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "51",
-        "En": "51"
-      },
-      "DepartureStopNameZh": "莒光新城",
-      "DestinationStopNameZh": "圓山新村",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "52",
-        "En": "52"
-      },
-      "DepartureStopNameZh": "中興大學-左環",
-      "DestinationStopNameZh": "中興大學-右環",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "53",
-        "En": "53"
-      },
-      "DepartureStopNameZh": "太原火車站",
-      "DestinationStopNameZh": "省議會",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "53區",
-        "En": "53 Shuttle"
-      },
-      "DepartureStopNameZh": "文心市政路口",
-      "DestinationStopNameZh": "省議會",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "54",
-        "En": "54"
-      },
-      "DepartureStopNameZh": "下港尾",
-      "DestinationStopNameZh": "烏日停車場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "55",
-        "En": "55"
-      },
-      "DepartureStopNameZh": "地方法院",
-      "DestinationStopNameZh": "豐原",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "56",
-        "En": "56"
-      },
-      "DepartureStopNameZh": "干城",
-      "DestinationStopNameZh": "新烏日火車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "58",
-        "En": "58"
-      },
-      "DepartureStopNameZh": "大慶活動中心",
-      "DestinationStopNameZh": "潭子勝利運動公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "58區1",
-        "En": "58 Shuttle1"
-      },
-      "DepartureStopNameZh": "大慶活動中心",
-      "DestinationStopNameZh": "北屯區行政大樓",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "58區2",
-        "En": "58 Shuttle2"
-      },
-      "DepartureStopNameZh": "明德高中",
-      "DestinationStopNameZh": "潭子勝利運動公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "58副",
-        "En": "58 Sub-route"
-      },
-      "DepartureStopNameZh": "大慶活動中心",
-      "DestinationStopNameZh": "潭子勝利運動公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "59",
-        "En": "59"
-      },
-      "DepartureStopNameZh": "舊社公園",
-      "DestinationStopNameZh": "舊正",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "6",
-        "En": "6"
-      },
-      "DepartureStopNameZh": "干城站",
-      "DestinationStopNameZh": "忠義里",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "60",
-        "En": "60"
-      },
-      "DepartureStopNameZh": "大智公園(立德東街)",
-      "DestinationStopNameZh": "坪頂",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "61",
-        "En": "61"
-      },
-      "DepartureStopNameZh": "太平",
-      "DestinationStopNameZh": "大雅",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "211區",
-        "En": "211 Shuttle"
-      },
-      "DepartureStopNameZh": "泰安",
-      "DestinationStopNameZh": "新政大安港路口",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "616",
-        "En": "616"
-      },
-      "DepartureStopNameZh": "梧棲",
-      "DestinationStopNameZh": "大甲",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "63",
-        "En": "63"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "臺中榮總",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "65",
-        "En": "65"
-      },
-      "DepartureStopNameZh": "南區公所",
-      "DestinationStopNameZh": "潭雅神綠園道",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "153副",
-        "En": "153 Sub-route"
-      },
-      "DepartureStopNameZh": "新市政中心",
-      "DestinationStopNameZh": "谷關",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "655",
-        "En": "655"
-      },
-      "DepartureStopNameZh": "梧棲觀光漁港",
-      "DestinationStopNameZh": "嶺東科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "657",
-        "En": "657"
-      },
-      "DepartureStopNameZh": "大甲高工",
-      "DestinationStopNameZh": "建興",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "658",
-        "En": "658"
-      },
-      "DepartureStopNameZh": "大安區公所",
-      "DestinationStopNameZh": "惠文高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "658延",
-        "En": "658 extended"
-      },
-      "DepartureStopNameZh": "海墘國小",
-      "DestinationStopNameZh": "惠文高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "659",
-        "En": "659"
-      },
-      "DepartureStopNameZh": "幼獅工業區服務中心",
-      "DestinationStopNameZh": "臺中榮總(臺灣大道)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "66",
-        "En": "66"
-      },
-      "DepartureStopNameZh": "慈濟醫院",
-      "DestinationStopNameZh": "天星大飯店",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "661",
-        "En": "661"
-      },
-      "DepartureStopNameZh": "致用高中-右環",
-      "DestinationStopNameZh": "致用高中-左環",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "662",
-        "En": "662"
-      },
-      "DepartureStopNameZh": "大甲高中(水源路)",
-      "DestinationStopNameZh": "國立苑裡高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "668",
-        "En": "668"
-      },
-      "DepartureStopNameZh": "日南火車站",
-      "DestinationStopNameZh": "大甲區公所",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "67",
-        "En": "67"
-      },
-      "DepartureStopNameZh": "臺中火車站",
-      "DestinationStopNameZh": "東海別墅",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "67繞",
-        "En": "67 detour"
-      },
-      "DepartureStopNameZh": "臺中車站",
-      "DestinationStopNameZh": "東海別墅",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "272繞",
-        "En": "272 detour"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "茄苳寮",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "677區",
-        "En": "677 Shuttle"
-      },
-      "DepartureStopNameZh": "二號橋",
-      "DestinationStopNameZh": "沙鹿",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "677",
-        "En": "677"
-      },
-      "DepartureStopNameZh": "巨業沙鹿站",
-      "DestinationStopNameZh": "巨業沙鹿站-右環",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "68",
-        "En": "68"
-      },
-      "DepartureStopNameZh": "東海別墅",
-      "DestinationStopNameZh": "中臺科技大學校區",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "68繞",
-        "En": "68 detour"
-      },
-      "DepartureStopNameZh": "東海別墅",
-      "DestinationStopNameZh": "中臺科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "688",
-        "En": "688"
-      },
-      "DepartureStopNameZh": "清水火車站",
-      "DestinationStopNameZh": "高美濕地",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "69",
-        "En": "69"
-      },
-      "DepartureStopNameZh": "龍潭里",
-      "DestinationStopNameZh": "臺中國際機場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "69繞",
-        "En": "69 detour"
-      },
-      "DepartureStopNameZh": "龍潭里",
-      "DestinationStopNameZh": "臺中國際機場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "699",
-        "En": "699"
-      },
-      "DepartureStopNameZh": "大甲體育場",
-      "DestinationStopNameZh": "南埔",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "7",
-        "En": "7"
-      },
-      "DepartureStopNameZh": "臺中一中",
-      "DestinationStopNameZh": "長億高中 ",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "70",
-        "En": "70"
-      },
-      "DepartureStopNameZh": "嶺東科技大學",
-      "DestinationStopNameZh": "第一廣場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "700",
-        "En": "700"
-      },
-      "DepartureStopNameZh": "明德高中(明德街)",
-      "DestinationStopNameZh": "豐原高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "71",
-        "En": "71"
-      },
-      "DepartureStopNameZh": "臺中洲際棒球場",
-      "DestinationStopNameZh": "植物園(西屯路)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "72",
-        "En": "72"
-      },
-      "DepartureStopNameZh": "仁友停車場",
-      "DestinationStopNameZh": "慈濟醫院",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "73",
-        "En": "73"
-      },
-      "DepartureStopNameZh": "統聯轉運站",
-      "DestinationStopNameZh": "文英兒童公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "74",
-        "En": "74"
-      },
-      "DepartureStopNameZh": "太平",
-      "DestinationStopNameZh": "嶺東科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "75",
-        "En": "75"
-      },
-      "DepartureStopNameZh": "臺中榮總",
-      "DestinationStopNameZh": "一江橋",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "75區1",
-        "En": "75 Shuttle1"
-      },
-      "DepartureStopNameZh": "臺中女中",
-      "DestinationStopNameZh": "勤益科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "77",
-        "En": "77"
-      },
-      "DepartureStopNameZh": "中科停車場",
-      "DestinationStopNameZh": "慈濟醫院",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "79",
-        "En": "79"
-      },
-      "DepartureStopNameZh": "中科管理局",
-      "DestinationStopNameZh": "大慶火車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "8",
-        "En": "8"
-      },
-      "DepartureStopNameZh": "臺中刑務所演武場",
-      "DestinationStopNameZh": "逢甲大學(逢甲路)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "800",
-        "En": "800"
-      },
-      "DepartureStopNameZh": "捷運松竹站",
-      "DestinationStopNameZh": "捷運臺中高鐵站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "81",
-        "En": "81"
-      },
-      "DepartureStopNameZh": "統聯轉運站",
-      "DestinationStopNameZh": "太平",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "811",
-        "En": "811"
-      },
-      "DepartureStopNameZh": "豐原東站",
-      "DestinationStopNameZh": "大甲體育場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "811區",
-        "En": "811 Shuttle"
-      },
-      "DepartureStopNameZh": "豐原東站",
-      "DestinationStopNameZh": "后里火車站(后里國小)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "82",
-        "En": "82"
-      },
-      "DepartureStopNameZh": "水湳",
-      "DestinationStopNameZh": "高鐵臺中站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "821",
-        "En": "821"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "和平衛生所",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "85",
-        "En": "85"
-      },
-      "DepartureStopNameZh": "新光里(新福路)",
-      "DestinationStopNameZh": "一江橋",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "850",
-        "En": "850"
-      },
-      "DepartureStopNameZh": "臺中火車站",
-      "DestinationStopNameZh": "谷關",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "153區",
-        "En": "153 Shuttle"
-      },
-      "DepartureStopNameZh": "高鐵臺中站",
-      "DestinationStopNameZh": "東勢高工",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "865",
-        "En": "865"
-      },
-      "DepartureStopNameZh": "谷關",
-      "DestinationStopNameZh": "梨山",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "866",
-        "En": "866"
-      },
-      "DepartureStopNameZh": "福壽山農場",
-      "DestinationStopNameZh": "武陵農場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "89",
-        "En": "89"
-      },
-      "DepartureStopNameZh": "嶺東科技大學",
-      "DestinationStopNameZh": "東門橋",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "199",
-        "En": "199"
-      },
-      "DepartureStopNameZh": "龍井竹坑口",
-      "DestinationStopNameZh": "文修停車場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "199延",
-        "En": "199 extended"
-      },
-      "DepartureStopNameZh": "龍津高中",
-      "DestinationStopNameZh": "文修停車場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "9",
-        "En": "9"
-      },
-      "DepartureStopNameZh": "公共資訊圖書館(建成路)",
-      "DestinationStopNameZh": "清水",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "90",
-        "En": "90"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "新盛里(東勢高工)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "900",
-        "En": "900"
-      },
-      "DepartureStopNameZh": "光明國中 ",
-      "DestinationStopNameZh": "豐原高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "901(原100)",
-        "En": "901"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "明德高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "305W",
-        "En": "305W"
-      },
-      "DepartureStopNameZh": "臺中火車站",
-      "DestinationStopNameZh": "大甲",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "305E",
-        "En": "305E"
-      },
-      "DepartureStopNameZh": "大甲",
-      "DestinationStopNameZh": "臺中火車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "306W",
-        "En": "306W"
-      },
-      "DepartureStopNameZh": "臺中火車站",
-      "DestinationStopNameZh": "清水",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "306E",
-        "En": "306E"
-      },
-      "DepartureStopNameZh": "清水",
-      "DestinationStopNameZh": "臺中火車站(經梧棲)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "151區",
-        "En": "151 Shuttle"
-      },
-      "DepartureStopNameZh": "高鐵臺中站",
-      "DestinationStopNameZh": "朝陽科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "91",
-        "En": "91"
-      },
-      "DepartureStopNameZh": "舊庄",
-      "DestinationStopNameZh": "中興嶺停車場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "901副(原100副)",
-        "En": "901 Sub-route"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "明德高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "91延",
-        "En": "91 extended"
-      },
-      "DepartureStopNameZh": "臺中國際機場",
-      "DestinationStopNameZh": "中興嶺停車場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "21延1",
-        "En": "21 extended 1"
-      },
-      "DepartureStopNameZh": "臺中刑務所演武場",
-      "DestinationStopNameZh": "民德橋",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "21延2",
-        "En": "21 extended 2"
-      },
-      "DepartureStopNameZh": "臺中刑務所演武場",
-      "DestinationStopNameZh": "中興嶺",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "152區",
-        "En": "152 Shuttle"
-      },
-      "DepartureStopNameZh": "臺中市議會",
-      "DestinationStopNameZh": "圓環南永安街口",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "281副",
-        "En": "281 Sub-route"
-      },
-      "DepartureStopNameZh": "臺中火車站",
-      "DestinationStopNameZh": "霧峰農工",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "92",
-        "En": "92"
-      },
-      "DepartureStopNameZh": "豐原火車站",
-      "DestinationStopNameZh": "大安國中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "29A",
-        "En": "29A"
-      },
-      "DepartureStopNameZh": "第一廣場",
-      "DestinationStopNameZh": "臺中監獄",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "29B",
-        "En": "29B"
-      },
-      "DepartureStopNameZh": "臺中監獄",
-      "DestinationStopNameZh": "第一廣場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "70A",
-        "En": "70A"
-      },
-      "DepartureStopNameZh": "第一廣場",
-      "DestinationStopNameZh": "嶺東科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "70B",
-        "En": "70B"
-      },
-      "DepartureStopNameZh": "嶺東科技大學",
-      "DestinationStopNameZh": "第一廣場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "226繞",
-        "En": "226 detour"
-      },
-      "DepartureStopNameZh": "中科后里辦公室",
-      "DestinationStopNameZh": "太平里",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "142A",
-        "En": "142A"
-      },
-      "DepartureStopNameZh": "第一廣場",
-      "DestinationStopNameZh": "豐年社區",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "142B",
-        "En": "142B"
-      },
-      "DepartureStopNameZh": "豐年社區",
-      "DestinationStopNameZh": "第一廣場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "93",
-        "En": "93"
-      },
-      "DepartureStopNameZh": "高鐵臺中站",
-      "DestinationStopNameZh": "銅安厝",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "163A",
-        "En": "163A"
-      },
-      "DepartureStopNameZh": "第一廣場",
-      "DestinationStopNameZh": "華盛頓中學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "163B",
-        "En": "163B"
-      },
-      "DepartureStopNameZh": "華盛頓中學",
-      "DestinationStopNameZh": "第一廣場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "105區1",
-        "En": "105 Shuttle1"
-      },
-      "DepartureStopNameZh": "新興里",
-      "DestinationStopNameZh": "四張犁",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "105區2",
-        "En": "105 Shuttle2"
-      },
-      "DepartureStopNameZh": "臺中高工",
-      "DestinationStopNameZh": "四張犁",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "305區",
-        "En": "305 Shuttle"
-      },
-      "DepartureStopNameZh": "巨業沙鹿站",
-      "DestinationStopNameZh": "大甲",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "306區1",
-        "En": "306 Shuttle1"
-      },
-      "DepartureStopNameZh": "靜宜大學",
-      "DestinationStopNameZh": "清水(經梧棲)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "306區2",
-        "En": "306 Shuttle2"
-      },
-      "DepartureStopNameZh": "沙鹿站",
-      "DestinationStopNameZh": "清水(經梧棲)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "68延",
-        "En": "68 extended"
-      },
-      "DepartureStopNameZh": "鹿寮國中",
-      "DestinationStopNameZh": "中臺科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "68延(繞國安國小)",
-        "En": "68 extended(via Guo-An El. School)"
-      },
-      "DepartureStopNameZh": "鹿寮國中",
-      "DestinationStopNameZh": "中臺科技大學(繞中科)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": false,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "20區",
-        "En": "20 Shuttle"
-      },
-      "DepartureStopNameZh": "干城",
-      "DestinationStopNameZh": "東山高中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "617",
-        "En": "617"
-      },
-      "DepartureStopNameZh": "梧棲",
-      "DestinationStopNameZh": "嶺東科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "95",
-        "En": "95"
-      },
-      "DepartureStopNameZh": "正英臺灣大道口",
-      "DestinationStopNameZh": "外埔老人文康中心",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "90延",
-        "En": "90 extended"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "和平衛生所",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "95副",
-        "En": "95 Sub-route"
-      },
-      "DepartureStopNameZh": "正英臺灣大道口",
-      "DestinationStopNameZh": "土城",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "206延",
-        "En": "206 extended"
-      },
-      "DepartureStopNameZh": "石岡國中",
-      "DestinationStopNameZh": "東勢高工",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "219延",
-        "En": "219 extended"
-      },
-      "DepartureStopNameZh": "石岡國中",
-      "DestinationStopNameZh": "龍興里",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "220繞",
-        "En": "220 detour"
-      },
-      "DepartureStopNameZh": "豐原",
-      "DestinationStopNameZh": "臺中榮總",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "266繞",
-        "En": "266 detour"
-      },
-      "DepartureStopNameZh": "東勢",
-      "DestinationStopNameZh": "谷關",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "97",
-        "En": "97"
-      },
-      "DepartureStopNameZh": "國立苑裡高中",
-      "DestinationStopNameZh": "臺中國際機場",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "74繞",
-        "En": "74 detour"
-      },
-      "DepartureStopNameZh": "太平",
-      "DestinationStopNameZh": "嶺東科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "275區",
-        "En": "275 Shuttle"
-      },
-      "DepartureStopNameZh": "下新社",
-      "DestinationStopNameZh": "中和",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "989延",
-        "En": "989 extended"
-      },
-      "DepartureStopNameZh": "翁子",
-      "DestinationStopNameZh": "神圳國中",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "98",
-        "En": "98"
-      },
-      "DepartureStopNameZh": "神岡庄尾",
-      "DestinationStopNameZh": "普濟寺",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "98繞",
-        "En": "98 detour"
-      },
-      "DepartureStopNameZh": "神岡庄尾",
-      "DestinationStopNameZh": "普濟寺",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "A1",
-        "En": "A1"
-      },
-      "DepartureStopNameZh": "臺中國際機場",
-      "DestinationStopNameZh": "臺中公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "A2",
-        "En": "A2"
-      },
-      "DepartureStopNameZh": "臺中國際機場",
-      "DestinationStopNameZh": "臺中車站",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "A3",
-        "En": "A3"
-      },
-      "DepartureStopNameZh": "臺中國際機場",
-      "DestinationStopNameZh": "逢甲夜市",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "989",
-        "En": "989"
-      },
-      "DepartureStopNameZh": "翁子",
-      "DestinationStopNameZh": "圳前仁愛公園",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "99",
-        "En": "99"
-      },
-      "DepartureStopNameZh": "精武火車站",
-      "DestinationStopNameZh": "嶺東科技大學",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "99延",
-        "En": "99 extended"
-      },
-      "DepartureStopNameZh": "精武火車站",
-      "DestinationStopNameZh": "臺中區監理所(遊園路)",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
-    },
-    {
-      "HasSubRoutes": true,
-      "BusRouteType": 11,
-      "RouteName": {
-        "Zh_tw": "956",
-        "En": "956"
-      },
-      "DepartureStopNameZh": "豐原東站",
-      "DestinationStopNameZh": "光華高工",
-      "UpdateTime": "2018-11-26T16:12:54+08:00",
-      "VersionID": 313
+        "DestinationStopNameZh": "中臺科技大學校區",
+        "DepartureStopNameZh": "臺中刑務所演武場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "彰化",
+        "DepartureStopNameZh": "水湳(敦化公園)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "沙鹿",
+        "DepartureStopNameZh": "干城站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "龍井",
+        "DepartureStopNameZh": "四張犁",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "舊正",
+        "DepartureStopNameZh": "黎明新村",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "南開科技大學校區",
+        "DepartureStopNameZh": "港尾",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "南開科技大學校區",
+        "DepartureStopNameZh": "霧峰農工",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "三田國小",
+        "DepartureStopNameZh": "大雅",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中火車站(左環)",
+        "DepartureStopNameZh": "臺中火車站(右環)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "梧棲觀光漁港",
+        "DepartureStopNameZh": "清水火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中市議會",
+        "DepartureStopNameZh": "朝陽科技大學",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "豐原鎮清宮",
+        "DepartureStopNameZh": "明德高中(明德街)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "梧棲觀光漁港",
+        "DepartureStopNameZh": "臺中慈濟醫院",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中洲際棒球場",
+        "DepartureStopNameZh": "豐樂雕塑公園",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "清水",
+        "DepartureStopNameZh": "大雅",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "梧棲",
+        "DepartureStopNameZh": "大雅",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "朝陽科技大學",
+        "DepartureStopNameZh": "北屯區行政大樓",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "朝陽科技大學",
+        "DepartureStopNameZh": "北屯區行政大樓",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "朝陽科技大學",
+        "DepartureStopNameZh": "高鐵臺中站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "舊庄",
+        "DepartureStopNameZh": "干城站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "神岡區公所",
+        "DepartureStopNameZh": "干城站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "第一廣場",
+        "DepartureStopNameZh": "豐年社區",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "南清宮",
+        "DepartureStopNameZh": "干城站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "國軍臺中總醫院",
+        "DepartureStopNameZh": "臺中刑務所演武場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "朝陽科技大學",
+        "DepartureStopNameZh": "臺中市議會",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "陽明大樓",
+        "DepartureStopNameZh": "臺中市議會",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "谷關",
+        "DepartureStopNameZh": "臺中高鐵站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大甲區公所",
+        "DepartureStopNameZh": "臺中女中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "麗寶樂園",
+        "DepartureStopNameZh": "高鐵臺中站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "麗寶樂園",
+        "DepartureStopNameZh": "高鐵臺中站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "高鐵臺中站",
+        "DepartureStopNameZh": "臺中國際機場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大甲區公所",
+        "DepartureStopNameZh": "文心森林公園",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "朝陽科技大學",
+        "DepartureStopNameZh": "高鐵臺中站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中公園",
+        "DepartureStopNameZh": "高鐵臺中站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "僑光科技大學",
+        "DepartureStopNameZh": "高鐵臺中站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中科管理局",
+        "DepartureStopNameZh": "高鐵臺中站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "嘉陽高中",
+        "DepartureStopNameZh": "靜宜大學希嘉學苑",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "第一廣場",
+        "DepartureStopNameZh": "華盛頓中學",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "楊厝里",
+        "DepartureStopNameZh": "清水國中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "舊庄",
+        "DepartureStopNameZh": "清水國中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中高工",
+        "DepartureStopNameZh": "沙鹿",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "僑光科技大學",
+        "DepartureStopNameZh": "大甲站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "霧峰復興八街",
+        "DepartureStopNameZh": "草湖",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "梧棲",
+        "DepartureStopNameZh": "大甲體育場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大安港",
+        "DepartureStopNameZh": "大甲",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "福住里",
+        "DepartureStopNameZh": "大甲",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "高美濕地",
+        "DepartureStopNameZh": "清水火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "高美濕地",
+        "DepartureStopNameZh": "清水火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大智公園",
+        "DepartureStopNameZh": "朝馬轉運站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "彰化",
+        "DepartureStopNameZh": "沙鹿",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大甲區公所",
+        "DepartureStopNameZh": "苑裡站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "日南國中",
+        "DepartureStopNameZh": "苑裡站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "日南國中",
+        "DepartureStopNameZh": "苑裡站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "清水(經新庄)",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中港郵局(經新庄)",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "清水(經東山)",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中港郵局(經東山)",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "國立臺灣美術館",
+        "DepartureStopNameZh": "軍福公園",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "潭子火車站(東站)",
+        "DepartureStopNameZh": "干城站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中女中",
+        "DepartureStopNameZh": "霧峰農會",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中女中",
+        "DepartureStopNameZh": "亞大醫院",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "新民高中(健行路)",
+        "DepartureStopNameZh": "柳豐路(亞大醫院)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "豐原(經樹德路、慈濟)",
+        "DepartureStopNameZh": "豐富公園(經樹德路、慈濟)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "豐原(經新田、慈濟)",
+        "DepartureStopNameZh": "豐富公園(經新田、慈濟)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "東勢高工",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "谷關",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "卓蘭",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "東勢林場",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "貴城山莊",
+        "DepartureStopNameZh": "臺中刑務所演武場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "土城",
+        "DepartureStopNameZh": "大甲火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大甲體育場",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大甲體育場(水美)",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大甲體育場",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大甲火車站",
+        "DepartureStopNameZh": "后里馬場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大甲體育場(經麗寶樂園)",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "南埔",
+        "DepartureStopNameZh": "大甲",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "神岡區公所",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "龍興里",
+        "DepartureStopNameZh": "石岡國小",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中榮總",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "公老坪頂",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "太平里",
+        "DepartureStopNameZh": "中科后里辦公室",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "東陽里",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "豐原東站",
+        "DepartureStopNameZh": "大鵬國小",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "朝馬",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "市立大里高中",
+        "DepartureStopNameZh": "中清同榮路口",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "清水",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "文化中心-北環",
+        "DepartureStopNameZh": "文化中心-南環",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大肚火車站",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中港郵局(經沙鹿)",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "梧棲站",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "國軍臺中總醫院",
+        "DepartureStopNameZh": "太原火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "僑光科技大學",
+        "DepartureStopNameZh": "忠信國小",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中坑坪",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "橫流溪",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大雪山森林遊樂區",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "士林村",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "卓蘭",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "嶺東科技大學",
+        "DepartureStopNameZh": "新民高中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "水尾",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "明正里",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "崑山",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "新五村",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "新五村",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "谷關",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "上谷關",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "八仙山森林遊樂區",
+        "DepartureStopNameZh": "谷關",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "嶺東科技大學",
+        "DepartureStopNameZh": "臺中火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "豐富公園",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "豐富公園",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "茄苳寮",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "茄苳寮",
+        "DepartureStopNameZh": "新五村",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中和",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "豐富公園",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "豐富公園",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "水井",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "水井",
+        "DepartureStopNameZh": "新社",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "坪頂",
+        "DepartureStopNameZh": "四張犁圖書館",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "修平科技大學",
+        "DepartureStopNameZh": "臺中二中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "霧峰農工",
+        "DepartureStopNameZh": "臺中火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "桐林",
+        "DepartureStopNameZh": "亞洲大學安藤館",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": " 大里仁愛醫院",
+        "DepartureStopNameZh": "省議會",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "修平科技大學",
+        "DepartureStopNameZh": "臺中火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "竹仔坑",
+        "DepartureStopNameZh": "新建國市場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "竹仔坑",
+        "DepartureStopNameZh": "新建國市場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "崁頂",
+        "DepartureStopNameZh": "臺中二中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "茅埔",
+        "DepartureStopNameZh": "國軍臺中總醫院",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "茅埔",
+        "DepartureStopNameZh": "臺中二中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "東平社區",
+        "DepartureStopNameZh": "臺中二中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "第一廣場",
+        "DepartureStopNameZh": "臺中監獄",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "童綜合醫院(梧棲院區)",
+        "DepartureStopNameZh": "干城站 ",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "童綜合醫院(梧棲院區)",
+        "DepartureStopNameZh": "干城站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "環保公園",
+        "DepartureStopNameZh": "山多綠社區",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "高鐵臺中站",
+        "DepartureStopNameZh": "東山高中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "干城站",
+        "DepartureStopNameZh": "中台新村",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中火車站",
+        "DepartureStopNameZh": "靜宜大學",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "新民高中",
+        "DepartureStopNameZh": "靜宜大學",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中公園",
+        "DepartureStopNameZh": "臺中國際機場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "新民高中",
+        "DepartureStopNameZh": "港區藝術中心",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "新民高中",
+        "DepartureStopNameZh": "港區藝術中心",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中火車站",
+        "DepartureStopNameZh": "大甲",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中火車站(經梧棲)",
+        "DepartureStopNameZh": "清水",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "新民高中",
+        "DepartureStopNameZh": "梧棲觀光漁港",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "新民高中",
+        "DepartureStopNameZh": "關連工業區",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中火車站",
+        "DepartureStopNameZh": "高美濕地",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中火車站",
+        "DepartureStopNameZh": "臺中港旅客服務中心",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "旱溪東東英五街口",
+        "DepartureStopNameZh": "大鵬新城",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中火車站",
+        "DepartureStopNameZh": "台中監理所",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中火車站",
+        "DepartureStopNameZh": "台中監理所",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "新民高中",
+        "DepartureStopNameZh": "臺中都會公園",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中火車站",
+        "DepartureStopNameZh": "大肚火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "新民高中",
+        "DepartureStopNameZh": "靜宜大學",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "高鐵臺中站",
+        "DepartureStopNameZh": "僑光科技大學",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "僑光科技大學",
+        "DepartureStopNameZh": "南區公所",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中工業區",
+        "DepartureStopNameZh": "統聯轉運站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中科管理局",
+        "DepartureStopNameZh": "大肚",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中科實驗高中(平和路)",
+        "DepartureStopNameZh": "大肚",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "沙鹿",
+        "DepartureStopNameZh": "天母櫻城",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "文修停車場",
+        "DepartureStopNameZh": "東海路思義教堂",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "西苑高中",
+        "DepartureStopNameZh": "臺中區監理所(遊園路)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大慶火車站",
+        "DepartureStopNameZh": "國安社區(宜寧中學)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中台新村",
+        "DepartureStopNameZh": "臺中榮總",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "文修停車場",
+        "DepartureStopNameZh": "仁友停車場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "文心森林公園",
+        "DepartureStopNameZh": "東海別墅",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "高鐵臺中站",
+        "DepartureStopNameZh": "橫山",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "立新國小",
+        "DepartureStopNameZh": "高鐵臺中站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中台新村",
+        "DepartureStopNameZh": "干城站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "慈明高中",
+        "DepartureStopNameZh": "公共資訊圖書館",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大甲體育場",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "干城站",
+        "DepartureStopNameZh": "中科管理局",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "武陵農場",
+        "DepartureStopNameZh": "梨山",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "干城站",
+        "DepartureStopNameZh": "中科實驗高中(平和路)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "梨山",
+        "DepartureStopNameZh": "福壽山農場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "第一廣場",
+        "DepartureStopNameZh": "中科管理局",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "干城站",
+        "DepartureStopNameZh": "中科實驗高中(平和路)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "潭雅神綠園道",
+        "DepartureStopNameZh": "南區公所",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "嶺東科技大學",
+        "DepartureStopNameZh": "臺中火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "協和國小分校",
+        "DepartureStopNameZh": "老虎城",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大安國中",
+        "DepartureStopNameZh": "豐原火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "僑光科技大學",
+        "DepartureStopNameZh": "臺中火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "921地震教育園區",
+        "DepartureStopNameZh": "文英兒童公園",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中火車站",
+        "DepartureStopNameZh": "忠義里(中科實驗高中)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "圓山新村",
+        "DepartureStopNameZh": "莒光新城",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中興大學-右環",
+        "DepartureStopNameZh": "中興大學-左環",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "省議會",
+        "DepartureStopNameZh": "太原火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "省議會",
+        "DepartureStopNameZh": "文心市政路口",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "烏日停車場",
+        "DepartureStopNameZh": "下港尾",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "豐原",
+        "DepartureStopNameZh": "地方法院",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "新烏日火車站",
+        "DepartureStopNameZh": "干城",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "潭子勝利運動公園",
+        "DepartureStopNameZh": "大慶活動中心",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "北屯區行政大樓",
+        "DepartureStopNameZh": "大慶活動中心",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "潭子勝利運動公園",
+        "DepartureStopNameZh": "明德高中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "潭子勝利運動公園",
+        "DepartureStopNameZh": "大慶活動中心",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "舊正",
+        "DepartureStopNameZh": "舊社公園",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "忠義里",
+        "DepartureStopNameZh": "干城站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "坪頂",
+        "DepartureStopNameZh": "大智公園(立德東街)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大雅",
+        "DepartureStopNameZh": "太平",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "新政大安港路口",
+        "DepartureStopNameZh": "泰安",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大甲",
+        "DepartureStopNameZh": "梧棲",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中榮總",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "潭雅神綠園道",
+        "DepartureStopNameZh": "南區公所",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "谷關",
+        "DepartureStopNameZh": "新市政中心",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "嶺東科技大學",
+        "DepartureStopNameZh": "梧棲觀光漁港",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "建興",
+        "DepartureStopNameZh": "大甲高工",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "惠文高中",
+        "DepartureStopNameZh": "大安區公所",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "惠文高中",
+        "DepartureStopNameZh": "海墘國小",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中榮總(臺灣大道)",
+        "DepartureStopNameZh": "幼獅工業區服務中心",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "天星大飯店",
+        "DepartureStopNameZh": "慈濟醫院",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "致用高中-左環",
+        "DepartureStopNameZh": "致用高中-右環",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "國立苑裡高中",
+        "DepartureStopNameZh": "大甲高中(水源路)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大甲區公所",
+        "DepartureStopNameZh": "日南火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "東海別墅",
+        "DepartureStopNameZh": "臺中火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "東海別墅",
+        "DepartureStopNameZh": "臺中車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "茄苳寮",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "沙鹿",
+        "DepartureStopNameZh": "二號橋",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "巨業沙鹿站-右環",
+        "DepartureStopNameZh": "巨業沙鹿站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中臺科技大學校區",
+        "DepartureStopNameZh": "東海別墅",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中臺科技大學",
+        "DepartureStopNameZh": "東海別墅",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "高美濕地",
+        "DepartureStopNameZh": "清水火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中國際機場",
+        "DepartureStopNameZh": "龍潭里",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中國際機場",
+        "DepartureStopNameZh": "龍潭里",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "南埔",
+        "DepartureStopNameZh": "大甲體育場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "長億高中 ",
+        "DepartureStopNameZh": "臺中一中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "第一廣場",
+        "DepartureStopNameZh": "嶺東科技大學",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "豐原高中",
+        "DepartureStopNameZh": "明德高中(明德街)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "植物園(西屯路)",
+        "DepartureStopNameZh": "臺中洲際棒球場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "慈濟醫院",
+        "DepartureStopNameZh": "仁友停車場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "文英兒童公園",
+        "DepartureStopNameZh": "統聯轉運站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "嶺東科技大學",
+        "DepartureStopNameZh": "太平",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "一江橋",
+        "DepartureStopNameZh": "臺中榮總",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "勤益科技大學",
+        "DepartureStopNameZh": "臺中女中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "慈濟醫院",
+        "DepartureStopNameZh": "中科停車場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大慶火車站",
+        "DepartureStopNameZh": "中科管理局",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "逢甲大學(逢甲路)",
+        "DepartureStopNameZh": "臺中刑務所演武場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "捷運臺中高鐵站",
+        "DepartureStopNameZh": "捷運松竹站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "太平",
+        "DepartureStopNameZh": "統聯轉運站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大甲體育場",
+        "DepartureStopNameZh": "豐原東站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "后里火車站(后里國小)",
+        "DepartureStopNameZh": "豐原東站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "高鐵臺中站",
+        "DepartureStopNameZh": "水湳",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "和平衛生所",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "一江橋",
+        "DepartureStopNameZh": "新光里(新福路)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "谷關",
+        "DepartureStopNameZh": "臺中火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "東勢高工",
+        "DepartureStopNameZh": "高鐵臺中站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "梨山",
+        "DepartureStopNameZh": "谷關",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "武陵農場",
+        "DepartureStopNameZh": "福壽山農場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "東門橋",
+        "DepartureStopNameZh": "嶺東科技大學",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "文修停車場",
+        "DepartureStopNameZh": "龍井竹坑口",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "文修停車場",
+        "DepartureStopNameZh": "龍津高中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "清水",
+        "DepartureStopNameZh": "公共資訊圖書館(建成路)",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "新盛里(東勢高工)",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "豐原高中",
+        "DepartureStopNameZh": "光明國中 ",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "明德高中",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大甲",
+        "DepartureStopNameZh": "臺中火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "臺中火車站",
+        "DepartureStopNameZh": "大甲",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "清水",
+        "DepartureStopNameZh": "臺中火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "臺中火車站(經梧棲)",
+        "DepartureStopNameZh": "清水",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "朝陽科技大學",
+        "DepartureStopNameZh": "高鐵臺中站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中興嶺停車場",
+        "DepartureStopNameZh": "舊庄",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "明德高中",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中興嶺停車場",
+        "DepartureStopNameZh": "臺中國際機場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "民德橋",
+        "DepartureStopNameZh": "臺中刑務所演武場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中興嶺",
+        "DepartureStopNameZh": "臺中刑務所演武場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "圓環南永安街口",
+        "DepartureStopNameZh": "臺中市議會",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "霧峰農工",
+        "DepartureStopNameZh": "臺中火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "大安國中",
+        "DepartureStopNameZh": "豐原火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中監獄",
+        "DepartureStopNameZh": "第一廣場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "第一廣場",
+        "DepartureStopNameZh": "臺中監獄",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "嶺東科技大學",
+        "DepartureStopNameZh": "第一廣場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "第一廣場",
+        "DepartureStopNameZh": "嶺東科技大學",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "太平里",
+        "DepartureStopNameZh": "中科后里辦公室",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "豐年社區",
+        "DepartureStopNameZh": "第一廣場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "第一廣場",
+        "DepartureStopNameZh": "豐年社區",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "銅安厝",
+        "DepartureStopNameZh": "高鐵臺中站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "華盛頓中學",
+        "DepartureStopNameZh": "第一廣場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "第一廣場",
+        "DepartureStopNameZh": "華盛頓中學",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "四張犁",
+        "DepartureStopNameZh": "新興里",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "四張犁",
+        "DepartureStopNameZh": "臺中高工",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "大甲",
+        "DepartureStopNameZh": "巨業沙鹿站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "清水(經梧棲)",
+        "DepartureStopNameZh": "靜宜大學",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "清水(經梧棲)",
+        "DepartureStopNameZh": "沙鹿站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "中臺科技大學",
+        "DepartureStopNameZh": "鹿寮國中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中臺科技大學(繞中科)",
+        "DepartureStopNameZh": "鹿寮國中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "東山高中",
+        "DepartureStopNameZh": "干城",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": false
+    },
+    {
+        "DestinationStopNameZh": "嶺東科技大學",
+        "DepartureStopNameZh": "梧棲",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "外埔老人文康中心",
+        "DepartureStopNameZh": "正英臺灣大道口",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "和平衛生所",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "土城",
+        "DepartureStopNameZh": "正英臺灣大道口",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "東勢高工",
+        "DepartureStopNameZh": "石岡國中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "龍興里",
+        "DepartureStopNameZh": "石岡國中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中榮總",
+        "DepartureStopNameZh": "豐原",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "谷關",
+        "DepartureStopNameZh": "東勢",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中國際機場",
+        "DepartureStopNameZh": "國立苑裡高中",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "嶺東科技大學",
+        "DepartureStopNameZh": "太平",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "中和",
+        "DepartureStopNameZh": "下新社",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "神圳國中",
+        "DepartureStopNameZh": "翁子",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "普濟寺",
+        "DepartureStopNameZh": "神岡庄尾",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "普濟寺",
+        "DepartureStopNameZh": "神岡庄尾",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中公園",
+        "DepartureStopNameZh": "臺中國際機場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中車站",
+        "DepartureStopNameZh": "臺中國際機場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "逢甲夜市",
+        "DepartureStopNameZh": "臺中國際機場",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "圳前仁愛公園",
+        "DepartureStopNameZh": "翁子",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "嶺東科技大學",
+        "DepartureStopNameZh": "精武火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "臺中區監理所(遊園路)",
+        "DepartureStopNameZh": "精武火車站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
+    },
+    {
+        "DestinationStopNameZh": "光華高工",
+        "DepartureStopNameZh": "豐原東站",
+        "BusRouteType": 11,
+        "VersionID": 315,
+        "UpdateTime": "2018-11-29T12:18:26+08:00",
+        "HasSubRoutes": true
     }
-  ]
+]
