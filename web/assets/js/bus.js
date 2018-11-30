@@ -250,7 +250,7 @@ function GetBusInfo(all_query){
 									cell3.innerHTML = "";
 								}
 							}
-							cell2.innerHTML = '&emsp;' + dict_info[list_index][i].StopName.Zh_tw;
+							cell2.innerHTML = dict_info[list_index][i].StopName.Zh_tw;
 							cell2.className = 'bus_name'
 						};
 						//將table新增點擊功能
