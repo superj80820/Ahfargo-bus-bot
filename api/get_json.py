@@ -11,7 +11,7 @@ with open('%sres/get_bus_pos.json'% (FileRoute), 'w') as f:
 
 # get_bus_star_and_end
 headers=common().RES_HEAD(APPID,APPKey)
-res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=DepartureStopNameZh,DestinationStopNameZh&$format=JSON",headers=headers)
+res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?&$format=JSON",headers=headers)
 json_data=json.loads(res.text)
 with open('%sres/get_bus_star_and_end.json'% (FileRoute), 'w') as f:
     json.dump(json_data, f, indent=4, ensure_ascii=False)
