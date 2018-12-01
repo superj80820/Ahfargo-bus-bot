@@ -17,4 +17,7 @@ from setting import *
 line_bot_api = LineBotApi(LINE_TOKEN)
 handler = WebhookHandler(LINE_SECRET)
 
-common().get_and_save_google_map_image("CmRaAAAAX2odM9LtvPibVIRQJX1Z3NaVAUyQspofwCPJj6qOvdGIOvVVlKShpW714X09wn7pVv3HgU6zOQPhNOmRaxgxhQkwtw4yLmgGLeD6bdG6sqSXDmG9y5RdK6LC50gGPL6xEhA0T2Vfv41qh0LcrRJTuFOSGhQcEIVd6jpIlpXDQCLhwcusLIl8kw")
+with open("{}res/bike.json".format(FileRoute), encoding="utf-8") as f:
+    data = json.load(f)
+for item in data:
+    print(common().detection_distance({'lat':"24.137259","lon":"120.686666"},item,1,bus_or_bike="bike"))
