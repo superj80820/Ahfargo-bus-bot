@@ -40,14 +40,22 @@ class common(object):
         ret.sort(key=lambda d:int(d['Direction']))
         return ret
 
-    def detection_distance(self, center, around, max_distance):
+    def detection_distance(self, center, around, max_distance, bus_or_bike="bus"):
+        if bus_or_bike == "bus":
+            name_type = 'StopName'
+            pos_type = "StopPosition"
+            id_type = "StopUID"
+        elif bus_or_bike == "bike":
+            name_type = 'StationName'
+            pos_type = "StationPosition"
+            id_type = "StationUID"
         # approximate radius of earth in km
         R = 6373.0
 
         lat1 = radians(float(center['lat']))
         lon1 = radians(float(center['lon']))
-        lat2 = radians(float(around['StopPosition']['PositionLat']))
-        lon2 = radians(float(around['StopPosition']['PositionLon']))
+        lat2 = radians(float(around[pos_type]['PositionLat']))
+        lon2 = radians(float(around[pos_type]['PositionLon']))
 
         dlon = lon2 - lon1
         dlat = lat2 - lat1
@@ -58,10 +66,10 @@ class common(object):
         distance = R * c
 
         if distance < max_distance:
-            return {"StopName": around['StopName']['Zh_tw'], "StopID": around['StopID'], "distance": distance}
+            return {"StopName": around[name_type]['Zh_tw'], "StopUID": around[id_type], "distance": distance, "StationPosition":{"PositionLat":around[pos_type]['PositionLat'],"PositionLon":around[pos_type]['PositionLon']}}
         else:
             return None
-
+        
     #製作驗證簽名
     def RES_HEAD(self, APPID, APPKey):
         X_Date=datetime.datetime.now(datetime.timezone.utc).strftime("%a, "+"%d %b "+"%Y %H:%M:%S"+" GMT")
@@ -513,4 +521,18 @@ class common(object):
         print(len(cell_list))
         return cell_list[random.randint(0,len(cell_list)-1)].value
 
-  
+    def get_realtime_bike(self, data):
+        req_filter = str()
+        for item in data:
+            req_filter += "StationUID eq '%s' or " %(item['StopUID'])
+        req_filter = req_filter[0:len(req_filter)-4]
+        print(req_filter)
+        headers=self.RES_HEAD(APPID,APPKey)
+        res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bike/Availability/Taichung?$select=StationUID,AvailableRentBikes,AvailableReturnBikes&$filter=%s&$format=JSON"%(req_filter),headers=headers)
+        json_data=json.loads(res.text)
+        for item in data:
+            for item2 in json_data:
+                if item['StopUID'] == item2['StationUID']:
+                    item['AvailableRentBikes'] = item2['AvailableRentBikes']
+                    item['AvailableReturnBikes'] = item2['AvailableReturnBikes']
+        return data
