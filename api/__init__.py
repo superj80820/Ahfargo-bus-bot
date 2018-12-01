@@ -668,5 +668,20 @@ def bus_all_num():
     print(json_data)
     return jsonify(json_data)
 
+@app.route('/bike', methods=['GET'])
+def bike():
+    pos=request.args.get('pos').split("and")
+    lat=pos[0]
+    lon=pos[1]
+    ret = []
+    with open("{}res/bike.json".format(FileRoute), encoding="utf-8") as f:
+        data = json.load(f)
+    for item in data:
+        temp = common().detection_distance({"lat":lat,"lon":lon},item,2,bus_or_bike="bike")
+        if temp != None:
+            ret += [temp]
+    common().get_realtime_bike(ret)
+    return jsonify(ret)
+
 if __name__ == "__main__":
     app.run()

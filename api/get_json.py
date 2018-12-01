@@ -37,6 +37,13 @@ json_data=json.loads(res.text)
 with open('%sres/stop.json'% (FileRoute), 'w') as f:
     json.dump(json_data, f, indent=4, ensure_ascii=False)
 
+# bike
+headers=common().RES_HEAD(APPID,APPKey)
+res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bike/Station/Taichung?$format=JSON",headers=headers)
+json_data=json.loads(res.text)
+with open('%sres/bike.json'% (FileRoute), 'w') as f:
+    json.dump(json_data, f, indent=4, ensure_ascii=False)
+
 # weather_place
 res=requests.get("https://works.ioa.tw/weather/api/all.json")
 json_data=json.loads(res.text)
