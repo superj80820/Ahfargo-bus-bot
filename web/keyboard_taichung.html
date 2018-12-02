@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>快速查詢</title>
+        <title>公車查詢</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" charset="UTF-8">
         <style>
             * {box-sizing: border-box}
@@ -17,11 +17,13 @@
                 align-items: center;
                 display: flex;
                 height: 7%;
+                left: .1em;
+                position: relative;
                 width: 100%;
             }
             .search > h1 {
                 color: #f1f1f1;
-                font-size: 1.5em;
+                font-size: 1.9em;
             }
             /* Style preview */
             .preview {
@@ -42,8 +44,9 @@
             .preview > div > table {
                 width: 100%;
             }
-            .preview > div > table > tbody > tr {
+            .bus_card {
                 background-color: #ffffff;
+                box-shadow:0px 4px 5px rgba(20%,20%,40%,0.5);
                 color: #222222;
             }
             .bus_num {
@@ -70,13 +73,14 @@
             .keyboard > div {
                 background-color: #f1f1f1;
                 border-radius: .3rem;
+                box-shadow:0px 3px 1px rgba(20%,20%,40%,0.5);
                 color: #222222;
                 font-size: .8em;
-                height: 24%;
-                line-height: 80%;
+                height: 22%;
+                line-height: 60%;
                 text-align: center;
                 transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                width: 32.9%;
+                width: 32.4%;
             }
             .keyboard > div:not(:disabled):not(.disabled).active,.keyboard > div:not(:disabled):not(.disabled):active,.show>.keyboard > div.dropdown-toggle {
                 background-color: #777;
@@ -85,7 +89,7 @@
     </head>
     <body>
         <div class="search">
-            &emsp;<img src="images/search_icon.png" style="width: 2.5em">&emsp;&emsp;
+            <img src="images/search_icon.png" style="width: 2.5em">&ensp;
             <h1 id='bus_title'></h1>
         </div>
         <div class="preview">
