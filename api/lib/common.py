@@ -536,3 +536,11 @@ class common(object):
                     item['AvailableRentBikes'] = item2['AvailableRentBikes']
                     item['AvailableReturnBikes'] = item2['AvailableReturnBikes']
         return data
+
+    def user_log(self, data):
+        conn = sqlite.connect('%sdata/db/user_log.db'%(FileRoute))
+        c = conn.cursor()
+        for item in data['events']:
+            c.execute('INSERT INTO log (userId,roomId,groupId,eventType,data,timestamp) VALUES ("%s","%s","%s","%s","%s","%s")' %(item.get('source').get('userId'), item.get('source').get('roomId'), item.get('source').get('groupId'), item.get('type'), data, item.get('timestamp')))
+        conn.commit()
+        conn.close()
