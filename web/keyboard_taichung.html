@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>快速查詢</title>
+        <title>公車查詢</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" charset="UTF-8">
         <style>
             * {box-sizing: border-box}
@@ -32,6 +32,7 @@
             }
             .preview > div {
                 background-color: #ededed;
+                border-radius: .3rem;
                 color: white;
                 height: 95%;
                 overflow: scroll;
@@ -45,6 +46,9 @@
             .preview > div > table > tbody > tr {
                 background-color: #ffffff;
                 color: #222222;
+            }
+            .bus_card {
+                box-shadow:0px 4px 5px rgba(20%,20%,40%,0.5);
             }
             .bus_num {
                 display: block; 
@@ -68,15 +72,16 @@
                 width: 100%;
             }
             .keyboard > div {
+                box-shadow:0px 4px 5px rgba(20%,20%,40%,0.5);
                 background-color: #f1f1f1;
                 border-radius: .3rem;
                 color: #222222;
                 font-size: .8em;
-                height: 24%;
+                height: 22%;
                 line-height: 80%;
                 text-align: center;
                 transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                width: 32.9%;
+                width: 31.9%;
             }
             .keyboard > div:not(:disabled):not(.disabled).active,.keyboard > div:not(:disabled):not(.disabled):active,.show>.keyboard > div.dropdown-toggle {
                 background-color: #777;
