@@ -1,23 +1,23 @@
 window.onload = function (e) {
-    // liff.init(
-	// 	data => {
-	// 	  // Now you can call LIFF API
-    //         document.getElementById("clear").addEventListener("click", function(i){
-    //             document.getElementById('bus_title').innerHTML = "";
-    //             $('#myTable').empty()
-    //         });
-    //         GetBusAllNum()
-	// 	},
-	// 	err => {
-    //       // LIFF initialization failed
-    //       console.log('you must use line')
-	// 	}
-    //   );
-      document.getElementById("clear").addEventListener("click", function(i){
-        document.getElementById('bus_title').innerHTML = "";
-        $('#myTable').empty()
-    });
-    GetBusAllNum()
+    liff.init(
+		data => {
+		  // Now you can call LIFF API
+            document.getElementById("clear").addEventListener("click", function(i){
+                document.getElementById('bus_title').innerHTML = "";
+                $('#myTable').empty()
+            });
+            GetBusAllNum()
+		},
+		err => {
+          // LIFF initialization failed
+          console.log('you must use line')
+		}
+      );
+    //   document.getElementById("clear").addEventListener("click", function(i){
+    //     document.getElementById('bus_title').innerHTML = "";
+    //     $('#myTable').empty()
+    // });
+    // GetBusAllNum()
 }
 
 function GetBusAllNum(){
