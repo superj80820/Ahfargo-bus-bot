@@ -1,7 +1,8 @@
 * {box-sizing: border-box}
 /* Set height of body and the document to 98% */
 body, html {
-	background-color: #f8f8f8;
+	background-color: #eff3bd;
+	/* background-color: #f8f8f8; */
 	font-family: Arial;
 	height: 98%;
 	margin: 1;
