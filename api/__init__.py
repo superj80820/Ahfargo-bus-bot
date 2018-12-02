@@ -30,7 +30,7 @@ def callback():
 
     # get request body as text
     body = request.get_data(as_text=True)
-    print(body)
+    common().user_log(body if isinstance(body, (list, tuple, dict)) else ast.literal_eval(body))
     app.logger.info("Request body: " + body)
 
     # handle webhook body

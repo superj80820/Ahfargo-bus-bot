@@ -18,7 +18,7 @@ import ast
 import sqlite3 as sqlite
 import uuid
 from oauth2client.service_account import ServiceAccountCredentials
-import gspread 
+import gspread
 
 ## information ##
 ## file info ##
