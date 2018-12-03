@@ -645,31 +645,35 @@ def bus_path():
         return final_ans
 
     bus_name=request.args.get('bus_name')
-    json_data = common().bus_path_json(bus_name)   
+    json_data = common().bus_path_json(bus_name)
+    
+    if json_data != []:
+        ret = {}
+        path_data = re.search('[\d,.() ]+',json_data[0]['Geometry']).group()
+        if json_data[0]['Geometry'][0] == "L":
+            print('inL')
+            path_l = pathL(path_data)
+            ret['Geometry0'] = path_l
+        elif json_data[0]['Geometry'][0] == "M":
+            print('inM')
+            path_m = pathM(path_data)
+            ret['Geometry0'] = path_m
+            
+        if len(json_data) == 2:
+            path_data = re.search('[\d,.() ]+',json_data[1]['Geometry']).group()
+            if  json_data[1]['Geometry'][0] == "L":
+                print('inL')
+                path_l = pathL(path_data)
+                ret['Geometry1'] = path_l
+            elif json_data[1]['Geometry'][0] == "M":
+                print('inM')
+                path_m = pathM(path_data)
+                ret['Geometry1'] = path_m
 
-    ret = {}
+        return jsonify(ret)
+    else:
+        return abort(404)
 
-    path_data = re.search('[\d,.() ]+',json_data[0]['Geometry']).group()
-    if json_data[0]['Geometry'][0] == "L":
-        print('inL')
-        path_l = pathL(path_data)
-        ret['Geometry0'] = path_l
-    elif json_data[0]['Geometry'][0] == "M":
-        print('inM')
-        path_m = pathM(path_data)
-        ret['Geometry0'] = path_m
-
-    path_data = re.search('[\d,.() ]+',json_data[1]['Geometry']).group()
-    if json_data[1]['Geometry'][0] == "L":
-        print('inL')
-        path_l = pathL(path_data)
-        ret['Geometry1'] = path_l
-    elif json_data[1]['Geometry'][0] == "M":
-        print('inM')
-        path_m = pathM(path_data)
-        ret['Geometry1'] = path_m
-
-    return jsonify(ret)
 
 @app.route('/bus_all_num', methods=['GET'])
 def bus_all_num():
@@ -693,6 +697,10 @@ def bike():
             ret += [temp]
     common().get_realtime_bike(ret)
     return jsonify(ret)
+
+@app.route('/test', methods=['GET'])
+def test():
+    return "TEST"
 
 if __name__ == "__main__":
     app.run()
