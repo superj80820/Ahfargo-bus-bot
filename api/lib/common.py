@@ -233,7 +233,7 @@ class common(object):
                     "contents": [
                         {
                             "type": "text",
-                            "text": "以下是該地點附近站牌 呱～",
+                            "text": "以下是該地點附近站牌",
                             "weight": "bold",
                             "size": "xl"
                             }

@@ -80,25 +80,29 @@ def handle_follow(event):
 def handle_message(event):
     def sent_user(BusNum):
         flex={
-            "type": "bubble",
-            "footer": {
-                "type": "box",
-                "layout": "vertical",
-                "spacing": "xs",
-                "contents": [
-                    {
-                        "type": "button",
-                        "style": "link",
-                        "height": "sm",
-                        "gravity": "center",
-                        "action": {
-                            "type": "uri",
-                            "label": "查看公車動態~",
-                            "uri": "line://app/1615663243-gkN06e02?BusNum=%s&City=%s&Direction=0" %(BusNum, 'Taichung')
+            "type":"flex",
+            "altText":"This is a Flex Message",
+            "contents":{
+                "type": "bubble",
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "xs",
+                    "contents": [
+                        {
+                            "type": "button",
+                            "style": "link",
+                            "height": "sm",
+                            "gravity": "center",
+                            "action": {
+                                "type": "uri",
+                                "label": "查看公車動態~",
+                                "uri": "line://app/1615663243-gkN06e02?BusNum=%s&City=%s&Direction=0" %(BusNum, 'Taichung')
+                            },
                         },
-                    },
-                ],
-                "flex": 0
+                    ],
+                    "flex": 0
+                }
             }
         }
         return flex
@@ -239,25 +243,29 @@ def handle_message(event):
         conn.close()
 
         flex={
-            "type": "bubble",
-            "footer": {
-                "type": "box",
-                "layout": "vertical",
-                "spacing": "xs",
-                "contents": [
-                    {
-                        "type": "button",
-                        "style": "link",
-                        "height": "sm",
-                        "gravity": "center",
-                        "action": {
-                            "type": "uri",
-                            "label": "請選擇目的地 呱～",
-                            "uri": "line://nv/location"
+            "type":"flex",
+            "altText":"This is a Flex Message",
+            "contents":{
+                "type": "bubble",
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "xs",
+                    "contents": [
+                        {
+                            "type": "button",
+                            "style": "link",
+                            "height": "sm",
+                            "gravity": "center",
+                            "action": {
+                                "type": "uri",
+                                "label": "請選擇目的地 呱～",
+                                "uri": "line://nv/location"
+                            }
                         }
-                    }
-                ],
-                "flex": 0
+                    ],
+                    "flex": 0
+                }
             }
         }
         headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
