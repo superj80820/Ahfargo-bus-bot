@@ -43,27 +43,38 @@ def callback():
 
 @handler.add(FollowEvent)
 def handle_follow(event):
-    imagemap_message = ImagemapSendMessage(
-            base_url='https://i.imgur.com/KFPyBnS.jpg',
-            alt_text='this is an imagemap',
-            base_size=BaseSize(height=1040, width=1040),
-            actions=[
-                URIImagemapAction(
-                    link_uri='https://example.com/',
-                    area=ImagemapArea(
-                        x=0, y=0, width=520, height=1040
-                    )
-                ),
-                MessageImagemapAction(
-                    text='hello',
-                    area=ImagemapArea(
-                        x=520, y=0, width=520, height=1040
-                    )
-                )
-            ]
-        )
-    line_bot_api.reply_message(
-        event.reply_token, imagemap_message)
+    message = [
+            {
+                "type": "text",
+                "text": "很高興為您服務呱~\n小編回覆站: https://bit.ly/2RtHfEI\nIG: https://bit.ly/2Q9k8CI\nFB: https://bit.ly/2zyQIU6\n歡迎多加利用呱呱~\n\n下面是使用教學影片~~呱"
+            },
+            {
+                "type": "imagemap",
+                "baseUrl": "https://i.imgur.com/KA7yZnl.png",
+                "altText": "This is an imagemap",
+                "baseSize": {
+                    "width": 1040,
+                    "height": 1040
+                },
+                "video": {
+                    "originalContentUrl": "%s/origin_video.mp4" %(IMAGE_URL),
+                    "previewImageUrl": "https://i.imgur.com/KA7yZnl.png",
+                    "area": {
+                        "x": 0,
+                        "y": 0,
+                        "width": 1040,
+                        "height": 1040
+                    }
+                },
+                "actions": []
+            }
+        ]
+    headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+    payload = {
+        'replyToken':event.reply_token,
+        'messages': message
+    }
+    res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
