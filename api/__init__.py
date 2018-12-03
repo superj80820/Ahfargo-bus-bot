@@ -261,7 +261,7 @@ def handle_message(event):
                     "contents": [
                         {
                             "type": "text",
-                            "text": "你附近的公車站～嘎",
+                            "text": "嗨嗨!",
                             "weight": "bold",
                             "size": "xl"
                             }
