@@ -61,6 +61,7 @@ function GetBusAllNum(){
                                 var cell2 = row.insertCell(1);
                                 cell1.innerHTML = dict[i].RouteName.Zh_tw;
                                 cell2.innerHTML = dict[i].SubRoutes[0].Headsign;
+                                row.className = 'bus_card'
                                 cell1.className = 'bus_num'
                                 cell2.className = 'bus_name'
                                 count = count + 1;
@@ -106,6 +107,7 @@ function GetBusAllNum(){
                             var cell2 = row.insertCell(1);
                             cell1.innerHTML = dict[i].RouteName.Zh_tw;
                             cell2.innerHTML = dict[i].SubRoutes[0].Headsign;
+                            row.className = 'bus_card'
                             cell1.className = 'bus_num'
                             cell2.className = 'bus_name'
                             count = count + 1;
