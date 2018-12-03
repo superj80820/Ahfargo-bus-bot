@@ -80,48 +80,25 @@ def handle_follow(event):
 def handle_message(event):
     def sent_user(BusNum):
         flex={
-            "type":"flex",
-            "altText":"This is a Flex Message",
-            "contents":{
-                "type": "bubble",
-                "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "請點選觀看動態~",
-                            "weight": "bold",
-                            "size": "xl"
-                            }
-                        ]
+            "type": "bubble",
+            "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "xs",
+                "contents": [
+                    {
+                        "type": "button",
+                        "style": "link",
+                        "height": "sm",
+                        "gravity": "center",
+                        "action": {
+                            "type": "uri",
+                            "label": "查看公車動態~",
+                            "uri": "line://app/1615663243-gkN06e02?BusNum=%s&City=%s&Direction=0" %(BusNum, 'Taichung')
+                        },
                     },
-                "footer": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "spacing": "xs",
-                    "contents": [
-                        {
-                            "type": "box",
-                            "layout": "horizontal",
-                            "contents": [
-                                {
-                                "type": "button",
-                                "style": "link",
-                                "height": "sm",
-                                "gravity": "center",
-                                "action": {
-                                    "type": "uri",
-                                    "label": "點我~~呱呱",
-                                    "uri": "line://app/1615663243-gkN06e02?BusNum=%s&City=%s&Direction=0" %(BusNum, 'Taichung')
-                                },
-                                "flex": 1
-                                }
-                            ]
-                        }
-                    ],
-                    "flex": 0
-                }
+                ],
+                "flex": 0
             }
         }
         return flex
@@ -224,7 +201,7 @@ def handle_message(event):
                                 "gravity": "center",
                                 "action": {
                                     "type": "uri",
-                                    "label": "點這觀看地圖~",
+                                    "label": "點這觀看地圖 呱~",
                                     "uri": "line://app/1615663243-36r5Y25z?pos=%sand%s" %(str(location['lat']), str(location['lon']))
                                 },
                                 "flex": 1
@@ -262,48 +239,25 @@ def handle_message(event):
         conn.close()
 
         flex={
-            "type":"flex",
-            "altText":"This is a Flex Message",
-            "contents":{
-                "type": "bubble",
-                "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "嗨嗨!",
-                            "weight": "bold",
-                            "size": "xl"
-                            }
-                        ]
-                    },
-                "footer": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "spacing": "xs",
-                    "contents": [
-                        {
-                            "type": "box",
-                            "layout": "horizontal",
-                            "contents": [
-                                {
-                                "type": "button",
-                                "style": "link",
-                                "height": "sm",
-                                "gravity": "center",
-                                "action": {
-                                    "type": "uri",
-                                    "label": "請選擇目的地~呱",
-                                    "uri": "line://nv/location"
-                                },
-                                "flex": 1
-                                }
-                            ]
+            "type": "bubble",
+            "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "xs",
+                "contents": [
+                    {
+                        "type": "button",
+                        "style": "link",
+                        "height": "sm",
+                        "gravity": "center",
+                        "action": {
+                            "type": "uri",
+                            "label": "請選擇目的地 呱～",
+                            "uri": "line://nv/location"
                         }
-                    ],
-                    "flex": 0
-                }
+                    }
+                ],
+                "flex": 0
             }
         }
         headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
