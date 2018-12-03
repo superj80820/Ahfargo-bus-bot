@@ -233,7 +233,7 @@ class common(object):
                     "contents": [
                         {
                             "type": "text",
-                            "text": "你附近的公車站～嘎",
+                            "text": "以下是該地點附近站牌 呱～",
                             "weight": "bold",
                             "size": "xl"
                             }
@@ -284,7 +284,7 @@ class common(object):
                     "contents": [
                         {
                             "type": "text",
-                            "text": "請點選你想搭的公車~",
+                            "text": "請選擇想查詢的公車 呱~",
                             "weight": "bold",
                             "size": "xl"
                             }
