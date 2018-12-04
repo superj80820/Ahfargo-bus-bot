@@ -17,15 +17,11 @@ from setting import *
 line_bot_api = LineBotApi(LINE_TOKEN)
 handler = WebhookHandler(LINE_SECRET)
 
-def get_word( select, word=None):
-    with open("{}res/get_word.json".format(FileRoute), encoding="utf-8") as f:
-        json_data = json.load(f)
-    if select == 'default':
-        for item in json_data[select]:
-            for item2 in item['schema']:
-                if word.find(item2) != -1: return item['word']
-        return None
-    else:
-        return json_data[select][random.randint(0,len(json_data[select])-1)]
+headers = {
+    'authorization': 'Bearer HjFTbjNQhTxrxsvzZHmDewjMd4X26FLt+6ZzMV+wQfzX00KtXBkYN2WnrQ7mZYLhgobRZVLgTryMxaEYgn14sgqOKat6Cz2lT4VFEGC45Z3DGg2/HuckIpAuGWwIhQtV0mUjZ6I7pZo/iJW4noCkqwdB04t89/1O/w1cDnyilFU=',
+    'content-type': 'application/json'
+}
+aaa = 
 
-print(get_word("default",'大大'))
+for item in aaa['richmenus']:
+    requests.delete("https://api.line.me/v2/bot/richmenu/%s" %(item['richMenuId']),headers=headers)
