@@ -8,7 +8,7 @@ from setting import *
 
 class AhfargoBusTest(object):
     def __init__(self):
-        self.HOST = "https://a805632f.ngrok.io/bus?RouteName="
+        self.HOST = "http://127.0.0.1:5000/bus_path?bus_name="
         self.SESSION = requests.Session()
         self.SESSION.headers.update({
             "Content-Type": "application/json; charset=utf-8",
@@ -22,6 +22,6 @@ class AhfargoBusTest(object):
             return resp
 
 # ---------------------------------------------------------------------------
-    def bus_test(self, busNum):
-        resp = self.__request('get', busNum + "&City=Taichung")
+    def bus_path(self, busNum):
+        resp = self.__request('get', busNum)
         return resp
