@@ -140,7 +140,7 @@ def handle_message(event):
             res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
             break
 
-    if event.message.text=='使用方法':
+    if event.message.text=='使用說明':
         message = [
                 {
                     "type": "text",
@@ -453,11 +453,11 @@ def handle_message(event):
 
     elif event.message.text=='返回選單':
         headers = {'Authorization':'Bearer %s'%(LINE_TOKEN)}
-        res=requests.post("https://api.line.me/v2/bot/user/%s/richmenu/richmenu-e55048b5412c0198bcad8f82c027b029" %(event.source.user_id),headers=headers)
+        res=requests.post("https://api.line.me/v2/bot/user/%s/richmenu/%s" %(event.source.user_id, RICH_FUNC),headers=headers)
 
-    elif event.message.text=='聯絡選單':
+    elif event.message.text=='更多資訊':
         headers = {'Authorization':'Bearer %s'%(LINE_TOKEN)}
-        res=requests.post("https://api.line.me/v2/bot/user/%s/richmenu/richmenu-de835ca3a5b2dee81e421ee6fc16fe18" %(event.source.user_id),headers=headers)
+        res=requests.post("https://api.line.me/v2/bot/user/%s/richmenu/%s" %(event.source.user_id, RICH_INFO),headers=headers)
 
     elif event.message.text=='test':
         conn = sqlite.connect('%sdata/db/user_action.db'%(FileRoute))
