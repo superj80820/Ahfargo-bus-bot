@@ -8,7 +8,7 @@ from setting import *
 
 class AhfargoBusTest(object):
     def __init__(self):
-        self.HOST = "http://127.0.0.1:5000/"
+        self.HOST = "https://worldcrater.com/Ahfargo_bus_bot_staging_free_api/"
         self.SESSION = requests.Session()
         self.SESSION.headers.update({
             "Content-Type": "application/json; charset=utf-8",
@@ -28,4 +28,12 @@ class AhfargoBusTest(object):
 
     def bus_all_number(self):
         resp = self.__request('get', "bus_all_num")
+        return resp
+
+    def bus_station_go(self, busNum):
+        resp = self.__request('get', "/bus?RouteName=" + busNum + "&City=Taichung&Direction=0")
+        return resp
+
+    def bus_station_back(self, busNum):
+        resp = self.__request('get', "/bus?RouteName=" + busNum + "&City=Taichung&Direction=1")
         return resp
