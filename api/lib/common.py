@@ -508,19 +508,16 @@ class common(object):
 
     # @_word_filter
     # def get_word(self, select, pos):
-    def get_word(self, select):
-        scope = ["https://spreadsheets.google.com/feeds"]
-        credentials = ServiceAccountCredentials.from_json_keyfile_name("%sconfiguration/messfar-3cb0e128881a.json" %(FileRoute), scope)
-        gc = gspread.authorize(credentials)
-        sh = gc.open("Ahfargo_say_data")
-        worksheet = sh.worksheet(select)
-        say_count = worksheet.range('B1')
-        say_count = re.search('\d+',say_count[0].value).group()
-        say_count = str(int(say_count)+1)
-        print(say_count)
-        cell_list = worksheet.range('A2:A%s' %(say_count))
-        print(len(cell_list))
-        return cell_list[random.randint(0,len(cell_list)-1)].value
+    def get_word(self, select, word=None):
+        with open("{}res/get_word.json".format(FileRoute), encoding="utf-8") as f:
+            json_data = json.load(f)
+        if select == 'default':
+            for item in json_data[select]:
+                for item2 in item['schema']:
+                    if word.find(item2) != -1: return item['word']
+            return None
+        else:
+            return json_data[select][random.randint(0,len(json_data[select])-1)]
 
     def get_realtime_bike(self, data):
         req_filter = str()
