@@ -24,9 +24,9 @@ function GetBikeInfo(pos,local_pos,callback){
 }
 
 function SearchByGoogleMap(lat,lon,...local_pos){
-	console.log("line://app/1586634703-MqWqnV6q?api=1&origin="+local_pos[0]+','+local_pos[1]+"&destination="+lat+','+lon)
+	console.log("line://app/1586634703-krVJolxJ?api=1&origin="+local_pos[0]+','+local_pos[1]+"&destination="+lat+','+lon)
 	liff.openWindow({
-		url:"line://app/1586634703-MqWqnV6q?api=1&origin="+local_pos[0]+','+local_pos[1]+"&destination="+lat+','+lon,
+		url:"line://app/1586634703-krVJolxJ?api=1&origin="+local_pos[0]+','+local_pos[1]+"&destination="+lat+','+lon,
 		external:false
 	});
 }
