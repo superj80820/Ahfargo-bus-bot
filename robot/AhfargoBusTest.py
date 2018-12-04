@@ -8,7 +8,7 @@ from setting import *
 
 class AhfargoBusTest(object):
     def __init__(self):
-        self.HOST = "http://127.0.0.1:5000/bus_path?bus_name="
+        self.HOST = "http://127.0.0.1:5000/"
         self.SESSION = requests.Session()
         self.SESSION.headers.update({
             "Content-Type": "application/json; charset=utf-8",
@@ -23,5 +23,9 @@ class AhfargoBusTest(object):
 
 # ---------------------------------------------------------------------------
     def bus_path(self, busNum):
-        resp = self.__request('get', busNum)
+        resp = self.__request('get', "bus_path?bus_name=" + busNum)
+        return resp
+
+    def bus_all_number(self):
+        resp = self.__request('get', "bus_all_num")
         return resp
