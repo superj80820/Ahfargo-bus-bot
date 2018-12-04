@@ -568,8 +568,8 @@ def handle_location_message(event):
                 'messages':[imagemap]
                 }
             res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
-            conn.commit()
-            conn.close()
+        conn.commit()
+        conn.close()
     else:
         line_bot_api.reply_message(
             event.reply_token,TextSendMessage(text='這個區域目前不支援呱\n台中市以外的其他縣市火速開發中!'))
