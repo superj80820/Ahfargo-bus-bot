@@ -113,7 +113,7 @@ def handle_message(event):
                                 "action": {
                                     "type": "uri",
                                     "label": "點我~~呱呱",
-                                    "uri": "line://app/1615663243-gkN06e02?BusNum=%s&City=%s&Direction=0" %(BusNum, 'Taichung')
+                                    "uri": "%s?BusNum=%s&City=%s&Direction=0" %(LIFF_BUS, BusNum, 'Taichung')
                                 },
                                 "flex": 1
                                 }
@@ -255,7 +255,7 @@ def handle_message(event):
                                 "action": {
                                     "type": "uri",
                                     "label": "點這觀看地圖~",
-                                    "uri": "line://app/1615663243-36r5Y25z?pos=%sand%s" %(str(location['lat']), str(location['lon']))
+                                    "uri": "%s?pos=%sand%s" %(LIFF_BIKE, str(location['lat']), str(location['lon']))
                                 },
                                 "flex": 1
                                 }

@@ -333,7 +333,7 @@ class common(object):
                             "action": {
                                 "type": "uri",
                                 "label": "觀看",
-                                "uri": "line://app/1615663243-gkN06e02?BusNum=%s&City=%s&Direction=0" %(item2['transit_details']['line']['short_name'], 'Taichung')
+                                "uri": "%s?BusNum=%s&City=%s&Direction=0" %(LIFF_BUS, item2['transit_details']['line']['short_name'], 'Taichung')
                             },
                             "flex": 3
                             }
@@ -361,7 +361,7 @@ class common(object):
                             "action": {
                                 "type": "uri",
                                 "label": "觀看",
-                                "uri": "line://app/1615663243-V6xWnKWv?api=1&origin=%s,%s&destination=%s,%s" %(item2['start_location']['lat'], item2['start_location']['lng'], item2['end_location']['lat'], item2['end_location']['lng'])
+                                "uri": "%s?api=1&origin=%s,%s&destination=%s,%s" %(LIFF_GMAP, item2['start_location']['lat'], item2['start_location']['lng'], item2['end_location']['lat'], item2['end_location']['lng'])
                             },
                             "flex": 3
                             }
@@ -451,7 +451,7 @@ class common(object):
                                     "action": {
                                         "type": "uri",
                                         "label": "觀看",
-                                        "uri": "line://app/1615663243-V6xWnKWv?api=1&origin=%s&destination=%s,%s" %(ori_pos, item['geometry']['location']['lat'], item['geometry']['location']['lng'])
+                                        "uri": "%s?api=1&origin=%s&destination=%s,%s" %(LIFF_GMAP, ori_pos, item['geometry']['location']['lat'], item['geometry']['location']['lng'])
                                     },
                                     "flex": 3
                                     }
