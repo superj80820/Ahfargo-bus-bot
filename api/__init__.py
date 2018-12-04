@@ -1,4 +1,3 @@
-
 # coding: utf-8
 #最後目的地要修改
 #附近周遭站牌的檔案限制為10kb 必須要留意 目前已站牌只顯示25個為解決方法 但是因該要採用10kb來限制的方法 才合理
@@ -177,46 +176,72 @@ def handle_message(event):
             "altText":"This is a Flex Message",
             "contents":{
                 "type": "bubble",
-                "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "這是你附近的腳踏車喔!",
-                            "weight": "bold",
-                            "size": "xl"
-                            }
-                        ]
-                    },
                 "footer": {
                     "type": "box",
                     "layout": "vertical",
                     "spacing": "xs",
                     "contents": [
                         {
-                            "type": "box",
-                            "layout": "horizontal",
-                            "contents": [
-                                {
-                                "type": "button",
-                                "style": "link",
-                                "height": "sm",
-                                "gravity": "center",
-                                "action": {
-                                    "type": "uri",
-                                    "label": "點這觀看地圖 呱~",
-                                    "uri": "line://app/1615663243-36r5Y25z?pos=%sand%s" %(str(location['lat']), str(location['lon']))
-                                },
-                                "flex": 1
-                                }
-                            ]
-                        }
+                            "type": "button",
+                            "style": "link",
+                            "height": "sm",
+                            "gravity": "center",
+                            "action": {
+                                "type": "uri",
+                                "label": "這是附近的You bike 呱~",
+                                "uri": "line://app/1615663243-36r5Y25z?pos=%sand%s" %(str(location['lat']), str(location['lon']))
+                            },
+                        },
                     ],
                     "flex": 0
                 }
             }
         }
+        # flex={
+        #     "type":"flex",
+        #     "altText":"This is a Flex Message",
+        #     "contents":{
+        #         "type": "bubble",
+        #         "body": {
+        #             "type": "box",
+        #             "layout": "vertical",
+        #             "contents": [
+        #                 {
+        #                     "type": "text",
+        #                     "text": "這是你附近的腳踏車喔!",
+        #                     "weight": "bold",
+        #                     "size": "xl"
+        #                     }
+        #                 ]
+        #             },
+        #         "footer": {
+        #             "type": "box",
+        #             "layout": "vertical",
+        #             "spacing": "xs",
+        #             "contents": [
+        #                 {
+        #                     "type": "box",
+        #                     "layout": "horizontal",
+        #                     "contents": [
+        #                         {
+        #                         "type": "button",
+        #                         "style": "link",
+        #                         "height": "sm",
+        #                         "gravity": "center",
+        #                         "action": {
+        #                             "type": "uri",
+        #                             "label": "點這觀看地圖 呱~",
+        #                             "uri": "line://app/1615663243-36r5Y25z?pos=%sand%s" %(str(location['lat']), str(location['lon']))
+        #                         },
+        #                         "flex": 1
+        #                         }
+        #                     ]
+        #                 }
+        #             ],
+        #             "flex": 0
+        #         }
+        #     }
+        # }
         message = {"type": "text","text": common().get_word("nearby_bike")}
         headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
         payload = {
