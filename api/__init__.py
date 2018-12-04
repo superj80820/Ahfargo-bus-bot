@@ -474,10 +474,10 @@ def handle_message(event):
         conn.commit()
         conn.close()
 
-    #default_say = common().get_word("default", event.message.text)
-    #if default_say != None:
-     #   line_bot_api.reply_message(
-      #      event.reply_token,TextSendMessage(text=default_say))
+    default_say = common().get_word("default", event.message.text)
+    if default_say != None:
+        line_bot_api.reply_message(
+            event.reply_token,TextSendMessage(text=default_say))
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
