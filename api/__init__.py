@@ -139,10 +139,45 @@ def handle_message(event):
                 }
             res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
             break
-            
-    if event.message.text=='使用方法':
+
+    default_say = common().get_word("default", event.message.text)
+    if default_say != None:
         line_bot_api.reply_message(
-            event.reply_token,TextSendMessage(text='請直接輸入公車號即可查詢呱!'))
+            event.reply_token,TextSendMessage(text=default_say))
+
+    if event.message.text=='使用方法':
+        message = [
+                {
+                    "type": "text",
+                    "text": "很高興為您服務呱~\n小編回覆站: https://bit.ly/2RtHfEI\nIG: https://bit.ly/2Q9k8CI\nFB: https://bit.ly/2zyQIU6\n歡迎多加利用呱呱~\n\n下面是使用教學影片~~呱"
+                },
+                {
+                    "type": "imagemap",
+                    "baseUrl": "https://i.imgur.com/KA7yZnl.png",
+                    "altText": "This is an imagemap",
+                    "baseSize": {
+                        "width": 1040,
+                        "height": 1040
+                    },
+                    "video": {
+                        "originalContentUrl": "%s/origin_video.mp4" %(IMAGE_URL),
+                        "previewImageUrl": "https://i.imgur.com/KA7yZnl.png",
+                        "area": {
+                            "x": 0,
+                            "y": 0,
+                            "width": 1040,
+                            "height": 1040
+                        }
+                    },
+                    "actions": []
+                }
+            ]
+        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+        payload = {
+            'replyToken':event.reply_token,
+            'messages': message
+        }
+        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
     
     elif event.message.text[0:5]=='站牌查詢/':
         headers=common().RES_HEAD(APPID,APPKey)
