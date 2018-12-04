@@ -1,0 +1,90 @@
+* {box-sizing: border-box}
+/* Set height of body and the document to 98% */
+body, html {
+	background-color: #ebebeb;
+	font-family: Arial;
+	height: 98%;
+	margin: 1;
+}
+/* Style map */
+#map {
+	height: 34%;
+}
+/* Style tab */
+.btn{
+	background-color: #cecece;
+	border: 1px solid transparent;
+	border-color: #777777;
+	border-radius: .5rem;
+	border-style: outset;
+	border-width: 0.1em;
+	color: #222222;
+	font-size: 1em;
+	height: 7.2%;
+	overflow: scroll;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	width: 49.5%;
+}
+.btn:focus{
+	border-color: #007bff;
+	outline: 0;
+}
+.focus,.tablink:focus{
+	box-shadow: 0 .2rem 0 0 rgba(0,123,255,.5)
+}
+.tab-blue,.tab-hover-blue:hover{
+	background-color: #007bff;
+	border-color: #007bff;
+	color: #fff;
+}
+/* Style list */
+.tabcontent {
+	color: #222222;
+	height: 57%;
+	overflow: scroll;
+	overflow-x: hidden;
+	padding: 0.5em;
+}
+table {
+	width: 100%;
+}
+/* Style the tab content by bus content */
+.bus_name{
+	position: relative;
+	left: 0.5em;
+}
+.bus_num{
+	background-color: #6c757d;
+	border-radius: 1.5rem;
+	color: #fff;
+	font-size: 0.9em;
+	font-weight: bold;
+	height: 2.35em;
+	text-align: center;
+	width: 4em;
+}
+.bus_time{
+	border-radius: 1.5rem;
+	color: #fff;
+	font-size: 0.9em;
+	font-weight: bold;
+	height: 2.35em;
+	text-align: center;
+	width: 5em;
+}
+.bus_time_gray{
+	background-color:#a0a6ac;
+}
+.bus_time_green{
+	background-color:#77dd77;
+}
+.bus_time_red{
+	background-color:#ee7777;
+}
+/* Style time */
+.update_time {
+	background: #e4a348;
+	height: .3em;
+}
