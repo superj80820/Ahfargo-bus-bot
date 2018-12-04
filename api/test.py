@@ -17,48 +17,15 @@ from setting import *
 line_bot_api = LineBotApi(LINE_TOKEN)
 handler = WebhookHandler(LINE_SECRET)
 
-{
-  "type": "imagemap",
-  "baseUrl": "https://example.com/bot/images/rm001",
-  "altText": "This is an imagemap",
-  "baseSize": {
-      "width": 1040,
-      "height": 1040
-  },
-  "video": {
-      "originalContentUrl": "https://example.com/video.mp4",
-      "previewImageUrl": "https://example.com/video_preview.jpg",
-      "area": {
-          "x": 0,
-          "y": 0,
-          "width": 1040,
-          "height": 585
-      },
-      "externalLink": {
-          "linkUri": "https://example.com/see_more.html",
-          "label": "See More"
-      }
-  },
-  "actions": [
-      {
-          "type": "uri",
-          "linkUri": "https://example.com/",
-          "area": {
-              "x": 0,
-              "y": 586,
-              "width": 520,
-              "height": 454
-          }
-      },
-      {
-          "type": "message",
-          "text": "Hello",
-          "area": {
-              "x": 520,
-              "y": 586,
-              "width": 520,
-              "height": 454
-          }
-      }
-  ]
-}
+def get_word( select, word=None):
+    with open("{}res/get_word.json".format(FileRoute), encoding="utf-8") as f:
+        json_data = json.load(f)
+    if select == 'default':
+        for item in json_data[select]:
+            for item2 in item['schema']:
+                if word.find(item2) != -1: return item['word']
+        return None
+    else:
+        return json_data[select][random.randint(0,len(json_data[select])-1)]
+
+print(get_word("default",'大大'))
