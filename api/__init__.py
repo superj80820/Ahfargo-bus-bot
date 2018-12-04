@@ -140,11 +140,6 @@ def handle_message(event):
             res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
             break
 
-    default_say = common().get_word("default", event.message.text)
-    if default_say != None:
-        line_bot_api.reply_message(
-            event.reply_token,TextSendMessage(text=default_say))
-
     if event.message.text=='使用方法':
         message = [
                 {
@@ -478,6 +473,11 @@ def handle_message(event):
             c.execute('INSERT INTO route_plan (user_id,planing) VALUES ("%s","action")'%(event.source.user_id))
         conn.commit()
         conn.close()
+
+    #default_say = common().get_word("default", event.message.text)
+    #if default_say != None:
+     #   line_bot_api.reply_message(
+      #      event.reply_token,TextSendMessage(text=default_say))
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
