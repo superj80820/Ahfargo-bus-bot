@@ -1,22 +1,24 @@
 window.onload = function (e) {
     liff.init(
 		data => {
-		  // Now you can call LIFF API
+		    // Now you can call LIFF API
             document.getElementById("clear").addEventListener("click", function(i){
                 document.getElementById('bus_title').innerHTML = "";
                 $('#myTable').empty()
             });
+            document.getElementById('id01').style.display='block'
             GetBusAllNum()
 		},
 		err => {
-          // LIFF initialization failed
-          console.log('you must use line')
+            // LIFF initialization failed
+            console.log('you must use line')
 		}
       );
-    //   document.getElementById("clear").addEventListener("click", function(i){
+    // document.getElementById("clear").addEventListener("click", function(i){
     //     document.getElementById('bus_title').innerHTML = "";
     //     $('#myTable').empty()
     // });
+    // document.getElementById('id01').style.display='block'
     // GetBusAllNum()
 }
 
@@ -138,6 +140,7 @@ function GetBusAllNum(){
                     }
                 })(bus_title);
             });
+        document.getElementById('id01').style.display='none'
 		}
 	});
 }
