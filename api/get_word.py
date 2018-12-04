@@ -28,7 +28,7 @@ def get_default_json():
         ret.append({"word": item, "schema": row_list})
     print(ret)
     return ret
-select = ["bus_num", "route_plan", "fun_place", "nearby_bus"]
+select = ["bus_num", "route_plan", "fun_place", "nearby_bus", "nearby_bike"]
 json_data = dict()
 for item in select:
     print(get_word_json(item))
