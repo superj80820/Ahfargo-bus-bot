@@ -388,6 +388,10 @@ Line bus path resp 500
     323區
     677區
 
+Line bus all number resp 200
+    ${resp}    Bus All Number
+    Verify Status Code As Expected    ${resp}    200
+
 *** Keywords ***
 TestLineBusPath200
     [Arguments]    ${bus_num}
