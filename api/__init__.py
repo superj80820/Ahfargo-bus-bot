@@ -446,91 +446,99 @@ def handle_message(event):
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
-    conn = sqlite.connect('%sdata/db/user_action.db'%(FileRoute))
-    c = conn.cursor()
-    planing = c.execute('SELECT planing FROM route_plan WHERE user_id ="%s"'%(event.source.user_id))
-    planing = planing.fetchall()
-    print(planing)
-    if planing == [('action',)]:
-        print('in origin')
-        ori_pos = c.execute('SELECT pos FROM route_plan WHERE user_id ="%s"'%(event.source.user_id))
-        ori_pos = ori_pos.fetchall()
-        print(ori_pos[0][0])
-        c.execute('DELETE FROM route_plan WHERE user_id ="%s"'%(event.source.user_id))
-        flex = common().set_bus_route(ori_pos[0][0], str(float(event.message.latitude))+','+str(float(event.message.longitude)))
-        message = {"type": "text","text": common().get_word("route_plan")}
-        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
-        payload = {
-            'replyToken':event.reply_token,
-            'messages':[flex, message]
-            }
-        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
-        print(res.text)
-    elif planing == []:
-        print('in begin')
-        print(str(float(event.message.latitude)))
-        print(str(float(event.message.longitude)))
-        imagemap = {
-            "type": "imagemap",
-            "baseUrl": "https://i.imgur.com/iEHFhIg.png",
-            "altText": "This is an imagemap",
-            "baseSize": {
-                "width": 1040,
-                "height": 310
-            },
-            "actions": [
-                {
-                "type": "message",
-                "area": {
-                    "x": 0,
-                    "y": 0,
-                    "width": 255,
-                    "height": 309
-                },
-                "text": "附近站牌/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
-                },
-                {
-                "type": "message",
-                "area": {
-                    "x": 255,
-                    "y": 1,
-                    "width": 263,
-                    "height": 309
-                },
-                "text": "路線規劃/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
-                },
-                {
-                "type": "message",
-                "area": {
-                    "x": 518,
-                    "y": 1,
-                    "width": 255,
-                    "height": 309
-                },
-                "text": "公共自行車/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+    res = requests.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=%s,%s&key=AIzaSyCUx_og-8aUvdj5jDYyQGALwnzlQw_jXok&language=zh-TW' %(str(float(event.message.latitude)),str(float(event.message.longitude))))
+    json_data = json.loads(res.text)
+    local = json_data.get('plus_code').get('compound_code')
+    print(res.text)
+    if res.status_code == 200 and json_data["status"] != "ZERO_RESULTS" and (local.find('台中') or local.find('臺中')) != -1:
+        conn = sqlite.connect('%sdata/db/user_action.db'%(FileRoute))
+        c = conn.cursor()
+        planing = c.execute('SELECT planing FROM route_plan WHERE user_id ="%s"'%(event.source.user_id))
+        planing = planing.fetchall()
+        print(planing)
+        if planing == [('action',)]:
+            print('in origin')
+            ori_pos = c.execute('SELECT pos FROM route_plan WHERE user_id ="%s"'%(event.source.user_id))
+            ori_pos = ori_pos.fetchall()
+            print(ori_pos[0][0])
+            c.execute('DELETE FROM route_plan WHERE user_id ="%s"'%(event.source.user_id))
+            flex = common().set_bus_route(ori_pos[0][0], str(float(event.message.latitude))+','+str(float(event.message.longitude)))
+            message = {"type": "text","text": common().get_word("route_plan")}
+            headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+            payload = {
+                'replyToken':event.reply_token,
+                'messages':[flex, message]
                 }
-                ,
-                {
-                "type": "message",
-                "area": {
-                    "x": 773,
-                    "y": 0,
-                    "width": 267,
+            res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
+            print(res.text)
+        elif planing == []:
+            print('in begin')
+            print(str(float(event.message.latitude)))
+            print(str(float(event.message.longitude)))
+            imagemap = {
+                "type": "imagemap",
+                "baseUrl": "https://i.imgur.com/iEHFhIg.png",
+                "altText": "This is an imagemap",
+                "baseSize": {
+                    "width": 1040,
                     "height": 310
                 },
-                "text": "好玩的/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+                "actions": [
+                    {
+                    "type": "message",
+                    "area": {
+                        "x": 0,
+                        "y": 0,
+                        "width": 255,
+                        "height": 309
+                    },
+                    "text": "附近站牌/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+                    },
+                    {
+                    "type": "message",
+                    "area": {
+                        "x": 255,
+                        "y": 1,
+                        "width": 263,
+                        "height": 309
+                    },
+                    "text": "路線規劃/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+                    },
+                    {
+                    "type": "message",
+                    "area": {
+                        "x": 518,
+                        "y": 1,
+                        "width": 255,
+                        "height": 309
+                    },
+                    "text": "公共自行車/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+                    }
+                    ,
+                    {
+                    "type": "message",
+                    "area": {
+                        "x": 773,
+                        "y": 0,
+                        "width": 267,
+                        "height": 310
+                    },
+                    "text": "好玩的/%s,%s/" %(str(event.message.latitude), str(event.message.longitude))
+                    }
+                ]
                 }
-            ]
-            }
-        headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
-        payload = {
-            'replyToken':event.reply_token,
-            'messages':[imagemap]
-            }
-        res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
-        
-    conn.commit()
-    conn.close()
+            headers = {'Content-Type':'application/json','Authorization':'Bearer %s'%(LINE_TOKEN)}
+            payload = {
+                'replyToken':event.reply_token,
+                'messages':[imagemap]
+                }
+            res=requests.post('https://api.line.me/v2/bot/message/reply',headers=headers,data=json.dumps(payload))
+            conn.commit()
+            conn.close()
+    else:
+        line_bot_api.reply_message(
+            event.reply_token,TextSendMessage(text='這個區域目前不支援呱\n台中市以外的其他縣市火速開發中!'))
+    
 
 @app.route('/bus', methods=['GET'])
 def bus():
