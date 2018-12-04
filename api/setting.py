@@ -33,6 +33,9 @@ APPKey = 'wabKRdVqcFg4i5CqLXP4JuWQ3Ws'
 GOOGLE_MAP_KEY = 'AIzaSyCUx_og-8aUvdj5jDYyQGALwnzlQw_jXok'
 ## image url ##
 IMAGE_URL = "https://worldcrater.com/Ahfargo_bus_bot_free_image"
+## richmenu ##
+RICH_FUNC = "richmenu-706942f5aa683bff64cc92c491feba79"
+RICH_INFO = "richmenu-53795654fb989474b7ae708b44f8a4b6"
 
 ## self lib ###
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "lib")))
