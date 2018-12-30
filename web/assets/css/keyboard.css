@@ -41,7 +41,7 @@ body, html {
 }
 .bus_card {
     background-color: #ffffff;
-    box-shadow:0px 4px 5px rgba(20%,20%,40%,0.5);
+    box-shadow: 0px 4px 5px rgba(20%,20%,40%,0.5);
     color: #222222;
 }
 .bus_num {
@@ -56,6 +56,30 @@ body, html {
     left: 0.5em;
     position: relative;
     width: 96.6%;
+}/* Style scroll */
+.scroll {
+    height: 6%;
+    overflow: auto;
+}
+.city{
+    -webkit-flex-wrap: wrap;
+    display: flex;
+    height: 80%;
+    text-align: center;
+    width: 207.7%;
+}
+.city > div{
+    background-color: #f3d163;
+    border-radius: .3rem;
+    box-shadow: 0px 3px 1px rgba(20%,20%,40%,0.5);
+    color: #222222;
+    font-size: 1.3em;
+    text-align: center;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    width: 6.7%;
+}
+.city > div:not(.disabled):active {
+    background-color: #777;
 }
 /* Style keyboard */
 .keyboard {
@@ -68,7 +92,7 @@ body, html {
 .keyboard > div {
     background-color: #f1f1f1;
     border-radius: .3rem;
-    box-shadow:0px 3px 1px rgba(20%,20%,40%,0.5);
+    box-shadow: 0px 3px 1px rgba(20%,20%,40%,0.5);
     color: #222222;
     font-size: .8em;
     height: 22%;
@@ -77,6 +101,6 @@ body, html {
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     width: 32.4%;
 }
-.keyboard > div:not(:disabled):not(.disabled).active,.keyboard > div:not(:disabled):not(.disabled):active,.show>.keyboard > div.dropdown-toggle {
+.keyboard > div:not(:disabled):active {
     background-color: #777;
 }
