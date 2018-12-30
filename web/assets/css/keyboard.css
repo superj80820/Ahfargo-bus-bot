@@ -56,7 +56,8 @@ body, html {
     left: 0.5em;
     position: relative;
     width: 96.6%;
-}/* Style scroll */
+}
+/* Style scroll */
 .scroll {
     height: 6%;
     overflow: auto;
@@ -101,6 +102,6 @@ body, html {
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     width: 32.4%;
 }
-.keyboard > div:not(:disabled):active {
+.keyboard > div:not(.disabled):active {
     background-color: #777;
 }
