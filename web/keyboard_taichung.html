@@ -4,77 +4,6 @@
         <title>公車查詢</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="assets/css/keyboard.css">
-        <style>
-            /* Center the image and position the close button */
-            .imgcontainer {
-                text-align: center;
-                margin: 24px 0 12px 0;
-                position: relative;
-            }
-            /* The Modal (background) */
-            .modal {
-                display: none; /* Hidden by default */
-                position: fixed; /* Stay in place */
-                z-index: 1; /* Sit on top */
-                left: 0;
-                top: 0;
-                width: 100%; /* Full width */
-                height: 100%; /* Full height */
-                overflow: auto; /* Enable scroll if needed */
-                background-color: rgb(0,0,0); /* Fallback color */
-                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-                /* padding-top: 60px; */
-            }
-            /* Modal Content/Box */
-            .modal-content {
-                /* background-color: #fefefe; */
-                margin: 50% auto; /* 5% from the top, 15% from the bottom and centered */
-                border: 1px solid #888;
-            }
-            /* Add Zoom Animation */
-            .animate {
-                -webkit-animation: animatezoom 0.6s;
-                animation: animatezoom 0.6s
-            }
-            @-webkit-keyframes animatezoom {
-                from {-webkit-transform: scale(0)} 
-                to {-webkit-transform: scale(1)}
-            }
-            @keyframes animatezoom {
-                from {transform: scale(0)} 
-                to {transform: scale(1)}
-            }
-            /* Change styles for span and cancel button on extra small screens */
-            @media screen and (max-width: 300px) {
-                span.psw {
-                display: block;
-                float: none;
-                }
-                .cancelbtn {
-                width: 100%;
-                }
-            }
-            .loader {
-                border: 16px solid rgba(0,0,0,0);
-                border-radius: 50%;
-                border-top: 16px solid #3498db;
-                width: 120px;
-                height: 120px;
-                -webkit-animation: spin 2s linear infinite; /* Safari */
-                animation: spin 2s linear infinite;
-            }
-
-            /* Safari */
-            @-webkit-keyframes spin {
-                0% { -webkit-transform: rotate(0deg); }
-                100% { -webkit-transform: rotate(360deg); }
-            }
-
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-        </style>
     </head>
     <body>
         <div class="search">
@@ -100,20 +29,6 @@
             <div><h1 id='num_0'>0</h1></div>
             <div><h1 id='clear'>清除</h1></div>
         </div>
-
-        <div id="id01" class="modal">
-            <div class="modal-content animate loader"></div>
-        </div>
-        <script>
-            // Get the modal
-            var modal = document.getElementById('id01');
-            // When the user clicks anywhere outside of the modal, close it
-            // window.onclick = function(event) {
-            //     if (event.target == modal) {
-            //         modal.style.display = "none";
-            //     }
-            // }
-        </script>
 
         <!-- Scripts -->
         <script src="assets/js/jquery.min.js"></script>
