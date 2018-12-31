@@ -11,6 +11,12 @@ body, html {
 	height: 34%;
 }
 /* Style tab */
+.tab{
+    -webkit-flex-wrap: wrap;
+    display: flex;
+    height: 7.2%;
+    justify-content: space-between;
+}
 .btn{
 	background-color: #cecece;
 	border: 1px solid transparent;
@@ -20,7 +26,7 @@ body, html {
 	border-width: 0.1em;
 	color: #222222;
 	font-size: 1em;
-	height: 7.2%;
+	height: 100%;
 	overflow: scroll;
 	overflow-x: hidden;
 	overflow-y: hidden;
