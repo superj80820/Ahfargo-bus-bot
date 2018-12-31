@@ -1,0 +1,455 @@
+{
+    "welcome": {
+        "text": {
+            "type": "text",
+            "text": "很高興為您服務呱~\n小編回覆站: https://bit.ly/2RtHfEI\nIG: https://bit.ly/2Q9k8CI\nFB: https://bit.ly/2zyQIU6\n歡迎多加利用呱呱~\n\n下面是使用教學影片~~呱"
+        },
+        "imagemap": {
+            "type": "imagemap",
+            "baseUrl": "${VIDEO_IMAGE}",
+            "altText": "This is an imagemap",
+            "baseSize": {
+                "width": 1040,
+                "height": 1040
+            },
+            "video": {
+                "originalContentUrl": "${IMAGE_URL}/origin_video.mp4",
+                "previewImageUrl": "${VIDEO_IMAGE}",
+                "area": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 1040,
+                    "height": 1040
+                }
+            },
+            "actions": []
+        }
+    },
+    "bus_info": {
+        "type": "flex",
+        "altText": "This is a Flex Message",
+        "contents": {
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "請點選觀看動態~",
+                        "weight": "bold",
+                        "size": "xl"
+                    }
+                ]
+            },
+            "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "xs",
+                "contents": [
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                                "type": "button",
+                                "style": "link",
+                                "height": "sm",
+                                "gravity": "center",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "點我~~呱呱",
+                                    "uri": "${LIFF_BUS}?BusNum=${bus_name}&City=${city}&Direction=0"
+                                },
+                                "flex": 1
+                            }
+                        ]
+                    }
+                ],
+                "flex": 0
+            }
+        }
+    },
+    "search_stop": {
+        "flex": {
+            "type": "flex",
+            "altText": "This is a Flex Message",
+            "contents": {
+                "type": "bubble",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "請點選你想搭的公車~",
+                            "weight": "bold",
+                            "size": "xl"
+                        }
+                    ]
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "xs",
+                    "contents": [],
+                    "flex": 0
+                }
+            }
+        },
+        "footer_contents": {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+                {
+                    "type": "button",
+                    "style": "link",
+                    "height": "sm",
+                    "gravity": "center",
+                    "action": {
+                        "type": "message",
+                        "label": "${label}",
+                        "text": "${text}"
+                    },
+                    "flex": 1
+                }
+            ]
+        }
+    },
+    "nearby_stop": {
+        "flex": {
+            "type": "flex",
+            "altText": "This is a Flex Message",
+            "contents": {
+                "type": "bubble",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "你附近的公車站～嘎",
+                            "weight": "bold",
+                            "size": "xl"
+                        }
+                    ]
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "xs",
+                    "contents": "${contents}",
+                    "flex": 0
+                }
+            }
+        },
+        "footer_contents": {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+                {
+                    "type": "button",
+                    "style": "link",
+                    "height": "sm",
+                    "gravity": "center",
+                    "action": {
+                        "type": "message",
+                        "label": "${label}",
+                        "text": "站牌查詢/${text}"
+                    },
+                    "flex": 3
+                },
+                {
+                    "type": "image",
+                    "url": "${LOCATION_ICON}"
+                },
+                {
+                    "type": "text",
+                    "text": "${distance}",
+                    "wrap": true,
+                    "color": "#000000",
+                    "gravity": "center",
+                    "flex": 1
+                }
+            ]
+        }
+    },
+    "nearby_bike": {
+        "type": "flex",
+        "altText": "This is a Flex Message",
+        "contents": {
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "這是你附近的腳踏車喔!",
+                        "weight": "bold",
+                        "size": "xl"
+                    }
+                ]
+            },
+            "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "xs",
+                "contents": [
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                                "type": "button",
+                                "style": "link",
+                                "height": "sm",
+                                "gravity": "center",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "點這觀看地圖~",
+                                    "uri": "${LIFF_BIKE}?pos=${lat}and${lon}"
+                                },
+                                "flex": 1
+                            }
+                        ]
+                    }
+                ],
+                "flex": 0
+            }
+        }
+    },
+    "set_bus_route_confirm": {
+        "type": "flex",
+        "altText": "This is a Flex Message",
+        "contents": {
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "嗨嗨!",
+                        "weight": "bold",
+                        "size": "xl"
+                    }
+                ]
+            },
+            "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "xs",
+                "contents": [
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                                "type": "button",
+                                "style": "link",
+                                "height": "sm",
+                                "gravity": "center",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "請選擇目的地~呱",
+                                    "uri": "line://nv/location"
+                                },
+                                "flex": 1
+                            }
+                        ]
+                    }
+                ],
+                "flex": 0
+            }
+        }
+    },
+    "set_bus_route": {
+        "bus_contents": {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+                {
+                    "type": "text",
+                    "text": "${text}",
+                    "wrap": true,
+                    "size": "md",
+                    "flex": 5
+                },
+                {
+                    "type": "button",
+                    "style": "link",
+                    "height": "sm",
+                    "gravity": "center",
+                    "action": {
+                        "type": "uri",
+                        "label": "觀看",
+                        "uri": "${LIFF_BUS}?BusNum=%{bus_name}&City=${city}&Direction=0"
+                    },
+                    "flex": 3
+                }
+            ]
+        },
+        "walk_contents": {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+                {
+                    "type": "text",
+                    "gravity": "center",
+                    "text": "${text}",
+                    "wrap": true,
+                    "size": "md",
+                    "flex": 5
+                },
+                {
+                    "type": "button",
+                    "style": "link",
+                    "height": "sm",
+                    "gravity": "center",
+                    "action": {
+                        "type": "uri",
+                        "label": "觀看",
+                        "uri": "${LIFF_GMAP}?api=1&origin=${ori_pos}&destination=${lat},${lon}"
+                    },
+                    "flex": 3
+                }
+            ]
+        },
+        "contents": {
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "${text}",
+                        "weight": "bold",
+                        "size": "xl"
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": "${contents}"
+                    }
+                ]
+            }
+        },
+        "flex": {
+            "type": "flex",
+            "altText": "This is a Flex Message",
+            "contents": {
+                "type": "carousel",
+                "contents": "${contents}"
+            }
+        }
+    },
+    "nearby_place": {
+        "flex": {
+            "type": "flex",
+            "altText": "This is a Flex Message",
+            "contents": {
+                "type": "carousel",
+                "contents": []
+            }
+        },
+        "contents": {
+            "type": "bubble",
+            "hero": {
+                "type": "image",
+                "url": "${IMAGE_URL}/${url}",
+                "size": "full"
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "box",
+                                "layout": "horizontal",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "gravity": "center",
+                                        "text": "${name}",
+                                        "wrap": true,
+                                        "size": "md",
+                                        "flex": 5
+                                    },
+                                    {
+                                        "type": "button",
+                                        "style": "link",
+                                        "height": "sm",
+                                        "gravity": "center",
+                                        "action": {
+                                            "type": "uri",
+                                            "label": "觀看",
+                                            "uri": "${LIFF_GMAP}?api=1&origin=${ori_pos}&destination=${lat},${lon}"
+                                        },
+                                        "flex": 3
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "location_menu": {
+        "type": "imagemap",
+        "baseUrl": "${LOCATION_MENU}",
+        "altText": "This is an imagemap",
+        "baseSize": {
+            "width": 1040,
+            "height": 310
+        },
+        "actions": [
+            {
+                "type": "message",
+                "area": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 255,
+                    "height": 309
+                },
+                "text": "附近站牌/${lat},${lon}/"
+            },
+            {
+                "type": "message",
+                "area": {
+                    "x": 255,
+                    "y": 1,
+                    "width": 263,
+                    "height": 309
+                },
+                "text": "路線規劃/${lat},${lon}/"
+            },
+            {
+                "type": "message",
+                "area": {
+                    "x": 518,
+                    "y": 1,
+                    "width": 255,
+                    "height": 309
+                },
+                "text": "公共自行車/${lat},${lon}/"
+            },
+            {
+                "type": "message",
+                "area": {
+                    "x": 773,
+                    "y": 0,
+                    "width": 267,
+                    "height": 310
+                },
+                "text": "好玩的/${lat},${lon}/"
+            }
+        ]
+    }
+}

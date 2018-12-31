@@ -1,0 +1,239 @@
+{
+    "flex_bubble": {
+        "type": "object",
+        "properties": {
+            "type": {
+                "type": "string"
+            },
+            "altText": {
+                "type": "string"
+            },
+            "contents": {
+                "type": "object",
+                "required": [
+                    "type",
+                    "body"
+                ],
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "body": "object"
+                    }
+                }
+            }
+        },
+        "required": [
+            "type",
+            "altText",
+            "contents"
+        ],
+        "additionalProperties": false
+    },
+    "flex_carousel": {
+        "type": "object",
+        "properties": {
+            "type": {
+                "type": "string"
+            },
+            "altText": {
+                "type": "string"
+            },
+            "contents": {
+                "type": "object",
+                "required": [
+                    "type",
+                    "contents"
+                ],
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    },
+                    "contents": {
+                        "type": "array"
+                    }
+                }
+            }
+        },
+        "required": [
+            "type",
+            "altText",
+            "contents"
+        ],
+        "additionalProperties": false
+    },
+    "text": {
+        "type": "object",
+        "properties": {
+            "type": {
+                "type": "string"
+            },
+            "text": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "type",
+            "text"
+        ],
+        "additionalProperties": false
+    },
+    "imagemap": {
+        "type": "object",
+        "properties": {
+            "type": {
+                "type": "string"
+            },
+            "baseUrl": {
+                "type": "string"
+            },
+            "altText": {
+                "type": "string"
+            },
+            "baseSize": {
+                "type": "object",
+                "properties": {
+                    "width": {
+                        "type": "integer"
+                    },
+                    "height": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "width",
+                    "height"
+                ]
+            },
+            "video": {
+                "type": "object",
+                "properties": {
+                    "originalContentUrl": {
+                        "type": "string"
+                    },
+                    "previewImageUrl": {
+                        "type": "string"
+                    },
+                    "area": {
+                        "type": "object",
+                        "properties": {
+                            "x": {
+                                "type": "integer"
+                            },
+                            "y": {
+                                "type": "integer"
+                            },
+                            "width": {
+                                "type": "integer"
+                            },
+                            "height": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "externalLink": {
+                        "type": "object",
+                        "properties": {
+                            "linkUri": {
+                                "type": "string"
+                            },
+                            "label": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "actions": {
+                "type": "array",
+                "items": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string"
+                            },
+                            "linkUri": {
+                                "type": "string"
+                            },
+                            "area": {
+                                "type": "object",
+                                "properties": {
+                                    "x": {
+                                        "type": "integer"
+                                    },
+                                    "y": {
+                                        "type": "integer"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "x",
+                                    "y",
+                                    "width",
+                                    "height"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "linkUri",
+                            "area"
+                        ]
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string"
+                            },
+                            "text": {
+                                "type": "string"
+                            },
+                            "area": {
+                                "type": "object",
+                                "properties": {
+                                    "x": {
+                                        "type": "integer"
+                                    },
+                                    "y": {
+                                        "type": "integer"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "x",
+                                    "y",
+                                    "width",
+                                    "height"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "text",
+                            "area"
+                        ]
+                    }
+                ]
+            }
+        },
+        "required": [
+            "type",
+            "baseUrl",
+            "altText",
+            "baseSize",
+            "actions"
+        ],
+        "additionalProperties": false
+    }
+}
