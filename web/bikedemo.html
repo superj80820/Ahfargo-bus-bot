@@ -1,10 +1,19 @@
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" charset="UTF-8">
-    <title>公共自行車</title>
-</head>
-<link rel="stylesheet" type="text/css" href="assets/css/bike_styles.css">
-<body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>公共自行車</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="assets/css/buslist.css">        
+    </head>
+    <body>
+        <!-- <div id="map"></div> -->
+        <div id="Rent" class="tabcontent" style="height: 91.9%;"></div>
+        <div id="Return" class="tabcontent" style="display:none; height: 91.9%;"></div>
+        <div style="height:0.9%"></div>
+        <div class="tab">
+            <button id='tablink1' class="btn tablink tab-blue" onclick="cityBike(event,'Rent')">租借</button>
+            <button id='tablink2' class="btn tablink" onclick="cityBike(event,'Return')">歸還</button>
+        </div>
 
 <div id="map"></div>
 
