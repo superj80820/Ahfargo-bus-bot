@@ -11,6 +11,20 @@ window.onload = function (e) {
 	getQueryVariable_bike("pos",GetBikeInfo);
 }
 
+function cityBike(evt, cityName) {
+	var i, x, tablinks;
+	x = document.getElementsByClassName("tabcontent");
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	tablinks = document.getElementsByClassName("tablink");
+	for (i = 0; i < x.length; i++) {
+		tablinks[i].className = tablinks[i].className.replace(" tab-blue", "");
+	}
+	document.getElementById(cityName).style.display = "block";
+	evt.currentTarget.className += " tab-blue";
+}
+
 function GetBikeInfo(pos,local_pos,callback){
 	$.ajax({
 		type: 'GET',
