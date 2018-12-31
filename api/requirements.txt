@@ -1,0 +1,6 @@
+gspread==0.6.2
+line_bot_sdk==1.8.0
+Flask==0.12.2
+Flask_Cors==3.0.6
+requests==2.9.1
+google_api_python_client==1.7.7

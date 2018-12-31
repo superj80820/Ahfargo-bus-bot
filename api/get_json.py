@@ -1,44 +1,42 @@
-import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)))))
 from setting import *
 
 # get_bus_pos
-headers=common().RES_HEAD(APPID,APPKey)
+headers=motc.getHead(appId=APPID, appKey=APPKey)
 res_pos=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/City/Taichung?$format=JSON",headers=headers)
 json_data=json.loads(res_pos.text)
 with open('%sres/get_bus_pos.json'% (FileRoute), 'w') as f:
     json.dump(json_data, f, indent=4, ensure_ascii=False)
 
 # get_bus_star_and_end
-headers=common().RES_HEAD(APPID,APPKey)
+headers=motc.getHead(appId=APPID, appKey=APPKey)
 res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?&$format=JSON",headers=headers)
 json_data=json.loads(res.text)
 with open('%sres/get_bus_star_and_end.json'% (FileRoute), 'w') as f:
     json.dump(json_data, f, indent=4, ensure_ascii=False)
 
 # bus_path
-headers=common().RES_HEAD(APPID,APPKey)
+headers=motc.getHead(appId=APPID, appKey=APPKey)
 res=requests.get("http://ptx.transportdata.tw/MOTC/v2/Bus/Shape/City/Taichung?$orderby=Direction asc&$format=JSON",headers=headers)
 json_data=json.loads(res.text)
 with open('%sres/bus_path.json'% (FileRoute), 'w') as f:
     json.dump(json_data, f, indent=4, ensure_ascii=False)
 
 # bus_all_num
-headers=common().RES_HEAD(APPID,APPKey)
+headers=motc.getHead(appId=APPID, appKey=APPKey)
 res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=RouteName,RouteID,SubRoutes&$format=JSON",headers=headers)
 json_data=json.loads(res.text)
 with open('%sres/bus_all_num.json'% (FileRoute), 'w') as f:
     json.dump(json_data, f, indent=4, ensure_ascii=False)
 
 # stop
-headers=common().RES_HEAD(APPID,APPKey)
+headers=motc.getHead(appId=APPID, appKey=APPKey)
 res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/City/Taichung?$format=JSON",headers=headers)
 json_data=json.loads(res.text)
 with open('%sres/stop.json'% (FileRoute), 'w') as f:
     json.dump(json_data, f, indent=4, ensure_ascii=False)
 
 # bike
-headers=common().RES_HEAD(APPID,APPKey)
+headers=motc.getHead(appId=APPID, appKey=APPKey)
 res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bike/Station/Taichung?$format=JSON",headers=headers)
 json_data=json.loads(res.text)
 with open('%sres/bike.json'% (FileRoute), 'w') as f:
