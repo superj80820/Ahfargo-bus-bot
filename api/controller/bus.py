@@ -61,7 +61,10 @@ class bus(object):
                 ret += [item]
         return ret
 
-    def busAllNum(self):
+    def busAllNum(self, city):
         json_data = self.processJson.readJson("bus_all_num.json")
-        json_data.sort(key=lambda d:int(d['RouteID']))
-        return json_data
+        if json_data.get(city) != None:
+            json_data[city].sort(key=lambda d:int(d['RouteID']))
+            return json_data[city]
+        else:
+            False

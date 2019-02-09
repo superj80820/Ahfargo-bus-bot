@@ -1,54 +1,51 @@
+# coding: utf-8
+
 from setting import *
+from model.apiPtx import apiPtx
+
+apiPtxModel = apiPtx(app_id=APP_ID, app_key=APP_KEY)
 
 # get_bus_pos
-headers=motc.getHead(appId=APPID, appKey=APPKey)
-res_pos=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/City/Taichung?$format=JSON",headers=headers)
-json_data=json.loads(res_pos.text)
-with open('%sres/get_bus_pos.json'% (FileRoute), 'w') as f:
-    json.dump(json_data, f, indent=4, ensure_ascii=False)
+json_data = apiPtxModel.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/City/Taichung?$format=JSON")
+with open('%sres/get_bus_pos.json'% (FILE_ROUTE), 'w') as f:
+    json.dump(json_data, f)
 
 # get_bus_star_and_end
-headers=motc.getHead(appId=APPID, appKey=APPKey)
-res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?&$format=JSON",headers=headers)
-json_data=json.loads(res.text)
-with open('%sres/get_bus_star_and_end.json'% (FileRoute), 'w') as f:
-    json.dump(json_data, f, indent=4, ensure_ascii=False)
+json_data = apiPtxModel.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?&$format=JSON")
+with open('%sres/get_bus_star_and_end.json'% (FILE_ROUTE), 'w') as f:
+    json.dump(json_data, f)
 
 # bus_path
-headers=motc.getHead(appId=APPID, appKey=APPKey)
-res=requests.get("http://ptx.transportdata.tw/MOTC/v2/Bus/Shape/City/Taichung?$orderby=Direction asc&$format=JSON",headers=headers)
-json_data=json.loads(res.text)
-with open('%sres/bus_path.json'% (FileRoute), 'w') as f:
-    json.dump(json_data, f, indent=4, ensure_ascii=False)
+json_data = apiPtxModel.get("http://ptx.transportdata.tw/MOTC/v2/Bus/Shape/City/Taichung?$orderby=Direction asc&$format=JSON")
+with open('%sres/bus_path.json'% (FILE_ROUTE), 'w') as f:
+    json.dump(json_data, f)
 
 # bus_all_num
-headers=motc.getHead(appId=APPID, appKey=APPKey)
-res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=RouteName,RouteID,SubRoutes&$format=JSON",headers=headers)
-json_data=json.loads(res.text)
-with open('%sres/bus_all_num.json'% (FileRoute), 'w') as f:
-    json.dump(json_data, f, indent=4, ensure_ascii=False)
+json_write = dict()
+taichung_data = apiPtxModel.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$select=RouteName,RouteID,SubRoutes&$format=JSON")
+taipei_data = apiPtxModel.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taipei?$select=RouteName,RouteID,SubRoutes&$format=JSON")
+json_write["Taichung"] = taichung_data
+json_write["Taipei"] = taipei_data
+with open('%sres/bus_all_num.json'% (FILE_ROUTE), 'w') as f:
+    json.dump(json_write, f)
 
 # stop
-headers=motc.getHead(appId=APPID, appKey=APPKey)
-res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/City/Taichung?$format=JSON",headers=headers)
-json_data=json.loads(res.text)
-with open('%sres/stop.json'% (FileRoute), 'w') as f:
-    json.dump(json_data, f, indent=4, ensure_ascii=False)
+json_data = apiPtxModel.get("https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/City/Taichung?$format=JSON")
+with open('%sres/stop.json'% (FILE_ROUTE), 'w') as f:
+    json.dump(json_data, f)
 
 # bike
-headers=motc.getHead(appId=APPID, appKey=APPKey)
-res=requests.get("https://ptx.transportdata.tw/MOTC/v2/Bike/Station/Taichung?$format=JSON",headers=headers)
-json_data=json.loads(res.text)
-with open('%sres/bike.json'% (FileRoute), 'w') as f:
-    json.dump(json_data, f, indent=4, ensure_ascii=False)
+json_data = apiPtxModel.get("https://ptx.transportdata.tw/MOTC/v2/Bike/Station/Taichung?$format=JSON")
+with open('%sres/bike.json'% (FILE_ROUTE), 'w') as f:
+    json.dump(json_data, f)
 
 # weather_place
 res=requests.get("https://works.ioa.tw/weather/api/all.json")
 json_data=json.loads(res.text)
 for item in json_data:
     if item['name'] == '台中':
-        with open('%sres/weather_place.json'% (FileRoute), 'w') as f:
-            json.dump(item, f, indent=4, ensure_ascii=False)
+        with open('%sres/weather_place.json'% (FILE_ROUTE), 'w') as f:
+            json.dump(item, f)
         break
 
 headers={
