@@ -25,7 +25,7 @@ window.onload = function (e) {
 function GetBusAllNum(){
 	$.ajax({
 		type: 'GET',
-		url: 'https://worldcrater.com/Ahfargo_bus_bot_api/bus_all_num',
+		url: 'https://worldcrater.com/Ahfargo/bus_all_num',
 		dataType: 'json',
 		success: function(dict) {
             console.log(dict)

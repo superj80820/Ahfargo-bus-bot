@@ -32,7 +32,7 @@ APPKey = 'wabKRdVqcFg4i5CqLXP4JuWQ3Ws'
 ## google info ##
 GOOGLE_MAP_KEY = 'AIzaSyCUx_og-8aUvdj5jDYyQGALwnzlQw_jXok'
 ## image url ##
-IMAGE_URL = "https://worldcrater.com/Ahfargo_bus_bot_image/"
+IMAGE_URL = "https://worldcrater.com/Ahfargo/data"
 ## richmenu ##
 RICH_FUNC = "richmenu-ce2919554f6ff106c075bef379923fab"
 RICH_INFO = "richmenu-f6ce6b077ffd608b59845bbf2fabd3be"
