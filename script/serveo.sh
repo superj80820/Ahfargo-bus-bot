@@ -1,0 +1,1 @@
+ssh -o "StrictHostKeyChecking no" -R ${SUBDOMAIN}.serveo.net:80:${CONTAINER}:${PORT} serveo.net

@@ -14,7 +14,7 @@ window.onload = function (e) {
 function GetBikeInfo(pos,local_pos,callback){
 	$.ajax({
 		type: 'GET',
-		url: 'https://worldcrater.com/Ahfargo/bike?pos='+pos,
+		url: 'APP_URL/bike?pos='+pos,
 		dataType: 'json',
 		success: function(dict) {
 			console.log(dict)

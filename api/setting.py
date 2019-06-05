@@ -22,24 +22,24 @@ import gspread
 
 ## information ##
 ## file info ##
-FileRoute='%s/' %os.path.dirname(os.path.abspath(__file__))
+FileRoute = '%s/' %os.path.dirname(os.path.abspath(__file__))
 ## line info ##
-LINE_TOKEN = 'vZwZvgmlljz+VfSYn6Khu2RXQM8Gq3gkODZD8tdHEYgcxsUCI3rHSgh3CO3d7xmXvZ8irnEBQxm1Wughpaj+u1qANpzBavf3VTczraBo+VE4n4QaQpuhGwro/4wMXS1Zde+CyZ0d2Bxk55ZQG4MZBAdB04t89/1O/w1cDnyilFU='
-LINE_SECRET = 'c56fe3888c3cfe60a1969fdd19c9b10c'
+LINE_TOKEN = os.getenv('LINE_TOKEN')
+LINE_SECRET = os.getenv('LINE_SECRET')
 ## MOTC info ##
-APPID = 'ad64f3b34d38425ca0bb7efdcdb4548b'
-APPKey = 'wabKRdVqcFg4i5CqLXP4JuWQ3Ws'
+APPID = os.getenv('MOTC_APPID')
+APPKey = os.getenv('MOTC_APPKey')
 ## google info ##
-GOOGLE_MAP_KEY = 'AIzaSyCUx_og-8aUvdj5jDYyQGALwnzlQw_jXok'
+GOOGLE_MAP_KEY = os.getenv('GOOGLE_MAP_KEY')
 ## image url ##
-IMAGE_URL = "https://worldcrater.com/Ahfargo/data"
+IMAGE_URL = os.getenv('IMAGE_URL')
 ## richmenu ##
-RICH_FUNC = "richmenu-ce2919554f6ff106c075bef379923fab"
-RICH_INFO = "richmenu-f6ce6b077ffd608b59845bbf2fabd3be"
+RICH_FUNC = os.getenv('RICH_FUNC')
+RICH_INFO = os.getenv('RICH_INFO')
 ## liff ##
-LIFF_BUS = "line://app/1586634703-dLEbzgxb"
-LIFF_BIKE = "line://app/1586634703-MqWqnV6q"
-LIFF_GMAP = "line://app/1586634703-krVJolxJ"
+LIFF_BUS = os.getenv('LIFF_BUS')
+LIFF_BIKE = os.getenv('LIFF_BIKE')
+LIFF_GMAP = os.getenv('LIFF_GMAP')
 
 ## self lib ###
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "lib")))
