@@ -21,6 +21,12 @@ services:
       - run
       - python
       - __init__.py
+  web:
+    image: httpd:2.4
+    volumes:
+      - $PWD/web:/usr/local/apache2/htdocs/
+    ports:
+      - 5100:80
   serveo_app:
     image: node:latest
     volumes: 
