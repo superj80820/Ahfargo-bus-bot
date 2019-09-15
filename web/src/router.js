@@ -9,11 +9,6 @@ export default new Router({
       path: "/Bus",
       name: "Bus",
       component: () => import("./views/Bus.vue")
-    },
-    {
-      path: "/Bike",
-      name: "Bike",
-      component: () => import("./views/Bike.vue")
     }
   ]
 });

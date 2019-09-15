@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  name: "app"
+};
+</script>
 
 <style lang="less">
 #app {
@@ -25,5 +27,9 @@
       color: #42b983;
     }
   }
+}
+body {
+  background: #eef1f4 !important;
+  padding-bottom: 70px;
 }
 </style>
