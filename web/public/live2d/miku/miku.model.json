@@ -1,0 +1,38 @@
+{
+  "version": "Sample 1.0.0",
+  "model": "/live2d/miku/moc/miku.moc",
+  "textures": [
+    "/live2d/miku/moc/miku.2048/texture_00.png"
+  ],
+  "motions": {
+    "null": [
+      {
+        "file": "/live2d/miku/mtn/miku_m_01.mtn"
+      },
+      {
+        "file": "/live2d/miku/mtn/miku_m_02.mtn"
+      },
+      {
+        "file": "/live2d/miku/mtn/miku_m_03.mtn"
+      },
+      {
+        "file": "/live2d/miku/mtn/miku_m_04.mtn"
+      },
+      {
+        "file": "/live2d/miku/mtn/miku_m_05.mtn"
+      },
+      {
+        "file": "/live2d/miku/mtn/miku_m_06.mtn"
+      },
+      {
+        "file": "/live2d/miku/mtn/miku_shake_01.mtn"
+      }
+    ],
+    "idle": [
+      {
+        "file": "/live2d/miku/mtn/miku_idle_01.mtn"
+      }
+    ]
+  },
+  "physics": "/live2d/miku/miku.physics.json"
+}

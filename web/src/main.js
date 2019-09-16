@@ -6,8 +6,10 @@ import "./registerServiceWorker";
 import BootstrapVue from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
+import VueLive2d from 'vue-live2d-model';
 
 Vue.use(BootstrapVue);
+Vue.use(VueLive2d);
 
 Vue.config.productionTip = false;
 

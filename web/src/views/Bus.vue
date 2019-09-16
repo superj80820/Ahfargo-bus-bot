@@ -1,25 +1,33 @@
 <template>
   <div class="home">
-      <b-container>
-        <b-card
-        img-src="https://images.sgcafe.net/2014/10/10665212_682477758503582_3260636404939881942_n.jpg"
-        img-alt="Image"
-        class="p-3"
-        >
-          <b-button-group class="w-100">
-            <b-button
-              v-for="(btn, idx) in buttons"
-              :key="idx"
-              :pressed.sync="btn.state"
-              variant="primary"
-            >
-              {{ btn.route }}
-            </b-button>
-          </b-button-group>
-          <b-table striped hover :items="items"></b-table>
-        </b-card>
-      </b-container>
+    <b-container>
+      <b-card
+      img-src="https://images.sgcafe.net/2014/10/10665212_682477758503582_3260636404939881942_n.jpg"
+      img-alt="Image"
+      class="p-3"
+      >
+        <b-button-group class="w-100">
+          <b-button
+            v-for="(btn, idx) in buttons"
+            :key="idx"
+            :pressed.sync="btn.state"
+            variant="primary"
+          >
+            {{ btn.route }}
+          </b-button>
+        </b-button-group>
+        <b-table striped hover :items="items"></b-table>
+      </b-card>
+    </b-container>
+    <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    <vue-live2d
+    style="bottom: -20px; width: 1500px; height: 300px; opacity: 1;"
+    :modelPath="modelPath"
+    :defaultScale="2"
+    >
+    </vue-live2d>
   </div>
+  
 </template>
 
 <script>
@@ -41,6 +49,12 @@ export default {
         { 站序: 38, 站牌: 'Jami', 編號: 'Carney', 預估到站: "12:30"},
         { 站序: 38, 站牌: 'Jami', 編號: 'Carney', 預估到站: "12:30"},
         { 站序: 38, 站牌: 'Jami', 編號: 'Carney', 預估到站: "12:30"}
+      ],
+      modelPath: [
+        {
+          order: 1,
+          path: "/live2d/miku/miku.model.json",
+        }
       ]
     };
   },
