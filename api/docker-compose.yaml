@@ -1,14 +1,17 @@
 version: "3"
 services:
-  web:
-    image: node:latest
+  app:
+    build: .
     tty: true
     ports:
-      - 8080:8080
+      - 8090:8000
     volumes: 
       - .:/app
     working_dir: /app
     command:
-      - npm
+      - pipenv
       - run
-      - serve
+      - python
+      - manage.py
+      - runserver
+      - 0.0.0.0:8000

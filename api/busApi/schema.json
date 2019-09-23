@@ -1,0 +1,284 @@
+{
+    "get": {
+        "definitions": {},
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$id": "http://example.com/root.json",
+        "type": "array",
+        "title": "The Root Schema",
+        "items": {
+            "$id": "#/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+                "PlateNumb",
+                "OperatorID",
+                "RouteUID",
+                "RouteID",
+                "RouteName",
+                "SubRouteUID",
+                "SubRouteID",
+                "SubRouteName",
+                "Direction",
+                "StopUID",
+                "StopID",
+                "StopName",
+                "StopSequence",
+                "MessageType",
+                "DutyStatus",
+                "BusStatus",
+                "A2EventType",
+                "GPSTime",
+                "UpdateTime"
+            ],
+            "properties": {
+                "PlateNumb": {
+                    "$id": "#/items/properties/PlateNumb",
+                    "type": "string",
+                    "title": "The Platenumb Schema",
+                    "default": "",
+                    "examples": [
+                        "735-U5"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "OperatorID": {
+                    "$id": "#/items/properties/OperatorID",
+                    "type": "string",
+                    "title": "The Operatorid Schema",
+                    "default": "",
+                    "examples": [
+                        "3"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "RouteUID": {
+                    "$id": "#/items/properties/RouteUID",
+                    "type": "string",
+                    "title": "The Routeuid Schema",
+                    "default": "",
+                    "examples": [
+                        "TXG326"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "RouteID": {
+                    "$id": "#/items/properties/RouteID",
+                    "type": "string",
+                    "title": "The Routeid Schema",
+                    "default": "",
+                    "examples": [
+                        "326"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "RouteName": {
+                    "$id": "#/items/properties/RouteName",
+                    "type": "object",
+                    "title": "The Routename Schema",
+                    "required": [
+                        "Zh_tw",
+                        "En"
+                    ],
+                    "properties": {
+                        "Zh_tw": {
+                            "$id": "#/items/properties/RouteName/properties/Zh_tw",
+                            "type": "string",
+                            "title": "The Zh_tw Schema",
+                            "default": "",
+                            "examples": [
+                                "326"
+                            ],
+                            "pattern": "^(.*)$"
+                        },
+                        "En": {
+                            "$id": "#/items/properties/RouteName/properties/En",
+                            "type": "string",
+                            "title": "The En Schema",
+                            "default": "",
+                            "examples": [
+                                "326"
+                            ],
+                            "pattern": "^(.*)$"
+                        }
+                    }
+                },
+                "SubRouteUID": {
+                    "$id": "#/items/properties/SubRouteUID",
+                    "type": "string",
+                    "title": "The Subrouteuid Schema",
+                    "default": "",
+                    "examples": [
+                        "TXG326"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "SubRouteID": {
+                    "$id": "#/items/properties/SubRouteID",
+                    "type": "string",
+                    "title": "The Subrouteid Schema",
+                    "default": "",
+                    "examples": [
+                        "326"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "SubRouteName": {
+                    "$id": "#/items/properties/SubRouteName",
+                    "type": "object",
+                    "title": "The Subroutename Schema",
+                    "required": [
+                        "Zh_tw",
+                        "En"
+                    ],
+                    "properties": {
+                        "Zh_tw": {
+                            "$id": "#/items/properties/SubRouteName/properties/Zh_tw",
+                            "type": "string",
+                            "title": "The Zh_tw Schema",
+                            "default": "",
+                            "examples": [
+                                "326"
+                            ],
+                            "pattern": "^(.*)$"
+                        },
+                        "En": {
+                            "$id": "#/items/properties/SubRouteName/properties/En",
+                            "type": "string",
+                            "title": "The En Schema",
+                            "default": "",
+                            "examples": [
+                                "326"
+                            ],
+                            "pattern": "^(.*)$"
+                        }
+                    }
+                },
+                "Direction": {
+                    "$id": "#/items/properties/Direction",
+                    "type": "integer",
+                    "title": "The Direction Schema",
+                    "default": 0,
+                    "examples": [
+                        0
+                    ]
+                },
+                "StopUID": {
+                    "$id": "#/items/properties/StopUID",
+                    "type": "string",
+                    "title": "The Stopuid Schema",
+                    "default": "",
+                    "examples": [
+                        "TXG2381"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "StopID": {
+                    "$id": "#/items/properties/StopID",
+                    "type": "string",
+                    "title": "The Stopid Schema",
+                    "default": "",
+                    "examples": [
+                        "2381"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "StopName": {
+                    "$id": "#/items/properties/StopName",
+                    "type": "object",
+                    "title": "The Stopname Schema",
+                    "required": [
+                        "Zh_tw",
+                        "En"
+                    ],
+                    "properties": {
+                        "Zh_tw": {
+                            "$id": "#/items/properties/StopName/properties/Zh_tw",
+                            "type": "string",
+                            "title": "The Zh_tw Schema",
+                            "default": "",
+                            "examples": [
+                                "彰化銀行(臺灣大道)"
+                            ],
+                            "pattern": "^(.*)$"
+                        },
+                        "En": {
+                            "$id": "#/items/properties/StopName/properties/En",
+                            "type": "string",
+                            "title": "The En Schema",
+                            "default": "",
+                            "examples": [
+                                "Chang Hwa Bank (Taiwan Boulevard)"
+                            ],
+                            "pattern": "^(.*)$"
+                        }
+                    }
+                },
+                "StopSequence": {
+                    "$id": "#/items/properties/StopSequence",
+                    "type": "integer",
+                    "title": "The Stopsequence Schema",
+                    "default": 0,
+                    "examples": [
+                        40
+                    ]
+                },
+                "MessageType": {
+                    "$id": "#/items/properties/MessageType",
+                    "type": "integer",
+                    "title": "The Messagetype Schema",
+                    "default": 0,
+                    "examples": [
+                        0
+                    ]
+                },
+                "DutyStatus": {
+                    "$id": "#/items/properties/DutyStatus",
+                    "type": "integer",
+                    "title": "The Dutystatus Schema",
+                    "default": 0,
+                    "examples": [
+                        0
+                    ]
+                },
+                "BusStatus": {
+                    "$id": "#/items/properties/BusStatus",
+                    "type": "integer",
+                    "title": "The Busstatus Schema",
+                    "default": 0,
+                    "examples": [
+                        0
+                    ]
+                },
+                "A2EventType": {
+                    "$id": "#/items/properties/A2EventType",
+                    "type": "integer",
+                    "title": "The A2eventtype Schema",
+                    "default": 0,
+                    "examples": [
+                        0
+                    ]
+                },
+                "GPSTime": {
+                    "$id": "#/items/properties/GPSTime",
+                    "type": "string",
+                    "title": "The Gpstime Schema",
+                    "default": "",
+                    "examples": [
+                        "2019-09-20T01:37:25+08:00"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "UpdateTime": {
+                    "$id": "#/items/properties/UpdateTime",
+                    "type": "string",
+                    "title": "The Updatetime Schema",
+                    "default": "",
+                    "examples": [
+                        "2019-09-20T01:38:05+08:00"
+                    ],
+                    "pattern": "^(.*)$"
+                }
+            }
+        }
+    }
+}

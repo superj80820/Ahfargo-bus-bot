@@ -2,7 +2,7 @@
   <div class="fixed-bottom">
     <b-progress :value="value" :max="max" height="5px"></b-progress>
     <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand>{{ sec }}秒後更新</b-navbar-brand>
+      <b-navbar-brand>{{ title }}</b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
@@ -10,7 +10,13 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <GoogleMap :modalId="modalId" />
+    <GoogleMap
+      :modalId="modalId"
+      :Direction="Direction"
+      :markers="markers"
+      :pathProp="pathProp"
+      :center="center"
+    />
   </div>
 </template>
 
@@ -19,11 +25,23 @@ import GoogleMap from "../components/GoogleMap.vue";
 
 export default {
   props: {
+    markers: {
+      type: Array
+    },
     value: {
       type: Number
     },
-    sec: {
+    title: {
+      type: String
+    },
+    Direction: {
       type: Number
+    },
+    pathProp: {
+      type: Array
+    },
+    center: {
+      type: Object
     }
   },
   data() {

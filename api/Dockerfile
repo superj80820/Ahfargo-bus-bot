@@ -1,10 +1,12 @@
-FROM python:3.6
+FROM python:3.6.9
 
-WORKDIR /app
+RUN pip install \
+        pipenv \
+        django==2.1
 
-ADD $PWD/api/Pipfile /app/
-ADD $PWD/api/Pipfile.lock /app/
+WORKDIR app
 
-RUN pip install -U \
-    pipenv
+ADD Pipfile /app
+ADD Pipfile.lock /app
+
 RUN pipenv install

@@ -1,65 +1,33 @@
 version: "3"
 services:
   app:
-    build:
-      context: .
-      dockerfile: $PWD/api/Dockerfile
-    ports:
-      - 5000:5000
+    build: ./api
     tty: true
-    volumes:
-      - $PWD/api:/app
-      - $PWD/script:/script
-      - $PWD/web:/web
-    env_file:
-      - $PWD/.env
-    working_dir: /app
-    networks:
+    networks: 
       - default
+    ports:
+      - 8090:8090
+    volumes: 
+      - ./api:/app
+    working_dir: /app
     command:
       - pipenv
       - run
       - python
-      - __init__.py
+      - manage.py
+      - runserver
+      - 0.0.0.0:8090
   web:
-    image: httpd:2.4
-    volumes:
-      - $PWD/web:/usr/local/apache2/htdocs/
-    ports:
-      - 5100:80
-  serveo_app:
     image: node:latest
-    volumes: 
-      - $PWD:/app
-    working_dir: /app
-    environment:
-      - SUBDOMAIN=ahfargoapp
-      - CONTAINER=app
-      - PORT=5000
-    networks:
+    tty: true
+    networks: 
       - default
-    command:
-      - bash
-      - script/serveo.sh
-  web:
-    image: httpd:2.4
     ports:
-      - 5100:80
-    volumes:
-      - $PWD/web:/usr/local/apache2/htdocs/
-    networks:
-      - default
-  serveo_web:
-    image: node:latest
+      - 8080:8080
     volumes: 
-      - $PWD:/app
-    working_dir: /app
-    environment:
-      - SUBDOMAIN=ahfargoweb
-      - CONTAINER=web
-      - PORT=80
-    networks:
-      - default
+      - ./web:/web
+    working_dir: /web
     command:
-      - bash
-      - script/serveo.sh
+      - npm
+      - run
+      - serve

@@ -6,10 +6,11 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "==2.1"
-requests = "*"
-jsonschema = "*"
-django-cors-headers = "*"
+flask = "*"
+flask-cors = "*"
+line-bot-sdk = "*"
+oauth2client = "*"
+gspread = "*"
 
 [requires]
 python_version = "3.6"
