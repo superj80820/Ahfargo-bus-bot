@@ -42,6 +42,7 @@
       :markers="markers"
       :pathProp="pathProp"
       :center="center"
+      :busPosition="busPosition"
     />
   </div>
 </template>
@@ -79,7 +80,9 @@ export default {
       Direction: 0,
       markers: [],
       pathProp: [],
-      center: {}
+      center: {},
+      allPlateNumb: [],
+      busPosition: []
     };
   },
   components: {
@@ -111,43 +114,48 @@ export default {
             return Promise.reject("get empty array");
           }
           let allPlateNumbCatch = [];
-          return [null, null].map((_, idx) => {
-            return response.data
-              .filter(item => {
-                return item.Direction === idx;
-              })
-              .map(item => {
-                let StopName, EstimateTime;
-                let allPlateNumb =
-                  item.Estimates !== undefined
-                    ? item.Estimates.filter(item => item.EstimateTime <= 120)
-                        .sort((a, b) => b.EstimateTime - a.EstimateTime)
-                        .map(item => item.PlateNumb)
-                    : [];
-                let color = undefined;
-                let retPlateNumb = [];
-                StopName = item.StopName.Zh_tw;
-                allPlateNumb.forEach(item => {
-                  if (!allPlateNumbCatch.includes(item)) {
-                    allPlateNumbCatch.push(item);
-                    retPlateNumb.push(item);
+          return {
+            astimatedTime: [null, null].map((_, idx) => {
+              return response.data
+                .filter(item => {
+                  return item.Direction === idx;
+                })
+                .map(item => {
+                  let StopName, EstimateTime;
+                  let allPlateNumb =
+                    item.Estimates !== undefined
+                      ? item.Estimates.filter(item => item.EstimateTime <= 180)
+                          .sort((a, b) => b.EstimateTime - a.EstimateTime)
+                          .map(item => item.PlateNumb)
+                      : [];
+                  let color = undefined;
+                  let retPlateNumb = [];
+                  StopName = item.StopName.Zh_tw;
+                  allPlateNumb.forEach(item => {
+                    if (!allPlateNumbCatch.includes(item)) {
+                      allPlateNumbCatch.push(item);
+                      retPlateNumb.push(item);
+                    }
+                  });
+                  if (item.EstimateTime !== undefined) {
+                    EstimateTime = _minFormat(
+                      dataFilter.format(item.EstimateTime)
+                    );
+                    if (item.EstimateTime <= 60) {
+                      color = "success";
+                    } else if (item.EstimateTime <= 120) {
+                      color = "primary";
+                    }
+                  } else if (item.NextBusTime !== undefined) {
+                    EstimateTime = dataFilter.format(item.NextBusTime);
+                  } else {
+                    EstimateTime = "末班以離駛";
                   }
+                  return { EstimateTime, StopName, retPlateNumb, color };
                 });
-                if (item.EstimateTime != undefined) {
-                  EstimateTime = _minFormat(
-                    dataFilter.format(item.EstimateTime)
-                  );
-                  if (item.EstimateTime <= 60) {
-                    color = "success";
-                  } else if (item.EstimateTime <= 120) {
-                    color = "primary";
-                  }
-                } else {
-                  EstimateTime = dataFilter.format(item.NextBusTime);
-                }
-                return { EstimateTime, StopName, retPlateNumb, color };
-              });
-          });
+            }),
+            allPlateNumb: allPlateNumbCatch
+          };
         })
         .catch(error => {
           console.log(error);
@@ -225,6 +233,36 @@ export default {
           console.log(error);
         });
     },
+    updateRealTimeByFrequency() {
+      let query = this.allPlateNumb
+        .map(item => `PlateNumb eq '${item}'`)
+        .join(" or ");
+      return axios
+        .get(
+          `v2/Bus/RealTimeByFrequency/City/Taichung/${this.RouteID}?$select=BusPosition,PlateNumb,Direction&$filter=RouteID eq '${this.RouteID}' and ${query}&$format=JSON`
+        )
+        .then(response => {
+          console.log(response);
+          return [null, null].map((_, index) => {
+            return response.data
+              .filter(item => {
+                return item.Direction === index;
+              })
+              .map(item => {
+                return {
+                  PlateNumb: item.PlateNumb,
+                  BusPosition: {
+                    lat: item.BusPosition.PositionLat,
+                    lng: item.BusPosition.PositionLon
+                  }
+                };
+              });
+          });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
     autoUpdate(...cb) {
       function callUpdateAgain(scope) {
         scope.value += 4;
@@ -271,7 +309,11 @@ export default {
         helper
           .retryPomise(10, 100, scope.updateEstimatedTimeOfArrival)
           .then(function(value) {
-            scope.items = value;
+            scope.items = value.astimatedTime;
+            scope.allPlateNumb = value.allPlateNumb;
+            scope.updateRealTimeByFrequency().then(function(value) {
+              scope.busPosition = value;
+            });
           })
           .catch(function(value) {
             console.log(value);

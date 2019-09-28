@@ -16,6 +16,7 @@
       :markers="markers"
       :pathProp="pathProp"
       :center="center"
+      :busPosition="busPosition"
     />
   </div>
 </template>
@@ -42,6 +43,9 @@ export default {
     },
     center: {
       type: Object
+    },
+    busPosition: {
+      type: Array
     }
   },
   data() {

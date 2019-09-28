@@ -24,4 +24,5 @@ urlpatterns = [
     re_path('^Shape/City/\w+/\d+/$', views.index, name = 'index'),
     re_path('^StopOfRoute/City/\w+/\d+/$', views.index, name = 'index'),
     re_path('^Route/City/\w+/\d+/$', views.index, name = 'index'),
+    re_path('^RealTimeByFrequency/City/\w+/\d+/$', views.index, name = 'index'),
 ]

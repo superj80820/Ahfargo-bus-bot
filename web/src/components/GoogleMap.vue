@@ -22,7 +22,29 @@
           <template v-slot:title>
             {{ index }}
           </template>
-          <b-button>點我看時間</b-button>
+        </b-popover>
+      </gmap-custom-marker>
+      <gmap-custom-marker
+        v-for="(item, index) in busPosition[Direction]"
+        :key="item.id"
+        :marker="item.BusPosition"
+        @click.native="test = item.BusPosition"
+      >
+        <b-button
+          variant="success"
+          class="btn-circle"
+          :id="'bus-target-' + index"
+        >
+          bus
+        </b-button>
+        <b-popover
+          :target="'bus-target-' + index"
+          triggers="focus"
+          placement="right"
+        >
+          <template v-slot:title>
+            {{ item.PlateNumb }}
+          </template>
         </b-popover>
       </gmap-custom-marker>
       <GmapPolyline :path="pathProp" />
@@ -60,6 +82,9 @@ export default {
     },
     center: {
       type: Object
+    },
+    busPosition: {
+      type: Array
     }
   }
 };
