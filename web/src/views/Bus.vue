@@ -9,12 +9,29 @@
               :key="idx"
               :pressed.sync="btn.state"
               variant="primary"
-              @click="buttonTest(idx)"
+              @click="updateDirection(idx)"
             >
               {{ btn.route }}
             </b-button>
           </b-button-group>
-          <b-table striped hover :items="items[this.Direction]"></b-table>
+          <b-table
+            striped
+            hover
+            :items="items[this.Direction]"
+            :fields="fields"
+            tbody-tr-class="trChindMid"
+          >
+            <template v-slot:cell(EstimateTime)="row">
+              <b-button size="sm" class="mr-2" :variant="row.item.color">
+                {{ row.item.EstimateTime }}
+              </b-button>
+            </template>
+            <template v-slot:cell(retPlateNumb)="row">
+              <div v-for="(item, index) in row.item.retPlateNumb" :key="index">
+                {{ item }}
+              </div>
+            </template>
+          </b-table>
         </b-card>
       </b-row>
     </b-container>
@@ -31,17 +48,34 @@
 
 <script>
 import BusNavBar from "../components/BusNavBar.vue";
+import dataFilter from "../common/data.filter.js";
+import helper from "../common/helper.js";
 const axios = require("axios");
+
+function _minFormat(min) {
+  if (min <= 1) {
+    return "進站中";
+  } else if (min <= 2) {
+    return "將到站";
+  } else {
+    return min + "分";
+  }
+}
 
 export default {
   data() {
     return {
+      fields: [
+        { key: "EstimateTime", label: "到達時間" },
+        { key: "StopName", label: "站名" },
+        { key: "retPlateNumb", label: "車牌" }
+      ],
       items: [null, null],
       buttons: [],
       value: 0,
       sec: 25,
       title: "更新中...",
-      RouteID: null,
+      RouteID: parseInt(this.$route.query.RouteID, 10),
       Direction: 0,
       markers: [],
       pathProp: [],
@@ -51,59 +85,83 @@ export default {
   components: {
     BusNavBar
   },
-  methods: {
-    buttonTest(idx) {
-      console.log(idx);
-      this.Direction = idx;
+  watch: {
+    Direction: function() {
       this.buttons = this.buttons.map((item, index) => {
         return Object.assign(
           {},
           item,
-          index === idx ? { state: true } : { state: false }
+          index === this.Direction ? { state: true } : { state: false }
         );
       });
+    }
+  },
+  methods: {
+    updateDirection(idx) {
+      this.Direction = idx;
     },
-    estimatedTimeOfArrival(RouteID) {
+    updateEstimatedTimeOfArrival() {
       return axios
         .get(
-          `v2/Bus/EstimatedTimeOfArrival/City/Taichung/${RouteID}?$filter=RouteID eq '${RouteID}'&$orderby=StopSequence asc&$select=StopName,Direction,NextBusTime,EstimateTime&$format=JSON`
+          `v2/Bus/EstimatedTimeOfArrival/City/Taichung/${this.RouteID}?$filter=RouteID eq '${this.RouteID}'&$orderby=StopSequence asc&$select=StopName,Direction,NextBusTime,EstimateTime,Estimates&$format=JSON`
         )
         .then(response => {
           console.log(response);
-          this.items = this.items.map((_, idx) => {
+          if (response.data.length === 0) {
+            return Promise.reject("get empty array");
+          }
+          let allPlateNumbCatch = [];
+          return [null, null].map((_, idx) => {
             return response.data
               .filter(item => {
                 return item.Direction === idx;
               })
               .map(item => {
-                return (({ StopSequence, StopName, EstimateTime }) => {
-                  StopSequence = item.StopSequence;
-                  StopName = item.StopName.Zh_tw;
-                  if (item.EstimateTime != undefined) {
-                    EstimateTime = item.EstimateTime;
-                  } else {
-                    EstimateTime = item.NextBusTime;
+                let StopName, EstimateTime;
+                let allPlateNumb =
+                  item.Estimates !== undefined
+                    ? item.Estimates.filter(item => item.EstimateTime <= 120)
+                        .sort((a, b) => b.EstimateTime - a.EstimateTime)
+                        .map(item => item.PlateNumb)
+                    : [];
+                let color = undefined;
+                let retPlateNumb = [];
+                StopName = item.StopName.Zh_tw;
+                allPlateNumb.forEach(item => {
+                  if (!allPlateNumbCatch.includes(item)) {
+                    allPlateNumbCatch.push(item);
+                    retPlateNumb.push(item);
                   }
-                  return { StopSequence, StopName, EstimateTime };
-                })(item);
+                });
+                if (item.EstimateTime != undefined) {
+                  EstimateTime = _minFormat(
+                    dataFilter.format(item.EstimateTime)
+                  );
+                  if (item.EstimateTime <= 60) {
+                    color = "success";
+                  } else if (item.EstimateTime <= 120) {
+                    color = "primary";
+                  }
+                } else {
+                  EstimateTime = dataFilter.format(item.NextBusTime);
+                }
+                return { EstimateTime, StopName, retPlateNumb, color };
               });
           });
-          console.log(this.items);
         })
         .catch(error => {
           console.log(error);
+          return Promise.reject(error);
         });
     },
-    pathFunc(RouteID) {
+    updateShape() {
       return axios
         .get(
-          `v2/Bus/Shape/City/Taichung/${RouteID}?$select=Geometry,Direction&$filter=RouteID eq '${RouteID}'&$orderby=Direction&$format=JSON`
+          `v2/Bus/Shape/City/Taichung/${this.RouteID}?$select=Geometry,Direction&$filter=RouteID eq '${this.RouteID}'&$orderby=Direction&$format=JSON`
         )
         .then(response => {
           console.log(response.data);
-          this.pathProp = response.data[this.Direction].Geometry.match(
-            /\(.+?\)/g
-          )
+          return response.data[this.Direction].Geometry.match(/\(.+?\)/g)
             .reverse()
             .map(item => {
               return item
@@ -118,20 +176,19 @@ export default {
                 });
             })
             .reduce((acc, val) => acc.concat(val), []);
-          this.center = this.pathProp[Math.floor(this.pathProp.length / 2)];
         })
         .catch(error => {
           console.log(error);
         });
     },
-    stop(RouteID) {
+    updateStopOfRoute() {
       return axios
         .get(
-          `v2/Bus/StopOfRoute/City/Taichung/${RouteID}?$select=Stops,Direction&$filter=RouteID eq '${RouteID}'&$orderby=Direction asc&$format=JSON`
+          `v2/Bus/StopOfRoute/City/Taichung/${this.RouteID}?$select=Stops,Direction&$filter=RouteID eq '${this.RouteID}'&$orderby=Direction asc&$format=JSON`
         )
         .then(response => {
           console.log(response);
-          this.markers = response.data.map(item => {
+          return response.data.map(item => {
             return item.Stops.map(item => {
               return Object.assign({}, item, {
                 StopPosition: {
@@ -146,14 +203,14 @@ export default {
           console.log(error);
         });
     },
-    buttonTitile(RouteID) {
+    updateButtonTitile() {
       return axios
         .get(
-          `v2/Bus/Route/City/Taichung/${RouteID}?$filter=RouteID eq '${RouteID}'&$select=DepartureStopNameZh,DestinationStopNameZh&$format=JSON`
+          `v2/Bus/Route/City/Taichung/${this.RouteID}?$filter=RouteID eq '${this.RouteID}'&$select=DepartureStopNameZh,DestinationStopNameZh&$format=JSON`
         )
         .then(response => {
           console.log(response);
-          this.buttons = [
+          return [
             {
               route: `往:${response.data[0].DestinationStopNameZh}`,
               state: true
@@ -163,16 +220,15 @@ export default {
               state: false
             }
           ];
-          console.log(this.buttons);
         })
         .catch(error => {
           console.log(error);
         });
     },
-    update(...cb) {
+    autoUpdate(...cb) {
       function callUpdateAgain(scope) {
         scope.value += 4;
-        setTimeout(() => scope.update(...cb), 1000);
+        setTimeout(() => scope.autoUpdate(...cb), 1000);
       }
       (scope => {
         if (scope.value >= 100) {
@@ -198,12 +254,30 @@ export default {
       })(this);
     }
   },
-  created: function() {
-    this.RouteID = this.$route.query.RouteID;
-    this.stop(this.RouteID);
-    this.pathFunc(this.RouteID);
-    this.buttonTitile(this.RouteID);
-    this.update(() => this.estimatedTimeOfArrival(this.RouteID));
+  mounted: function() {
+    (scope => {
+      scope.updateStopOfRoute().then(function(value) {
+        scope.markers = value;
+      });
+      scope.updateShape().then(function(value) {
+        scope.pathProp = value;
+        scope.center = value[Math.floor(value.length / 2)];
+        console.log(scope.center);
+      });
+      scope.updateButtonTitile().then(function(value) {
+        scope.buttons = value;
+      });
+      scope.autoUpdate(() => {
+        helper
+          .retryPomise(10, 100, scope.updateEstimatedTimeOfArrival)
+          .then(function(value) {
+            scope.items = value;
+          })
+          .catch(function(value) {
+            console.log(value);
+          });
+      });
+    })(this);
   }
 };
 </script>
@@ -225,5 +299,8 @@ export default {
       color: #42b983;
     }
   }
+}
+.trChindMid > td {
+  vertical-align: middle;
 }
 </style>
