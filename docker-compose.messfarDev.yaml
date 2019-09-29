@@ -1,0 +1,25 @@
+version: "3"
+services:
+  app:
+    build: ./api
+    tty: true
+    networks: 
+      - default
+    ports:
+      - 5010:8090
+    volumes: 
+      - ./api:/app
+    working_dir: /app
+    command:
+      - pipenv
+      - run
+      - python
+      - manage.py
+      - runserver
+      - 0.0.0.0:8090
+  web:
+    image: httpd:2.4
+    volumes:
+      - $PWD/web:/usr/local/apache2/htdocs/
+    ports:
+      - 5110:80
