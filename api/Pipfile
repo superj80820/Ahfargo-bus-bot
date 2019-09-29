@@ -10,6 +10,7 @@ django = "==2.1"
 requests = "*"
 jsonschema = "*"
 django-cors-headers = "*"
+django-base-url = "*"
 
 [requires]
 python_version = "3.6"
