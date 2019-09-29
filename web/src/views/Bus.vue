@@ -22,7 +22,12 @@
             tbody-tr-class="trChindMid"
           >
             <template v-slot:cell(EstimateTime)="row">
-              <b-button size="sm" class="mr-2" :variant="row.item.color">
+              <b-button
+                size="sm"
+                class="mr-2"
+                :variant="row.item.color"
+                :id="'table-target-' + row.index"
+              >
                 {{ row.item.EstimateTime }}
               </b-button>
             </template>
@@ -58,6 +63,8 @@ function _minFormat(min) {
     return "進站中";
   } else if (min <= 2) {
     return "將到站";
+  } else if (min >= 60) {
+    return Math.floor(min / 60) + "時" + (min % 60) + "分";
   } else {
     return min + "分";
   }
@@ -199,6 +206,7 @@ export default {
           return response.data.map(item => {
             return item.Stops.map(item => {
               return Object.assign({}, item, {
+                StopName: item.StopName.Zh_tw,
                 StopPosition: {
                   lng: item.StopPosition.PositionLon,
                   lat: item.StopPosition.PositionLat
@@ -237,9 +245,12 @@ export default {
       let query = this.allPlateNumb
         .map(item => `PlateNumb eq '${item}'`)
         .join(" or ");
+      query =
+        `RouteID eq '${this.RouteID}'` +
+        (() => (query === "" ? "" : `and ${query}`))();
       return axios
         .get(
-          `v2/Bus/RealTimeByFrequency/City/Taichung/${this.RouteID}?$select=BusPosition,PlateNumb,Direction&$filter=RouteID eq '${this.RouteID}' and ${query}&$format=JSON`
+          `v2/Bus/RealTimeByFrequency/City/Taichung/${this.RouteID}?$select=BusPosition,PlateNumb,Direction&$filter=${query}&$format=JSON`
         )
         .then(response => {
           console.log(response);
@@ -300,7 +311,10 @@ export default {
       scope.updateShape().then(function(value) {
         scope.pathProp = value;
         scope.center = value[Math.floor(value.length / 2)];
-        console.log(scope.center);
+        scope.$store.commit("changeMapCenter", {
+          center: scope.center
+        });
+        console.log(scope.$store.state.mapCenter);
       });
       scope.updateButtonTitile().then(function(value) {
         scope.buttons = value;

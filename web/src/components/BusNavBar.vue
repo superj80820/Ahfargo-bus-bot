@@ -6,7 +6,11 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item v-b-modal="'modalId'">地圖</b-nav-item>
+          <b-nav-item
+            v-b-modal="'modalId'"
+            @click="$store.commit('changeShowMapModal')"
+            >地圖</b-nav-item
+          >
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -15,7 +19,6 @@
       :Direction="Direction"
       :markers="markers"
       :pathProp="pathProp"
-      :center="center"
       :busPosition="busPosition"
     />
   </div>
@@ -40,9 +43,6 @@ export default {
     },
     pathProp: {
       type: Array
-    },
-    center: {
-      type: Object
     },
     busPosition: {
       type: Array

@@ -1,26 +1,35 @@
 <template>
-  <b-modal id="modalId" title="地圖" size="xl">
-    <GmapMap :center="test" :zoom="12" style="width:inherit; height: 600px">
+  <b-modal
+    v-if="showMap"
+    id="modalId"
+    title="地圖"
+    size="xl"
+    @hide="$store.commit('changeShowMapModal')"
+  >
+    <GmapMap :center="center" :zoom="12" style="width:inherit; height: 600px">
       <gmap-custom-marker
         v-for="(item, index) in markers[Direction]"
         :key="item.id"
         :marker="item.StopPosition"
-        @click.native="test = item.StopPosition"
+        @click.native="$store.state.mapCenter = item.StopPosition"
       >
         <b-button
           variant="primary"
           class="btn-circle"
-          :id="'popover-target-' + index"
+          :id="'stop-target-' + index"
         >
           {{ index }}
         </b-button>
         <b-popover
-          :target="'popover-target-' + index"
+          :target="'stop-target-' + index"
           triggers="focus"
           placement="right"
         >
           <template v-slot:title>
-            {{ index }}
+            {{ item.StopName }}
+            <b-button size="sm" @click="redirect('table-target-' + index)">
+              時刻
+            </b-button>
           </template>
         </b-popover>
       </gmap-custom-marker>
@@ -28,7 +37,7 @@
         v-for="(item, index) in busPosition[Direction]"
         :key="item.id"
         :marker="item.BusPosition"
-        @click.native="test = item.BusPosition"
+        @click.native="$store.state.mapCenter = item.BusPosition"
       >
         <b-button
           variant="success"
@@ -57,12 +66,22 @@ import GmapCustomMarker from "vue2-gmap-custom-marker";
 
 export default {
   data() {
-    return {
-      test: {
-        lat: 24.1915999996404,
-        lng: 120.702489999614
-      }
-    };
+    return {};
+  },
+  methods: {
+    redirect(id) {
+      this.$store.commit("changeShowMapModal");
+      var elmnt = document.getElementById(id);
+      elmnt.scrollIntoView();
+    }
+  },
+  computed: {
+    center() {
+      return this.$store.state.mapCenter;
+    },
+    showMap() {
+      return this.$store.state.showMapModal;
+    }
   },
   components: {
     "gmap-custom-marker": GmapCustomMarker
@@ -79,9 +98,6 @@ export default {
     },
     pathProp: {
       type: Array
-    },
-    center: {
-      type: Object
     },
     busPosition: {
       type: Array
