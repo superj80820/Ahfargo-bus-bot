@@ -1,6 +1,6 @@
 module.exports = {
   devServer: {
-    proxy: "http://messfar.com/dev/ahfargo/web/",
+    proxy: "http://app:5010/",
     disableHostCheck: true
   },
   publicPath: process.env.NODE_ENV === 'messfarDev'
