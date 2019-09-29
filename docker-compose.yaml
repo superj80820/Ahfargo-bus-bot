@@ -20,6 +20,8 @@ services:
   web:
     image: node:latest
     tty: true
+    env_file:
+      - .env
     networks: 
       - default
     ports:
