@@ -20,6 +20,6 @@ services:
   web:
     image: httpd:2.4
     volumes:
-      - ./web:/usr/local/apache2/htdocs/
+      - ./web/dist:/usr/local/apache2/htdocs/
     ports:
       - 5110:80
