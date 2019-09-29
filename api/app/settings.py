@@ -70,10 +70,6 @@ TEMPLATES = [
     },
 ]
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django_base_url.context_processors.base_url",
-)
-
 WSGI_APPLICATION = 'app.wsgi.application'
 
 
@@ -137,8 +133,6 @@ ALLOWED_HOSTS = [
 PTX_ID = 'ad64f3b34d38425ca0bb7efdcdb4548b'
 
 PTX_KEY = 'wabKRdVqcFg4i5CqLXP4JuWQ3Ws'
-
-BASE_URL="https://messfar.com/dev/ahfargo/api/"
 
 # GLOBAL = {
 #     "FILE_ROUTE": '%s/' % os.path.dirname(os.path.abspath(__file__)),
