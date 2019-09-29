@@ -6,7 +6,7 @@ services:
     networks: 
       - default
     ports:
-      - 8090:8090
+      - 5010:8090
     volumes: 
       - ./api:/app
     working_dir: /app
@@ -23,7 +23,7 @@ services:
     networks: 
       - default
     ports:
-      - 8080:8080
+      - 5110:8080
     volumes: 
       - ./web:/web
     working_dir: /web
