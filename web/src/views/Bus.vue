@@ -112,9 +112,7 @@ export default {
     },
     updateEstimatedTimeOfArrival() {
       return axios
-        .get(
-          `v2/Bus/EstimatedTimeOfArrival/City/Taichung/${this.RouteID}?$filter=RouteID eq '${this.RouteID}'&$orderby=StopSequence asc&$select=StopName,Direction,NextBusTime,EstimateTime,Estimates&$format=JSON`
-        )
+        .get(`v2/Bus/EstimatedTimeOfArrival/City/Taichung/${this.RouteID}?$filter=RouteID eq '${this.RouteID}'&$orderby=StopSequence asc&$select=StopName,Direction,NextBusTime,EstimateTime,Estimates&$format=JSON`)
         .then(response => {
           console.log(response);
           if (response.data.length === 0) {
@@ -171,9 +169,7 @@ export default {
     },
     updateShape() {
       return axios
-        .get(
-          `v2/Bus/Shape/City/Taichung/${this.RouteID}?$select=Geometry,Direction&$filter=RouteID eq '${this.RouteID}'&$orderby=Direction&$format=JSON`
-        )
+        .get(`v2/Bus/Shape/City/Taichung/${this.RouteID}?$select=Geometry,Direction&$filter=RouteID eq '${this.RouteID}'&$orderby=Direction&$format=JSON`)
         .then(response => {
           console.log(response.data);
           return response.data[this.Direction].Geometry.match(/\(.+?\)/g)
@@ -198,9 +194,7 @@ export default {
     },
     updateStopOfRoute() {
       return axios
-        .get(
-          `v2/Bus/StopOfRoute/City/Taichung/${this.RouteID}?$select=Stops,Direction&$filter=RouteID eq '${this.RouteID}'&$orderby=Direction asc&$format=JSON`
-        )
+        .get(`v2/Bus/StopOfRoute/City/Taichung/${this.RouteID}?$select=Stops,Direction&$filter=RouteID eq '${this.RouteID}'&$orderby=Direction asc&$format=JSON`)
         .then(response => {
           console.log(response);
           return response.data.map(item => {
@@ -221,9 +215,7 @@ export default {
     },
     updateButtonTitile() {
       return axios
-        .get(
-          `v2/Bus/Route/City/Taichung/${this.RouteID}?$filter=RouteID eq '${this.RouteID}'&$select=DepartureStopNameZh,DestinationStopNameZh&$format=JSON`
-        )
+        .get(`v2/Bus/Route/City/Taichung/${this.RouteID}?$filter=RouteID eq '${this.RouteID}'&$select=DepartureStopNameZh,DestinationStopNameZh&$format=JSON`)
         .then(response => {
           console.log(response);
           return [
@@ -249,9 +241,7 @@ export default {
         `RouteID eq '${this.RouteID}'` +
         (() => (query === "" ? "" : `and ${query}`))();
       return axios
-        .get(
-          `v2/Bus/RealTimeByFrequency/City/Taichung/${this.RouteID}?$select=BusPosition,PlateNumb,Direction&$filter=${query}&$format=JSON`
-        )
+        .get(`v2/Bus/RealTimeByFrequency/City/Taichung/${this.RouteID}?$select=BusPosition,PlateNumb,Direction&$filter=${query}&$format=JSON`)
         .then(response => {
           console.log(response);
           return [null, null].map((_, index) => {

@@ -1,9 +1,7 @@
 module.exports = {
-  devServer: {
+  devServer: process.env.VUE_APP_MOCK_SERVER !== "true" ? {
     proxy: "http://app:8090/",
     disableHostCheck: true
-  },
-  publicPath: process.env.NODE_ENV === 'messfarDev'
-    ? '/dev/ahfargo/web/'
-    : '/'
+  } : {},
+  publicPath: process.env.VUE_APP_BASE_URL !== "" ? process.env.VUE_APP_BASE_URL : "/"
 };
