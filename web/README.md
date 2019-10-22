@@ -1,8 +1,8 @@
 # web
 
-## Demo
+[Demo](https://superj80820.github.io/projects/Ahfargo_bus_bot_frontend/#/Bus?RouteID=55)
 
-https://superj80820.github.io/projects/Ahfargo_bus_bot_frontend/#/Bus?RouteID=55
+<img src="https://imgur.com/wrXjwS2.jpg" width="250">
 
 ## Project setup
 ```
